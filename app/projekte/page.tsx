@@ -34,6 +34,22 @@ const projekte = [
     border: "border-amber-400/20",
   },
   {
+    kuerzel: "EM",
+    name: "Elektro Mosbach – Meisterbetrieb",
+    typ: "Handwerker-Website",
+    beschreibung:
+      "Demo-Website fur einen Elektriker-Meisterbetrieb. Helles, professionelles Design in Blau/Gelb mit Notdienst-Banner, Leistungsuebersicht, Team, Referenzgalerie und Kontaktformular.",
+    tags: ["Next.js", "Tailwind CSS", "Handwerk", "Demo"],
+    budget: "Demo",
+    status: "Demo",
+    demoHref: "/projekte/handwerker",
+    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
+    bg: "from-blue-900/20 to-zinc-900/50",
+    accent: "bg-blue-400",
+    echo: "text-blue-400",
+    border: "border-blue-400/20",
+  },
+  {
     kuerzel: "IP",
     name: "IRONPEAK Fitness Studio",
     typ: "Fitness-Website",
@@ -65,7 +81,7 @@ export default function ProjektePage() {
             Meine Referenzen
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Ein echter Kunde. Zwei Demo-Projekte die zeigen was moglich ist. Mehr kommen.
+            Ein echter Kunde. Drei Demo-Projekte die zeigen was moglich ist. Mehr kommen.
           </p>
         </div>
       </section>
