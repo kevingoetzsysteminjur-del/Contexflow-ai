@@ -150,7 +150,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {leistungen.map(({ icon: Icon, title, desc, color, bg, border }) => (
-            <div key={title} className={`rounded-2xl border ${border} ${bg} p-8 hover:scale-[1.02] transition-transform`}>
+            <div key={title} className={`card-block rounded-2xl border ${border} ${bg} p-8 hover:scale-[1.02] transition-transform`}>
               <div className={`w-12 h-12 rounded-xl ${bg} border ${border} flex items-center justify-center mb-6`}>
                 <Icon size={22} className={color} />
               </div>
@@ -179,7 +179,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {vorteile.map((v) => (
-                <div key={v} className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3">
+                <div key={v} className="card-block flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3">
                   <CheckCircle size={16} className="text-cyan-400 shrink-0" />
                   <span className="text-zinc-300 text-sm">{v}</span>
                 </div>
@@ -198,7 +198,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {referenzen.map(({ name, typ, budget, status, kuerzel, statusColor }) => (
-            <div key={name} className="rounded-2xl border border-white/5 bg-white/[0.03] p-6 hover:border-cyan-400/30 transition-colors">
+            <div key={name} className="card-block rounded-2xl border border-white/5 bg-white/[0.03] p-6 hover:border-cyan-400/30 transition-colors">
               <div className="h-40 rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/5 mb-5 flex items-center justify-center">
                 <div className="w-14 h-14 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center">
                   <span className="text-cyan-400 font-black text-xl">{kuerzel}</span>
@@ -226,7 +226,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
-        <div className="relative rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-950/30 to-zinc-900/30 p-16 overflow-hidden">
+        <div className="card-block relative rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-950/30 to-zinc-900/30 p-16 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
             <div className="glow-blob absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-cyan-500 blur-[80px]" />
           </div>

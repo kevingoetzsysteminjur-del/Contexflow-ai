@@ -42,6 +42,73 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
+/* Karten und Boxen blockieren die Canvas-Partikel */
+.card-block {
+  background-color: #08080f;
+  isolation: isolate;
+}
+
 .spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+/* ── Rainbow Particles ── */
+@keyframes float-1 {
+  0%   { transform: translateY(0px)   translateX(0px)   scale(1);   opacity: 0.5; }
+  33%  { transform: translateY(-30px) translateX(15px)  scale(1.1); opacity: 0.8; }
+  66%  { transform: translateY(-15px) translateX(-10px) scale(0.9); opacity: 0.6; }
+  100% { transform: translateY(0px)   translateX(0px)   scale(1);   opacity: 0.5; }
+}
+@keyframes float-2 {
+  0%   { transform: translateY(0px)   translateX(0px)   scale(1);   opacity: 0.4; }
+  50%  { transform: translateY(-40px) translateX(-20px) scale(1.2); opacity: 0.7; }
+  100% { transform: translateY(0px)   translateX(0px)   scale(1);   opacity: 0.4; }
+}
+@keyframes float-3 {
+  0%   { transform: translateY(0px)   translateX(0px); opacity: 0.3; }
+  40%  { transform: translateY(-20px) translateX(25px); opacity: 0.7; }
+  80%  { transform: translateY(-35px) translateX(5px);  opacity: 0.5; }
+  100% { transform: translateY(0px)   translateX(0px); opacity: 0.3; }
+}
+@keyframes hue-rotate {
+  from { filter: hue-rotate(0deg) blur(60px); }
+  to   { filter: hue-rotate(360deg) blur(60px); }
+}
+
+.rainbow-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+.rainbow-orb-1 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,80,120,0.18) 0%, transparent 70%);
+  top: 10%; left: 5%;
+  animation: float-1 8s ease-in-out infinite, hue-rotate 12s linear infinite;
+}
+.rainbow-orb-2 {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(80,200,255,0.15) 0%, transparent 70%);
+  top: 20%; right: 8%;
+  animation: float-2 11s ease-in-out infinite, hue-rotate 18s linear infinite reverse;
+}
+.rainbow-orb-3 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(150,80,255,0.14) 0%, transparent 70%);
+  bottom: 30%; left: 15%;
+  animation: float-3 9s ease-in-out infinite, hue-rotate 15s linear infinite;
+}
+.rainbow-orb-4 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(80,255,180,0.12) 0%, transparent 70%);
+  bottom: 15%; right: 12%;
+  animation: float-1 13s ease-in-out infinite reverse, hue-rotate 20s linear infinite reverse;
+}
+.rainbow-orb-5 {
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,200,80,0.12) 0%, transparent 70%);
+  top: 55%; left: 45%;
+  animation: float-2 7s ease-in-out infinite, hue-rotate 10s linear infinite;
 }
