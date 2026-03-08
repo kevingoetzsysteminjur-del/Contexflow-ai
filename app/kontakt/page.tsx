@@ -19,13 +19,29 @@ export default function KontaktPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim()) return;
+    if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) return;
     setLaden(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLaden(false);
-    setGesendet(true);
+
+    const subject = encodeURIComponent(
+      `Anfrage: ${form.leistung || "Website"} – ${form.name}${form.firma ? ` (${form.firma})` : ""}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\n` +
+      `E-Mail: ${form.email}\n` +
+      `Firma: ${form.firma || "–"}\n` +
+      `Leistung: ${form.leistung || "–"}\n` +
+      `Budget: ${form.budget || "–"}\n\n` +
+      `Nachricht:\n${form.nachricht}`
+    );
+
+    window.location.href = `mailto:contexflow.ai@gmx.net?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      setLaden(false);
+      setGesendet(true);
+    }, 1000);
   }
 
   return (
