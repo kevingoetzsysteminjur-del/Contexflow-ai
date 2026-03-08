@@ -29,7 +29,7 @@ const werte = [
   {
     icon: Heart,
     titel: "Lokal verwurzelt",
-    text: "Ich bin aus Mosbach. Meine Kunden sind lokale Unternehmen. Das ist kein Zufall – das ist meine Mission.",
+    text: "Ich bin aus Mosbach. Ich will lokalen Unternehmen helfen – nicht irgendwelchen Großkunden irgendwo. Das ist kein Zufall, das ist eine Entscheidung.",
     color: "text-rose-400",
     bg: "bg-rose-400/10",
     border: "border-rose-400/20",
@@ -37,10 +37,11 @@ const werte = [
 ];
 
 const timeline = [
-  { jahr: "2024", ereignis: "Erstes AI-Projekt", detail: "Erste Experimente mit Claude und GPT. Context Engineering entdeckt." },
-  { jahr: "2025", ereignis: "Contexflow AI gegründet", detail: "Kombination aus Webentwicklung und Context Engineering. Die Firma nimmt Form an." },
-  { jahr: "2026", ereignis: "Erster Kunde", detail: "Plan A Immobilien – die erste Live-Website geht online. 1.500 €." },
-  { jahr: "Heute", ereignis: "Wachstum", detail: "Drei Projekte, klare Vision, mehr Kunden in der Pipeline." },
+  { jahr: "2024", ereignis: "AI entdeckt", detail: "Erste Experimente mit Claude und GPT. Faszination für Context Engineering – wie man AI wirklich nützlich macht." },
+  { jahr: "2025", ereignis: "Erste Websites gebaut", detail: "Selbst beigebracht: Next.js, Tailwind, moderne Webentwicklung. Mehrere eigene Projekte zum Üben." },
+  { jahr: "Anfang 2026", ereignis: "Contexflow AI gegründet", detail: "Gewerbeanmeldung in Mosbach. Klare Ausrichtung: Websites + Context Engineering für lokale Unternehmen." },
+  { jahr: "März 2026", ereignis: "Erster Kunde: Plan A Immobilien", detail: "Ali Artun vertraut mir – und ich liefere. Die erste Live-Website für ein echtes Unternehmen. Der Anfang." },
+  { jahr: "Heute", ereignis: "Offen für neue Kunden", detail: "Ich bin am Anfang – ehrlich gesagt. Aber ich bin hungrig, lernfähig und liefere echte Qualität. Das nächste Projekt wartet." },
 ];
 
 export default function UeberUnsPage() {
@@ -75,13 +76,13 @@ export default function UeberUnsPage() {
             <p className="text-cyan-400 font-semibold mb-6">Context Engineer · Mosbach</p>
             <div className="space-y-4 text-zinc-400 leading-relaxed">
               <p>
-                Ich bin kein klassischer Webentwickler. Ich bin jemand der die Schnittstelle zwischen menschlichem Denken und maschineller Intelligenz liebt – und daraus nutzbare Produkte baut.
+                Ich bin kein klassischer Webentwickler und kein klassischer AI-Berater. Ich bin jemand der beides zusammenbringt – und daraus echte, nutzbare Produkte baut.
               </p>
               <p>
-                Context Engineering bedeutet fur mich: AI-Systemen den richtigen Rahmen geben, damit sie wirklich helfen. Nicht einfach prompts schreiben – sondern verstehen wie Maschinen denken, und das nutzen.
+                Context Engineering bedeutet für mich: AI-Systemen den richtigen Rahmen geben, damit sie wirklich helfen. Nicht einfach Prompts schreiben – sondern verstehen wie Maschinen denken, und das gezielt nutzen.
               </p>
               <p>
-                Meine Kunden sind lokale Unternehmen in Mosbach und Umgebung: Immobilienmakler, Restaurants, Handwerker, Fitness-Studios. Menschen die eine gute Website brauchen – und jemanden der ihnen erklaert warum AI ihnen helfen kann.
+                Ich bin ehrlich: Ich stehe am Anfang. Mein erster Kunde ist Plan A Immobilien aus Mosbach – und ich bin stolz auf das, was ich dort geliefert habe. Jetzt suche ich das nächste Projekt, den nächsten Menschen dem ich wirklich helfen kann.
               </p>
             </div>
           </div>
