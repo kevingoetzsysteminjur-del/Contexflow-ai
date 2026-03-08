@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #05050a;
+  --cyan: #22d3ee;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: #f4f4f5;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.35; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+.animate-fade-up-d1 { animation: fadeUp 0.7s 0.1s ease both; }
+.animate-fade-up-d2 { animation: fadeUp 0.7s 0.2s ease both; }
+.animate-fade-up-d3 { animation: fadeUp 0.7s 0.3s ease both; }
+.animate-fade-up-d4 { animation: fadeUp 0.7s 0.4s ease both; }
+
+.glow-blob {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
