@@ -54,10 +54,11 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/5 px-6 py-5 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-zinc-600 text-xs">© 2026 Contexflow AI · Kevin Goetz · Mosbach</p>
+        <p className="text-zinc-500 text-xs">© 2026 Contexflow AI · Kevin Goetz · Mosbach</p>
         <div className="flex items-center gap-4">
-          <Link href="/impressum" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors">Impressum</Link>
-          <Link href="/datenschutz" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors">Datenschutz</Link>
+          <Link href="/impressum" className="text-zinc-400 hover:text-cyan-400 text-xs transition-colors">Impressum</Link>
+          <span className="text-zinc-700">·</span>
+          <Link href="/datenschutz" className="text-zinc-400 hover:text-cyan-400 text-xs transition-colors">Datenschutz</Link>
         </div>
       </div>
     </footer>
