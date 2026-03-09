@@ -1,11 +1,19 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Bot, Calendar, HelpCircle, Target, Globe, ArrowDown, ExternalLink, Sparkles } from "lucide-react";
+import { Bot, Calendar, HelpCircle, Target, Globe, ArrowDown, ExternalLink, Sparkles, SplitSquareHorizontal, BarChart2, ImageIcon, Quote, Layers, Calculator, TrendingUp, Mail } from "lucide-react";
 import ChatDemo from "./_components/ChatDemo";
 import BookingDemo from "./_components/BookingDemo";
 import FaqDemo from "./_components/FaqDemo";
 import LeadDemo from "./_components/LeadDemo";
+import BeforeAfterSlider from "./_components/BeforeAfterSlider";
+import AnalyticsDashboard from "./_components/AnalyticsDashboard";
+import ImageGenDemo from "./_components/ImageGenDemo";
+import TestimonialSection from "./_components/TestimonialSection";
+import BranchenSwitcher from "./_components/BranchenSwitcher";
+import Preisrechner from "./_components/Preisrechner";
+import AnimatedStats from "./_components/AnimatedStats";
+import KontaktFormDemo from "./_components/KontaktFormDemo";
 
 type Lang = "de" | "en";
 
@@ -54,6 +62,78 @@ const TX = {
         label: "Lead-Qualifizierung",
         title: "Qualifizierte Leads. Automatisch.",
         sub: "Ein smarter Fragebogen ermittelt in 4 Schritten, wie gut ein Besucher als Kunde passt. Sie sehen sofort: Hot Lead, Warm Lead oder Info-Lead.",
+      },
+      {
+        id: "slider",
+        num: "05",
+        icon: SplitSquareHorizontal,
+        color: "indigo",
+        label: "Vorher / Nachher",
+        title: "Der Unterschied. Sichtbar.",
+        sub: "Ziehen Sie den Slider und sehen Sie live, was eine moderne Website ausmacht. Von veraltet zu professionell – in einem Drag.",
+      },
+      {
+        id: "analytics",
+        num: "06",
+        icon: BarChart2,
+        color: "violet",
+        label: "Live Analytics",
+        title: "Daten. In Echtzeit.",
+        sub: "Ein vollständiges Analytics-Dashboard wie es auf Ihrer Website läuft. Besucher, Conversions, Traffic-Quellen – alles im Blick.",
+      },
+      {
+        id: "imagegen",
+        num: "07",
+        icon: ImageIcon,
+        color: "purple",
+        label: "KI-Bildgenerierung",
+        title: "Bilder auf Knopfdruck.",
+        sub: "Beschreiben Sie ein Bild in Worten – die KI generiert es. Ideal für Website-Content, Social Media und Marketing-Materialien.",
+      },
+      {
+        id: "testimonials",
+        num: "08",
+        icon: Quote,
+        color: "fuchsia",
+        label: "Kundenstimmen",
+        title: "Was Kunden sagen.",
+        sub: "Echte Bewertungen von echten Kunden. Vertrauen ist die Basis jeder erfolgreichen Geschäftsbeziehung.",
+      },
+      {
+        id: "branchen",
+        num: "09",
+        icon: Layers,
+        color: "indigo",
+        label: "Branchen-Preview",
+        title: "Ihre Branche. Ihr Design.",
+        sub: "Wählen Sie Ihre Branche und sehen Sie live wie eine maßgeschneiderte Website für Sie aussehen würde.",
+      },
+      {
+        id: "preise",
+        num: "10",
+        icon: Calculator,
+        color: "violet",
+        label: "Preisrechner",
+        title: "Ihr Budget. Ihr Preis.",
+        sub: "Wählen Sie Ihr Paket und konfigurieren Sie Zusatzoptionen. Der Gesamtpreis aktualisiert sich live.",
+      },
+      {
+        id: "stats",
+        num: "11",
+        icon: TrendingUp,
+        color: "purple",
+        label: "Unsere Zahlen",
+        title: "Fakten. Die überzeugen.",
+        sub: "Zahlen sprechen für sich. Scrollen Sie herunter und sehen Sie unsere Ergebnisse in Aktion.",
+      },
+      {
+        id: "kontakt",
+        num: "12",
+        icon: Mail,
+        color: "fuchsia",
+        label: "KI-Kontaktformular",
+        title: "Schreiben Sie uns. Die KI antwortet.",
+        sub: "Senden Sie eine Anfrage und erleben Sie wie unsere KI sofort eine personalisierte Antwort mit Paket-Empfehlung generiert.",
       },
     ],
     footer: {
@@ -107,6 +187,78 @@ const TX = {
         label: "Lead Qualification",
         title: "Qualified leads. Automatically.",
         sub: "A smart questionnaire determines in 4 steps how well a visitor fits as a customer. You immediately see: Hot Lead, Warm Lead or Info Lead.",
+      },
+      {
+        id: "slider",
+        num: "05",
+        icon: SplitSquareHorizontal,
+        color: "indigo",
+        label: "Before / After",
+        title: "The difference. Visible.",
+        sub: "Drag the slider and see live what a modern website looks like. From outdated to professional – in one drag.",
+      },
+      {
+        id: "analytics",
+        num: "06",
+        icon: BarChart2,
+        color: "violet",
+        label: "Live Analytics",
+        title: "Data. In real time.",
+        sub: "A complete analytics dashboard as it runs on your website. Visitors, conversions, traffic sources – all at a glance.",
+      },
+      {
+        id: "imagegen",
+        num: "07",
+        icon: ImageIcon,
+        color: "purple",
+        label: "AI Image Generation",
+        title: "Images at the push of a button.",
+        sub: "Describe an image in words – the AI generates it. Ideal for website content, social media and marketing materials.",
+      },
+      {
+        id: "testimonials",
+        num: "08",
+        icon: Quote,
+        color: "fuchsia",
+        label: "Testimonials",
+        title: "What customers say.",
+        sub: "Real reviews from real customers. Trust is the foundation of every successful business relationship.",
+      },
+      {
+        id: "branchen",
+        num: "09",
+        icon: Layers,
+        color: "indigo",
+        label: "Industry Preview",
+        title: "Your industry. Your design.",
+        sub: "Select your industry and see live what a tailored website would look like for you.",
+      },
+      {
+        id: "preise",
+        num: "10",
+        icon: Calculator,
+        color: "violet",
+        label: "Price Calculator",
+        title: "Your budget. Your price.",
+        sub: "Choose your package and configure add-ons. The total price updates in real time.",
+      },
+      {
+        id: "stats",
+        num: "11",
+        icon: TrendingUp,
+        color: "purple",
+        label: "Our Numbers",
+        title: "Facts. That convince.",
+        sub: "Numbers speak for themselves. Scroll down and see our results in action.",
+      },
+      {
+        id: "kontakt",
+        num: "12",
+        icon: Mail,
+        color: "fuchsia",
+        label: "AI Contact Form",
+        title: "Write to us. The AI responds.",
+        sub: "Send an inquiry and experience how our AI instantly generates a personalized response with package recommendation.",
       },
     ],
     footer: {
@@ -240,10 +392,18 @@ export default function DemoPage() {
 
               {/* Demo Card */}
               <div className={`rounded-3xl border bg-white/[0.02] backdrop-blur p-6 md:p-8 transition-colors ${c.border}`}>
-                {idx === 0 && <ChatDemo lang={lang} />}
-                {idx === 1 && <BookingDemo lang={lang} />}
-                {idx === 2 && <FaqDemo lang={lang} />}
-                {idx === 3 && <LeadDemo lang={lang} />}
+                {section.id === "chatbot" && <ChatDemo lang={lang} />}
+                {section.id === "buchung" && <BookingDemo lang={lang} />}
+                {section.id === "faq" && <FaqDemo lang={lang} />}
+                {section.id === "leads" && <LeadDemo lang={lang} />}
+                {section.id === "slider" && <BeforeAfterSlider lang={lang} />}
+                {section.id === "analytics" && <AnalyticsDashboard lang={lang} />}
+                {section.id === "imagegen" && <ImageGenDemo lang={lang} />}
+                {section.id === "testimonials" && <TestimonialSection lang={lang} />}
+                {section.id === "branchen" && <BranchenSwitcher lang={lang} />}
+                {section.id === "preise" && <Preisrechner lang={lang} />}
+                {section.id === "stats" && <AnimatedStats lang={lang} />}
+                {section.id === "kontakt" && <KontaktFormDemo lang={lang} />}
               </div>
             </section>
           );
