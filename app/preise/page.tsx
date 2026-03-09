@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Zap } from "lucide-react";
+import AddonsSection from "./AddonsSection";
 
 const pakete = [
   {
@@ -155,6 +156,9 @@ export default function PreisePage() {
           ))}
         </div>
       </section>
+
+      {/* Zusatzoptionen */}
+      <AddonsSection />
 
       {/* FAQ */}
       <section className="border-y border-white/5 bg-white/[0.02]">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Bot, Calendar, HelpCircle, Target, Globe, ArrowDown, ExternalLink, Sparkles, SplitSquareHorizontal, BarChart2, ImageIcon, Quote, Layers, Calculator, TrendingUp, Mail } from "lucide-react";
+import { Bot, Calendar, HelpCircle, Target, Globe, ArrowDown, ExternalLink, Sparkles, SplitSquareHorizontal, BarChart2, ImageIcon, Layers, TrendingUp, Mail } from "lucide-react";
 import ChatDemo from "./_components/ChatDemo";
 import BookingDemo from "./_components/BookingDemo";
 import FaqDemo from "./_components/FaqDemo";
@@ -9,9 +9,7 @@ import LeadDemo from "./_components/LeadDemo";
 import BeforeAfterSlider from "./_components/BeforeAfterSlider";
 import AnalyticsDashboard from "./_components/AnalyticsDashboard";
 import ImageGenDemo from "./_components/ImageGenDemo";
-import TestimonialSection from "./_components/TestimonialSection";
 import BranchenSwitcher from "./_components/BranchenSwitcher";
-import Preisrechner from "./_components/Preisrechner";
 import AnimatedStats from "./_components/AnimatedStats";
 import KontaktFormDemo from "./_components/KontaktFormDemo";
 
@@ -91,17 +89,8 @@ const TX = {
         sub: "Beschreiben Sie ein Bild in Worten – die KI generiert es. Ideal für Website-Content, Social Media und Marketing-Materialien.",
       },
       {
-        id: "testimonials",
-        num: "08",
-        icon: Quote,
-        color: "fuchsia",
-        label: "Kundenstimmen",
-        title: "Was Kunden sagen.",
-        sub: "Echte Bewertungen von echten Kunden. Vertrauen ist die Basis jeder erfolgreichen Geschäftsbeziehung.",
-      },
-      {
         id: "branchen",
-        num: "09",
+        num: "08",
         icon: Layers,
         color: "indigo",
         label: "Branchen-Preview",
@@ -109,17 +98,8 @@ const TX = {
         sub: "Wählen Sie Ihre Branche und sehen Sie live wie eine maßgeschneiderte Website für Sie aussehen würde.",
       },
       {
-        id: "preise",
-        num: "10",
-        icon: Calculator,
-        color: "violet",
-        label: "Preisrechner",
-        title: "Ihr Budget. Ihr Preis.",
-        sub: "Wählen Sie Ihr Paket und konfigurieren Sie Zusatzoptionen. Der Gesamtpreis aktualisiert sich live.",
-      },
-      {
         id: "stats",
-        num: "11",
+        num: "09",
         icon: TrendingUp,
         color: "purple",
         label: "Unsere Zahlen",
@@ -128,7 +108,7 @@ const TX = {
       },
       {
         id: "kontakt",
-        num: "12",
+        num: "10",
         icon: Mail,
         color: "fuchsia",
         label: "KI-Kontaktformular",
@@ -216,17 +196,8 @@ const TX = {
         sub: "Describe an image in words – the AI generates it. Ideal for website content, social media and marketing materials.",
       },
       {
-        id: "testimonials",
-        num: "08",
-        icon: Quote,
-        color: "fuchsia",
-        label: "Testimonials",
-        title: "What customers say.",
-        sub: "Real reviews from real customers. Trust is the foundation of every successful business relationship.",
-      },
-      {
         id: "branchen",
-        num: "09",
+        num: "08",
         icon: Layers,
         color: "indigo",
         label: "Industry Preview",
@@ -234,17 +205,8 @@ const TX = {
         sub: "Select your industry and see live what a tailored website would look like for you.",
       },
       {
-        id: "preise",
-        num: "10",
-        icon: Calculator,
-        color: "violet",
-        label: "Price Calculator",
-        title: "Your budget. Your price.",
-        sub: "Choose your package and configure add-ons. The total price updates in real time.",
-      },
-      {
         id: "stats",
-        num: "11",
+        num: "09",
         icon: TrendingUp,
         color: "purple",
         label: "Our Numbers",
@@ -253,7 +215,7 @@ const TX = {
       },
       {
         id: "kontakt",
-        num: "12",
+        num: "10",
         icon: Mail,
         color: "fuchsia",
         label: "AI Contact Form",
@@ -399,9 +361,7 @@ export default function DemoPage() {
                 {section.id === "slider" && <BeforeAfterSlider lang={lang} />}
                 {section.id === "analytics" && <AnalyticsDashboard lang={lang} />}
                 {section.id === "imagegen" && <ImageGenDemo lang={lang} />}
-                {section.id === "testimonials" && <TestimonialSection lang={lang} />}
                 {section.id === "branchen" && <BranchenSwitcher lang={lang} />}
-                {section.id === "preise" && <Preisrechner lang={lang} />}
                 {section.id === "stats" && <AnimatedStats lang={lang} />}
                 {section.id === "kontakt" && <KontaktFormDemo lang={lang} />}
               </div>
