@@ -119,7 +119,7 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
         {/* NEW SITE – clipped */}
         <div
           className="absolute inset-0"
-          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
         >
           <div className="h-full bg-gradient-to-br from-[#0a0a1a] via-[#0d0d20] to-[#12082a]">
             {/* Nav */}
