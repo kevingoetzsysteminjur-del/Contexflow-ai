@@ -220,6 +220,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Kundenstimmen */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="text-center mb-14">
+          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Kundenstimmen</p>
+          <h2 className="text-3xl md:text-4xl font-black text-white">Was Kunden sagen.</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Echtes Feedback – Platzhalter bis Bewertungen eintreffen */}
+          <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-8 flex flex-col gap-4 min-h-[160px] items-center justify-center text-center">
+            <p className="text-zinc-600 text-sm">Feedback folgt in Kürze.</p>
+          </div>
+          <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-8 flex flex-col gap-4 min-h-[160px] items-center justify-center text-center">
+            <p className="text-zinc-600 text-sm">Feedback folgt in Kürze.</p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
         <div className="card-block relative rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-950/30 to-zinc-900/30 p-16 overflow-hidden">
