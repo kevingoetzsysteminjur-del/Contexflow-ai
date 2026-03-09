@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: "Contexflow AI – Websites die verkaufen",
-  description: "Kevin Goetz, Context Engineer aus Mosbach. Webentwicklung, Context Engineering und AI-Integration fuer lokale Unternehmen.",
+  description: "Kevin Goetz, Context Engineer aus Mosbach. Webentwicklung, Context Engineering und AI-Integration für lokale Unternehmen.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

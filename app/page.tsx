@@ -13,7 +13,7 @@ const leistungen = [
   {
     icon: Brain,
     title: "Context Engineering",
-    desc: "AI-Systeme mit dem richtigen Kontext fuettern. Bessere Ergebnisse durch praezise Prompts und Strukturen.",
+    desc: "AI-Systeme mit dem richtigen Kontext füttern. Bessere Ergebnisse durch präzise Prompts und Strukturen.",
     color: "text-violet-400",
     bg: "bg-violet-400/10",
     border: "border-violet-400/20",
@@ -21,7 +21,7 @@ const leistungen = [
   {
     icon: Zap,
     title: "AI-Integration",
-    desc: "Kuenstliche Intelligenz direkt in dein Unternehmen einbauen. Automatisierung, Chatbots, smarte Workflows.",
+    desc: "Künstliche Intelligenz direkt in dein Unternehmen einbauen. Automatisierung, Chatbots, smarte Workflows.",
     color: "text-amber-400",
     bg: "bg-amber-400/10",
     border: "border-amber-400/20",
@@ -103,7 +103,7 @@ export default function Home() {
 
           {/* Subtext */}
           <p className="animate-fade-up-d2 text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
-            Kevin Goetz, Context Engineer aus Mosbach. Ich baue moderne Websites und AI-Systeme fur lokale Unternehmen – schnell, gunstig, und mit echten Ergebnissen.
+            Kevin Goetz, Context Engineer aus Mosbach. Ich baue moderne Websites und AI-Systeme für lokale Unternehmen – schnell, günstig, und mit echten Ergebnissen.
           </p>
 
           {/* CTA */}
@@ -244,7 +244,7 @@ export default function Home() {
             <div className="glow-blob absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-cyan-500 blur-[80px]" />
           </div>
           <div className="relative">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-5">Bereit fur dein Projekt?</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-5">Bereit für dein Projekt?</h2>
             <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-10">Kostenlose Erstberatung. Kein Risiko. Ich melde mich innerhalb von 24 Stunden.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -8,7 +8,7 @@ const leistungen = [
     subtitle: "Dein digitales Aushangschild",
     desc: "Ich baue moderne, schnelle Websites die nicht nur gut aussehen, sondern auch konvertieren. Mobile-first, SEO-optimiert und auf deine Zielgruppe zugeschnitten.",
     features: [
-      "Responsive Design fur alle Gerate",
+      "Responsive Design für alle Geräte",
       "Ladezeit unter 2 Sekunden",
       "SEO-Grundoptimierung inklusive",
       "Kontaktformular & Impressum",
@@ -28,7 +28,7 @@ const leistungen = [
     desc: "Context Engineering ist die Kunst, AI-Systemen den richtigen Kontext zu geben. Ich designe Prompts, Strukturen und Workflows die konsistent gute Ergebnisse liefern.",
     features: [
       "Prompt-Design & Optimierung",
-      "System-Prompts fur Chatbots",
+      "System-Prompts für Chatbots",
       "RAG-Systeme & Knowledge Bases",
       "Workflow-Automatisierung",
       "AI-Agenten-Entwicklung",
@@ -46,7 +46,7 @@ const leistungen = [
     subtitle: "Automatisierung die spart",
     desc: "Ich integriere KI direkt in deine bestehenden Prozesse. Von einfachen Chatbots bis zu komplexen Automatisierungen – du sparst Zeit und Geld.",
     features: [
-      "Chatbot fur deine Website",
+      "Chatbot für deine Website",
       "Automatische Antworten per Email",
       "Dokument-Analyse & -Verarbeitung",
       "CRM-Integration",
@@ -62,10 +62,10 @@ const leistungen = [
 ];
 
 const prozess = [
-  { nr: "01", titel: "Erstgesprach", text: "Kostenloses 30-Minuten-Call. Ich verstehe dein Business, deine Ziele und dein Budget." },
+  { nr: "01", titel: "Erstgespräch", text: "Kostenloses 30-Minuten-Call. Ich verstehe dein Business, deine Ziele und dein Budget." },
   { nr: "02", titel: "Konzept", text: "Ich erstelle ein konkretes Konzept mit Zeitplan und Festpreis. Kein Stundenhonorar." },
-  { nr: "03", titel: "Entwicklung", text: "Ich baue dein Projekt. Du bekommst regelmasige Updates und kannst jederzeit Feedback geben." },
-  { nr: "04", titel: "Launch", text: "Wir gehen live. Ich ubergebe alles sauber und stehe fur Fragen bereit." },
+  { nr: "03", titel: "Entwicklung", text: "Ich baue dein Projekt. Du bekommst regelmäßige Updates und kannst jederzeit Feedback geben." },
+  { nr: "04", titel: "Launch", text: "Wir gehen live. Ich übergebe alles sauber und stehe für Fragen bereit." },
 ];
 
 export default function LeistungenPage() {
@@ -79,7 +79,7 @@ export default function LeistungenPage() {
         <div className="relative max-w-6xl mx-auto px-6 py-24">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Leistungen</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 max-w-3xl">
-            Was ich fur dich tun kann
+            Was ich für dich tun kann
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
             Webentwicklung, Context Engineering und AI-Integration aus einer Hand. Kein Overhead, kein Bullshit – nur Ergebnisse.
@@ -144,12 +144,12 @@ export default function LeistungenPage() {
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
         <h2 className="text-4xl font-black text-white mb-5">Klingt gut?</h2>
-        <p className="text-zinc-400 mb-10 max-w-lg mx-auto">Lass uns reden. Das Erstgesprach ist kostenlos und unverbindlich.</p>
+        <p className="text-zinc-400 mb-10 max-w-lg mx-auto">Lass uns reden. Das Erstgespräch ist kostenlos und unverbindlich.</p>
         <Link
           href="/kontakt"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-bold transition-all hover:scale-105 shadow-xl shadow-cyan-500/20"
         >
-          Jetzt Erstgesprach buchen <ArrowRight size={16} />
+          Jetzt Erstgespräch buchen <ArrowRight size={16} />
         </Link>
       </section>
     </div>

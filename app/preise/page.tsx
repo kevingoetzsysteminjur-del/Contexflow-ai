@@ -7,7 +7,7 @@ const pakete = [
     preis: "500 €",
     einheit: "einmalig",
     highlight: false,
-    beschreibung: "Perfekt fur Einzelunternehmer die schnell online sein wollen.",
+    beschreibung: "Perfekt für Einzelunternehmer die schnell online sein wollen.",
     features: [
       "1 Seite (Landingpage)",
       "Responsive Design",
@@ -27,7 +27,7 @@ const pakete = [
     preis: "1.000 €",
     einheit: "einmalig",
     highlight: true,
-    beschreibung: "Die meistgebuchte Losung fur lokale Unternehmen.",
+    beschreibung: "Die meistgebuchte Lösung für lokale Unternehmen.",
     features: [
       "Bis zu 5 Seiten",
       "Professionelles Design",
@@ -48,7 +48,7 @@ const pakete = [
     preis: "2.000 €",
     einheit: "einmalig",
     highlight: false,
-    beschreibung: "Fur Unternehmen die einen starken digitalen Auftritt brauchen.",
+    beschreibung: "Für Unternehmen die einen starken digitalen Auftritt brauchen.",
     features: [
       "Unbegrenzte Seiten",
       "Individuelles Design",
@@ -70,7 +70,7 @@ const pakete = [
     preis: "Auf Anfrage",
     einheit: "",
     highlight: false,
-    beschreibung: "Komplexe Projekte, AI-Integration und massgeschneiderte Losungen.",
+    beschreibung: "Komplexe Projekte, AI-Integration und maßgeschneiderte Lösungen.",
     features: [
       "Web-App Entwicklung",
       "Context Engineering",
@@ -88,10 +88,10 @@ const pakete = [
 ];
 
 const faq = [
-  { f: "Gibt es monatliche Kosten?", a: "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10-15 €/Monat) kommen dazu, die du selbst abschliesst." },
-  { f: "Wie lange dauert ein Projekt?", a: "Eine Landingpage ist in 1-2 Wochen fertig. Business Websites dauern 2-4 Wochen, je nach Komplexitat." },
+  { f: "Gibt es monatliche Kosten?", a: "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10-15 €/Monat) kommen dazu, die du selbst abschließt." },
+  { f: "Wie lange dauert ein Projekt?", a: "Eine Landingpage ist in 1-2 Wochen fertig. Business Websites dauern 2-4 Wochen, je nach Komplexität." },
   { f: "Was wenn ich nicht zufrieden bin?", a: "Wir besprechen alles vorab genau. Du hast immer Feedback-Runden inklusive. Am Ende stehst du zu 100% dahinter." },
-  { f: "Kummert ihr euch auch um Hosting?", a: "Auf Wunsch ja. Ich empfehle Vercel (fur Next.js) oder Strato – und richte alles ein wenn gewunscht." },
+  { f: "Kümmert ihr euch auch um Hosting?", a: "Auf Wunsch ja. Ich empfehle Vercel (für Next.js) oder Strato – und richte alles ein wenn gewünscht." },
 ];
 
 export default function PreisePage() {
@@ -108,7 +108,7 @@ export default function PreisePage() {
             Klare Preise. Kein Kleingedrucktes.
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl mx-auto leading-relaxed">
-            Festpreise, keine Stundensatze. Du weisst vorher genau was du zahlst.
+            Festpreise, keine Stundensätze. Du weißt vorher genau was du zahlst.
           </p>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function PreisePage() {
       {/* FAQ */}
       <section className="border-y border-white/5 bg-white/[0.02]">
         <div className="max-w-3xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-black text-white mb-12 text-center">Haufige Fragen</h2>
+          <h2 className="text-3xl font-black text-white mb-12 text-center">Häufige Fragen</h2>
           <div className="space-y-6">
             {faq.map(({ f, a }) => (
               <div key={f} className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
@@ -174,7 +174,7 @@ export default function PreisePage() {
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
         <h2 className="text-4xl font-black text-white mb-5">Nicht sicher welches Paket passt?</h2>
-        <p className="text-zinc-400 mb-10 max-w-lg mx-auto">Schreib mir einfach. Ich helfe dir das richtige Paket fur dein Budget und deine Ziele zu finden.</p>
+        <p className="text-zinc-400 mb-10 max-w-lg mx-auto">Schreib mir einfach. Ich helfe dir das richtige Paket für dein Budget und deine Ziele zu finden.</p>
         <Link
           href="/kontakt"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-bold transition-all hover:scale-105 shadow-xl shadow-cyan-500/20"

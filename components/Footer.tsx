@@ -5,7 +5,7 @@ const links = [
   { label: "Leistungen", href: "/leistungen" },
   { label: "Projekte", href: "/projekte" },
   { label: "Preise", href: "/preise" },
-  { label: "Uber uns", href: "/ueber-uns" },
+  { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

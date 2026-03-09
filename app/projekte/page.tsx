@@ -7,7 +7,7 @@ const projekte = [
     name: "Plan A Immobilien und Finanzierung",
     typ: "Immobilien-Website",
     beschreibung:
-      "Professionelle Website fur einen Immobilienmakler aus der Region. Klares Design, schnelle Ladezeiten, Kontaktformular und Objektuebersicht. Der erste echte Kunde von Contexflow AI.",
+      "Professionelle Website für einen Immobilienmakler aus der Region. Klares Design, schnelle Ladezeiten, Kontaktformular und Objektübersicht. Der erste echte Kunde von Contexflow AI.",
     tags: ["Next.js", "Tailwind CSS", "Immobilien", "Mosbach"],
     status: "Live",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
@@ -21,7 +21,7 @@ const projekte = [
     name: "Bella Vista Restaurant",
     typ: "Restaurant-Website",
     beschreibung:
-      "Demo-Website fur ein italienisches Restaurant. Elegantes dunkles Design mit Speisekarte, Galerie und Reservierungsformular. Zeigt was eine moderne Gastronomie-Website leisten kann.",
+      "Demo-Website für ein italienisches Restaurant. Elegantes dunkles Design mit Speisekarte, Galerie und Reservierungsformular. Zeigt was eine moderne Gastronomie-Website leisten kann.",
     tags: ["Next.js", "Tailwind CSS", "Restaurant", "Demo"],
     budget: "Demo",
     status: "Demo",
@@ -37,7 +37,7 @@ const projekte = [
     name: "Elektro Mosbach – Meisterbetrieb",
     typ: "Handwerker-Website",
     beschreibung:
-      "Demo-Website fur einen Elektriker-Meisterbetrieb. Helles, professionelles Design in Blau/Gelb mit Notdienst-Banner, Leistungsuebersicht, Team, Referenzgalerie und Kontaktformular.",
+      "Demo-Website für einen Elektriker-Meisterbetrieb. Helles, professionelles Design in Blau/Gelb mit Notdienst-Banner, Leistungsübersicht, Team, Referenzgalerie und Kontaktformular.",
     tags: ["Next.js", "Tailwind CSS", "Handwerk", "Demo"],
     budget: "Demo",
     status: "Demo",
@@ -53,7 +53,7 @@ const projekte = [
     name: "IRONPEAK Fitness Studio",
     typ: "Fitness-Website",
     beschreibung:
-      "Demo-Website fur ein modernes Fitness-Studio. Kraftvolles, dunkles Design mit Kursplan, Mitgliedschaft-Paketen und Online-Anmeldung. Perfekt fur Fitness-Unternehmen die Mitglieder gewinnen wollen.",
+      "Demo-Website für ein modernes Fitness-Studio. Kraftvolles, dunkles Design mit Kursplan, Mitgliedschaft-Paketen und Online-Anmeldung. Perfekt für Fitness-Unternehmen die Mitglieder gewinnen wollen.",
     tags: ["Next.js", "Tailwind CSS", "Fitness", "Demo"],
     budget: "Demo",
     status: "Demo",
@@ -80,7 +80,7 @@ export default function ProjektePage() {
             Meine Referenzen
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Ein echter Kunde. Drei Demo-Projekte die zeigen was moglich ist. Mehr kommen.
+            Ein echter Kunde. Drei Demo-Projekte die zeigen was möglich ist. Mehr kommen.
           </p>
         </div>
       </section>

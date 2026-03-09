@@ -57,7 +57,7 @@ export default function KontaktPage() {
             Lass uns reden.
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Schreib mir – ich antworte in der Regel innerhalb von 24 Stunden. Das Erstgesprach ist kostenlos und unverbindlich.
+            Schreib mir – ich antworte in der Regel innerhalb von 24 Stunden. Das Erstgespräch ist kostenlos und unverbindlich.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function KontaktPage() {
                   <div>
                     <p className="text-zinc-500 text-xs mb-0.5">Standort</p>
                     <p className="text-white text-sm font-medium">Mosbach, Neckar-Odenwald-Kreis</p>
-                    <p className="text-zinc-500 text-xs">Baden-Wurttemberg, Deutschland</p>
+                    <p className="text-zinc-500 text-xs">Baden-Württemberg, Deutschland</p>
                   </div>
                 </div>
               </div>
@@ -104,9 +104,9 @@ export default function KontaktPage() {
             </div>
 
             <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
-              <h3 className="text-white font-bold mb-3">Fur wen?</h3>
+              <h3 className="text-white font-bold mb-3">Für wen?</h3>
               <ul className="space-y-2 text-zinc-400 text-sm">
-                {["Restaurants & Cafes", "Immobilien & Makler", "Aerzte & Therapeuten", "Handwerker & Dienstleister", "Fitness & Sport", "Einzelhandel"].map((b) => (
+                {["Restaurants & Cafés", "Immobilien & Makler", "Ärzte & Therapeuten", "Handwerker & Dienstleister", "Fitness & Sport", "Einzelhandel"].map((b) => (
                   <li key={b} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/50" />
                     {b}
@@ -124,7 +124,7 @@ export default function KontaktPage() {
                   <CheckCircle size={56} className="text-emerald-400 mx-auto mb-6" />
                   <h3 className="text-white font-black text-2xl mb-3">Nachricht erhalten!</h3>
                   <p className="text-zinc-400 max-w-sm mx-auto">
-                    Danke, {form.name}! Ich melde mich so bald wie moglich bei dir. Schau auch in deinen Spam-Ordner.
+                    Danke, {form.name}! Ich melde mich so bald wie möglich bei dir. Schau auch in deinen Spam-Ordner.
                   </p>
                 </div>
               </div>
@@ -176,7 +176,7 @@ export default function KontaktPage() {
                       onChange={handleChange}
                       className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none"
                     >
-                      <option value="" className="bg-zinc-900">Bitte wahlen...</option>
+                      <option value="" className="bg-zinc-900">Bitte wählen...</option>
                       <option value="Landingpage" className="bg-zinc-900">Landingpage (ab 500 €)</option>
                       <option value="Business Website" className="bg-zinc-900">Business Website (ab 1.000 €)</option>
                       <option value="Premium Website" className="bg-zinc-900">Premium Website (ab 2.000 €)</option>
@@ -193,11 +193,11 @@ export default function KontaktPage() {
                       onChange={handleChange}
                       className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none"
                     >
-                      <option value="" className="bg-zinc-900">Bitte wahlen...</option>
+                      <option value="" className="bg-zinc-900">Bitte wählen...</option>
                       <option value="bis 500€" className="bg-zinc-900">Bis 500 €</option>
                       <option value="500–1.000€" className="bg-zinc-900">500 – 1.000 €</option>
                       <option value="1.000–2.000€" className="bg-zinc-900">1.000 – 2.000 €</option>
-                      <option value="uber 2.000€" className="bg-zinc-900">Uber 2.000 €</option>
+                      <option value="uber 2.000€" className="bg-zinc-900">Über 2.000 €</option>
                       <option value="unklar" className="bg-zinc-900">Noch unklar</option>
                     </select>
                   </div>
@@ -209,7 +209,7 @@ export default function KontaktPage() {
                     name="nachricht"
                     required
                     rows={5}
-                    placeholder="Erzahl mir von deinem Projekt, deiner Firma und was du dir vorstellst..."
+                    placeholder="Erzähl mir von deinem Projekt, deiner Firma und was du dir vorstellst..."
                     value={form.nachricht}
                     onChange={handleChange}
                     className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-400/5 transition-all resize-none"

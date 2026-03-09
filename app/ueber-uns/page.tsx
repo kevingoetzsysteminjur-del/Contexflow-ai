@@ -4,8 +4,8 @@ import { ArrowRight, Code2, Brain, Target, Heart } from "lucide-react";
 const werte = [
   {
     icon: Code2,
-    titel: "Qualitat uber Quantitat",
-    text: "Ich nehme wenige Projekte an, um jedem die volle Aufmerksamkeit zu geben. Kein Fliessbandprinzip.",
+    titel: "Qualität über Quantität",
+    text: "Ich nehme wenige Projekte an, um jedem die volle Aufmerksamkeit zu geben. Kein Fließbandprinzip.",
     color: "text-cyan-400",
     bg: "bg-cyan-400/10",
     border: "border-cyan-400/20",
@@ -13,7 +13,7 @@ const werte = [
   {
     icon: Brain,
     titel: "Context first",
-    text: "Gute Ergebnisse entstehen durch den richtigen Kontext. Das gilt fur AI genauso wie fur Websites.",
+    text: "Gute Ergebnisse entstehen durch den richtigen Kontext. Das gilt für AI genauso wie für Websites.",
     color: "text-violet-400",
     bg: "bg-violet-400/10",
     border: "border-violet-400/20",
@@ -53,12 +53,12 @@ export default function UeberUnsPage() {
           <div className="glow-blob absolute -top-40 left-1/4 w-96 h-96 rounded-full bg-violet-500 blur-[100px]" />
         </div>
         <div className="relative max-w-6xl mx-auto px-6 py-24">
-          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Uber uns</p>
+          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Über uns</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 max-w-3xl">
             Ich bin Kevin. Das ist meine Geschichte.
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Context Engineer aus Mosbach. Ich baue Websites und AI-Systeme fur lokale Unternehmen – weil ich glaube, dass gute Technologie nicht nur Grosskonzernen gehort.
+            Context Engineer aus Mosbach. Ich baue Websites und AI-Systeme für lokale Unternehmen – weil ich glaube, dass gute Technologie nicht nur Großkonzernen gehört.
           </p>
         </div>
       </section>
@@ -116,7 +116,7 @@ export default function UeberUnsPage() {
         <div className="max-w-6xl mx-auto px-6 py-24">
           <div className="text-center mb-16">
             <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Meine Werte</p>
-            <h2 className="text-4xl font-black text-white">Wofur ich stehe</h2>
+            <h2 className="text-4xl font-black text-white">Wofür ich stehe</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {werte.map(({ icon: Icon, titel, text, color, bg, border }) => (
@@ -139,7 +139,7 @@ export default function UeberUnsPage() {
           Lokale Unternehmen digital stark machen.
         </h2>
         <p className="text-zinc-400 text-lg leading-relaxed mb-10">
-          Mosbach ist keine Metropole – aber gute digitale Prasenz brauchst du trotzdem. Oder gerade deshalb. Ich mochte der erste Ansprechpartner fur lokale Unternehmen sein, wenn es um Websites und AI geht.
+          Mosbach ist keine Metropole – aber gute digitale Präsenz brauchst du trotzdem. Oder gerade deshalb. Ich möchte der erste Ansprechpartner für lokale Unternehmen sein, wenn es um Websites und AI geht.
         </p>
         <Link
           href="/kontakt"
