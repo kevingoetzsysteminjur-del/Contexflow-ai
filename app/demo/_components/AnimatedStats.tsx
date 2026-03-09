@@ -10,13 +10,13 @@ const STATS = {
     { icon: Clock, value: "24/7", label: "Erreichbar", sub: "Ihr KI-Assistent schläft nie.", color: "text-indigo-400", bg: "bg-indigo-500/10", border: "border-indigo-500/20", isText: true },
     { icon: TrendingDown, value: 60, suffix: "%", label: "Weniger Support-Aufwand", sub: "Häufige Fragen beantwortet die KI automatisch.", color: "text-violet-400", bg: "bg-violet-500/10", border: "border-violet-500/20" },
     { icon: Zap, value: 7, suffix: " Tage", label: "Ø Lieferzeit", sub: "Von der Anfrage zur fertigen Website.", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-    { icon: Star, value: 98, suffix: "%", label: "Kundenzufriedenheit", sub: "Basierend auf Kundenfeedback.", color: "text-fuchsia-400", bg: "bg-fuchsia-500/10", border: "border-fuchsia-500/20" },
+    { icon: Star, value: 100, suffix: "%", label: "Eigentum des Kunden", sub: "Code, Domain & Hosting gehören Ihnen.", color: "text-fuchsia-400", bg: "bg-fuchsia-500/10", border: "border-fuchsia-500/20" },
   ],
   en: [
     { icon: Clock, value: "24/7", label: "Available", sub: "Your AI assistant never sleeps.", color: "text-indigo-400", bg: "bg-indigo-500/10", border: "border-indigo-500/20", isText: true },
     { icon: TrendingDown, value: 60, suffix: "%", label: "Less support effort", sub: "Common questions answered automatically by AI.", color: "text-violet-400", bg: "bg-violet-500/10", border: "border-violet-500/20" },
     { icon: Zap, value: 7, suffix: " days", label: "Avg. delivery time", sub: "From inquiry to finished website.", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-    { icon: Star, value: 98, suffix: "%", label: "Customer satisfaction", sub: "Based on customer feedback.", color: "text-fuchsia-400", bg: "bg-fuchsia-500/10", border: "border-fuchsia-500/20" },
+    { icon: Star, value: 100, suffix: "%", label: "Client ownership", sub: "Code, domain & hosting belong to you.", color: "text-fuchsia-400", bg: "bg-fuchsia-500/10", border: "border-fuchsia-500/20" },
   ],
 };
 
