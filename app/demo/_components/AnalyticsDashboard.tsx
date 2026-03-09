@@ -15,6 +15,7 @@ const TX = {
       { label: "Conversion Rate", icon: TrendingUp, value: 4.7, suffix: "%", color: "text-fuchsia-400", decimal: true },
     ],
     chart: "Besucher der letzten 24h",
+    vsYesterday: "vs. gestern",
     sources: "Traffic-Quellen",
     sourceList: [
       { label: "Organische Suche", pct: 48, color: "bg-indigo-500" },
@@ -32,6 +33,7 @@ const TX = {
       { label: "Conversion rate", icon: TrendingUp, value: 4.7, suffix: "%", color: "text-fuchsia-400", decimal: true },
     ],
     chart: "Visitors last 24h",
+    vsYesterday: "vs. yesterday",
     sources: "Traffic sources",
     sourceList: [
       { label: "Organic search", pct: 48, color: "bg-indigo-500" },
@@ -71,9 +73,10 @@ function useCountUp(target: number, decimal = false, active: boolean) {
   return decimal ? val.toFixed(1) : Math.round(val).toLocaleString("de-DE");
 }
 
-function Metric({ metric, active }: { metric: typeof TX.de.metrics[0]; active: boolean }) {
+function Metric({ metric, active, vsYesterday }: { metric: typeof TX.de.metrics[0]; active: boolean; vsYesterday: string }) {
   const Icon = metric.icon;
   const val = useCountUp(metric.value, (metric as any).decimal, active);
+  const pct = useRef((Math.random() * 15 + 3).toFixed(1));
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col gap-2">
       <div className="flex items-center justify-between">
@@ -86,7 +89,7 @@ function Metric({ metric, active }: { metric: typeof TX.de.metrics[0]; active: b
         {val}{metric.suffix}
       </span>
       <span className="text-emerald-400 text-xs flex items-center gap-1">
-        <TrendingUp size={10} /> +{(Math.random() * 15 + 3).toFixed(1)}% vs. gestern
+        <TrendingUp size={10} /> +{pct.current}% {vsYesterday}
       </span>
     </div>
   );
@@ -129,7 +132,7 @@ export default function AnalyticsDashboard({ lang }: { lang: Lang }) {
 
       {/* Metric Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {tx.metrics.map((m, i) => <Metric key={i} metric={m} active={active} />)}
+        {tx.metrics.map((m, i) => <Metric key={i} metric={m} active={active} vsYesterday={tx.vsYesterday} />)}
       </div>
 
       {/* Chart + Sources */}

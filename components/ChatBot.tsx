@@ -31,7 +31,7 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["context engineering", "context", "kontext", "was macht ihr", "was ist", "erkläre", "erklär", "bedeutet"],
-    answer: "**Context Engineering** bedeutet, AI-Systeme mit dem richtigen Kontext zu füttern damit sie wirklich nützliche Ergebnisse liefern. Statt generischer AI-Outputs bekommst du präzise, auf dein Business zugeschnittene Antworten und Automatisierungen. 🧠",
+    answer: "**Context Engineering** bedeutet, AI-Systeme mit dem richtigen Kontext zu füttern, damit sie wirklich nützliche Ergebnisse liefern. Statt generischer AI-Outputs bekommst du präzise, auf dein Business zugeschnittene Antworten und Automatisierungen. 🧠",
   },
   {
     keywords: ["ai", "ki", "künstlich", "intelligenz", "integration", "chatbot", "automatisier", "workflow"],

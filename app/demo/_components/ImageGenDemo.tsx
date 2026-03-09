@@ -37,6 +37,7 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
   const tx = TX[lang];
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pendingUrl, setPendingUrl] = useState<string | null>(null);
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const [currentPrompt, setCurrentPrompt] = useState("");
 
@@ -47,22 +48,14 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
     setImgUrl(null);
     setLoading(true);
     setCurrentPrompt(text);
-    const url = buildUrl(text);
-    const img = new Image();
-    img.onload = () => { setImgUrl(url); setLoading(false); };
-    img.onerror = () => { setLoading(false); };
-    img.src = url;
+    setPendingUrl(buildUrl(text));
   }
 
   function regenerate() {
     if (!currentPrompt) return;
     setImgUrl(null);
     setLoading(true);
-    const url = buildUrl(currentPrompt);
-    const img = new Image();
-    img.onload = () => { setImgUrl(url); setLoading(false); };
-    img.onerror = () => { setLoading(false); };
-    img.src = url;
+    setPendingUrl(buildUrl(currentPrompt));
   }
 
   return (
@@ -102,15 +95,17 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
 
       {/* Output */}
       <div className="relative rounded-2xl border border-white/10 overflow-hidden bg-zinc-900" style={{ height: 300 }}>
-        {!loading && !imgUrl && (
+        {/* Empty state */}
+        {!loading && !imgUrl && !pendingUrl && (
           <div className="h-full flex flex-col items-center justify-center gap-3">
             <ImageIcon size={36} className="text-zinc-700" />
             <p className="text-zinc-600 text-sm">Dein KI-Bild erscheint hier</p>
           </div>
         )}
 
+        {/* Loading spinner */}
         {loading && (
-          <div className="h-full flex flex-col items-center justify-center gap-4 bg-zinc-900">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-zinc-900 z-10">
             <div className="relative">
               <div className="w-14 h-14 rounded-full border-2 border-indigo-500/30 border-t-indigo-500 animate-spin" />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -126,21 +121,31 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
           </div>
         )}
 
+        {/* Hidden img tag that loads the real image */}
+        {pendingUrl && (
+          <img
+            key={pendingUrl}
+            src={pendingUrl}
+            alt={currentPrompt}
+            className={`w-full h-full object-cover transition-opacity duration-500 ${imgUrl ? "opacity-100" : "opacity-0"}`}
+            onLoad={() => { setImgUrl(pendingUrl); setLoading(false); }}
+            onError={() => { setLoading(false); setPendingUrl(null); }}
+          />
+        )}
+
+        {/* Overlay buttons once loaded */}
         {imgUrl && !loading && (
-          <>
-            <img src={imgUrl} alt={currentPrompt} className="w-full h-full object-cover" />
-            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur text-xs text-white">
-                <Sparkles size={10} className="text-indigo-300" /> {tx.label}
-              </div>
-              <button
-                onClick={regenerate}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <RefreshCw size={10} /> {tx.retry}
-              </button>
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur text-xs text-white">
+              <Sparkles size={10} className="text-indigo-300" /> {tx.label}
             </div>
-          </>
+            <button
+              onClick={regenerate}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur text-xs text-zinc-300 hover:text-white transition-colors"
+            >
+              <RefreshCw size={10} /> {tx.retry}
+            </button>
+          </div>
         )}
       </div>
 

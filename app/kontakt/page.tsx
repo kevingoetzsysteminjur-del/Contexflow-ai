@@ -197,7 +197,7 @@ export default function KontaktPage() {
                       <option value="bis 500€" className="bg-zinc-900">Bis 500 €</option>
                       <option value="500–1.000€" className="bg-zinc-900">500 – 1.000 €</option>
                       <option value="1.000–2.000€" className="bg-zinc-900">1.000 – 2.000 €</option>
-                      <option value="uber 2.000€" className="bg-zinc-900">Über 2.000 €</option>
+                      <option value="über-2000" className="bg-zinc-900">Über 2.000 €</option>
                       <option value="unklar" className="bg-zinc-900">Noch unklar</option>
                     </select>
                   </div>
