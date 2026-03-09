@@ -9,7 +9,6 @@ const projekte = [
     beschreibung:
       "Professionelle Website fur einen Immobilienmakler aus der Region. Klares Design, schnelle Ladezeiten, Kontaktformular und Objektuebersicht. Der erste echte Kunde von Contexflow AI.",
     tags: ["Next.js", "Tailwind CSS", "Immobilien", "Mosbach"],
-    budget: "1.500 €",
     status: "Live",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
     bg: "from-cyan-900/30 to-zinc-900/50",
@@ -88,7 +87,7 @@ export default function ProjektePage() {
 
       {/* Projekte */}
       <section className="max-w-6xl mx-auto px-6 py-24 space-y-10">
-        {projekte.map(({ kuerzel, name, typ, beschreibung, tags, budget, status, demoHref, statusColor, bg, echo, border }: { kuerzel: string; name: string; typ: string; beschreibung: string; tags: string[]; budget: string; status: string; demoHref?: string; statusColor: string; bg: string; echo: string; border: string; accent?: string }) => (
+        {projekte.map(({ kuerzel, name, typ, beschreibung, tags, budget, status, demoHref, statusColor, bg, echo, border }: { kuerzel: string; name: string; typ: string; beschreibung: string; tags: string[]; budget?: string; status: string; demoHref?: string; statusColor: string; bg: string; echo: string; border: string; accent?: string }) => (
           <div
             key={name}
             className={`rounded-3xl border ${border} bg-gradient-to-br ${bg} overflow-hidden`}
@@ -124,11 +123,9 @@ export default function ProjektePage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  {budget !== "Demo" ? (
-                    <p className={`text-xl font-black ${echo}`}>{budget}</p>
-                  ) : (
+                  {budget === "Demo" ? (
                     <p className="text-zinc-600 text-sm">Demo-Projekt</p>
-                  )}
+                  ) : null}
                   {demoHref && (
                     <Link
                       href={demoHref}

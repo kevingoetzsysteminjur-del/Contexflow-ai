@@ -32,7 +32,6 @@ const referenzen = [
   {
     name: "Plan A Immobilien",
     typ: "Immobilien-Website",
-    budget: "1.500 €",
     status: "Live",
     kuerzel: "PA",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
@@ -211,9 +210,6 @@ export default function Home() {
                 </div>
                 <span className={`shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full border ${statusColor}`}>{status}</span>
               </div>
-              {budget !== "Demo" && (
-                <p className="text-cyan-400 font-semibold text-sm mt-3">{budget}</p>
-              )}
             </div>
           ))}
         </div>
