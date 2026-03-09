@@ -7,6 +7,7 @@ import CookieBanner from "@/components/CookieBanner";
 import RainbowBackground from "@/components/RainbowBackground";
 import ChatBot from "@/components/ChatBot";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CookieBanner />
         <ChatBot />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
