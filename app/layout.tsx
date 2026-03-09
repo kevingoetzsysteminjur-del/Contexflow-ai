@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import RainbowBackground from "@/components/RainbowBackground";
+import ChatBot from "@/components/ChatBot";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>{children}</main>
         <Footer />
         <CookieBanner />
+        <ChatBot />
       </body>
     </html>
   );
