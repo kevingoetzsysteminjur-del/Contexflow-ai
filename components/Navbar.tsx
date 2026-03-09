@@ -53,6 +53,12 @@ export default function Navbar() {
         {/* CTA + Mobile Toggle */}
         <div className="flex items-center gap-3">
           <Link
+            href="/demo"
+            className="hidden md:inline-flex px-4 py-2 rounded-lg border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 hover:border-indigo-400 font-semibold text-sm transition-all"
+          >
+            ✦ Demo
+          </Link>
+          <Link
             href="/kontakt"
             className="hidden md:inline-flex px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-semibold text-sm transition-colors"
           >
@@ -81,9 +87,16 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
+            href="/demo"
+            onClick={() => setOpen(false)}
+            className="block mt-3 px-4 py-2.5 rounded-lg border border-indigo-500/40 text-indigo-300 font-semibold text-sm text-center"
+          >
+            ✦ Demo
+          </Link>
+          <Link
             href="/kontakt"
             onClick={() => setOpen(false)}
-            className="block mt-3 px-4 py-2.5 rounded-lg bg-cyan-500 text-zinc-900 font-semibold text-sm text-center"
+            className="block mt-2 px-4 py-2.5 rounded-lg bg-cyan-500 text-zinc-900 font-semibold text-sm text-center"
           >
             Projekt starten
           </Link>
