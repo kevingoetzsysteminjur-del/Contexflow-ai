@@ -126,10 +126,10 @@ export default function Home() {
           {/* Stats */}
           <div className="animate-fade-up-d4 flex flex-wrap gap-8 mt-16 pt-12 border-t border-white/5">
             {[
-              { wert: "3", label: "Projekte" },
-              { wert: "1", label: "Echter Kunde" },
-              { wert: "< 4W", label: "Lieferzeit" },
-              { wert: "500 €", label: "Ab Preis" },
+              { wert: "6", label: "Projekte" },
+              { wert: "3", label: "Echter Kunde" },
+              { wert: "< 2W", label: "Lieferzeit" },
+              { wert: "300 €", label: "Ab Preis" },
             ].map(({ wert, label }) => (
               <div key={label}>
                 <p className="text-2xl font-black text-cyan-400">{wert}</p>
