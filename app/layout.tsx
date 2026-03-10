@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Outfit, Syne, Orbitron } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,8 +9,29 @@ import ChatBot from "@/components/ChatBot";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const outfit = Outfit({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const syne = Syne({
+  variable: "--font-stats",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+});
+
+const orbitron = Orbitron({
+  variable: "--font-logo",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Contexflow AI – Websites die verkaufen",
@@ -20,7 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#05050a]`}>
+      <body className={`${spaceGrotesk.variable} ${outfit.variable} ${syne.variable} ${orbitron.variable} antialiased bg-[#05050a]`}>
         <RainbowBackground />
         <Navbar />
         <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>{children}</main>

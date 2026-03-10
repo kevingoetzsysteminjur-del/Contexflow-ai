@@ -25,7 +25,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2.5 group">
           <WolfLogo />
           <div>
-            <p className="text-white font-bold text-sm leading-tight tracking-wide">Contexflow AI</p>
+            <p className="text-white font-bold text-sm leading-tight tracking-wide" style={{ fontFamily: "var(--font-logo)" }}>Contexflow AI</p>
             <p className="text-cyan-400/70 text-[10px] leading-tight tracking-widest uppercase">Context Engineering</p>
           </div>
         </Link>

@@ -132,7 +132,7 @@ export default function Home() {
               { wert: "300 €", label: "Ab Preis" },
             ].map(({ wert, label }) => (
               <div key={label}>
-                <p className="text-2xl font-black text-cyan-400">{wert}</p>
+                <p className="text-2xl font-black text-cyan-400" style={{ fontFamily: "var(--font-stats)" }}>{wert}</p>
                 <p className="text-zinc-500 text-sm mt-0.5">{label}</p>
               </div>
             ))}
