@@ -127,7 +127,7 @@ export default function Home() {
           <div className="animate-fade-up-d4 flex flex-wrap gap-8 mt-16 pt-12 border-t border-white/5">
             {[
               { wert: "6", label: "Projekte" },
-              { wert: "3", label: "Echter Kunde" },
+              { wert: "4", label: "Echte Kunden" },
               { wert: "< 2W", label: "Lieferzeit" },
               { wert: "300 €", label: "Ab Preis" },
             ].map(({ wert, label }) => (
@@ -193,7 +193,7 @@ export default function Home() {
         <div className="text-center mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Referenzen</p>
           <h2 className="text-4xl font-black text-white mb-4">Meine Projekte</h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">Ein echter Kunde, zwei Demo-Projekte – und mehr kommen.</p>
+          <p className="text-zinc-400 max-w-xl mx-auto">Echte Kunden, echte Ergebnisse – und mehr kommen.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {referenzen.map(({ name, typ, budget, status, kuerzel, statusColor }) => (

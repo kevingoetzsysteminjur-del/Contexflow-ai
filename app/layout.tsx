@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import RainbowBackground from "@/components/RainbowBackground";
 import ChatBot from "@/components/ChatBot";
+import LoadingScreen from "@/components/LoadingScreen";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <body className={`${bricolage.variable} ${dmSans.variable} ${syne.variable} antialiased bg-[#05050a]`}>
+        <LoadingScreen />
         <RainbowBackground />
         <Navbar />
         <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>{children}</main>
