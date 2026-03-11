@@ -38,8 +38,8 @@ export default function LoadingScreen() {
       <Image
         src="/contexflow-logo.svg"
         alt="Contexflow AI"
-        width={200}
-        height={60}
+        width={320}
+        height={96}
         priority
         style={{ objectFit: "contain" }}
       />
