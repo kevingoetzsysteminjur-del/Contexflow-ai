@@ -14,34 +14,31 @@ export default function KontaktPage() {
   });
   const [gesendet, setGesendet] = useState(false);
   const [laden, setLaden] = useState(false);
+  const [fehler, setFehler] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) return;
     setLaden(true);
+    setFehler("");
 
-    const subject = encodeURIComponent(
-      `Anfrage: ${form.leistung || "Website"} – ${form.name}${form.firma ? ` (${form.firma})` : ""}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\n` +
-      `E-Mail: ${form.email}\n` +
-      `Firma: ${form.firma || "–"}\n` +
-      `Leistung: ${form.leistung || "–"}\n` +
-      `Budget: ${form.budget || "–"}\n\n` +
-      `Nachricht:\n${form.nachricht}`
-    );
-
-    window.location.href = `mailto:contexflow.ai@gmx.net?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
-      setLaden(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
       setGesendet(true);
-    }, 1000);
+    } catch {
+      setFehler("Etwas ist schiefgelaufen. Bitte schreib direkt an contexflow.ai@gmx.net.");
+    } finally {
+      setLaden(false);
+    }
   }
 
   return (
@@ -234,6 +231,9 @@ export default function KontaktPage() {
                   )}
                 </button>
 
+                {fehler && (
+                  <p className="text-red-400 text-xs text-center">{fehler}</p>
+                )}
                 <p className="text-zinc-600 text-xs text-center">
                   * Pflichtfelder. Deine Daten werden vertraulich behandelt.
                 </p>
