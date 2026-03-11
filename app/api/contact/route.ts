@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "Kontaktformular <onboarding@resend.dev>",
+      from: "Kontaktformular <noreply@contexflow.com>",
       to: "contexflow.ai@gmx.net",
       replyTo: email,
       subject: `Anfrage: ${leistung || "Website"} – ${name}${firma ? ` (${firma})` : ""}`,
