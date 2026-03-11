@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Outfit, Syne, Orbitron } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,28 +9,28 @@ import ChatBot from "@/components/ChatBot";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const spaceGrotesk = Space_Grotesk({
+// Premium heading font — modern, distinctive, tech-forward
+const bricolage = Bricolage_Grotesque({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const outfit = Outfit({
+// Clean, highly readable body font
+const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
+// Logo + stats — geometric, strong
 const syne = Syne({
-  variable: "--font-stats",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-});
-
-const orbitron = Orbitron({
   variable: "--font-logo",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body className={`${spaceGrotesk.variable} ${outfit.variable} ${syne.variable} ${orbitron.variable} antialiased bg-[#05050a]`}>
+      <body className={`${bricolage.variable} ${dmSans.variable} ${syne.variable} antialiased bg-[#05050a]`}>
         <RainbowBackground />
         <Navbar />
         <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>{children}</main>

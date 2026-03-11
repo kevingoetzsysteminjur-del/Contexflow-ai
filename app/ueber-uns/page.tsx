@@ -40,7 +40,7 @@ const timeline = [
   { jahr: "2024", ereignis: "AI entdeckt", detail: "Erste Experimente mit Claude und GPT. Faszination für Context Engineering – wie man AI wirklich nützlich macht." },
   { jahr: "2025", ereignis: "Erste Websites gebaut", detail: "Selbst beigebracht: Next.js, Tailwind, moderne Webentwicklung. Mehrere eigene Projekte zum Üben." },
   { jahr: "Anfang 2026", ereignis: "Contexflow AI gegründet", detail: "Gewerbeanmeldung in Mosbach. Klare Ausrichtung: Websites + Context Engineering für lokale Unternehmen." },
-  { jahr: "März 2026", ereignis: "Erster Kunde: Plan A Immobilien", detail: "Ali Artun vertraut mir – und ich liefere. Die erste Live-Website für ein echtes Unternehmen. Der Anfang." },
+  { jahr: "März 2026", ereignis: "Erste echte Kunden", detail: "4 echte Projekte, 4 echte Unternehmen. Der Anfang von etwas Größerem." },
   { jahr: "Heute", ereignis: "Offen für neue Kunden", detail: "Ich bin am Anfang – ehrlich gesagt. Aber ich bin hungrig, lernfähig und liefere echte Qualität. Das nächste Projekt wartet." },
 ];
 
@@ -82,7 +82,7 @@ export default function UeberUnsPage() {
                 Context Engineering bedeutet für mich: AI-Systemen den richtigen Rahmen geben, damit sie wirklich helfen. Nicht einfach Prompts schreiben – sondern verstehen wie Maschinen denken, und das gezielt nutzen.
               </p>
               <p>
-                Ich bin ehrlich: Ich stehe am Anfang. Mein erster Kunde ist Plan A Immobilien aus Mosbach – und ich bin stolz auf das, was ich dort geliefert habe. Jetzt suche ich das nächste Projekt, den nächsten Menschen dem ich wirklich helfen kann.
+                Ich bin ehrlich: Ich stehe am Anfang. Aber ich habe bereits echte Projekte für echte Unternehmen geliefert – und bin hungrig auf das nächste.
               </p>
             </div>
           </div>
