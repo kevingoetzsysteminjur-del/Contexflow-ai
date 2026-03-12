@@ -1,88 +1,96 @@
 "use client";
-
 import { useState } from "react";
 
-const techs = [
-  { name: "Next.js", sub: "Framework" },
-  { name: "Tailwind", sub: "Styling" },
-  { name: "shadcn/ui", sub: "Components" },
-  { name: "Claude", sub: "AI Engine" },
-  { name: "Vercel", sub: "Deploy" },
-  { name: "Supabase", sub: "Database" },
-];
+const TECHS = ["Next.js", "Tailwind CSS", "shadcn/ui", "Claude AI", "Vercel", "Supabase"];
 
 export default function TechStack() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section style={{ background: "#050508", padding: "clamp(4rem, 8vw, 7rem) 1.5rem" }}>
-      <div style={{ maxWidth: "56rem", margin: "0 auto" }}>
+    <section
+      style={{
+        background: "#030305",
+        padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <p
           style={{
-            color: "#6366F1",
-            fontSize: "11px",
+            fontSize: 11,
             letterSpacing: "0.4em",
             textTransform: "uppercase",
-            marginBottom: "clamp(2.5rem, 5vw, 4rem)",
+            color: "#6366F1",
+            marginBottom: "1rem",
+            margin: "0 0 1rem 0",
           }}
         >
-          Stack
+          TOOLS
         </p>
+        <h2
+          style={{
+            fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+            fontWeight: 200,
+            color: "#F5F5F7",
+            marginBottom: "3rem",
+            margin: "0 0 3rem 0",
+          }}
+        >
+          Mein Stack
+        </h2>
 
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "0",
-            borderTop: "1px solid #111120",
+            gap: "clamp(2rem, 4vw, 3rem)",
           }}
         >
-          {techs.map((t, i) => (
+          {TECHS.map((tech, i) => (
             <div
               key={i}
+              style={{ position: "relative", display: "inline-block" }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              style={{
-                width: "calc(100% / 3)",
-                padding: "clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2vw, 1.75rem)",
-                borderBottom: "1px solid #111120",
-                borderRight: (i + 1) % 3 === 0 ? "none" : "1px solid #111120",
-                cursor: "default",
-                transition: "background 0.25s",
-                background: hovered === i ? "rgba(99,102,241,0.05)" : "transparent",
-              }}
             >
-              <p
+              <span
                 style={{
-                  fontFamily: "var(--font-heading), sans-serif",
-                  fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
-                  fontWeight: 200,
-                  letterSpacing: "0.1em",
-                  color: hovered === i ? "#6366F1" : "white",
-                  transition: "color 0.25s",
-                  marginBottom: "4px",
+                  fontSize: 16,
+                  fontWeight: 300,
+                  color: hovered === i ? "#F5F5F7" : "#374151",
+                  transition: "color 0.3s ease",
+                  cursor: "default",
+                  display: "block",
                 }}
               >
-                {t.name}
-              </p>
-              <p style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#374151" }}>
-                {t.sub}
-              </p>
+                {tech}
+              </span>
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: -4,
+                  left: 0,
+                  right: 0,
+                  height: 1,
+                  background: "#6366F1",
+                  transform: hovered === i ? "scaleX(1)" : "scaleX(0)",
+                  transformOrigin: "left",
+                  transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+              />
             </div>
           ))}
         </div>
 
         <p
           style={{
-            marginTop: "clamp(2rem, 4vw, 3rem)",
-            fontSize: "13px",
-            lineHeight: 1.8,
+            fontSize: 14,
             color: "#4B5563",
-            letterSpacing: "0.02em",
-            maxWidth: "36rem",
+            fontStyle: "italic",
+            marginTop: "2.5rem",
+            margin: "2.5rem 0 0 0",
           }}
         >
-          Ich nutze die modernsten Tools. Nicht weil es trendy ist, sondern weil es schneller bessere Ergebnisse liefert.
+          Ich nutze nicht was trendy ist. Ich nutze was funktioniert.
         </p>
       </div>
     </section>

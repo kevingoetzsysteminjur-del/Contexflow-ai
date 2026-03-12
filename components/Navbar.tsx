@@ -1,125 +1,172 @@
 "use client";
-
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
-const links = [
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/projekte", label: "Projekte" },
-  { href: "/preise", label: "Preise" },
-  { href: "/ueber-uns", label: "Über uns" },
-  { href: "/kontakt", label: "Kontakt" },
+const NAV_LINKS = [
+  { href: "/", label: "START" },
+  { href: "/projekte", label: "WORK" },
+  { href: "/leistungen", label: "SERVICES" },
+  { href: "/ueber-uns", label: "ABOUT" },
+  { href: "/kontakt", label: "CONTACT" },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", h);
-    return () => window.removeEventListener("scroll", h);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <>
-      <header
+      <style>{`
+        @media (max-width: 639px) { .nav-desktop { display: none !important; } }
+        @media (min-width: 640px) { .nav-mobile-btn { display: none !important; } }
+      `}</style>
+
+      <nav
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 1000,
-          height: "64px",
-          display: "flex",
-          alignItems: "center",
-          background: scrolled ? "rgba(5,5,8,0.85)" : "transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid #111120" : "none",
-          transition: "background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease",
-          padding: "0 clamp(1rem, 3vw, 2rem)",
+          zIndex: 9999,
+          height: 64,
+          background: scrolled ? "rgba(3,3,5,0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+          transition: "background 0.4s ease",
         }}
       >
-        {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
-          <Image
-            src="/contexflow-logo.svg"
-            alt="Contexflow AI"
-            width={130}
-            height={38}
-            style={{ objectFit: "contain" }}
-            priority
-          />
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav
+        <div
           style={{
-            marginLeft: "auto",
+            maxWidth: 1200,
+            margin: "0 auto",
+            padding: "0 clamp(1.5rem, 4vw, 2.5rem)",
+            height: "100%",
             display: "flex",
             alignItems: "center",
-            gap: "clamp(1rem, 2.5vw, 2rem)",
+            justifyContent: "space-between",
           }}
-          className="desktop-nav"
         >
-          {links.map(({ href, label }) => {
-            const active = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                style={{
-                  fontSize: "11px",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: active ? "#6366F1" : "#6B7280",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={e => { if (!active) (e.target as HTMLElement).style.color = "white"; }}
-                onMouseLeave={e => { if (!active) (e.target as HTMLElement).style.color = "#6B7280"; }}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          style={{
-            marginLeft: "auto",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            display: "none",
-            padding: "8px",
-          }}
-          className="mobile-toggle"
-          aria-label="Menu"
-        >
-          <div
+          <Link
+            href="/"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "5px",
+              fontSize: 12,
+              letterSpacing: "0.3em",
+              fontWeight: 300,
+              color: "#F5F5F7",
+              textDecoration: "none",
+              textTransform: "uppercase",
             }}
           >
-            <span style={{ width: 22, height: 1, background: open ? "transparent" : "white", transition: "all 0.3s", display: "block", transform: open ? "rotate(45deg) translateY(6px)" : "none" }} />
-            <span style={{ width: 22, height: 1, background: "white", transition: "all 0.3s", display: "block", transform: open ? "rotate(-45deg)" : "none" }} />
-            {!open && <span style={{ width: 14, height: 1, background: "#6366F1", display: "block" }} />}
-          </div>
-        </button>
-      </header>
+            CONTEXFLOW
+          </Link>
 
-      {/* Mobile fullscreen overlay */}
+          {/* Desktop nav */}
+          <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                style={{
+                  fontSize: 11,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: pathname === link.href ? "#6366F1" : "#6B7280",
+                  textDecoration: "none",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "#F5F5F7";
+                }}
+                onMouseLeave={(e) => {
+                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "#6B7280";
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <Link
+              href="/kontakt"
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                border: "1px solid #6366F1",
+                background: "transparent",
+                color: "#F5F5F7",
+                fontSize: 11,
+                letterSpacing: "0.1em",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                transition: "background 0.2s ease",
+                flexShrink: 0,
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#6366F1"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+            >
+              CF
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="nav-mobile-btn"
+            onClick={() => setOpen(!open)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 8,
+              display: "flex",
+              flexDirection: "column",
+              gap: 8,
+              alignItems: "flex-end",
+            }}
+            aria-label="Menu"
+          >
+            <span
+              style={{
+                display: "block",
+                width: 24,
+                height: 1,
+                background: "#F5F5F7",
+                transformOrigin: "center",
+                transition: "transform 0.3s ease",
+                transform: open ? "rotate(45deg) translateY(4.5px)" : "none",
+              }}
+            />
+            <span
+              style={{
+                display: "block",
+                width: open ? 24 : 16,
+                height: 1,
+                background: "#6366F1",
+                transformOrigin: "center",
+                transition: "transform 0.3s ease, width 0.3s ease",
+                transform: open ? "rotate(-45deg) translateY(-4.5px)" : "none",
+              }}
+            />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -130,61 +177,47 @@ export default function Navbar() {
             style={{
               position: "fixed",
               inset: 0,
-              background: "#050508",
-              zIndex: 999,
+              background: "#030305",
+              zIndex: 9990,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "2.5rem",
+              gap: "2rem",
             }}
           >
-            {links.map(({ href, label }, i) => (
+            {NAV_LINKS.map((link, i) => (
               <motion.div
-                key={href}
-                initial={{ opacity: 0, y: 20 }}
+                key={link.href}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 }}
+                transition={{ delay: i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link
-                  href={href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
                   style={{
-                    fontFamily: "var(--font-heading), sans-serif",
-                    fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
+                    fontSize: "clamp(2.5rem, 7vw, 4rem)",
                     fontWeight: 200,
-                    letterSpacing: "0.25em",
+                    letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: pathname === href ? "#6366F1" : "white",
+                    color: pathname === link.href ? "#6366F1" : "#F5F5F7",
                     textDecoration: "none",
+                    display: "block",
+                    transition: "color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = pathname === link.href ? "#6366F1" : "#F5F5F7";
                   }}
                 >
-                  {label}
+                  {link.label}
                 </Link>
               </motion.div>
             ))}
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.45 }}
-              style={{ fontSize: "11px", letterSpacing: "0.25em", color: "#374151", textTransform: "uppercase", marginTop: "1rem" }}
-            >
-              Contexflow AI · Mosbach
-            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style>{`
-        @media (min-width: 640px) {
-          .desktop-nav { display: flex !important; }
-          .mobile-toggle { display: none !important; }
-        }
-        @media (max-width: 639px) {
-          .desktop-nav { display: none !important; }
-          .mobile-toggle { display: flex !important; }
-        }
-      `}</style>
     </>
   );
 }
