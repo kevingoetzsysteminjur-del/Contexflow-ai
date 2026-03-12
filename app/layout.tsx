@@ -7,6 +7,7 @@ import CookieBanner from "@/components/CookieBanner";
 import RainbowBackground from "@/components/RainbowBackground";
 import ChatBot from "@/components/ChatBot";
 import LoadingScreen from "@/components/LoadingScreen";
+import CustomCursor from "@/components/CustomCursor";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -14,7 +15,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body className={`${bricolage.variable} ${dmSans.variable} ${syne.variable} antialiased bg-[#05050a]`}>
         <LoadingScreen />
+        <CustomCursor />
         <RainbowBackground />
         <Navbar />
         <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>{children}</main>

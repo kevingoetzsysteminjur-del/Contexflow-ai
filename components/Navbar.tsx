@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "/", label: "Start" },
   { href: "/leistungen", label: "Leistungen" },
   { href: "/projekte", label: "Projekte" },
   { href: "/preise", label: "Preise" },
@@ -17,32 +17,73 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", h);
+    return () => window.removeEventListener("scroll", h);
+  }, []);
+
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#05050a]/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <>
+      <header
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          height: "64px",
+          display: "flex",
+          alignItems: "center",
+          background: scrolled ? "rgba(5,5,8,0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled ? "1px solid #111120" : "none",
+          transition: "background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease",
+          padding: "0 clamp(1rem, 3vw, 2rem)",
+        }}
+      >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <WolfLogo />
-          <div>
-            <p className="text-white font-bold text-sm leading-tight tracking-wide" style={{ fontFamily: "var(--font-logo)" }}>Contexflow AI</p>
-            <p className="text-cyan-400/70 text-[10px] leading-tight tracking-widest uppercase">Context Engineering</p>
-          </div>
+        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+          <Image
+            src="/contexflow-logo.svg"
+            alt="Contexflow AI"
+            width={130}
+            height={38}
+            style={{ objectFit: "contain" }}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav
+          style={{
+            marginLeft: "auto",
+            display: "flex",
+            alignItems: "center",
+            gap: "clamp(1rem, 2.5vw, 2rem)",
+          }}
+          className="desktop-nav"
+        >
           {links.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  active
-                    ? "text-cyan-400 bg-cyan-400/10"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
-                }`}
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: active ? "#6366F1" : "#6B7280",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={e => { if (!active) (e.target as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { if (!active) (e.target as HTMLElement).style.color = "#6B7280"; }}
               >
                 {label}
               </Link>
@@ -50,72 +91,100 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* CTA + Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <Link
-            href="/demo"
-            className="hidden md:inline-flex px-4 py-2 rounded-lg border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 hover:border-indigo-400 font-semibold text-sm transition-all"
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setOpen(!open)}
+          style={{
+            marginLeft: "auto",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            display: "none",
+            padding: "8px",
+          }}
+          className="mobile-toggle"
+          aria-label="Menu"
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "5px",
+            }}
           >
-            ✦ Demo
-          </Link>
-          <Link
-            href="/kontakt"
-            className="hidden md:inline-flex px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-semibold text-sm transition-colors"
-          >
-            Projekt starten
-          </Link>
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden text-zinc-400 hover:text-white transition-colors"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
+            <span style={{ width: 22, height: 1, background: open ? "transparent" : "white", transition: "all 0.3s", display: "block", transform: open ? "rotate(45deg) translateY(6px)" : "none" }} />
+            <span style={{ width: 22, height: 1, background: "white", transition: "all 0.3s", display: "block", transform: open ? "rotate(-45deg)" : "none" }} />
+            {!open && <span style={{ width: 14, height: 1, background: "#6366F1", display: "block" }} />}
+          </div>
+        </button>
+      </header>
 
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden border-t border-white/5 bg-[#05050a]/95 backdrop-blur-xl px-6 py-4 space-y-1">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="block px-4 py-2.5 rounded-lg text-zinc-300 hover:text-white hover:bg-white/5 text-sm font-medium transition-colors"
+      {/* Mobile fullscreen overlay */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "#050508",
+              zIndex: 999,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "2.5rem",
+            }}
+          >
+            {links.map(({ href, label }, i) => (
+              <motion.div
+                key={href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.07 }}
+              >
+                <Link
+                  href={href}
+                  style={{
+                    fontFamily: "var(--font-heading), sans-serif",
+                    fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
+                    fontWeight: 200,
+                    letterSpacing: "0.25em",
+                    textTransform: "uppercase",
+                    color: pathname === href ? "#6366F1" : "white",
+                    textDecoration: "none",
+                  }}
+                >
+                  {label}
+                </Link>
+              </motion.div>
+            ))}
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.45 }}
+              style={{ fontSize: "11px", letterSpacing: "0.25em", color: "#374151", textTransform: "uppercase", marginTop: "1rem" }}
             >
-              {label}
-            </Link>
-          ))}
-          <Link
-            href="/demo"
-            onClick={() => setOpen(false)}
-            className="block mt-3 px-4 py-2.5 rounded-lg border border-indigo-500/40 text-indigo-300 font-semibold text-sm text-center"
-          >
-            ✦ Demo
-          </Link>
-          <Link
-            href="/kontakt"
-            onClick={() => setOpen(false)}
-            className="block mt-2 px-4 py-2.5 rounded-lg bg-cyan-500 text-zinc-900 font-semibold text-sm text-center"
-          >
-            Projekt starten
-          </Link>
-        </div>
-      )}
-    </header>
-  );
-}
+              Contexflow AI · Mosbach
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-function WolfLogo() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer ring */}
-      <circle cx="18" cy="18" r="17" stroke="#22d3ee" strokeWidth="1" strokeOpacity="0.3" />
-      {/* Wolf head - geometric */}
-      <path d="M10 8 L14 16 L10 16 L18 28 L26 16 L22 16 L26 8 L20 12 L18 6 L16 12 Z" fill="#22d3ee" fillOpacity="0.9" />
-      {/* Eyes */}
-      <circle cx="15" cy="19" r="1.5" fill="#05050a" />
-      <circle cx="21" cy="19" r="1.5" fill="#05050a" />
-    </svg>
+      <style>{`
+        @media (min-width: 640px) {
+          .desktop-nav { display: flex !important; }
+          .mobile-toggle { display: none !important; }
+        }
+        @media (max-width: 639px) {
+          .desktop-nav { display: none !important; }
+          .mobile-toggle { display: flex !important; }
+        }
+      `}</style>
+    </>
   );
 }
