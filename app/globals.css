@@ -14,12 +14,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Custom cursor — hide default on desktop */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-  a, button { cursor: none !important; }
-}
-
 @keyframes scroll-pulse {
   0%, 100% { opacity: 0.3; transform: scaleY(0.85); }
   50% { opacity: 1; transform: scaleY(1); }

@@ -2,29 +2,16 @@
 
 import { useEffect, useState } from "react";
 
-const WORD = "CONTEXFLOW";
-const LETTERS = WORD.split("");
-
 export default function LoadingScreen() {
-  const [shown, setShown] = useState<boolean[]>(new Array(LETTERS.length).fill(false));
-  const [fadeOut, setFadeOut] = useState(false);
+  const [step, setStep] = useState(0); // 0=hidden, 1=word shown, 2=ai shown, 3=fading
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    LETTERS.forEach((_, i) => {
-      setTimeout(() => {
-        setShown(prev => {
-          const next = [...prev];
-          next[i] = true;
-          return next;
-        });
-      }, 80 + i * 130);
-    });
-
-    const totalReveal = 80 + LETTERS.length * 130 + 500;
-    const t1 = setTimeout(() => setFadeOut(true), totalReveal);
-    const t2 = setTimeout(() => setGone(true), totalReveal + 700);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t1 = setTimeout(() => setStep(1), 100);
+    const t2 = setTimeout(() => setStep(2), 1500);
+    const t3 = setTimeout(() => setStep(3), 2800);
+    const t4 = setTimeout(() => setGone(true), 3600);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   if (gone) return null;
@@ -39,64 +26,39 @@ export default function LoadingScreen() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "column",
-        gap: "2rem",
-        opacity: fadeOut ? 0 : 1,
-        transition: "opacity 0.7s ease",
-        pointerEvents: fadeOut ? "none" : "all",
+        opacity: step === 3 ? 0 : 1,
+        transition: step === 3 ? "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+        pointerEvents: step === 3 ? "none" : "all",
       }}
     >
-      <div style={{ display: "flex", letterSpacing: "0.3em" }}>
-        {LETTERS.map((letter, i) => (
-          <span
-            key={i}
-            style={{
-              fontFamily: "var(--font-heading), sans-serif",
-              fontSize: "clamp(1.75rem, 5vw, 3.5rem)",
-              fontWeight: 200,
-              color: "white",
-              opacity: shown[i] ? 1 : 0,
-              transform: shown[i] ? "translateY(0)" : "translateY(16px)",
-              transition: "opacity 0.45s ease, transform 0.45s ease",
-              display: "inline-block",
-            }}
-          >
-            {letter}
-          </span>
-        ))}
+      <div style={{ display: "flex", alignItems: "baseline", letterSpacing: "0.3em" }}>
         <span
           style={{
             fontFamily: "var(--font-heading), sans-serif",
-            fontSize: "clamp(1.75rem, 5vw, 3.5rem)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontWeight: 200,
+            color: "white",
+            opacity: step >= 1 ? 1 : 0,
+            transform: step >= 1 ? "translateY(0)" : "translateY(12px)",
+            transition: "opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        >
+          CONTEXFLOW
+        </span>
+        <span
+          style={{
+            fontFamily: "var(--font-heading), sans-serif",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
             fontWeight: 200,
             color: "#6366F1",
-            opacity: shown[LETTERS.length - 1] ? 1 : 0,
-            transform: shown[LETTERS.length - 1] ? "translateY(0)" : "translateY(16px)",
-            transition: "opacity 0.45s ease, transform 0.45s ease",
-            display: "inline-block",
+            opacity: step >= 2 ? 1 : 0,
+            transform: step >= 2 ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
           .AI
         </span>
       </div>
-
-      {/* Loading bar */}
-      <div style={{ width: "40px", height: "1px", background: "#111120", position: "relative", overflow: "hidden" }}>
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "#6366F1",
-          animation: "loading-fill 1.8s ease forwards",
-          boxShadow: "0 0 6px rgba(99,102,241,0.8)",
-        }} />
-      </div>
-
-      <style>{`
-        @keyframes loading-fill {
-          from { transform: scaleX(0); transform-origin: left; }
-          to { transform: scaleX(1); transform-origin: left; }
-        }
-      `}</style>
     </div>
   );
 }

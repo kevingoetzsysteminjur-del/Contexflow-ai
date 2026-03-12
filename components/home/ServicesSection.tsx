@@ -1,20 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
     number: "01",
     title: "WEBSITES",
     desc: "Moderne, blitzschnelle Seiten die Kunden konvertieren. Next.js, Tailwind, deployed in Tagen.",
-    detail: "Von der Landingpage bis zur komplexen Business-Website. Jede Seite ist mobile-first, SEO-optimiert und auf Conversion ausgelegt. Kein Page-Builder, kein WordPress – echte Architektur.",
+    detail: "Von der Landingpage bis zur komplexen Business-Website. Mobile-first, SEO-optimiert, auf Conversion ausgelegt. Kein Page-Builder, kein WordPress – echte Architektur.",
   },
   {
     number: "02",
     title: "AI INTEGRATION",
     desc: "Chatbots, Automatisierung, smarte Workflows. KI die für dein Business arbeitet.",
-    detail: "Ich integriere KI direkt in deine Prozesse. Kunden-Chatbots, automatische Antworten, smarte Formulare – alles was dir Stunden spart und Kunden beeindruckt.",
+    detail: "Ich integriere KI direkt in deine Prozesse. Kunden-Chatbots, automatische Antworten, smarte Formulare – alles was dir Zeit spart und Kunden beeindruckt.",
   },
   {
     number: "03",
@@ -30,113 +29,93 @@ export default function ServicesSection() {
   return (
     <section style={{ background: "#050508", padding: "clamp(4rem, 8vw, 7rem) 0" }}>
       <div style={{ maxWidth: "56rem", margin: "0 auto", padding: "0 1.5rem" }}>
-        <p
-          style={{
-            color: "#6366F1",
-            fontSize: "11px",
-            letterSpacing: "0.4em",
-            textTransform: "uppercase",
-            marginBottom: "clamp(2.5rem, 5vw, 4rem)",
-          }}
-        >
+        <p style={{ color: "#6366F1", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
           Leistungen
         </p>
 
         <div>
           {services.map((s, i) => (
             <div key={i}>
-              {i > 0 && <div style={{ height: "1px", background: "#111120" }} />}
+              {i > 0 && <div style={{ height: "1px", background: "#0d0d18" }} />}
+
               <div
                 onMouseEnter={() => setActive(i)}
                 onMouseLeave={() => setActive(null)}
-                style={{ position: "relative", cursor: "default" }}
+                style={{
+                  position: "relative",
+                  padding: "2rem 0",
+                  transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transform: active === i ? "scale(1.01)" : "scale(1)",
+                  cursor: "default",
+                }}
               >
-                {/* Giant background number */}
+                {/* Background number */}
                 <div
                   style={{
                     position: "absolute",
                     right: 0,
-                    top: 0,
+                    top: "50%",
+                    transform: "translateY(-50%)",
                     fontSize: "clamp(5rem, 10vw, 8rem)",
                     fontWeight: 900,
                     color: "#6366F1",
-                    opacity: active === i ? 0.07 : 0.03,
+                    opacity: active === i ? 0.06 : 0.025,
                     lineHeight: 1,
                     userSelect: "none",
                     pointerEvents: "none",
                     fontFamily: "var(--font-heading), sans-serif",
-                    transition: "opacity 0.4s",
+                    transition: "opacity 0.7s ease",
                   }}
                 >
                   {s.number}
                 </div>
 
-                <motion.div
-                  initial={false}
-                  animate={{ height: active === i ? "auto" : 110 }}
-                  transition={{ duration: 0.45, ease: [0.04, 0.62, 0.23, 0.98] }}
-                  style={{ overflow: "hidden", minHeight: 110 }}
-                >
-                  <div style={{ padding: "2rem 0", display: "flex", gap: "2rem", alignItems: "flex-start" }}>
-                    <span
+                <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+                  <span style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#6366F1", paddingTop: "4px", flexShrink: 0 }}>
+                    {s.number}
+                  </span>
+                  <div style={{ flex: 1 }}>
+                    <h3
                       style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.3em",
-                        textTransform: "uppercase",
-                        color: "#6366F1",
-                        paddingTop: "4px",
-                        flexShrink: 0,
-                        fontFamily: "var(--font-body), sans-serif",
+                        fontFamily: "var(--font-heading), sans-serif",
+                        fontSize: "clamp(1.25rem, 2.5vw, 1.875rem)",
+                        fontWeight: 200,
+                        letterSpacing: "0.15em",
+                        color: active === i ? "#ffffff" : "#6B7280",
+                        marginBottom: "0.75rem",
+                        transition: "color 0.6s ease",
                       }}
                     >
-                      {s.number}
-                    </span>
-                    <div style={{ flex: 1 }}>
-                      <h3
-                        style={{
-                          fontFamily: "var(--font-heading), sans-serif",
-                          fontSize: "clamp(1.25rem, 2.5vw, 1.875rem)",
-                          fontWeight: 200,
-                          letterSpacing: "0.15em",
-                          color: active === i ? "#ffffff" : "#9CA3AF",
-                          marginBottom: "0.75rem",
-                          transition: "color 0.3s",
-                        }}
-                      >
-                        {s.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          lineHeight: 1.7,
-                          color: "#4B5563",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {s.desc}
-                      </p>
-                      <AnimatePresence>
-                        {active === i && (
-                          <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 6 }}
-                            transition={{ duration: 0.35 }}
-                            style={{
-                              marginTop: "1rem",
-                              fontSize: "13px",
-                              lineHeight: 1.8,
-                              color: "#6B7280",
-                              letterSpacing: "0.02em",
-                            }}
-                          >
-                            {s.detail}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                      {s.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        lineHeight: 1.75,
+                        color: "#374151",
+                        letterSpacing: "0.02em",
+                        transition: "color 0.6s ease",
+                      }}
+                    >
+                      {s.desc}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        lineHeight: 1.8,
+                        color: "#4B5563",
+                        letterSpacing: "0.02em",
+                        marginTop: "0.75rem",
+                        opacity: active === i ? 1 : 0,
+                        transition: "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
+                        maxHeight: active === i ? "100px" : 0,
+                        overflow: "hidden",
+                      }}
+                    >
+                      {s.detail}
+                    </p>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           ))}

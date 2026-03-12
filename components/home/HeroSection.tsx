@@ -26,11 +26,17 @@ export default function HeroSection() {
       if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      const count = window.innerWidth < 768 ? 55 : 130;
+      // Max 50 particles – atmospheric, not overwhelming
+      const count = window.innerWidth < 768 ? 22 : 50;
       particles = Array.from({ length: count }, () => {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        return { x, y, ox: x, oy: y, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35, op: 0.08 + Math.random() * 0.22 };
+        return {
+          x, y, ox: x, oy: y,
+          vx: (Math.random() - 0.5) * 0.15,  // very slow
+          vy: (Math.random() - 0.5) * 0.15,
+          op: 0.06 + Math.random() * 0.14,    // very subtle
+        };
       });
     }
 
@@ -40,33 +46,34 @@ export default function HeroSection() {
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
         const d = Math.hypot(dx, dy);
-        if (d < 160 && d > 0) {
-          const f = (160 - d) / 160;
-          p.vx += (dx / d) * f * 0.07;
-          p.vy += (dy / d) * f * 0.07;
+        if (d < 180 && d > 0) {
+          const f = (180 - d) / 180;
+          p.vx += (dx / d) * f * 0.025;  // gentle pull
+          p.vy += (dy / d) * f * 0.025;
         }
-        p.vx += (p.ox - p.x) * 0.003;
-        p.vy += (p.oy - p.y) * 0.003;
-        p.vx *= 0.93;
-        p.vy *= 0.93;
+        p.vx += (p.ox - p.x) * 0.002;
+        p.vy += (p.oy - p.y) * 0.002;
+        p.vx *= 0.96;  // more damping = slower
+        p.vy *= 0.96;
         p.x += p.vx;
         p.y += p.vy;
-        const boost = d < 160 ? (160 - d) / 160 * 0.38 : 0;
+        const boost = d < 180 ? (180 - d) / 180 * 0.2 : 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99,102,241,${Math.min(p.op + boost, 0.65)})`;
+        ctx.fillStyle = `rgba(99,102,241,${Math.min(p.op + boost, 0.4)})`;
         ctx.fill();
       }
+      // Connections – sparse and subtle
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const d = Math.hypot(dx, dy);
-          if (d < 115) {
+          if (d < 140) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(99,102,241,${(1 - d / 115) * 0.13})`;
+            ctx.strokeStyle = `rgba(99,102,241,${(1 - d / 140) * 0.08})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -103,7 +110,6 @@ export default function HeroSection() {
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
       />
 
-      {/* Content */}
       <div
         style={{
           position: "relative",
@@ -113,12 +119,11 @@ export default function HeroSection() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: "64px",
           textAlign: "center",
           padding: "64px 24px 0",
         }}
       >
-        <div>
+        <div style={{ animation: "hero-fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) both" }}>
           <p
             style={{
               fontFamily: "var(--font-heading), sans-serif",
@@ -127,7 +132,7 @@ export default function HeroSection() {
               color: "white",
               letterSpacing: "0.3em",
               lineHeight: 1,
-              textShadow: "0 0 80px rgba(99,102,241,0.25), 0 0 40px rgba(99,102,241,0.15)",
+              textShadow: "0 0 60px rgba(99,102,241,0.18)",
               margin: 0,
             }}
           >
@@ -141,8 +146,9 @@ export default function HeroSection() {
               color: "#6366F1",
               letterSpacing: "0.3em",
               lineHeight: 1.1,
-              textShadow: "0 0 80px rgba(99,102,241,0.55), 0 0 40px rgba(99,102,241,0.35)",
+              textShadow: "0 0 60px rgba(99,102,241,0.4)",
               margin: 0,
+              animation: "hero-fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.3s both",
             }}
           >
             .AI
@@ -152,10 +158,11 @@ export default function HeroSection() {
         <p
           style={{
             marginTop: "3rem",
-            color: "#4B5563",
-            fontSize: "13px",
+            color: "#374151",
+            fontSize: "12px",
             letterSpacing: "0.25em",
             textTransform: "uppercase",
+            animation: "hero-fade-in 1s ease 2.2s both",
           }}
         >
           Context Engineering · Mosbach · 2026
@@ -173,18 +180,25 @@ export default function HeroSection() {
           flexDirection: "column",
           alignItems: "center",
           gap: "6px",
+          animation: "hero-fade-in 1s ease 2.8s both",
         }}
       >
-        <span style={{ color: "#374151", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase" }}>Scroll</span>
         <div
           style={{
             width: "1px",
-            height: "50px",
-            background: "linear-gradient(to bottom, transparent, #6366F1)",
-            animation: "scroll-pulse 2s ease-in-out infinite",
+            height: "48px",
+            background: "linear-gradient(to bottom, transparent, #6366F160)",
+            animation: "scroll-pulse 3s ease-in-out infinite",
           }}
         />
       </div>
+
+      <style>{`
+        @keyframes hero-fade-in {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }

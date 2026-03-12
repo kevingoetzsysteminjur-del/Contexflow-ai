@@ -11,6 +11,10 @@ const stats = [
   { end: 300, suffix: "€", label: "Ab Preis" },
 ];
 
+function easeOutCubic(t: number): number {
+  return 1 - Math.pow(1 - t, 3);
+}
+
 function CountStat({ end, suffix, prefix, label }: { end: number; suffix: string; prefix?: string; label: string }) {
   const [val, setVal] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -20,14 +24,18 @@ function CountStat({ end, suffix, prefix, label }: { end: number; suffix: string
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !triggered.current) {
         triggered.current = true;
-        let current = 0;
-        const steps = 40;
-        const increment = Math.ceil(end / steps);
-        const timer = setInterval(() => {
-          current = Math.min(current + increment, end);
-          setVal(current);
-          if (current >= end) clearInterval(timer);
-        }, 30);
+        const duration = 2200;
+        const startTime = performance.now();
+
+        function step(now: number) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeOutCubic(progress);
+          setVal(Math.round(eased * end));
+          if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
         obs.disconnect();
       }
     }, { threshold: 0.5 });
@@ -57,29 +65,27 @@ function CountStat({ end, suffix, prefix, label }: { end: number; suffix: string
 }
 
 export default function MarqueeStats() {
-  const text = (MARQUEE + MARQUEE + MARQUEE);
+  const text = MARQUEE + MARQUEE + MARQUEE;
 
   return (
-    <section style={{ background: "#0A0A0F", borderTop: "1px solid #111120", borderBottom: "1px solid #111120" }}>
-      {/* Marquee */}
-      <div style={{ padding: "1.25rem 0", overflow: "hidden", borderBottom: "1px solid #111120" }}>
+    <section style={{ background: "#0A0A0F", borderTop: "1px solid #0d0d18", borderBottom: "1px solid #0d0d18" }}>
+      <div style={{ padding: "1.25rem 0", overflow: "hidden", borderBottom: "1px solid #0d0d18" }}>
         <div
           style={{
             display: "flex",
             whiteSpace: "nowrap",
-            animation: "marquee-scroll 35s linear infinite",
+            animation: "marquee-scroll 50s linear infinite",  // slow and calm
           }}
         >
-          <span style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#6366F1", paddingRight: "4rem" }}>
+          <span style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#6366F1", paddingRight: "4rem", opacity: 0.6 }}>
             {text}
           </span>
-          <span style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#6366F1", paddingRight: "4rem" }}>
+          <span style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#6366F1", paddingRight: "4rem", opacity: 0.6 }}>
             {text}
           </span>
         </div>
       </div>
 
-      {/* Count-up stats */}
       <div
         style={{
           maxWidth: "56rem",
@@ -89,7 +95,7 @@ export default function MarqueeStats() {
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "clamp(2rem, 5vw, 3rem)",
         }}
-        className="sm:grid-cols-4"
+        className="stats-grid"
       >
         {stats.map((s) => (
           <CountStat key={s.label} end={s.end} suffix={s.suffix} prefix={s.prefix} label={s.label} />
@@ -102,7 +108,7 @@ export default function MarqueeStats() {
           to { transform: translateX(-50%); }
         }
         @media (min-width: 640px) {
-          .sm\\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+          .stats-grid { grid-template-columns: repeat(4, 1fr) !important; }
         }
       `}</style>
     </section>

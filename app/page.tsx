@@ -1,7 +1,9 @@
+"use client";
+
 import HeroSection from "@/components/home/HeroSection";
 import ManifestoSection from "@/components/home/ManifestoSection";
 import ServicesSection from "@/components/home/ServicesSection";
-import ProjectsSection from "@/components/home/ProjectsSection";
+import WasIchBaue from "@/components/home/WasIchBaue";
 import MarqueeStats from "@/components/home/MarqueeStats";
 import TechStack from "@/components/home/TechStack";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -13,36 +15,50 @@ export default function Home() {
       <HeroSection />
       <ManifestoSection />
       <ServicesSection />
-      <ProjectsSection />
+      <WasIchBaue />
       <MarqueeStats />
       <TechStack />
       <ProcessSection />
 
-      {/* Testimonial placeholder */}
+      {/* Referenzen */}
       <section
         style={{
-          background: "#050508",
+          background: "#0A0A0F",
           padding: "clamp(4rem, 8vw, 7rem) 1.5rem",
           textAlign: "center",
-          borderTop: "1px solid #111120",
+          borderTop: "1px solid #0d0d18",
         }}
       >
         <div style={{ maxWidth: "40rem", margin: "0 auto" }}>
           <p
             style={{
               fontFamily: "var(--font-heading), sans-serif",
-              fontSize: "clamp(1.25rem, 2.5vw, 2rem)",
+              fontSize: "clamp(1.125rem, 2.5vw, 1.75rem)",
               fontWeight: 200,
-              color: "white",
+              color: "#6B7280",
               letterSpacing: "0.05em",
-              lineHeight: 1.6,
+              lineHeight: 1.7,
             }}
           >
-            &ldquo;Die besten Referenzen sind meine Live-Projekte.&rdquo;
+            3 Kunden. 6 Projekte. Details persönlich.
           </p>
-          <p style={{ marginTop: "1.5rem", fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#374151" }}>
-            — Kevin Götz
-          </p>
+          <a
+            href="/kontakt"
+            style={{
+              display: "inline-block",
+              marginTop: "1.75rem",
+              fontSize: "12px",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color: "#6366F1",
+              textDecoration: "none",
+              transition: "opacity 0.4s ease",
+            }}
+            onMouseEnter={e => ((e.target as HTMLElement).style.opacity = "0.6")}
+            onMouseLeave={e => ((e.target as HTMLElement).style.opacity = "1")}
+          >
+            Projekt starten →
+          </a>
         </div>
       </section>
 
