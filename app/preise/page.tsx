@@ -1,14 +1,17 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { CheckCircle, ArrowRight, Zap } from "lucide-react";
 import AddonsSection from "./AddonsSection";
 
-const pakete = [
+const PAKETE = [
   {
+    num: "01",
     name: "Landingpage",
     preis: "500 €",
     einheit: "einmalig",
-    highlight: false,
-    beschreibung: "Perfekt für Einzelunternehmer die schnell online sein wollen.",
+    beschreibung: "Perfekt für Einzelunternehmer, die schnell online sein wollen.",
     features: [
       "1 Seite (Landingpage)",
       "Responsive Design",
@@ -18,16 +21,13 @@ const pakete = [
       "1 Runde Korrekturen",
     ],
     cta: "Landingpage anfragen",
-    color: "text-zinc-300",
-    border: "border-white/10",
-    bg: "bg-white/[0.03]",
-    btnClass: "border border-white/20 bg-white/5 hover:bg-white/10 text-white",
+    recommended: false,
   },
   {
+    num: "02",
     name: "Business Website",
     preis: "1.000 €",
     einheit: "einmalig",
-    highlight: true,
     beschreibung: "Die meistgebuchte Lösung für lokale Unternehmen.",
     features: [
       "Bis zu 5 Seiten",
@@ -39,17 +39,14 @@ const pakete = [
       "Hosting-Einrichtung",
     ],
     cta: "Business Website anfragen",
-    color: "text-cyan-400",
-    border: "border-cyan-400/40",
-    bg: "bg-cyan-400/5",
-    btnClass: "bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-bold shadow-lg shadow-cyan-500/20",
+    recommended: true,
   },
   {
+    num: "03",
     name: "Premium Website",
     preis: "2.000 €",
     einheit: "einmalig",
-    highlight: false,
-    beschreibung: "Für Unternehmen die einen starken digitalen Auftritt brauchen.",
+    beschreibung: "Für Unternehmen, die einen starken digitalen Auftritt brauchen.",
     features: [
       "Unbegrenzte Seiten",
       "Individuelles Design",
@@ -61,16 +58,13 @@ const pakete = [
       "1 Monat Support",
     ],
     cta: "Premium Website anfragen",
-    color: "text-violet-400",
-    border: "border-violet-400/20",
-    bg: "bg-violet-400/5",
-    btnClass: "border border-white/20 bg-white/5 hover:bg-white/10 text-white",
+    recommended: false,
   },
   {
-    name: "Enterprise",
+    num: "04",
+    name: "AI & Enterprise",
     preis: "Auf Anfrage",
     einheit: "",
-    highlight: false,
     beschreibung: "Komplexe Projekte, AI-Integration und maßgeschneiderte Lösungen.",
     features: [
       "Web-App Entwicklung",
@@ -81,109 +75,272 @@ const pakete = [
       "Individuelles Angebot",
     ],
     cta: "Angebot anfragen",
-    color: "text-amber-400",
-    border: "border-amber-400/20",
-    bg: "bg-amber-400/5",
-    btnClass: "border border-white/20 bg-white/5 hover:bg-white/10 text-white",
+    recommended: false,
   },
 ];
 
-const faq = [
-  { f: "Gibt es monatliche Kosten?", a: "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10-15 €/Monat) kommen dazu, die du selbst abschließt." },
-  { f: "Wie lange dauert ein Projekt?", a: "Eine Landingpage ist in 1-2 Wochen fertig. Business Websites dauern 2-4 Wochen, je nach Komplexität." },
+const FAQ = [
+  { f: "Gibt es monatliche Kosten?", a: "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10–15 €/Monat) kommen dazu, die du selbst abschließt." },
+  { f: "Wie lange dauert ein Projekt?", a: "Eine Landingpage ist in 1–2 Wochen fertig. Business Websites dauern 2–4 Wochen, je nach Komplexität." },
   { f: "Was wenn ich nicht zufrieden bin?", a: "Wir besprechen alles vorab genau. Du hast immer Feedback-Runden inklusive. Am Ende stehst du zu 100% dahinter." },
   { f: "Kümmert ihr euch auch um Hosting?", a: "Auf Wunsch ja. Ich empfehle Vercel (für Next.js) oder Strato – und richte alles ein wenn gewünscht." },
 ];
 
-export default function PreisePage() {
+function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-6% 0px" });
+
   return (
-    <div className="min-h-screen">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        border: paket.recommended ? "1px solid #6366F130" : "1px solid #111",
+        background: paket.recommended ? "#0d0d14" : "transparent",
+        padding: "clamp(1.75rem, 3vw, 2.5rem)",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
+    >
+      {paket.recommended && (
+        <span
+          style={{
+            position: "absolute",
+            top: "clamp(1.75rem, 3vw, 2.5rem)",
+            right: "clamp(1.75rem, 3vw, 2.5rem)",
+            fontSize: 9,
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "#6366F1",
+            border: "1px solid #6366F140",
+            padding: "3px 10px",
+            borderRadius: 2,
+          }}
+        >
+          Empfohlen
+        </span>
+      )}
+
       {/* Header */}
-      <section className="relative border-b border-white/5 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="glow-blob absolute -top-40 right-1/3 w-96 h-96 rounded-full bg-cyan-500 blur-[100px]" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-6 py-24 text-center">
-          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Preise</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Klare Preise. Kein Kleingedrucktes.
-          </h1>
-          <p className="text-zinc-400 text-xl max-w-2xl mx-auto leading-relaxed">
-            Festpreise, keine Stundensätze. Du weißt vorher genau was du zahlst.
-          </p>
+      <div style={{ marginBottom: "clamp(1.5rem, 3vw, 2rem)" }}>
+        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#374151", display: "block", marginBottom: "0.75rem" }}>
+          {paket.num}
+        </span>
+        <h3
+          style={{
+            fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+            fontWeight: 300,
+            color: paket.recommended ? "#F5F5F7" : "#9CA3AF",
+            letterSpacing: "0.04em",
+            marginBottom: "0.5rem",
+          }}
+        >
+          {paket.name}
+        </h3>
+        <p style={{ fontSize: 13, color: "#4B5563", lineHeight: 1.6, maxWidth: "28ch" }}>
+          {paket.beschreibung}
+        </p>
+      </div>
+
+      {/* Price */}
+      <div style={{ marginBottom: "clamp(1.5rem, 3vw, 2rem)", paddingBottom: "clamp(1.5rem, 3vw, 2rem)", borderBottom: "1px solid #111" }}>
+        <span
+          style={{
+            fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
+            fontWeight: 200,
+            color: "#F5F5F7",
+            letterSpacing: "0.02em",
+          }}
+        >
+          {paket.preis}
+        </span>
+        {paket.einheit && (
+          <span style={{ fontSize: 12, color: "#374151", marginLeft: "0.5rem" }}>{paket.einheit}</span>
+        )}
+      </div>
+
+      {/* Features */}
+      <ul style={{ listStyle: "none", padding: 0, margin: "0 0 auto 0", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+        {paket.features.map((f) => (
+          <li key={f} style={{ display: "flex", alignItems: "baseline", gap: "0.6rem" }}>
+            <span style={{ fontSize: 11, color: "#6366F1", flexShrink: 0 }}>—</span>
+            <span style={{ fontSize: 13, color: "#6B7280", letterSpacing: "0.02em" }}>{f}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA */}
+      <Link
+        href="/kontakt"
+        style={{
+          display: "block",
+          marginTop: "clamp(1.75rem, 3vw, 2.5rem)",
+          padding: "0.75rem 1.25rem",
+          border: paket.recommended ? "1px solid #6366F1" : "1px solid #1a1a1a",
+          background: paket.recommended ? "#6366F1" : "transparent",
+          color: "#F5F5F7",
+          textDecoration: "none",
+          fontSize: 11,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          textAlign: "center",
+          transition: "background 0.3s ease, border-color 0.3s ease",
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#4F46E5" : "#111";
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#6366F1" : "transparent";
+        }}
+      >
+        {paket.cta}
+      </Link>
+    </motion.div>
+  );
+}
+
+function FaqItem({ item, index }: { item: typeof FAQ[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-4% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+      style={{ borderBottom: "1px solid #111", padding: "clamp(1.25rem, 2.5vw, 1.75rem) 0" }}
+    >
+      <p style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", fontWeight: 300, color: "#F5F5F7", letterSpacing: "0.03em", marginBottom: "0.6rem" }}>
+        {item.f}
+      </p>
+      <p style={{ fontSize: 13, color: "#4B5563", lineHeight: 1.75, maxWidth: "65ch" }}>
+        {item.a}
+      </p>
+    </motion.div>
+  );
+}
+
+export default function PreisePage() {
+  const heroRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true });
+
+  return (
+    <div style={{ background: "#030305", minHeight: "100vh" }}>
+
+      {/* Hero */}
+      <section
+        style={{
+          borderBottom: "1px solid #111",
+          padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem)",
+        }}
+      >
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <motion.div
+            ref={heroRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "1rem" }}>
+              PRICING
+            </p>
+            <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", lineHeight: 1.15, marginBottom: "1.25rem" }}>
+              Klare Preise.<br />Kein Kleingedrucktes.
+            </h1>
+            <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", color: "#4B5563", letterSpacing: "0.03em", maxWidth: "45ch", lineHeight: 1.75 }}>
+              Festpreise — kein Stundensatz. Kein Abo. Du weißt vorher genau, was du zahlst.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Pakete */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
-          {pakete.map(({ name, preis, einheit, highlight, beschreibung, features, cta, color, border, bg, btnClass }) => (
-            <div
-              key={name}
-              className={`relative rounded-2xl border ${border} ${bg} p-6 flex flex-col ${highlight ? "ring-2 ring-cyan-400/50 ring-offset-2 ring-offset-[#05050a]" : ""}`}
-            >
-              {highlight && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500 text-zinc-900 text-xs font-bold">
-                    <Zap size={12} />
-                    Beliebt
-                  </span>
-                </div>
-              )}
-              <div className="mb-6">
-                <h3 className={`font-black text-lg mb-1 ${color}`}>{name}</h3>
-                <p className="text-zinc-500 text-xs mb-4">{beschreibung}</p>
-                <div className="flex items-end gap-1">
-                  <span className="text-4xl font-black text-white">{preis}</span>
-                  {einheit && <span className="text-zinc-500 text-sm mb-1">{einheit}</span>}
-                </div>
-              </div>
-              <ul className="space-y-2.5 mb-8 flex-1">
-                {features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <CheckCircle size={15} className={`${color} shrink-0 mt-0.5`} />
-                    <span className="text-zinc-300 text-sm">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/kontakt"
-                className={`w-full text-center px-4 py-3 rounded-xl text-sm font-semibold transition-all ${btnClass}`}
-              >
-                {cta}
-              </Link>
-            </div>
+      {/* Pakete Grid */}
+      <section
+        style={{
+          padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+          borderBottom: "1px solid #111",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1200,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+            gap: 0,
+            border: "1px solid #111",
+          }}
+        >
+          {PAKETE.map((p, i) => (
+            <PaketCard key={p.num} paket={p} index={i} />
           ))}
         </div>
+        <p style={{ marginTop: "1.5rem", fontSize: 12, color: "#374151", letterSpacing: "0.05em", maxWidth: 1200, margin: "1.5rem auto 0" }}>
+          Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.
+        </p>
       </section>
 
       {/* Zusatzoptionen */}
       <AddonsSection />
 
       {/* FAQ */}
-      <section className="border-y border-white/5 bg-white/[0.02]">
-        <div className="max-w-3xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-black text-white mb-12 text-center">Häufige Fragen</h2>
-          <div className="space-y-6">
-            {faq.map(({ f, a }) => (
-              <div key={f} className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
-                <h3 className="text-white font-bold mb-2">{f}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{a}</p>
-              </div>
-            ))}
-          </div>
+      <section
+        style={{
+          borderTop: "1px solid #111",
+          padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+        }}
+      >
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>FAQ</p>
+          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
+            Häufige Fragen
+          </h2>
+          <div style={{ height: 1, background: "#111" }} />
+          {FAQ.map((item, i) => (
+            <FaqItem key={item.f} item={item} index={i} />
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-4xl font-black text-white mb-5">Nicht sicher welches Paket passt?</h2>
-        <p className="text-zinc-400 mb-10 max-w-lg mx-auto">Schreib mir einfach. Ich helfe dir das richtige Paket für dein Budget und deine Ziele zu finden.</p>
+      {/* Bottom CTA */}
+      <section
+        style={{
+          borderTop: "1px solid #111",
+          padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6B7280", marginBottom: "1rem" }}>
+          NICHT SICHER?
+        </p>
+        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", marginBottom: "1rem" }}>
+          Ich helfe dir das richtige Paket zu finden.
+        </h2>
+        <p style={{ fontSize: 13, color: "#4B5563", marginBottom: "clamp(2rem, 4vw, 3rem)", maxWidth: "45ch", margin: "0 auto clamp(2rem, 4vw, 3rem)" }}>
+          Schreib mir einfach. Keine Verpflichtung.
+        </p>
         <Link
           href="/kontakt"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-900 font-bold transition-all hover:scale-105 shadow-xl shadow-cyan-500/20"
+          style={{
+            display: "inline-block",
+            padding: "0.875rem 2.5rem",
+            border: "1px solid #6366F1",
+            background: "transparent",
+            color: "#F5F5F7",
+            textDecoration: "none",
+            fontSize: 11,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            transition: "background 0.3s ease",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#6366F1"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
         >
-          Jetzt beraten lassen <ArrowRight size={16} />
+          JETZT BERATEN LASSEN →
         </Link>
       </section>
     </div>

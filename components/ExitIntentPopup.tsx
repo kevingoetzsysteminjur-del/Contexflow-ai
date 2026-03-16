@@ -14,6 +14,11 @@ export default function ExitIntentPopup() {
     const already = sessionStorage.getItem("exitPopupShown");
     if (already) return;
 
+    // Don't show on touch/mobile devices — mouseleave doesn't work there
+    const isTouchDevice = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
+    if (isTouchDevice) return;
+    if (window.innerWidth <= 768) return;
+
     function handleMouseLeave(e: MouseEvent) {
       if (e.clientY < 10) {
         setVisible(true);

@@ -33,7 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Preloader />
         <SmoothScroll />
         <Navbar />
-        <main className="pt-16" style={{ position: "relative", zIndex: 1 }}>
+        <style>{`
+          @media (max-width: 767px) {
+            .main-content { padding-bottom: 56px; }
+          }
+        `}</style>
+        <main className="pt-16 main-content" style={{ position: "relative", zIndex: 1 }}>
           {children}
         </main>
         <Footer />

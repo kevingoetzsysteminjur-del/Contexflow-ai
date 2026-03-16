@@ -1,210 +1,186 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
+import { Building2, Scissors, Music } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const projects = [
   {
     name: "Immobilienmakler Website",
-    category: "Immobilien · Web App",
-    url: "#",
-    bg: "linear-gradient(135deg, #1a1208 0%, #2d1f0a 40%, #0a0a0a 100%)",
+    desc: "Premium Website mit KI-Chatbot, Bewertungstool, Mehrsprachigkeit (DE/EN/TR) und über 20 Features.",
+    icon: Building2,
     accent: "#C9A96E",
-    label: "IMMO",
-  },
-  {
-    name: "Klangtherapie Plattform",
-    category: "Wellness · Web App",
-    url: "#",
-    bg: "linear-gradient(135deg, #0d0818 0%, #1a0f2e 40%, #080808 100%)",
-    accent: "#8B5CF6",
-    label: "KLANG",
+    tags: ["Next.js", "Supabase", "KI-Chatbot", "i18n"],
   },
   {
     name: "Barbershop Website",
-    category: "Barbershop · Live",
-    url: "#",
-    bg: "linear-gradient(135deg, #120808 0%, #1f0a0a 40%, #0a0a0a 100%)",
-    accent: "#DC2626",
-    label: "BARBER",
+    desc: "Zweisprachige Website mit Online-Terminbuchung und modernem Schwarz-Weiß Design.",
+    icon: Scissors,
+    accent: "#EF4444",
+    tags: ["Next.js", "Booking", "Zweisprachig"],
+  },
+  {
+    name: "Klangtherapie Plattform",
+    desc: "E-Commerce Plattform mit Audio-Shop, Admin-Panel, KI-Chatbot und Supabase Backend.",
+    icon: Music,
+    accent: "#8B5CF6",
+    tags: ["Next.js", "Supabase", "E-Commerce", "Admin"],
   },
 ];
 
-function ProjectItem({ project, index }: { project: typeof projects[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: number }) {
   const [hovered, setHovered] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+  const Icon = project.icon;
 
   return (
-    <div
-      ref={ref}
-      style={{ position: "relative", height: "60vh", overflow: "hidden" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Parallax background */}
-      <motion.div
-        style={{
-          position: "absolute",
-          inset: "-10%",
-          background: project.bg,
-          y,
-        }}
-      />
-
-      {/* Grid texture overlay */}
+    <ScrollReveal delay={delay}>
       <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `linear-gradient(${project.accent}11 1px, transparent 1px), linear-gradient(90deg, ${project.accent}11 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(5,5,8,0.55)" }} />
-
-      {/* Content */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
+          background: "#0d0d14",
+          border: `1px solid ${hovered ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.08)"}`,
+          borderRadius: 16,
+          padding: "2rem",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "clamp(1.5rem, 4vw, 3rem)",
+          gap: "1.25rem",
+          transform: hovered ? "translateY(-4px)" : "translateY(0)",
+          transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+          boxShadow: hovered ? `0 12px 40px rgba(0,0,0,0.5), 0 0 20px ${project.accent}18` : "none",
+          cursor: "default",
         }}
       >
-        {/* Top row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        {/* Icon + badge row */}
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
           <div
             style={{
+              width: 52,
+              height: 52,
+              borderRadius: 12,
+              background: `${project.accent}15`,
+              border: `1px solid ${project.accent}30`,
               display: "flex",
               alignItems: "center",
-              gap: "8px",
+              justifyContent: "center",
+              transition: "box-shadow 0.3s ease",
+              boxShadow: hovered ? `0 0 16px ${project.accent}40` : "none",
             }}
           >
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E", display: "inline-block" }} />
-            <span style={{ fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#9CA3AF" }}>
-              Live
-            </span>
+            <Icon size={24} color={project.accent} />
           </div>
-          <span
-            style={{
-              fontFamily: "var(--font-heading), sans-serif",
-              fontSize: "clamp(4rem, 8vw, 7rem)",
-              fontWeight: 900,
-              color: project.accent,
-              opacity: 0.06,
-              lineHeight: 1,
-              userSelect: "none",
-            }}
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
         </div>
 
-        {/* Bottom row */}
+        {/* Name + description */}
         <div>
-          <div
-            style={{
-              display: "inline-block",
-              padding: "4px 10px",
-              border: `1px solid ${project.accent}40`,
-              marginBottom: "0.75rem",
-              fontSize: "10px",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              color: project.accent,
-            }}
-          >
-            {project.label}
-          </div>
           <h3
             style={{
-              fontFamily: "var(--font-heading), sans-serif",
-              fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)",
-              fontWeight: 200,
-              color: "white",
-              letterSpacing: "0.1em",
+              fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+              fontWeight: 600,
+              color: "#F5F5F7",
+              letterSpacing: "0.02em",
               marginBottom: "0.5rem",
             }}
           >
             {project.name}
           </h3>
-          <p style={{ fontSize: "12px", color: "#6B7280", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            {project.category}
+          <p
+            style={{
+              fontSize: 13,
+              color: "#71717A",
+              lineHeight: 1.65,
+              letterSpacing: "0.01em",
+            }}
+          >
+            {project.desc}
           </p>
         </div>
-      </div>
 
-      {/* Hover CTA */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-        style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "rgba(5,5,8,0.4)",
-        }}
-      >
-        <Link
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            padding: "12px 28px",
-            border: "1px solid rgba(255,255,255,0.2)",
-            color: "white",
-            fontSize: "12px",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            transition: "border-color 0.2s, background 0.2s",
-            background: "rgba(99,102,241,0.15)",
-            borderColor: "#6366F1",
-          }}
-        >
-          Ansehen →
-        </Link>
-      </motion.div>
-    </div>
+        {/* Tech tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "auto" }}>
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                fontSize: 10,
+                letterSpacing: "0.08em",
+                color: "#6B7280",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderRadius: 4,
+                padding: "3px 8px",
+                textTransform: "uppercase",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </ScrollReveal>
   );
 }
 
 export default function ProjectsSection() {
   return (
-    <section style={{ background: "#050508", paddingBottom: "clamp(4rem, 8vw, 7rem)" }}>
-      <div style={{ maxWidth: "56rem", margin: "0 auto", padding: "clamp(4rem, 8vw, 7rem) 1.5rem clamp(2rem, 4vw, 3rem)" }}>
-        <p
+    <section
+      style={{
+        background: "#050508",
+        borderTop: "1px solid #111",
+        padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        {/* Header */}
+        <ScrollReveal>
+          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+            <p
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.4em",
+                textTransform: "uppercase",
+                color: "#6366F1",
+                marginBottom: "0.75rem",
+              }}
+            >
+              PORTFOLIO
+            </p>
+            <h2
+              style={{
+                fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+                fontWeight: 200,
+                color: "#F5F5F7",
+                letterSpacing: "0.04em",
+                lineHeight: 1.2,
+                margin: "0 0 0.5rem 0",
+              }}
+            >
+              Ausgewählte Projekte
+            </h2>
+            <p
+              style={{
+                fontSize: 13,
+                color: "#4B5563",
+                letterSpacing: "0.03em",
+              }}
+            >
+              Anonymisierte Beispiele aus echten Kundenprojekten
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Cards grid */}
+        <div
           style={{
-            color: "#6366F1",
-            fontSize: "11px",
-            letterSpacing: "0.4em",
-            textTransform: "uppercase",
-            marginBottom: "clamp(2.5rem, 5vw, 4rem)",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+            gap: "1.25rem",
           }}
         >
-          Selected Work
-        </p>
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-        {projects.map((p, i) => (
-          <ProjectItem key={i} project={p} index={i} />
-        ))}
+          {projects.map((p, i) => (
+            <ProjectCard key={p.name} project={p} delay={i * 100} />
+          ))}
+        </div>
       </div>
     </section>
   );
