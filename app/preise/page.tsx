@@ -4,89 +4,23 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import AddonsSection from "./AddonsSection";
+import { useLang } from "@/contexts/LanguageContext";
 
-const PAKETE = [
-  {
-    num: "01",
-    name: "Landingpage",
-    preis: "500 €",
-    einheit: "einmalig",
-    beschreibung: "Perfekt für Einzelunternehmer, die schnell online sein wollen.",
-    features: [
-      "1 Seite (Landingpage)",
-      "Responsive Design",
-      "Kontaktformular",
-      "SEO-Grundoptimierung",
-      "Impressum & Datenschutz",
-      "1 Runde Korrekturen",
-    ],
-    cta: "Landingpage anfragen",
-    recommended: false,
-  },
-  {
-    num: "02",
-    name: "Business Website",
-    preis: "1.000 €",
-    einheit: "einmalig",
-    beschreibung: "Die meistgebuchte Lösung für lokale Unternehmen.",
-    features: [
-      "Bis zu 5 Seiten",
-      "Professionelles Design",
-      "Kontaktformular & Karte",
-      "SEO-Optimierung",
-      "Google Analytics",
-      "2 Runden Korrekturen",
-      "Hosting-Einrichtung",
-    ],
-    cta: "Business Website anfragen",
-    recommended: true,
-  },
-  {
-    num: "03",
-    name: "Premium Website",
-    preis: "2.000 €",
-    einheit: "einmalig",
-    beschreibung: "Für Unternehmen, die einen starken digitalen Auftritt brauchen.",
-    features: [
-      "Unbegrenzte Seiten",
-      "Individuelles Design",
-      "Animationen & Effekte",
-      "Blog / News-System",
-      "Erweiterte SEO",
-      "3 Runden Korrekturen",
-      "Hosting & Domain",
-      "1 Monat Support",
-    ],
-    cta: "Premium Website anfragen",
-    recommended: false,
-  },
-  {
-    num: "04",
-    name: "AI & Enterprise",
-    preis: "Auf Anfrage",
-    einheit: "",
-    beschreibung: "Komplexe Projekte, AI-Integration und maßgeschneiderte Lösungen.",
-    features: [
-      "Web-App Entwicklung",
-      "Context Engineering",
-      "AI-Integration & Chatbots",
-      "API-Entwicklung",
-      "Laufende Betreuung",
-      "Individuelles Angebot",
-    ],
-    cta: "Angebot anfragen",
-    recommended: false,
-  },
-];
-
-const FAQ = [
-  { f: "Gibt es monatliche Kosten?", a: "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10–15 €/Monat) kommen dazu, die du selbst abschließt." },
-  { f: "Wie lange dauert ein Projekt?", a: "Eine Landingpage ist in 1–2 Wochen fertig. Business Websites dauern 2–4 Wochen, je nach Komplexität." },
-  { f: "Was wenn ich nicht zufrieden bin?", a: "Wir besprechen alles vorab genau. Du hast immer Feedback-Runden inklusive. Am Ende stehst du zu 100% dahinter." },
-  { f: "Kümmert ihr euch auch um Hosting?", a: "Auf Wunsch ja. Ich empfehle Vercel (für Next.js) oder Strato – und richte alles ein wenn gewünscht." },
-];
-
-function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number }) {
+function PaketCard({ paket, index, recommended, recommendedLabel }: {
+  paket: {
+    num: string;
+    name: string;
+    preis: string;
+    einheit: string;
+    beschreibung: string;
+    features: string[];
+    cta: string;
+    recommended: boolean;
+  };
+  index: number;
+  recommended: boolean;
+  recommendedLabel: string;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-6% 0px" });
 
@@ -97,15 +31,15 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        border: paket.recommended ? "1px solid #6366F130" : "1px solid var(--border-light)",
-        background: paket.recommended ? "var(--bg-card)" : "transparent",
+        border: recommended ? "1px solid #6366F130" : "1px solid var(--border-light)",
+        background: recommended ? "var(--bg-card)" : "transparent",
         padding: "clamp(1.75rem, 3vw, 2.5rem)",
         display: "flex",
         flexDirection: "column",
         position: "relative",
       }}
     >
-      {paket.recommended && (
+      {recommended && (
         <span
           style={{
             position: "absolute",
@@ -120,7 +54,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
             borderRadius: 2,
           }}
         >
-          Empfohlen
+          {recommendedLabel}
         </span>
       )}
 
@@ -133,7 +67,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
           style={{
             fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
             fontWeight: 300,
-            color: paket.recommended ? "var(--text-primary)" : "#9CA3AF",
+            color: recommended ? "var(--text-primary)" : "#9CA3AF",
             letterSpacing: "0.04em",
             marginBottom: "0.5rem",
           }}
@@ -179,8 +113,8 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
           display: "block",
           marginTop: "clamp(1.75rem, 3vw, 2.5rem)",
           padding: "0.75rem 1.25rem",
-          border: paket.recommended ? "1px solid #6366F1" : "1px solid #1a1a1a",
-          background: paket.recommended ? "#6366F1" : "transparent",
+          border: recommended ? "1px solid #6366F1" : "1px solid #1a1a1a",
+          background: recommended ? "#6366F1" : "transparent",
           color: "var(--text-primary)",
           textDecoration: "none",
           fontSize: 11,
@@ -190,10 +124,10 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
           transition: "background 0.3s ease, border-color 0.3s ease",
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#4F46E5" : "var(--bg-card-hover)";
+          (e.currentTarget as HTMLElement).style.background = recommended ? "#4F46E5" : "var(--bg-card-hover)";
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#6366F1" : "transparent";
+          (e.currentTarget as HTMLElement).style.background = recommended ? "#6366F1" : "transparent";
         }}
       >
         {paket.cta}
@@ -202,7 +136,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
   );
 }
 
-function FaqItem({ item, index }: { item: typeof FAQ[0]; index: number }) {
+function FaqItem({ item, index }: { item: { f: string; a: string }; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-4% 0px" });
 
@@ -225,8 +159,59 @@ function FaqItem({ item, index }: { item: typeof FAQ[0]; index: number }) {
 }
 
 export default function PreisePage() {
+  const { t } = useLang();
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
+
+  const PAKETE = [
+    {
+      num: "01",
+      name: t.preise.p1_name,
+      preis: t.preise.p1_price,
+      einheit: t.preise.p1_unit,
+      beschreibung: t.preise.p1_desc,
+      features: [t.preise.p1_f1, t.preise.p1_f2, t.preise.p1_f3, t.preise.p1_f4, t.preise.p1_f5, t.preise.p1_f6],
+      cta: t.preise.p1_cta,
+      recommended: false,
+    },
+    {
+      num: "02",
+      name: t.preise.p2_name,
+      preis: t.preise.p2_price,
+      einheit: t.preise.p2_unit,
+      beschreibung: t.preise.p2_desc,
+      features: [t.preise.p2_f1, t.preise.p2_f2, t.preise.p2_f3, t.preise.p2_f4, t.preise.p2_f5, t.preise.p2_f6, t.preise.p2_f7],
+      cta: t.preise.p2_cta,
+      recommended: true,
+    },
+    {
+      num: "03",
+      name: t.preise.p3_name,
+      preis: t.preise.p3_price,
+      einheit: t.preise.p3_unit,
+      beschreibung: t.preise.p3_desc,
+      features: [t.preise.p3_f1, t.preise.p3_f2, t.preise.p3_f3, t.preise.p3_f4, t.preise.p3_f5, t.preise.p3_f6, t.preise.p3_f7, t.preise.p3_f8],
+      cta: t.preise.p3_cta,
+      recommended: false,
+    },
+    {
+      num: "04",
+      name: t.preise.p4_name,
+      preis: t.preise.p4_price,
+      einheit: t.preise.p4_unit,
+      beschreibung: t.preise.p4_desc,
+      features: [t.preise.p4_f1, t.preise.p4_f2, t.preise.p4_f3, t.preise.p4_f4, t.preise.p4_f5, t.preise.p4_f6],
+      cta: t.preise.p4_cta,
+      recommended: false,
+    },
+  ];
+
+  const FAQ = [
+    { f: t.preise.faq_q1, a: t.preise.faq_a1 },
+    { f: t.preise.faq_q2, a: t.preise.faq_a2 },
+    { f: t.preise.faq_q3, a: t.preise.faq_a3 },
+    { f: t.preise.faq_q4, a: t.preise.faq_a4 },
+  ];
 
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
@@ -246,13 +231,13 @@ export default function PreisePage() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "1rem" }}>
-              PRICING
+              {t.preise.label}
             </p>
             <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", lineHeight: 1.15, marginBottom: "1.25rem" }}>
-              Klare Preise.<br />Kein Kleingedrucktes.
+              {t.preise.headline}<br />{t.preise.headline2}
             </h1>
             <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", color: "var(--text-tertiary)", letterSpacing: "0.03em", maxWidth: "45ch", lineHeight: 1.75 }}>
-              Festpreise — kein Stundensatz. Kein Abo. Du weißt vorher genau, was du zahlst.
+              {t.preise.subline}
             </p>
           </motion.div>
         </div>
@@ -276,11 +261,11 @@ export default function PreisePage() {
           }}
         >
           {PAKETE.map((p, i) => (
-            <PaketCard key={p.num} paket={p} index={i} />
+            <PaketCard key={p.num} paket={p} index={i} recommended={p.recommended} recommendedLabel={t.preise.recommended} />
           ))}
         </div>
         <p style={{ marginTop: "1.5rem", fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.05em", maxWidth: 1200, margin: "1.5rem auto 0" }}>
-          Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.
+          {t.preise.all_fixed}
         </p>
       </section>
 
@@ -295,9 +280,9 @@ export default function PreisePage() {
         }}
       >
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>FAQ</p>
+          <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>{t.preise.faq_label}</p>
           <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
-            Häufige Fragen
+            {t.preise.faq_headline}
           </h2>
           <div style={{ height: 1, background: "var(--border-light)" }} />
           {FAQ.map((item, i) => (
@@ -315,13 +300,13 @@ export default function PreisePage() {
         }}
       >
         <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "1rem" }}>
-          NICHT SICHER?
+          {t.preise.cta_label}
         </p>
         <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "1rem" }}>
-          Ich helfe dir das richtige Paket zu finden.
+          {t.preise.cta_headline}
         </h2>
         <p style={{ fontSize: 13, color: "var(--text-tertiary)", marginBottom: "clamp(2rem, 4vw, 3rem)", maxWidth: "45ch", margin: "0 auto clamp(2rem, 4vw, 3rem)" }}>
-          Schreib mir einfach. Keine Verpflichtung.
+          {t.preise.cta_subline}
         </p>
         <Link
           href="/kontakt"
@@ -340,7 +325,7 @@ export default function PreisePage() {
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#6366F1"; }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
         >
-          JETZT BERATEN LASSEN →
+          {t.preise.cta_btn}
         </Link>
       </section>
     </div>

@@ -3,20 +3,22 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-
-const ADDONS = [
-  { key: "chat", name: "KI-Chatbot", desc: "24/7 automatische Kundenanfragen beantworten", price: 500 },
-  { key: "booking", name: "Terminbuchung", desc: "Online-Kalender mit automatischer Bestätigung", price: 300 },
-  { key: "seo", name: "SEO-Paket", desc: "Erweiterte Suchmaschinenoptimierung & Monitoring", price: 400 },
-  { key: "lead", name: "Lead-Qualifizierung", desc: "Automatischer Fragebogen mit Bewertungssystem", price: 350 },
-  { key: "analytics", name: "Analytics-Dashboard", desc: "Echtzeit-Besucherstatistiken & Conversion-Tracking", price: 250 },
-  { key: "care", name: "Wartung & Support", desc: "Monatliche Updates, Backups & technischer Support", price: 99, monthly: true },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function AddonsSection() {
+  const { t } = useLang();
   const [selected, setSelected] = useState<string[]>([]);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-5% 0px" });
+
+  const ADDONS = [
+    { key: "chat", name: t.addons.a1_name, desc: t.addons.a1_desc, price: 500 },
+    { key: "booking", name: t.addons.a2_name, desc: t.addons.a2_desc, price: 300 },
+    { key: "seo", name: t.addons.a3_name, desc: t.addons.a3_desc, price: 400 },
+    { key: "lead", name: t.addons.a4_name, desc: t.addons.a4_desc, price: 350 },
+    { key: "analytics", name: t.addons.a5_name, desc: t.addons.a5_desc, price: 250 },
+    { key: "care", name: t.addons.a6_name, desc: t.addons.a6_desc, price: 99, monthly: true },
+  ];
 
   function toggle(key: string) {
     setSelected(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]);
@@ -42,13 +44,13 @@ export default function AddonsSection() {
           style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}
         >
           <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>
-            ZUSATZOPTIONEN
+            {t.addons.label}
           </p>
           <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>
-            Erweitere dein Paket.
+            {t.addons.headline}
           </h2>
           <p style={{ fontSize: 13, color: "var(--text-secondary)", maxWidth: "55ch", lineHeight: 1.75 }}>
-            Kombiniere dein Website-Paket mit KI-Features. Wähle was du brauchst — der Preis aktualisiert sich live.
+            {t.addons.subline}
           </p>
         </motion.div>
 
@@ -93,7 +95,7 @@ export default function AddonsSection() {
 
               {/* Price */}
               <span style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", fontWeight: 200, color: on ? "#6366F1" : "#4B5563", letterSpacing: "0.03em", flexShrink: 0, transition: "color 0.2s" }}>
-                +{addon.price} €{addon.monthly ? "/Mo." : " einmalig"}
+                +{addon.price} €{addon.monthly ? t.addons.monthly : ` ${t.addons.onetime}`}
               </span>
 
               {/* Toggle */}
@@ -141,18 +143,18 @@ export default function AddonsSection() {
           >
             <div>
               <p style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--text-tertiary)", marginBottom: "0.4rem", textTransform: "uppercase" }}>
-                Zusatzoptionen gesamt
+                {t.addons.total_label}
               </p>
               <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: "0.75rem" }}>
                 {oneTime > 0 && (
                   <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.02em" }}>
                     +{oneTime.toLocaleString("de-DE")} €{" "}
-                    <span style={{ fontSize: 12, color: "var(--text-tertiary)" }}>einmalig</span>
+                    <span style={{ fontSize: 12, color: "var(--text-tertiary)" }}>{t.addons.onetime}</span>
                   </span>
                 )}
                 {monthlyAddon && (
                   <span style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 200, color: "#6366F1" }}>
-                    +{monthlyAddon.price} €/Monat
+                    +{monthlyAddon.price} €{t.addons.monthly}
                   </span>
                 )}
               </div>
@@ -175,7 +177,7 @@ export default function AddonsSection() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#4F46E5"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#6366F1"; }}
             >
-              ANGEBOT ANFRAGEN →
+              {t.addons.request_btn}
             </Link>
           </motion.div>
         )}

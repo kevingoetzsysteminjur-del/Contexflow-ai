@@ -15,8 +15,10 @@ import PricingSection from "@/components/home/PricingSection";
 import VergleichsTabelle from "@/components/home/VergleichsTabelle";
 import GarantieSection from "@/components/home/GarantieSection";
 import CTASection from "@/components/home/CTASection";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLang();
   return (
     <>
       <HeroSection />
@@ -31,19 +33,19 @@ export default function Home() {
       <ProcessSection />
       <ROIRechner />
       <SectionCTA
-        text="Klingt gut? Lass uns reden →"
+        text={t.home.cta_roi}
         href="/kontakt"
         variant="primary"
       />
       <PricingSection />
       <SectionCTA
-        text="Welches Paket passt zu dir? Lass uns reden."
+        text={t.home.cta_pricing}
         href="/kontakt"
         variant="primary"
       />
       <VergleichsTabelle />
       <SectionCTA
-        text="Jetzt anfragen"
+        text={t.home.cta_request}
         href="/kontakt"
         variant="primary"
       />

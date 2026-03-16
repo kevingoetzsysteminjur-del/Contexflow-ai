@@ -8,6 +8,7 @@ type Lang = "de" | "en";
 const TX = {
   de: {
     live: "LIVE",
+    simulated: "Simulierte Echtzeit-Daten",
     metrics: [
       { label: "Besucher heute", icon: Users, value: 247, suffix: "", color: "text-indigo-400" },
       { label: "Seitenaufrufe", icon: Eye, value: 1839, suffix: "", color: "text-violet-400" },
@@ -26,6 +27,7 @@ const TX = {
   },
   en: {
     live: "LIVE",
+    simulated: "Simulated real-time data",
     metrics: [
       { label: "Visitors today", icon: Users, value: 247, suffix: "", color: "text-indigo-400" },
       { label: "Page views", icon: Eye, value: 1839, suffix: "", color: "text-violet-400" },
@@ -127,7 +129,7 @@ export default function AnalyticsDashboard({ lang }: { lang: Lang }) {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           {tx.live}
         </span>
-        <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>Simulierte Echtzeit-Daten</span>
+        <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>{tx.simulated}</span>
       </div>
 
       {/* Metric Cards */}

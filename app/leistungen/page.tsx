@@ -1,63 +1,66 @@
 "use client";
 import { Globe, Brain, Terminal, Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-const services = [
-  {
-    icon: Globe,
-    accentColor: "#6366F1",
-    title: "Website & Web App",
-    desc: "Schnell, modern, konversionsorientiert. Mit Next.js gebaut – nicht mit Baukästen oder WordPress.",
-    price: "Ab 500€",
-    features: [
-      "Responsive Design (Mobile-first)",
-      "Blitzschnelle Ladezeiten (<2s)",
-      "On-Page SEO inklusive",
-      "Kontaktformular & Analytics",
-      "Deployment & Hosting Setup",
-      "1 Monat Support bei Premium",
-    ],
-  },
-  {
-    icon: Brain,
-    accentColor: "#06B6D4",
-    title: "KI-Integration & Chatbots",
-    desc: "Intelligente Assistenten die wirklich helfen. Trainiert auf deinen Content, angepasst an dein Business.",
-    price: "Auf Anfrage",
-    features: [
-      "KI-Chatbot auf deiner Website",
-      "FAQ-Automatisierung",
-      "Lead-Qualifizierung per AI",
-      "E-Mail Automatisierung",
-      "Zweisprachig (DE/EN) möglich",
-      "Integration in bestehende Systeme",
-    ],
-  },
-  {
-    icon: Terminal,
-    accentColor: "#8B5CF6",
-    title: "Context Engineering",
-    desc: "Die Kunst, KI so zu instruieren dass sie perfekt für dein Business denkt und antwortet.",
-    price: "Auf Anfrage",
-    features: [
-      "Custom System Prompts",
-      "RAG-Systeme aufbauen",
-      "Workflow-Automatisierung",
-      "AI Agent Development",
-      "Prompt-Bibliotheken",
-      "Team-Schulung & Beratung",
-    ],
-  },
-];
-
-const prozess = [
-  { nr: "01", titel: "Erstgespräch", text: "Kostenloses 30-Minuten-Call. Ich verstehe dein Business, deine Ziele und dein Budget." },
-  { nr: "02", titel: "Konzept", text: "Ich erstelle ein konkretes Konzept mit Zeitplan und Festpreis. Kein Stundenhonorar." },
-  { nr: "03", titel: "Entwicklung", text: "Ich baue dein Projekt. Du bekommst regelmäßige Updates und kannst jederzeit Feedback geben." },
-  { nr: "04", titel: "Launch", text: "Wir gehen live. Ich übergebe alles sauber und stehe für Fragen bereit." },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function LeistungenPage() {
+  const { t } = useLang();
+
+  const services = [
+    {
+      icon: Globe,
+      accentColor: "#6366F1",
+      title: t.leistungen.svc1_title,
+      desc: t.leistungen.svc1_desc,
+      price: t.leistungen.svc1_price,
+      features: [
+        t.leistungen.svc1_f1,
+        t.leistungen.svc1_f2,
+        t.leistungen.svc1_f3,
+        t.leistungen.svc1_f4,
+        t.leistungen.svc1_f5,
+        t.leistungen.svc1_f6,
+      ],
+    },
+    {
+      icon: Brain,
+      accentColor: "#06B6D4",
+      title: t.leistungen.svc2_title,
+      desc: t.leistungen.svc2_desc,
+      price: t.leistungen.svc2_price,
+      features: [
+        t.leistungen.svc2_f1,
+        t.leistungen.svc2_f2,
+        t.leistungen.svc2_f3,
+        t.leistungen.svc2_f4,
+        t.leistungen.svc2_f5,
+        t.leistungen.svc2_f6,
+      ],
+    },
+    {
+      icon: Terminal,
+      accentColor: "#8B5CF6",
+      title: t.leistungen.svc3_title,
+      desc: t.leistungen.svc3_desc,
+      price: t.leistungen.svc3_price,
+      features: [
+        t.leistungen.svc3_f1,
+        t.leistungen.svc3_f2,
+        t.leistungen.svc3_f3,
+        t.leistungen.svc3_f4,
+        t.leistungen.svc3_f5,
+        t.leistungen.svc3_f6,
+      ],
+    },
+  ];
+
+  const prozess = [
+    { nr: t.leistungen.step1_nr, titel: t.leistungen.step1_title, text: t.leistungen.step1_text },
+    { nr: t.leistungen.step2_nr, titel: t.leistungen.step2_title, text: t.leistungen.step2_text },
+    { nr: t.leistungen.step3_nr, titel: t.leistungen.step3_title, text: t.leistungen.step3_text },
+    { nr: t.leistungen.step4_nr, titel: t.leistungen.step4_title, text: t.leistungen.step4_text },
+  ];
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <style>{`
@@ -103,7 +106,7 @@ export default function LeistungenPage() {
               marginBottom: "1rem",
             }}
           >
-            Leistungen
+            {t.leistungen.label}
           </p>
           <h1
             style={{
@@ -115,7 +118,7 @@ export default function LeistungenPage() {
               lineHeight: 1.15,
             }}
           >
-            Was ich für dich tun kann
+            {t.leistungen.headline}
           </h1>
           <p
             style={{
@@ -126,7 +129,7 @@ export default function LeistungenPage() {
               margin: "0 auto",
             }}
           >
-            Drei Kernleistungen. Klare Preise. Kein Agentur-Bullshit.
+            {t.leistungen.subline}
           </p>
         </div>
       </section>
@@ -239,7 +242,7 @@ export default function LeistungenPage() {
                       marginBottom: "0.75rem",
                     }}
                   >
-                    Inklusive
+                    {t.leistungen.included}
                   </p>
 
                   {/* Feature list */}
@@ -298,7 +301,7 @@ export default function LeistungenPage() {
                       (e.currentTarget as HTMLElement).style.opacity = "1";
                     }}
                   >
-                    Anfragen <ArrowRight size={14} />
+                    {t.leistungen.request} <ArrowRight size={14} />
                   </Link>
                 </div>
               );
@@ -327,7 +330,7 @@ export default function LeistungenPage() {
                 marginBottom: "0.75rem",
               }}
             >
-              Ablauf
+              {t.leistungen.process_label}
             </p>
             <h2
               style={{
@@ -336,7 +339,7 @@ export default function LeistungenPage() {
                 color: "var(--text-primary)",
               }}
             >
-              So arbeiten wir zusammen
+              {t.leistungen.process_headline}
             </h2>
           </div>
           <div className="prozess-grid">
@@ -404,7 +407,7 @@ export default function LeistungenPage() {
               lineHeight: 1.7,
             }}
           >
-            Nicht sicher welche Leistung du brauchst? Lass uns kurz reden – kostenlos und unverbindlich.
+            {t.leistungen.cta_text}
           </p>
           <Link
             href="/kontakt"
@@ -428,7 +431,7 @@ export default function LeistungenPage() {
               (e.currentTarget as HTMLElement).style.opacity = "1";
             }}
           >
-            Kostenloses Erstgespräch <ArrowRight size={16} />
+            {t.leistungen.cta_btn} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

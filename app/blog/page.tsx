@@ -1,12 +1,37 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Blog – Contexflow AI | Webdesign & KI aus Mosbach",
-  description: "Ehrliche Artikel zu Webdesign, KI-Integration und was lokale Unternehmen wirklich brauchen. Von Kevin Götz, Contexflow AI, Mosbach.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function BlogPage() {
+  const { t } = useLang();
+
+  const posts = [
+    {
+      slug: "was-kostet-eine-website-2026",
+      title: t.blog.post1_title,
+      desc: t.blog.post1_desc,
+      date: t.blog.post1_date,
+    },
+    {
+      slug: "nextjs-vs-wordpress",
+      title: t.blog.post2_title,
+      desc: t.blog.post2_desc,
+      date: t.blog.post2_date,
+    },
+    {
+      slug: "ki-chatbot-fuer-website",
+      title: t.blog.post3_title,
+      desc: t.blog.post3_desc,
+      date: t.blog.post3_date,
+    },
+    {
+      slug: "webdesign-mosbach",
+      title: t.blog.post4_title,
+      desc: t.blog.post4_desc,
+      date: t.blog.post4_date,
+    },
+  ];
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +50,7 @@ export default function BlogPage() {
               marginBottom: "1rem",
             }}
           >
-            Blog
+            {t.blog.label}
           </p>
           <h1
             style={{
@@ -37,7 +62,7 @@ export default function BlogPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Artikel & Guides
+            {t.blog.headline}
           </h1>
           <p
             style={{
@@ -47,7 +72,7 @@ export default function BlogPage() {
               lineHeight: 1.7,
             }}
           >
-            Ehrliche Einblicke zu Webdesign, KI und was lokale Unternehmen wirklich brauchen.
+            {t.blog.subline}
           </p>
 
           <div
@@ -58,35 +83,11 @@ export default function BlogPage() {
               textAlign: "left",
             }}
           >
-            {[
-              {
-                slug: "was-kostet-eine-website-2026",
-                title: "Was kostet eine Website 2026?",
-                desc: "Ehrliche Preise statt Agentur-Blabla. Was wirklich hinter den Zahlen steckt.",
-                date: "März 2026",
-              },
-              {
-                slug: "nextjs-vs-wordpress",
-                title: "Warum Next.js besser ist als WordPress",
-                desc: "Warum ich kein einziges WordPress-Projekt mehr annehme – und was ich stattdessen baue.",
-                date: "März 2026",
-              },
-              {
-                slug: "ki-chatbot-fuer-website",
-                title: "KI-Chatbot für deine Website",
-                desc: "Brauchst du wirklich einen KI-Chatbot? Eine ehrliche Einschätzung.",
-                date: "März 2026",
-              },
-              {
-                slug: "webdesign-mosbach",
-                title: "Webdesign Mosbach – Warum lokal besser ist",
-                desc: "Warum lokale Unternehmen einen lokalen Entwickler brauchen.",
-                date: "März 2026",
-              },
-            ].map((post) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
+                className="blog-card"
                 style={{
                   display: "block",
                   background: "var(--bg-card)",
@@ -96,12 +97,6 @@ export default function BlogPage() {
                   textDecoration: "none",
                   transition: "box-shadow 0.2s, border-color 0.2s",
                   boxShadow: "var(--card-shadow)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "#6366F1";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--border-color)";
                 }}
               >
                 <p

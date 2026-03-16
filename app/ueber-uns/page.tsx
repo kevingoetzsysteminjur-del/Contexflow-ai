@@ -1,59 +1,26 @@
 "use client";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const timeline = [
-  {
-    jahr: "2024",
-    ereignis: "AI entdeckt",
-    detail: "Erste Experimente mit Claude und GPT. Faszination für Context Engineering – wie man AI wirklich nützlich macht.",
-  },
-  {
-    jahr: "2025",
-    ereignis: "Erste Websites gebaut",
-    detail: "Selbst beigebracht: Next.js, Tailwind, moderne Webentwicklung. Mehrere eigene Projekte zum Üben.",
-  },
-  {
-    jahr: "Anfang 2026",
-    ereignis: "Contexflow AI gegründet",
-    detail: "Gewerbeanmeldung in Mosbach. Klare Ausrichtung: Websites + Context Engineering für lokale Unternehmen.",
-  },
-  {
-    jahr: "März 2026",
-    ereignis: "Erste Projekte live",
-    detail: "Erste echte Websites für echte Unternehmen. Der Anfang von etwas Größerem.",
-  },
-  {
-    jahr: "Heute",
-    ereignis: "Bereit für das nächste Projekt",
-    detail: "Ich bin am Anfang – ehrlich gesagt. Aber ich bin hungrig, lernfähig und liefere echte Qualität.",
-  },
-];
-
-const werte = [
-  {
-    title: "Qualität über Quantität",
-    text: "Ich nehme wenige Projekte an, um jedem die volle Aufmerksamkeit zu geben. Kein Fließbandprinzip.",
-    color: "#06B6D4",
-  },
-  {
-    title: "Context first",
-    text: "Gute Ergebnisse entstehen durch den richtigen Kontext. Das gilt für AI genauso wie für Websites.",
-    color: "#8B5CF6",
-  },
-  {
-    title: "Direkt und ehrlich",
-    text: "Ich sage was ich denke. Wenn etwas nicht funktioniert, sage ich es bevor du Geld ausgibst.",
-    color: "#F59E0B",
-  },
-  {
-    title: "Lokal verwurzelt",
-    text: "Ich bin aus Mosbach. Ich will lokalen Unternehmen helfen – das ist keine Zufälligkeit, das ist eine Entscheidung.",
-    color: "#EF4444",
-  },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function UeberUnsPage() {
+  const { t } = useLang();
+
+  const timeline = [
+    { jahr: t.about.t1_year, ereignis: t.about.t1_event, detail: t.about.t1_detail },
+    { jahr: t.about.t2_year, ereignis: t.about.t2_event, detail: t.about.t2_detail },
+    { jahr: t.about.t3_year, ereignis: t.about.t3_event, detail: t.about.t3_detail },
+    { jahr: t.about.t4_year, ereignis: t.about.t4_event, detail: t.about.t4_detail },
+    { jahr: t.about.t5_year, ereignis: t.about.t5_event, detail: t.about.t5_detail },
+  ];
+
+  const werte = [
+    { title: t.about.v1_title, text: t.about.v1_text, color: "#06B6D4" },
+    { title: t.about.v2_title, text: t.about.v2_text, color: "#8B5CF6" },
+    { title: t.about.v3_title, text: t.about.v3_text, color: "#F59E0B" },
+    { title: t.about.v4_title, text: t.about.v4_text, color: "#EF4444" },
+  ];
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <style>{`
@@ -92,7 +59,7 @@ export default function UeberUnsPage() {
               marginBottom: "1rem",
             }}
           >
-            Über mich
+            {t.about.label}
           </p>
           <h1
             style={{
@@ -104,7 +71,7 @@ export default function UeberUnsPage() {
               lineHeight: 1.1,
             }}
           >
-            Ich bin Kevin.
+            {t.about.headline}
           </h1>
           <p
             style={{
@@ -114,7 +81,7 @@ export default function UeberUnsPage() {
               lineHeight: 1.7,
             }}
           >
-            Context Engineer aus Mosbach. Ich baue Websites und AI-Systeme für lokale Unternehmen.
+            {t.about.subline}
           </p>
         </div>
       </section>
@@ -172,15 +139,11 @@ export default function UeberUnsPage() {
                   fontSize: "0.95rem",
                 }}
               >
-                Context Engineer · Mosbach
+                {t.about.role}
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                {[
-                  "Ich bin kein klassischer Webentwickler und kein klassischer AI-Berater. Ich bin jemand der beides zusammenbringt – und daraus echte, nutzbare Produkte baut.",
-                  "Context Engineering bedeutet für mich: AI-Systemen den richtigen Rahmen geben, damit sie wirklich helfen. Nicht einfach Prompts schreiben – sondern verstehen wie Maschinen denken, und das gezielt nutzen.",
-                  "Ich bin ehrlich: Ich stehe am Anfang. Aber ich baue echte, nutzbare Produkte – und bin hungrig auf das nächste.",
-                ].map((text, i) => (
+                {[t.about.bio1, t.about.bio2, t.about.bio3].map((text, i) => (
                   <p
                     key={i}
                     style={{
@@ -207,7 +170,7 @@ export default function UeberUnsPage() {
                   letterSpacing: "0.1em",
                 }}
               >
-                Mein Weg
+                {t.about.timeline_label}
               </h3>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 {timeline.map(({ jahr, ereignis, detail }, i) => (
@@ -305,7 +268,7 @@ export default function UeberUnsPage() {
                 marginBottom: "0.75rem",
               }}
             >
-              Meine Werte
+              {t.about.values_label}
             </p>
             <h2
               style={{
@@ -314,7 +277,7 @@ export default function UeberUnsPage() {
                 color: "var(--text-primary)",
               }}
             >
-              Wofür ich stehe
+              {t.about.values_headline}
             </h2>
           </div>
           <div className="werte-grid">
@@ -379,7 +342,7 @@ export default function UeberUnsPage() {
               marginBottom: "1rem",
             }}
           >
-            Lokale Unternehmen digital stark machen.
+            {t.about.cta_headline}
           </h2>
           <p
             style={{
@@ -388,7 +351,7 @@ export default function UeberUnsPage() {
               lineHeight: 1.7,
             }}
           >
-            Mosbach ist keine Metropole – aber gute digitale Präsenz brauchst du trotzdem. Oder gerade deshalb.
+            {t.about.cta_text}
           </p>
           <Link
             href="/kontakt"
@@ -412,7 +375,7 @@ export default function UeberUnsPage() {
               (e.currentTarget as HTMLElement).style.opacity = "1";
             }}
           >
-            Projekt besprechen <ArrowRight size={16} />
+            {t.about.cta_btn} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

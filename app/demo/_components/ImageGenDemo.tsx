@@ -8,6 +8,7 @@ type Lang = "de" | "en";
 const TX = {
   de: {
     placeholder: 'Beschreibe dein Bild... z.B. "Modernes Büro mit Pflanzen"',
+    empty: "Dein KI-Bild erscheint hier",
     btn: "KI-Bild generieren",
     loading: "KI generiert dein Bild...",
     suggestions: ["Modernes Büro mit Pflanzen", "Luxuriöses Restaurant bei Nacht", "Futuristisches Rechenzentrum", "Gemütliches Café mit Holzmöbeln", "Professionelles Immobilienbüro"],
@@ -18,6 +19,7 @@ const TX = {
   },
   en: {
     placeholder: 'Describe your image... e.g. "Modern office with plants"',
+    empty: "Your AI image will appear here",
     btn: "Generate AI image",
     loading: "AI is generating your image...",
     suggestions: ["Modern office with plants", "Luxury restaurant at night", "Futuristic data center", "Cozy café with wooden furniture", "Professional real estate office"],
@@ -101,7 +103,7 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
         {!loading && !imgUrl && !pendingUrl && (
           <div className="h-full flex flex-col items-center justify-center gap-3">
             <ImageIcon size={36} style={{ color: "var(--text-tertiary)" }} />
-            <p className="text-sm" style={{ color: "var(--text-tertiary)" }}>Dein KI-Bild erscheint hier</p>
+            <p className="text-sm" style={{ color: "var(--text-tertiary)" }}>{tx.empty}</p>
           </div>
         )}
 

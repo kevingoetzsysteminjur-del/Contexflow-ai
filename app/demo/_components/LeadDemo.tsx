@@ -7,6 +7,7 @@ type Lang = "de" | "en";
 
 const TX = {
   de: {
+    resultLabel: "Ihr Ergebnis",
     steps: [
       {
         q: "Wie groß ist Ihr Unternehmen?",
@@ -80,6 +81,7 @@ const TX = {
     of: "von",
   },
   en: {
+    resultLabel: "Your result",
     steps: [
       {
         q: "How large is your company?",
@@ -194,7 +196,7 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
           <ResultIcon size={28} className={result.textColor} />
         </div>
         <div>
-          <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--text-secondary)" }}>Ihr Ergebnis</p>
+          <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--text-secondary)" }}>{tx.resultLabel}</p>
           <h3 className={`text-2xl font-black ${result.textColor}`}>{result.label}</h3>
         </div>
         <p className="text-sm leading-relaxed max-w-md mx-auto" style={{ color: "var(--text-secondary)" }}>{result.text}</p>

@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import { Mail, MapPin, Clock, ArrowRight, MessageSquare } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function KontaktPage() {
+  const { t } = useLang();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,7 +31,7 @@ export default function KontaktPage() {
       if (!res.ok) throw new Error();
       setSent(true);
     } catch {
-      setError("Etwas ist schiefgelaufen. Bitte schreib direkt an contexflow.ai@gmx.net.");
+      setError(t.kontakt.error_msg);
     } finally {
       setLoading(false);
     }
@@ -99,7 +101,7 @@ export default function KontaktPage() {
               marginBottom: "1rem",
             }}
           >
-            Kontakt
+            {t.kontakt.label}
           </p>
           <h1
             style={{
@@ -111,7 +113,7 @@ export default function KontaktPage() {
               lineHeight: 1.1,
             }}
           >
-            Lass uns reden.
+            {t.kontakt.headline}
           </h1>
           <p
             style={{
@@ -120,7 +122,7 @@ export default function KontaktPage() {
               lineHeight: 1.7,
             }}
           >
-            Kostenlos, unverbindlich, auf Augenhöhe. Ich antworte innerhalb von 24 Stunden.
+            {t.kontakt.subline}
           </p>
         </div>
       </section>
@@ -151,7 +153,7 @@ export default function KontaktPage() {
                   marginBottom: "1.75rem",
                 }}
               >
-                Projekt anfragen
+                {t.kontakt.form_title}
               </h2>
 
               {sent ? (
@@ -181,10 +183,10 @@ export default function KontaktPage() {
                       marginBottom: "0.5rem",
                     }}
                   >
-                    Danke!
+                    {t.kontakt.success_title}
                   </h3>
                   <p style={{ color: "var(--text-secondary)" }}>
-                    Ich melde mich innerhalb von 24 Stunden.
+                    {t.kontakt.success_text}
                   </p>
                 </div>
               ) : (
@@ -193,12 +195,12 @@ export default function KontaktPage() {
                   style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
                 >
                   <div>
-                    <label style={labelStyle}>Dein Name *</label>
+                    <label style={labelStyle}>{t.kontakt.label_name}</label>
                     <input
                       required
                       className="contact-input"
                       style={inputStyle}
-                      placeholder="Max Mustermann"
+                      placeholder={t.kontakt.placeholder_name}
                       value={formData.name}
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, name: e.target.value }))
@@ -207,13 +209,13 @@ export default function KontaktPage() {
                   </div>
 
                   <div>
-                    <label style={labelStyle}>E-Mail *</label>
+                    <label style={labelStyle}>{t.kontakt.label_email}</label>
                     <input
                       required
                       type="email"
                       className="contact-input"
                       style={inputStyle}
-                      placeholder="max@beispiel.de"
+                      placeholder={t.kontakt.placeholder_email}
                       value={formData.email}
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, email: e.target.value }))
@@ -223,11 +225,11 @@ export default function KontaktPage() {
 
                   <div className="two-col-fields">
                     <div>
-                      <label style={labelStyle}>Firma (optional)</label>
+                      <label style={labelStyle}>{t.kontakt.label_company}</label>
                       <input
                         className="contact-input"
                         style={inputStyle}
-                        placeholder="Musterfirma GmbH"
+                        placeholder={t.kontakt.placeholder_company}
                         value={formData.company}
                         onChange={(e) =>
                           setFormData((p) => ({ ...p, company: e.target.value }))
@@ -235,11 +237,11 @@ export default function KontaktPage() {
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>Telefon (optional)</label>
+                      <label style={labelStyle}>{t.kontakt.label_phone}</label>
                       <input
                         className="contact-input"
                         style={inputStyle}
-                        placeholder="+49 ..."
+                        placeholder={t.kontakt.placeholder_phone}
                         value={formData.phone}
                         onChange={(e) =>
                           setFormData((p) => ({ ...p, phone: e.target.value }))
@@ -249,7 +251,7 @@ export default function KontaktPage() {
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Gesuchte Leistung</label>
+                    <label style={labelStyle}>{t.kontakt.label_service}</label>
                     <select
                       className="contact-input"
                       style={{ ...inputStyle, cursor: "pointer" }}
@@ -258,17 +260,17 @@ export default function KontaktPage() {
                         setFormData((p) => ({ ...p, service: e.target.value }))
                       }
                     >
-                      <option value="">Bitte wählen...</option>
-                      <option value="website">Website / Web App</option>
-                      <option value="ai">KI-Integration / Chatbot</option>
-                      <option value="both">Beides</option>
-                      <option value="context">Context Engineering</option>
-                      <option value="other">Sonstiges / Erstberatung</option>
+                      <option value="">{t.kontakt.select_placeholder}</option>
+                      <option value="website">{t.kontakt.svc_website}</option>
+                      <option value="ai">{t.kontakt.svc_ai}</option>
+                      <option value="both">{t.kontakt.svc_both}</option>
+                      <option value="context">{t.kontakt.svc_context}</option>
+                      <option value="other">{t.kontakt.svc_other}</option>
                     </select>
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Budget-Vorstellung</label>
+                    <label style={labelStyle}>{t.kontakt.label_budget}</label>
                     <select
                       className="contact-input"
                       style={{ ...inputStyle, cursor: "pointer" }}
@@ -277,17 +279,17 @@ export default function KontaktPage() {
                         setFormData((p) => ({ ...p, budget: e.target.value }))
                       }
                     >
-                      <option value="">Bitte wählen...</option>
-                      <option value="under500">Unter 500€</option>
-                      <option value="500-1000">500 – 1.000€</option>
-                      <option value="1000-2000">1.000 – 2.000€</option>
-                      <option value="over2000">Über 2.000€</option>
-                      <option value="unknown">Weiß noch nicht</option>
+                      <option value="">{t.kontakt.select_placeholder}</option>
+                      <option value="under500">{t.kontakt.budget_under500}</option>
+                      <option value="500-1000">{t.kontakt.budget_500_1000}</option>
+                      <option value="1000-2000">{t.kontakt.budget_1000_2000}</option>
+                      <option value="over2000">{t.kontakt.budget_over2000}</option>
+                      <option value="unknown">{t.kontakt.budget_unknown}</option>
                     </select>
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Nachricht *</label>
+                    <label style={labelStyle}>{t.kontakt.label_message}</label>
                     <textarea
                       required
                       className="contact-input"
@@ -296,7 +298,7 @@ export default function KontaktPage() {
                         resize: "vertical",
                         minHeight: 120,
                       }}
-                      placeholder="Beschreib kurz was du brauchst und wann du es brauchst..."
+                      placeholder={t.kontakt.placeholder_message}
                       value={formData.message}
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, message: e.target.value }))
@@ -338,8 +340,8 @@ export default function KontaktPage() {
                         (e.currentTarget as HTMLElement).style.opacity = "1";
                     }}
                   >
-                    {loading ? "Wird gesendet..." : (
-                      <>Nachricht senden <ArrowRight size={16} /></>
+                    {loading ? t.kontakt.btn_sending : (
+                      <>{t.kontakt.btn_send} <ArrowRight size={16} /></>
                     )}
                   </button>
 
@@ -350,7 +352,7 @@ export default function KontaktPage() {
                       textAlign: "center",
                     }}
                   >
-                    * Pflichtfelder. Deine Daten werden vertraulich behandelt.
+                    {t.kontakt.required_note}
                   </p>
                 </form>
               )}
@@ -376,7 +378,7 @@ export default function KontaktPage() {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Direktkontakt
+                  {t.kontakt.direct_title}
                 </h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
                   {[
@@ -388,13 +390,13 @@ export default function KontaktPage() {
                     },
                     {
                       icon: MapPin,
-                      label: "Mosbach, Neckar-Odenwald-Kreis",
+                      label: t.kontakt.location_label,
                       href: null,
                       color: "#06B6D4",
                     },
                     {
                       icon: Clock,
-                      label: "Antwort innerhalb von 24 Stunden",
+                      label: t.kontakt.response_label,
                       href: null,
                       color: "#22C55E",
                     },
@@ -490,7 +492,7 @@ export default function KontaktPage() {
                     (e.currentTarget as HTMLElement).style.opacity = "1";
                   }}
                 >
-                  <MessageSquare size={16} /> Per WhatsApp schreiben
+                  <MessageSquare size={16} /> {t.kontakt.whatsapp_btn}
                 </a>
               </div>
 
@@ -513,19 +515,10 @@ export default function KontaktPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  Für wen?
+                  {t.kontakt.for_whom_label}
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                  {[
-                    "Restaurants",
-                    "Immobilien",
-                    "Ärzte",
-                    "Handwerker",
-                    "Fitness",
-                    "Coaching",
-                    "Einzelhandel",
-                    "Dienstleister",
-                  ].map((tag) => (
+                  {t.kontakt.tags.map((tag) => (
                     <span
                       key={tag}
                       style={{

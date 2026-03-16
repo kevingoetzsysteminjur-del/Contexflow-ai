@@ -14,10 +14,17 @@ const TX = {
     oldSub: "Hier finden Sie alle Informationen über unsere Produkte und Dienstleistungen.",
     oldLink: "» Mehr erfahren (Link defekt)",
     oldCopy: "© 2008 Musterfirma GmbH | Impressum | Datenschutz | Sitemap",
+    oldImgNote: "Bild lädt... (IE6 empfohlen)",
     newTitle: "Ihr Unternehmen. Digital. Erfolgreich.",
     newSub: "Modernes Design · Blitzschnell · KI-gestützt",
     newCta: "Jetzt starten",
     newChat: "Hallo! Wie kann ich helfen? 👋",
+    newBadge: "✦ KI-gestützte Lösung",
+    newBookDemo: "Demo buchen",
+    newNav: ["Leistungen", "Projekte", "Kontakt"],
+    newCompany: "Ihr Unternehmen",
+    newStats: [["98%","Zufriedenheit"],["24/7","Erreichbar"],["5 Tage","Lieferzeit"]],
+    oldNav: ["Start", "Über uns", "Produkte", "Kontakt"],
   },
   en: {
     before: "Before", after: "After",
@@ -27,10 +34,17 @@ const TX = {
     oldSub: "Here you will find all information about our products and services.",
     oldLink: "» Learn more (link broken)",
     oldCopy: "© 2008 Sample Company Ltd | Imprint | Privacy | Sitemap",
+    oldImgNote: "Image loading... (IE6 recommended)",
     newTitle: "Your Business. Digital. Successful.",
     newSub: "Modern Design · Lightning Fast · AI-Powered",
     newCta: "Get started",
     newChat: "Hello! How can I help? 👋",
+    newBadge: "✦ AI-powered solution",
+    newBookDemo: "Book demo",
+    newNav: ["Services", "Projects", "Contact"],
+    newCompany: "Your Business",
+    newStats: [["98%","Satisfaction"],["24/7","Available"],["5 days","Delivery"]],
+    oldNav: ["Home", "About us", "Products", "Contact"],
   },
 };
 
@@ -76,7 +90,7 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
             <span style={{ fontFamily: "Comic Sans MS, cursive", color: "#ffff00", fontSize: 14, fontWeight: "bold" }}>
               🏠 MUSTERFIRMA.DE
             </span>
-            {["Start", "Über uns", "Produkte", "Kontakt"].map(l => (
+            {tx.oldNav.map(l => (
               <span key={l} style={{ fontFamily: "Comic Sans MS, cursive", color: "#ffffff", fontSize: 11, textDecoration: "underline", cursor: "pointer" }}>{l}</span>
             ))}
           </div>
@@ -105,7 +119,7 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
             </table>
             <div style={{ marginTop: 12 }}>
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" style={{ border: "2px solid #666", width: 180, height: 60, background: "#999", display: "block" }} />
-              <span style={{ fontFamily: "Comic Sans MS", fontSize: 9, color: "#666" }}>Bild lädt... (IE6 empfohlen)</span>
+              <span style={{ fontFamily: "Comic Sans MS", fontSize: 9, color: "#666" }}>{tx.oldImgNote}</span>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 bg-[#003399] px-4 py-1.5">
@@ -128,10 +142,10 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
                 <div className="w-7 h-7 rounded-lg bg-indigo-500 flex items-center justify-center">
                   <span className="text-white text-xs font-black">CF</span>
                 </div>
-                <span className="text-white font-bold text-sm">Ihr Unternehmen</span>
+                <span className="text-white font-bold text-sm">{tx.newCompany}</span>
               </div>
               <div className="flex gap-4">
-                {["Leistungen","Projekte","Kontakt"].map(l => (
+                {tx.newNav.map(l => (
                   <span key={l} className="text-zinc-400 text-xs hover:text-white transition-colors">{l}</span>
                 ))}
               </div>
@@ -139,19 +153,19 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
             </div>
             {/* Hero */}
             <div className="px-6 pt-8 pb-4">
-              <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs mb-4">✦ KI-gestützte Lösung</div>
+              <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs mb-4">{tx.newBadge}</div>
               <h2 className="text-white text-2xl font-black leading-tight mb-2">
                 {tx.newTitle}
               </h2>
               <p className="text-indigo-300 text-sm mb-4">{tx.newSub}</p>
               <div className="flex gap-2">
                 <div className="px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold">{tx.newCta} →</div>
-                <div className="px-4 py-2 rounded-xl border border-white/10 text-zinc-300 text-xs">Demo buchen</div>
+                <div className="px-4 py-2 rounded-xl border border-white/10 text-zinc-300 text-xs">{tx.newBookDemo}</div>
               </div>
             </div>
             {/* Stats */}
             <div className="grid grid-cols-3 gap-2 px-6 mt-2">
-              {[["98%","Zufriedenheit"],["24/7","Erreichbar"],["5 Tage","Lieferzeit"]].map(([v,l]) => (
+              {tx.newStats.map(([v,l]) => (
                 <div key={l} className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
                   <div className="text-indigo-300 font-black text-lg">{v}</div>
                   <div className="text-zinc-500 text-xs">{l}</div>

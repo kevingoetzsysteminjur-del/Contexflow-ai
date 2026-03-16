@@ -8,6 +8,7 @@ interface Msg { role: "bot" | "user"; text: string; }
 
 const TX = {
   de: {
+    assistantLabel: "KI-Assistent",
     welcome: "Hallo! 👋 Ich bin Ihr KI-Assistent. Wie kann ich Ihnen heute helfen?",
     quick: ["Öffnungszeiten", "Was kostet das?", "Termin buchen", "Kontakt"],
     placeholder: "Nachricht schreiben...",
@@ -24,6 +25,7 @@ const TX = {
     send: "Senden",
   },
   en: {
+    assistantLabel: "AI Assistant",
     welcome: "Hello! 👋 I'm your AI assistant. How can I help you today?",
     quick: ["Opening hours", "How much does it cost?", "Book appointment", "Contact"],
     placeholder: "Type a message...",
@@ -89,7 +91,7 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
           <Bot size={18} className="text-indigo-300" />
         </div>
         <div>
-          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>KI-Assistent</p>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{tx.assistantLabel}</p>
           <p className="text-emerald-400 text-xs">● Online</p>
         </div>
         <div className="ml-auto flex gap-1">
