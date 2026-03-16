@@ -6,23 +6,23 @@ import Link from "next/link";
 
 const projects = [
   {
-    name: "Plan A Immobilien",
-    category: "Immobilien · Live",
-    url: "https://plan-a-immobilien.vercel.app",
+    name: "Immobilienmakler Website",
+    category: "Immobilien · Web App",
+    url: "#",
     bg: "linear-gradient(135deg, #1a1208 0%, #2d1f0a 40%, #0a0a0a 100%)",
     accent: "#C9A96E",
     label: "IMMO",
   },
   {
-    name: "Antonia Braditsch",
-    category: "Klangtherapie · Live",
+    name: "Klangtherapie Plattform",
+    category: "Wellness · Web App",
     url: "#",
     bg: "linear-gradient(135deg, #0d0818 0%, #1a0f2e 40%, #080808 100%)",
     accent: "#8B5CF6",
     label: "KLANG",
   },
   {
-    name: "Marco Baber",
+    name: "Barbershop Website",
     category: "Barbershop · Live",
     url: "#",
     bg: "linear-gradient(135deg, #120808 0%, #1f0a0a 40%, #0a0a0a 100%)",

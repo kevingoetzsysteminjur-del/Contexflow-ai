@@ -3,12 +3,12 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 
 const projekte = [
   {
-    kuerzel: "PA",
-    name: "Plan A Immobilien und Finanzierung",
+    kuerzel: "IM",
+    name: "Immobilienmakler Website",
     typ: "Immobilien-Website",
     beschreibung:
-      "Professionelle Website für einen Immobilienmakler aus der Region. Klares Design, schnelle Ladezeiten, Kontaktformular und Objektübersicht. Der erste echte Kunde von Contexflow AI.",
-    tags: ["Next.js", "Tailwind CSS", "Immobilien", "Mosbach"],
+      "Premium Website für einen Immobilienmakler mit KI-Chatbot, Bewertungstool, Mehrsprachigkeit (DE/EN/TR) und über 20 Features.",
+    tags: ["Next.js", "Tailwind CSS", "Immobilien", "KI-Chatbot"],
     status: "Live",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
     bg: "from-cyan-900/30 to-zinc-900/50",
@@ -80,7 +80,7 @@ export default function ProjektePage() {
             Meine Referenzen
           </h1>
           <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Ein echter Kunde. Drei Demo-Projekte die zeigen was möglich ist. Mehr kommen.
+            Ausgewählte Referenzen und Demo-Projekte die zeigen was möglich ist. Mehr kommen.
           </p>
         </div>
       </section>

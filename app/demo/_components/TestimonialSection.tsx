@@ -7,9 +7,9 @@ type Lang = "de" | "en";
 const TESTIMONIALS = {
   de: [
     {
-      initials: "AA",
-      name: "Ali Artun",
-      firma: "Plan A Immobilien und Finanzierung",
+      initials: "ZK",
+      name: "Zufriedener Kunde",
+      firma: "Immobilienmakler, Mosbach",
       color: "from-indigo-600 to-violet-600",
       stars: 5,
       text: "Kevin hat unsere Website in kürzester Zeit komplett neu aufgebaut. Das Ergebnis ist modern, schnell und kommt bei unseren Kunden sehr gut an. Absolut professionelle Zusammenarbeit!",
@@ -33,9 +33,9 @@ const TESTIMONIALS = {
   ],
   en: [
     {
-      initials: "AA",
-      name: "Ali Artun",
-      firma: "Plan A Real Estate & Finance",
+      initials: "ZK",
+      name: "Satisfied Client",
+      firma: "Real Estate Agent, Mosbach",
       color: "from-indigo-600 to-violet-600",
       stars: 5,
       text: "Kevin completely rebuilt our website in no time. The result is modern, fast and very well received by our clients. Absolutely professional collaboration!",

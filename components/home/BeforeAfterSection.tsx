@@ -11,7 +11,7 @@ type SliderItem = {
 
 const SLIDERS: SliderItem[] = [
   {
-    title: "Braditsch.at",
+    title: "Klangtherapie Plattform",
     result: "3x schnellere Ladezeit · Modernes Design · SEO-optimiert",
     before: {
       label: "Alte Wix-Website",
@@ -24,7 +24,7 @@ const SLIDERS: SliderItem[] = [
     },
   },
   {
-    title: "Marco Baber",
+    title: "Barbershop Website",
     result: "Conversion-Rate +180% · Professionelle Außenwirkung · Google Top 3",
     before: {
       label: "Veraltete WordPress-Seite",
@@ -37,7 +37,7 @@ const SLIDERS: SliderItem[] = [
     },
   },
   {
-    title: "Plan A Immobilien",
+    title: "Immobilienmakler Website",
     result: "Professionelle Positionierung · 100% Eigenständigkeit · Premium-Auftritt",
     before: {
       label: "Kein Web-Auftritt",

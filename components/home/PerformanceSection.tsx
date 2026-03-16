@@ -5,8 +5,8 @@ import { motion, useInView } from "framer-motion";
 
 const PROJECTS = [
   {
-    name: "Braditsch.at",
-    category: "Klangtherapie",
+    name: "Klangtherapie Plattform",
+    category: "Wellness",
     ladezeit: "0.8s",
     scores: [
       { label: "PageSpeed", value: 95 },
@@ -15,8 +15,8 @@ const PROJECTS = [
     ],
   },
   {
-    name: "Marco Baber",
-    category: "Coaching",
+    name: "Barbershop Website",
+    category: "Barbershop",
     ladezeit: "0.6s",
     scores: [
       { label: "PageSpeed", value: 97 },
@@ -25,7 +25,7 @@ const PROJECTS = [
     ],
   },
   {
-    name: "Plan A Immobilien",
+    name: "Immobilienmakler Website",
     category: "Immobilien",
     ladezeit: "0.9s",
     scores: [
