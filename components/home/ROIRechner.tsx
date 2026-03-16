@@ -157,18 +157,16 @@ export default function ROIRechner() {
         </motion.div>
 
         {/* Layout */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(2rem, 4vw, 4rem)",
-            alignItems: "start",
-          }}
-        >
-          <style>{`
-            @media (max-width: 767px) { .roi-grid { grid-template-columns: 1fr !important; } }
-          `}</style>
-          <div className="roi-grid" style={{ display: "contents" }}>
+        <style>{`
+          .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 4rem);
+            align-items: start;
+          }
+          @media (max-width: 767px) { .roi-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+        <div className="roi-grid">
             {/* Sliders */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -469,7 +467,6 @@ export default function ROIRechner() {
                 {t.roi.cta}
               </Link>
             </motion.div>
-          </div>
         </div>
       </div>
     </section>

@@ -303,7 +303,7 @@ export default function DemoPage() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-6 tracking-tight">
           <span style={{ color: "var(--text-primary)" }}>{tx.hero.h1a}</span>
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400">
@@ -332,15 +332,15 @@ export default function DemoPage() {
       </section>
 
       {/* SECTIONS */}
-      <div ref={featuresRef} className="relative max-w-5xl mx-auto px-6 py-16 space-y-20">
+      <div ref={featuresRef} className="relative max-w-5xl mx-auto px-4 py-16 space-y-20" style={{ overflowX: "hidden" }}>
         {tx.sections.map((section, idx) => {
           const c = colorMap[section.color];
           const Icon = section.icon;
           return (
             <section key={section.id} id={section.id}>
               {/* Section Header */}
-              <div className="flex items-start gap-4 mb-8">
-                <span className={`text-5xl font-black ${c.num} opacity-30 leading-none tabular-nums`}>
+              <div className="flex items-start gap-3 mb-8">
+                <span className={`text-3xl md:text-5xl font-black ${c.num} opacity-30 leading-none tabular-nums flex-shrink-0`}>
                   {section.num}
                 </span>
                 <div>
@@ -348,13 +348,13 @@ export default function DemoPage() {
                     <Icon size={11} />
                     {section.label}
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: "var(--text-primary)" }}>{section.title}</h2>
+                  <h2 className="text-2xl md:text-4xl font-black mb-3" style={{ color: "var(--text-primary)" }}>{section.title}</h2>
                   <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>{section.sub}</p>
                 </div>
               </div>
 
               {/* Demo Card */}
-              <div className={`rounded-3xl border backdrop-blur p-6 md:p-8 transition-colors ${c.border}`} style={{ background: "var(--bg-card)" }}>
+              <div className={`rounded-3xl border backdrop-blur p-4 md:p-8 transition-colors overflow-hidden ${c.border}`} style={{ background: "var(--bg-card)" }}>
                 {section.id === "chatbot" && <ChatDemo lang={lang} />}
                 {section.id === "buchung" && <BookingDemo lang={lang} />}
                 {section.id === "faq" && <FaqDemo lang={lang} />}

@@ -32,6 +32,7 @@ export default function LiveVisitorBadge() {
 
   return (
     <div
+      className="live-visitor-badge"
       style={{
         position: "fixed",
         bottom: "6rem",
@@ -77,11 +78,25 @@ export default function LiveVisitorBadge() {
         />
       </span>
       <span style={{ fontVariantNumeric: "tabular-nums" }}>{count}</span>
-      <span>Personen schauen sich gerade diese Seite an</span>
+      <span className="live-text">Personen schauen sich gerade diese Seite an</span>
 
       <style>{`
         @keyframes live-ping {
           75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        @media (max-width: 767px) {
+          .live-visitor-badge {
+            font-size: 10px !important;
+            padding: 4px 8px 4px 7px !important;
+            left: 0.75rem !important;
+            bottom: 8.5rem !important;
+            max-width: calc(60vw);
+          }
+        }
+        @media (max-width: 479px) {
+          .live-visitor-badge span.live-text {
+            display: none;
+          }
         }
       `}</style>
     </div>

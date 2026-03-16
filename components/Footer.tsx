@@ -21,18 +21,22 @@ export default function Footer() {
 
   return (
     <footer style={{ borderTop: "1px solid var(--border-light)", background: "var(--bg-footer)" }}>
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "1.5rem clamp(1.5rem, 4vw, 2.5rem)",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "1rem",
-        }}
-      >
+      <style>{`
+        .footer-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 1.5rem clamp(1.5rem, 4vw, 2.5rem);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+        }
+        @media (max-width: 479px) {
+          .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+      `}</style>
+      <div className="footer-inner">
         <span
           style={{
             fontSize: 10,

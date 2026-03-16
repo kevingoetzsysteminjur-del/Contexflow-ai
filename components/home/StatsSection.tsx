@@ -47,9 +47,10 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
   return (
     <div
       ref={ref}
+      className={`stat-item stat-item-${index}`}
       style={{
         borderRight: index < STATS.length - 1 ? "1px solid var(--border-light)" : "none",
-        padding: "2rem",
+        padding: "clamp(1.25rem, 3vw, 2rem)",
         textAlign: "center",
       }}
     >
@@ -95,44 +96,25 @@ export default function StatsSection() {
         borderBottom: "1px solid var(--border-light)",
       }}
     >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem)",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-          }}
-        >
-          <style>{`
-            @media (max-width: 639px) {
-              .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            }
-          `}</style>
-          <div
-            className="stats-grid"
-            style={{
-              display: "contents",
-            }}
-          >
-            {STATS.map((stat, i) => (
-              <StatItem key={i} stat={stat} index={i} />
-            ))}
-          </div>
-        </div>
-      </div>
-
       <style>{`
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem);
+        }
         @media (max-width: 639px) {
-          .stats-outer-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .stat-item-1, .stat-item-3 { border-right: none !important; }
+          .stat-item-0, .stat-item-1 { border-bottom: 1px solid var(--border-light); }
         }
       `}</style>
+      <div className="stats-grid">
+        {STATS.map((stat, i) => (
+          <StatItem key={i} stat={stat} index={i} />
+        ))}
+      </div>
     </section>
   );
 }

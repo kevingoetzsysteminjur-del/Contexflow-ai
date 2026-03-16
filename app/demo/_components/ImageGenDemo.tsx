@@ -63,10 +63,10 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
   return (
     <div className="space-y-5">
       {/* Input */}
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           className="flex-1 rounded-xl px-4 py-3 text-sm outline-none focus:border-indigo-500/50 transition-colors"
-          style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
+          style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)", width: "100%" }}
           placeholder={tx.placeholder}
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
@@ -75,7 +75,7 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
         <button
           onClick={() => generate()}
           disabled={!prompt.trim() || loading}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 disabled:opacity-40 text-white text-sm font-semibold transition-all whitespace-nowrap"
+          className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 disabled:opacity-40 text-white text-sm font-semibold transition-all whitespace-nowrap"
         >
           <Sparkles size={15} />
           {tx.btn}

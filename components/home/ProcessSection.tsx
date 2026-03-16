@@ -130,18 +130,16 @@ export default function ProcessSection() {
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(2rem, 5vw, 5rem)",
-            alignItems: "start",
-          }}
-        >
-          <style>{`
-            @media (max-width: 767px) { .process-layout { grid-template-columns: 1fr !important; } }
-          `}</style>
-          <div className="process-layout" style={{ display: "contents" }}>
+        <style>{`
+          .process-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: start;
+          }
+          @media (max-width: 767px) { .process-layout { grid-template-columns: 1fr !important; } }
+        `}</style>
+        <div className="process-layout">
             {/* Left: Header + Highlight Banner */}
             <div>
               <motion.div
@@ -242,7 +240,6 @@ export default function ProcessSection() {
                 <StepItem key={i} step={step} index={i} total={STEPS.length} />
               ))}
             </div>
-          </div>
         </div>
       </div>
     </section>

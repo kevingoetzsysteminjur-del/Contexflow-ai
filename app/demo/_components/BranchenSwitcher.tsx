@@ -151,14 +151,14 @@ export default function BranchenSwitcher({ lang }: { lang: Lang }) {
   return (
     <div className="space-y-5">
       {/* Branch Buttons */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 overflow-x-auto pb-1" style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
         {list.map((b, i) => {
           const Icon = b.icon;
           return (
             <button
               key={b.key}
               onClick={() => setActive(i)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all flex-shrink-0 ${
                 active === i
                   ? `${b.color.pill} scale-105`
                   : ""

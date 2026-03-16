@@ -24,18 +24,16 @@ export default function WebsiteCheckSection() {
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(2rem, 5vw, 5rem)",
-            alignItems: "center",
-          }}
-        >
-          <style>{`
-            @media (max-width: 767px) { .wcs-grid { grid-template-columns: 1fr !important; } }
-          `}</style>
-          <div className="wcs-grid" style={{ display: "contents" }}>
+        <style>{`
+          .wcs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: center;
+          }
+          @media (max-width: 767px) { .wcs-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+        <div className="wcs-grid">
             {/* Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -235,7 +233,6 @@ export default function WebsiteCheckSection() {
                 Beispiel-Analyse — deine Werte können abweichen.
               </p>
             </motion.div>
-          </div>
         </div>
       </div>
     </section>

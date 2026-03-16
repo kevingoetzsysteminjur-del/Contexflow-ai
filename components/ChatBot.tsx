@@ -101,12 +101,20 @@ export default function ChatBot() {
 
   return (
     <>
+      <style>{`
+        .chatbot-toggle { bottom: 1.5rem; }
+        .chatbot-window { bottom: 6rem; }
+        @media (max-width: 767px) {
+          .chatbot-toggle { bottom: 4.5rem; }
+          .chatbot-window { bottom: 9rem; max-height: min(480px, 65vh) !important; }
+        }
+      `}</style>
       {/* Chat Window */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-[350px] max-w-[calc(100vw-24px)] flex flex-col rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right ${
+        className={`fixed right-4 z-50 w-[350px] max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right chatbot-window ${
           open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
         }`}
-        style={{ maxHeight: "520px", background: "var(--bg-card)", border: "1px solid var(--border-color)", boxShadow: "var(--card-shadow-hover)" }}
+        style={{ maxHeight: "min(520px, 70vh)", background: "var(--bg-card)", border: "1px solid var(--border-color)", boxShadow: "var(--card-shadow-hover)", display: "flex", flexDirection: "column" }}
       >
         {/* Header */}
         <div className="flex items-center gap-3 px-4 py-3 rounded-t-2xl" style={{ background: "var(--bg-card-hover)", borderBottom: "1px solid var(--border-color)" }}>
@@ -177,7 +185,7 @@ export default function ChatBot() {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
+        className="fixed right-4 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 chatbot-toggle"
         style={open
           ? { background: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-tertiary)" }
           : { background: "#6366F1", color: "#fff", boxShadow: "0 4px 20px rgba(99,102,241,0.4)" }

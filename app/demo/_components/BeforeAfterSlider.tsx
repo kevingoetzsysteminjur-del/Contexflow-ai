@@ -82,7 +82,8 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
       <p className="text-sm text-center" style={{ color: "var(--text-tertiary)" }}>{tx.drag}</p>
       <div
         ref={containerRef}
-        className="relative h-[380px] rounded-2xl overflow-hidden border border-white/10 select-none cursor-col-resize"
+        className="relative rounded-2xl overflow-hidden border border-white/10 select-none cursor-col-resize"
+        style={{ height: "clamp(280px, 50vw, 380px)", touchAction: "pan-y" }}
       >
         {/* OLD SITE */}
         <div className="absolute inset-0 bg-[#d4d0c8]">

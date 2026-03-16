@@ -79,7 +79,7 @@ export default function BlogPage() {
             style={{
               display: "grid",
               gap: "1.5rem",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
               textAlign: "left",
             }}
           >
