@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { UtensilsCrossed, Dumbbell, Palette, Bot } from "lucide-react";
-import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function DemoSection() {
@@ -106,8 +105,10 @@ export default function DemoSection() {
         {/* Bento Grid */}
         <div className="bento-grid">
           {/* AI Demo — tall left card */}
-          <Link
-            href="/demo"
+          <a
+            href="https://contexflow.com/demo"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bento-card bento-ai"
             style={{
               background:
@@ -195,14 +196,14 @@ export default function DemoSection() {
                   fontWeight: 500,
                 }}
               >
-                Live Demo ansehen →
+                Live Live Demo ansehen →
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Restaurant card — wide top right */}
           <a
-            href="https://restaurant-cafe-beta.vercel.app"
+            href="https://restaurant-bella-vista-sable.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="bento-card bento-restaurant"
@@ -286,7 +287,7 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Demo ansehen →
+                Live Demo ansehen →
               </span>
             </div>
           </a>
@@ -367,14 +368,14 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Demo ansehen →
+                Live Demo ansehen →
               </span>
             </div>
           </a>
 
           {/* Portfolio card */}
           <a
-            href="https://portfolio-blue-pi-aoi2l1owx4.vercel.app"
+            href="https://kevin-goetz-portfolio.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="bento-card bento-portfolio"
@@ -448,7 +449,7 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Demo ansehen →
+                Live Demo ansehen →
               </span>
             </div>
           </a>
