@@ -5,210 +5,49 @@ import { UtensilsCrossed, Dumbbell, Palette, Bot } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const demos = [
-  {
-    gradient: "linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #1c0a00 100%)",
-    icon: UtensilsCrossed,
-    tag: "Gastronomie",
-    tagColor: "#F97316",
-    title: "Bella Vista – Restaurant & Café",
-    desc: "Elegante Gastronomie-Website mit Speisekarte, Reservierung und stimmungsvollem Design.",
-    url: "#",
-  },
-  {
-    gradient: "linear-gradient(135deg, #052e16 0%, #166534 50%, #000000 100%)",
-    icon: Dumbbell,
-    tag: "Fitness",
-    tagColor: "#22C55E",
-    title: "IRONPEAK – Fitness Studio",
-    desc: "Kraftvolle Fitness-Website mit Kursplan, Mitgliedschaft und energetischem Design.",
-    url: "#",
-  },
-  {
-    gradient: "linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #0a0a0a 100%)",
-    icon: Palette,
-    tag: "Portfolio",
-    tagColor: "#8B5CF6",
-    title: "Creative Portfolio",
-    desc: "Minimalistisches Portfolio für Kreative mit Projekt-Galerie und Kontaktformular.",
-    url: "#",
-  },
-  {
-    gradient: "linear-gradient(135deg, #0c4a6e 0%, #0891b2 50%, #030305 100%)",
-    icon: Bot,
-    tag: "KI & Automation",
-    tagColor: "#06B6D4",
-    title: "AI Features Demo",
-    desc: "Interaktive Demo mit KI-Chatbot, Terminbuchung, FAQ-Bot, Lead-Qualifizierung – zweisprachig DE/EN.",
-    url: "/demo",
-  },
-];
-
-function DemoCard({ demo, delay }: { demo: typeof demos[0]; delay: number }) {
-  const [hovered, setHovered] = useState(false);
-  const [btnHovered, setBtnHovered] = useState(false);
-  const Icon = demo.icon;
-
-  const isInternal = demo.url !== "#" && !demo.url.startsWith("http");
-  const isExternal = demo.url.startsWith("http");
-
-  return (
-    <ScrollReveal delay={delay}>
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{
-          background: "#0d0d14",
-          border: `1px solid ${hovered ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.08)"}`,
-          borderRadius: 16,
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          transform: hovered ? "translateY(-4px)" : "translateY(0)",
-          transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
-          boxShadow: hovered
-            ? `0 12px 40px rgba(0,0,0,0.5), 0 0 20px ${demo.tagColor}18`
-            : "none",
-        }}
-      >
-        {/* Top gradient area */}
-        <div
-          style={{
-            height: 180,
-            background: demo.gradient,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-          }}
-        >
-          <Icon size={48} style={{ color: "rgba(255,255,255,0.8)" }} />
-        </div>
-
-        {/* Bottom content area */}
-        <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
-          {/* Tag */}
-          <span
-            style={{
-              display: "inline-block",
-              fontSize: 10,
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-              color: demo.tagColor,
-              background: `${demo.tagColor}18`,
-              border: `1px solid ${demo.tagColor}30`,
-              borderRadius: 100,
-              padding: "3px 10px",
-              marginBottom: "0.75rem",
-              alignSelf: "flex-start",
-            }}
-          >
-            {demo.tag}
-          </span>
-
-          {/* Title */}
-          <h3
-            style={{
-              fontSize: "1.1rem",
-              fontWeight: 600,
-              color: "#F5F5F7",
-              letterSpacing: "0.02em",
-              margin: 0,
-            }}
-          >
-            {demo.title}
-          </h3>
-
-          {/* Description */}
-          <p
-            style={{
-              fontSize: "0.875rem",
-              color: "#71717A",
-              lineHeight: 1.65,
-              margin: "0.5rem 0 1rem",
-            }}
-          >
-            {demo.desc}
-          </p>
-
-          {/* CTA Button */}
-          <div style={{ marginTop: "auto" }}>
-            {isInternal ? (
-              <Link
-                href={demo.url}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontSize: "13px",
-                  color: demo.tagColor,
-                  letterSpacing: "0.05em",
-                  textDecoration: "none",
-                  opacity: btnHovered ? 0.7 : 1,
-                  transition: "opacity 0.2s",
-                }}
-                onMouseEnter={() => setBtnHovered(true)}
-                onMouseLeave={() => setBtnHovered(false)}
-              >
-                Live Demo ansehen →
-              </Link>
-            ) : isExternal ? (
-              <a
-                href={demo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontSize: "13px",
-                  color: demo.tagColor,
-                  letterSpacing: "0.05em",
-                  textDecoration: "none",
-                  opacity: btnHovered ? 0.7 : 1,
-                  transition: "opacity 0.2s",
-                }}
-                onMouseEnter={() => setBtnHovered(true)}
-                onMouseLeave={() => setBtnHovered(false)}
-              >
-                Live Demo ansehen →
-              </a>
-            ) : (
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontSize: "13px",
-                  color: demo.tagColor,
-                  letterSpacing: "0.05em",
-                  opacity: 0.5,
-                  cursor: "default",
-                }}
-              >
-                Live Demo ansehen →
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-    </ScrollReveal>
-  );
-}
-
 export default function DemoSection() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
   return (
     <section
       style={{
         background: "#030305",
         borderTop: "1px solid #111",
-        padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
+        padding: "clamp(5rem,10vw,8rem) clamp(1.5rem,4vw,2.5rem)",
       }}
     >
       <style>{`
-        @media (max-width: 639px) {
-          .demo-grid {
+        @keyframes bento-glow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.85; }
+        }
+        .bento-grid {
+          display: grid;
+          grid-template-areas: "ai restaurant restaurant" "ai fitness portfolio";
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 280px 220px;
+          gap: 16px;
+        }
+        .bento-card {
+          border-radius: 20px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-ai { grid-area: ai; }
+        .bento-restaurant { grid-area: restaurant; }
+        .bento-fitness { grid-area: fitness; }
+        .bento-portfolio { grid-area: portfolio; }
+
+        @media (max-width: 767px) {
+          .bento-grid {
+            grid-template-areas: "ai" "restaurant" "fitness" "portfolio" !important;
             grid-template-columns: 1fr !important;
+            grid-template-rows: auto !important;
+          }
+          .bento-card {
+            min-height: 200px;
           }
         }
       `}</style>
@@ -216,68 +55,409 @@ export default function DemoSection() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
         <ScrollReveal>
-          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
-            <p
+          <p
+            style={{
+              color: "#6366F1",
+              fontSize: 11,
+              letterSpacing: "0.4em",
+              textTransform: "uppercase",
+              marginBottom: "1rem",
+              margin: "0 0 1rem 0",
+            }}
+          >
+            Live Demos
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(2rem,5vw,3.5rem)",
+              fontWeight: 200,
+              color: "#F5F5F7",
+              letterSpacing: "-0.02em",
+              marginBottom: "0.75rem",
+              margin: "0 0 0.75rem 0",
+              lineHeight: 1.15,
+            }}
+          >
+            So könnte{" "}
+            <span
               style={{
-                fontSize: 11,
-                letterSpacing: "0.4em",
-                textTransform: "uppercase",
-                color: "#6366F1",
-                marginBottom: "0.75rem",
+                background: "linear-gradient(90deg, #06B6D4, #8B5CF6)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
-              DEMOS
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-                fontWeight: 200,
-                color: "#F5F5F7",
-                letterSpacing: "0.04em",
-                lineHeight: 1.2,
-                margin: "0 0 0.5rem 0",
-              }}
-            >
-              Live Demos
-            </h2>
-            <p
-              style={{
-                fontSize: 13,
-                color: "#71717A",
-                letterSpacing: "0.03em",
-              }}
-            >
-              Klick rein und überzeug dich selbst. Alles von mir gebaut.
-            </p>
-          </div>
+              deine Website
+            </span>{" "}
+            aussehen
+          </h2>
+          <p
+            style={{
+              color: "#6B7280",
+              fontSize: "1.05rem",
+              marginBottom: "3rem",
+              margin: "0 0 3rem 0",
+            }}
+          >
+            Echte Demos. Klick rein und überzeug dich selbst.
+          </p>
         </ScrollReveal>
 
-        {/* Cards grid */}
-        <div
-          className="demo-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "1.5rem",
-          }}
-        >
-          {demos.map((demo, i) => (
-            <DemoCard key={demo.title} demo={demo} delay={i * 100} />
-          ))}
+        {/* Bento Grid */}
+        <div className="bento-grid">
+          {/* AI Demo — tall left card */}
+          <Link
+            href="/demo"
+            className="bento-card bento-ai"
+            style={{
+              background:
+                "linear-gradient(160deg, #0c1445 0%, #0891b2 60%, #0c4a6e 100%)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "2rem",
+              textDecoration: "none",
+              transform:
+                hoveredCard === "ai" ? "scale(1.02)" : "scale(1)",
+              boxShadow:
+                hoveredCard === "ai"
+                  ? "0 20px 60px rgba(8,145,178,0.3)"
+                  : "none",
+            }}
+            onMouseEnter={() => setHoveredCard("ai")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            {/* Icon */}
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Bot
+                size={64}
+                style={{
+                  color: "rgba(255,255,255,0.9)",
+                  filter: hoveredCard === "ai"
+                    ? "drop-shadow(0 0 16px rgba(8,145,178,0.8))"
+                    : "none",
+                  transition: "filter 0.3s ease",
+                }}
+              />
+            </div>
+            {/* Bottom content */}
+            <div style={{ width: "100%" }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "#06B6D4",
+                  background: "rgba(6,182,212,0.15)",
+                  border: "1px solid rgba(6,182,212,0.3)",
+                  borderRadius: 100,
+                  padding: "3px 10px",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                KI & Automation
+              </span>
+              <h3
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: 600,
+                  color: "#F5F5F7",
+                  margin: "0 0 0.35rem 0",
+                  letterSpacing: "0.01em",
+                }}
+              >
+                AI Features Demo
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.825rem",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.55,
+                  margin: "0 0 0.75rem 0",
+                }}
+              >
+                KI-Chatbot, FAQ-Bot, Lead-Qualifizierung – live & interaktiv.
+              </p>
+              <span
+                style={{
+                  fontSize: 13,
+                  color: "#06B6D4",
+                  letterSpacing: "0.05em",
+                  fontWeight: 500,
+                }}
+              >
+                Live Demo ansehen →
+              </span>
+            </div>
+          </Link>
+
+          {/* Restaurant card — wide top right */}
+          <div
+            className="bento-card bento-restaurant"
+            style={{
+              background:
+                "linear-gradient(135deg, #7c1d00 0%, #ea580c 50%, #ff8c42 100%)",
+              display: "flex",
+              flexDirection: "column",
+              padding: "2rem",
+              transform:
+                hoveredCard === "restaurant" ? "scale(1.02)" : "scale(1)",
+              boxShadow:
+                hoveredCard === "restaurant"
+                  ? "0 20px 60px rgba(234,88,12,0.3)"
+                  : "none",
+            }}
+            onMouseEnter={() => setHoveredCard("restaurant")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <UtensilsCrossed
+                size={56}
+                style={{
+                  color: "rgba(255,255,255,0.9)",
+                  filter: hoveredCard === "restaurant"
+                    ? "drop-shadow(0 0 14px rgba(255,140,66,0.8))"
+                    : "none",
+                  transition: "filter 0.3s ease",
+                }}
+              />
+            </div>
+            <div>
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "#F97316",
+                  background: "rgba(249,115,22,0.15)",
+                  border: "1px solid rgba(249,115,22,0.3)",
+                  borderRadius: 100,
+                  padding: "3px 10px",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Gastronomie
+              </span>
+              <h3
+                style={{
+                  fontSize: "1.1rem",
+                  fontWeight: 600,
+                  color: "#F5F5F7",
+                  margin: "0 0 0.25rem 0",
+                }}
+              >
+                Bella Vista – Restaurant & Café
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.5,
+                  margin: "0 0 0.5rem 0",
+                }}
+              >
+                Elegante Gastronomie-Website mit Speisekarte & Reservierung.
+              </p>
+              <span
+                style={{
+                  fontSize: 12,
+                  color: "rgba(255,255,255,0.45)",
+                  letterSpacing: "0.04em",
+                  cursor: "default",
+                }}
+              >
+                Demo in Kürze →
+              </span>
+            </div>
+          </div>
+
+          {/* Fitness card */}
+          <div
+            className="bento-card bento-fitness"
+            style={{
+              background:
+                "linear-gradient(135deg, #052e16 0%, #16a34a 50%, #4ade80 100%)",
+              display: "flex",
+              flexDirection: "column",
+              padding: "1.5rem",
+              transform:
+                hoveredCard === "fitness" ? "scale(1.02)" : "scale(1)",
+              boxShadow:
+                hoveredCard === "fitness"
+                  ? "0 20px 60px rgba(22,163,74,0.3)"
+                  : "none",
+            }}
+            onMouseEnter={() => setHoveredCard("fitness")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Dumbbell
+                size={44}
+                style={{
+                  color: "rgba(255,255,255,0.9)",
+                  filter: hoveredCard === "fitness"
+                    ? "drop-shadow(0 0 12px rgba(74,222,128,0.8))"
+                    : "none",
+                  transition: "filter 0.3s ease",
+                }}
+              />
+            </div>
+            <div>
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "#22C55E",
+                  background: "rgba(34,197,94,0.15)",
+                  border: "1px solid rgba(34,197,94,0.3)",
+                  borderRadius: 100,
+                  padding: "3px 10px",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Fitness
+              </span>
+              <h3
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "#F5F5F7",
+                  margin: "0 0 0.2rem 0",
+                }}
+              >
+                IRONPEAK – Fitness Studio
+              </h3>
+              <span
+                style={{
+                  fontSize: 12,
+                  color: "rgba(255,255,255,0.45)",
+                  letterSpacing: "0.04em",
+                  cursor: "default",
+                }}
+              >
+                Demo in Kürze →
+              </span>
+            </div>
+          </div>
+
+          {/* Portfolio card */}
+          <div
+            className="bento-card bento-portfolio"
+            style={{
+              background:
+                "linear-gradient(135deg, #1e1b4b 0%, #7c3aed 50%, #c084fc 100%)",
+              display: "flex",
+              flexDirection: "column",
+              padding: "1.5rem",
+              transform:
+                hoveredCard === "portfolio" ? "scale(1.02)" : "scale(1)",
+              boxShadow:
+                hoveredCard === "portfolio"
+                  ? "0 20px 60px rgba(124,58,237,0.3)"
+                  : "none",
+            }}
+            onMouseEnter={() => setHoveredCard("portfolio")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Palette
+                size={44}
+                style={{
+                  color: "rgba(255,255,255,0.9)",
+                  filter: hoveredCard === "portfolio"
+                    ? "drop-shadow(0 0 12px rgba(192,132,252,0.8))"
+                    : "none",
+                  transition: "filter 0.3s ease",
+                }}
+              />
+            </div>
+            <div>
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "#8B5CF6",
+                  background: "rgba(139,92,246,0.15)",
+                  border: "1px solid rgba(139,92,246,0.3)",
+                  borderRadius: 100,
+                  padding: "3px 10px",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Portfolio
+              </span>
+              <h3
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "#F5F5F7",
+                  margin: "0 0 0.2rem 0",
+                }}
+              >
+                Creative Portfolio
+              </h3>
+              <span
+                style={{
+                  fontSize: 12,
+                  color: "rgba(255,255,255,0.45)",
+                  letterSpacing: "0.04em",
+                  cursor: "default",
+                }}
+              >
+                Demo in Kürze →
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Footnote */}
-        <ScrollReveal delay={400}>
+        <ScrollReveal delay={300}>
           <p
             style={{
-              marginTop: "2rem",
+              color: "#374151",
               fontSize: 12,
-              color: "#52525B",
+              marginTop: "1.5rem",
+              textAlign: "center",
               letterSpacing: "0.02em",
               lineHeight: 1.6,
             }}
           >
-            * Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte. Die AI Features Demo ist live verfügbar.
+            * Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte ohne echten Kunden-Bezug.
           </p>
         </ScrollReveal>
       </div>

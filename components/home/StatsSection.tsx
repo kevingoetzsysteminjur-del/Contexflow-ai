@@ -57,7 +57,7 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
         style={{
           fontSize: "clamp(3rem, 7vw, 5.5rem)",
           fontWeight: 200,
-          color: "#F5F5F7",
+          color: "#06B6D4",
           letterSpacing: "-0.02em",
           display: "flex",
           alignItems: "center",

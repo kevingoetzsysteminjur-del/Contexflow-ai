@@ -44,9 +44,9 @@ export default function SectionCTA({ text, href, variant = "primary", subtext }:
         onMouseEnter={(e) => {
           const el = e.currentTarget as HTMLElement;
           if (isPrimary) {
-            el.style.background = "rgba(99,102,241,0.08)";
-            el.style.borderColor = "rgba(99,102,241,0.7)";
-            el.style.color = "#818CF8";
+            el.style.background = "linear-gradient(135deg, #6366F1, #06B6D4)";
+            el.style.borderColor = "transparent";
+            el.style.color = "#FFFFFF";
           } else {
             el.style.borderColor = "rgba(255,255,255,0.25)";
             el.style.color = "rgba(255,255,255,0.65)";

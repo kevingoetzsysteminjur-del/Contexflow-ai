@@ -55,7 +55,7 @@ export default function CTASection() {
             height: 120,
             borderRadius: 60,
             border: "1px solid #6366F1",
-            background: hovered ? "#6366F1" : "transparent",
+            background: hovered ? "linear-gradient(135deg, #6366F1, #06B6D4)" : "transparent",
             color: "#F5F5F7",
             textDecoration: "none",
             overflow: "hidden",
