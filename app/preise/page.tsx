@@ -235,7 +235,7 @@ export default function PreisePage() {
       <section
         style={{
           borderBottom: "1px solid var(--border-light)",
-          padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem)",
+          padding: "clamp(7rem, 12vw, 9rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem)",
         }}
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>

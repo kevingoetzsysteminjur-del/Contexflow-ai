@@ -88,7 +88,7 @@ export default function WebsiteCheckPage() {
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        padding: "clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2rem)",
+        padding: "clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2rem)",
       }}
     >
       <div style={{ width: "100%", maxWidth: 560 }}>

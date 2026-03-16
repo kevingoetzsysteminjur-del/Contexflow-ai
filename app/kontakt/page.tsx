@@ -1,244 +1,548 @@
 "use client";
-
 import { useState } from "react";
-import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Clock, ArrowRight, MessageSquare } from "lucide-react";
 
 export default function KontaktPage() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    firma: "",
-    leistung: "",
+    company: "",
+    phone: "",
+    service: "",
     budget: "",
-    nachricht: "",
+    message: "",
   });
-  const [gesendet, setGesendet] = useState(false);
-  const [laden, setLaden] = useState(false);
-  const [fehler, setFehler] = useState("");
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.nachricht.trim()) return;
-    setLaden(true);
-    setFehler("");
-
+    setLoading(true);
+    setError("");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error();
-      setGesendet(true);
+      setSent(true);
     } catch {
-      setFehler("Etwas ist schiefgelaufen. Bitte schreib direkt an contexflow.ai@gmx.net.");
+      setError("Etwas ist schiefgelaufen. Bitte schreib direkt an contexflow.ai@gmx.net.");
     } finally {
-      setLaden(false);
+      setLoading(false);
     }
-  }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    background: "var(--input-bg)",
+    border: "1px solid var(--border-color)",
+    borderRadius: 8,
+    padding: "12px 16px",
+    color: "var(--text-primary)",
+    fontSize: "0.95rem",
+    outline: "none",
+    transition: "border-color 0.2s",
+    boxSizing: "border-box",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontSize: "0.875rem",
+    fontWeight: 600,
+    color: "var(--text-secondary)",
+    marginBottom: "0.4rem",
+  };
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <section className="relative border-b border-white/5 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="glow-blob absolute -top-40 right-1/4 w-96 h-96 rounded-full bg-cyan-500 blur-[100px]" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-6 py-24">
-          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Kontakt</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 max-w-3xl">
+    <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
+      <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+        @media (max-width: 767px) {
+          .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-input:focus {
+          border-color: #6366F1 !important;
+          box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+        }
+        .two-col-fields {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        @media (max-width: 479px) {
+          .two-col-fields { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      {/* Hero */}
+      <section
+        style={{
+          padding: "clamp(7rem,12vw,9rem) clamp(1.5rem,5vw,2.5rem) clamp(2rem,4vw,3rem)",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+          <p
+            style={{
+              color: "#6366F1",
+              fontSize: 11,
+              letterSpacing: "0.4em",
+              textTransform: "uppercase",
+              marginBottom: "1rem",
+            }}
+          >
+            Kontakt
+          </p>
+          <h1
+            style={{
+              fontSize: "clamp(2.5rem,6vw,4rem)",
+              fontWeight: 700,
+              color: "var(--text-primary)",
+              letterSpacing: "-0.02em",
+              marginBottom: "0.75rem",
+              lineHeight: 1.1,
+            }}
+          >
             Lass uns reden.
           </h1>
-          <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            Schreib mir – ich antworte in der Regel innerhalb von 24 Stunden. Das Erstgespräch ist kostenlos und unverbindlich.
+          <p
+            style={{
+              color: "var(--text-secondary)",
+              fontSize: "clamp(1rem,2vw,1.15rem)",
+              lineHeight: 1.7,
+            }}
+          >
+            Kostenlos, unverbindlich, auf Augenhöhe. Ich antworte innerhalb von 24 Stunden.
           </p>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {/* Two-column layout */}
+      <section
+        style={{
+          padding: "0 clamp(1.5rem,5vw,2.5rem) clamp(5rem,10vw,7rem)",
+        }}
+      >
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div className="contact-grid">
+            {/* LEFT: Form */}
+            <div
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-color)",
+                borderRadius: 16,
+                padding: "clamp(1.5rem,4vw,2.5rem)",
+                boxShadow: "var(--card-shadow)",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "1.3rem",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Projekt anfragen
+              </h2>
 
-          {/* Kontaktinfos */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-white font-black text-xl mb-6">Direktkontakt</h2>
-              <div className="space-y-4">
-                <a
-                  href="mailto:contexflow.ai@gmx.net"
-                  className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-4 hover:border-cyan-400/30 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center shrink-0">
-                    <Mail size={16} className="text-cyan-400" />
+              {sent ? (
+                <div style={{ textAlign: "center", padding: "3rem 0" }}>
+                  <div
+                    style={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: "50%",
+                      background: "rgba(34,197,94,0.1)",
+                      border: "1px solid rgba(34,197,94,0.3)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      margin: "0 auto 1.25rem",
+                      fontSize: "1.75rem",
+                      color: "#22C55E",
+                    }}
+                  >
+                    ✓
                   </div>
-                  <div>
-                    <p className="text-zinc-500 text-xs mb-0.5">E-Mail</p>
-                    <p className="text-white text-sm font-medium group-hover:text-cyan-400 transition-colors">contexflow.ai@gmx.net</p>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-4">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center shrink-0">
-                    <MapPin size={16} className="text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-zinc-500 text-xs mb-0.5">Standort</p>
-                    <p className="text-white text-sm font-medium">Mosbach, Neckar-Odenwald-Kreis</p>
-                    <p className="text-zinc-500 text-xs">Baden-Württemberg, Deutschland</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-6">
-              <h3 className="text-white font-bold mb-2">Schnelle Antwort</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Ich antworte in der Regel <span className="text-cyan-400 font-semibold">innerhalb von 24 Stunden</span> – oft viel schneller.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
-              <h3 className="text-white font-bold mb-3">Für wen?</h3>
-              <ul className="space-y-2 text-zinc-400 text-sm">
-                {["Restaurants & Cafés", "Immobilien & Makler", "Ärzte & Therapeuten", "Handwerker & Dienstleister", "Fitness & Sport", "Einzelhandel"].map((b) => (
-                  <li key={b} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/50" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Formular */}
-          <div className="md:col-span-2">
-            {gesendet ? (
-              <div className="h-full flex items-center justify-center rounded-3xl border border-emerald-400/20 bg-emerald-400/5 p-16 text-center">
-                <div>
-                  <CheckCircle size={56} className="text-emerald-400 mx-auto mb-6" />
-                  <h3 className="text-white font-black text-2xl mb-3">Nachricht erhalten!</h3>
-                  <p className="text-zinc-400 max-w-sm mx-auto">
-                    Danke, {form.name}! Ich melde mich so bald wie möglich bei dir. Schau auch in deinen Spam-Ordner.
+                  <h3
+                    style={{
+                      color: "var(--text-primary)",
+                      fontSize: "1.2rem",
+                      fontWeight: 700,
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    Danke!
+                  </h3>
+                  <p style={{ color: "var(--text-secondary)" }}>
+                    Ich melde mich innerhalb von 24 Stunden.
                   </p>
                 </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-zinc-400 text-xs font-medium mb-1.5 block">Dein Name *</label>
-                    <input
-                      name="name"
-                      required
-                      placeholder="Max Mustermann"
-                      value={form.name}
-                      onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-400/5 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-zinc-400 text-xs font-medium mb-1.5 block">E-Mail *</label>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="max@firma.de"
-                      value={form.email}
-                      onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-400/5 transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-zinc-400 text-xs font-medium mb-1.5 block">Firma / Unternehmensname</label>
-                  <input
-                    name="firma"
-                    placeholder="Muster GmbH (optional)"
-                    value={form.firma}
-                    onChange={handleChange}
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-400/5 transition-all"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-zinc-400 text-xs font-medium mb-1.5 block">Gesuchte Leistung</label>
-                    <select
-                      name="leistung"
-                      value={form.leistung}
-                      onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none"
-                    >
-                      <option value="" className="bg-zinc-900">Bitte wählen...</option>
-                      <option value="Landingpage" className="bg-zinc-900">Landingpage (ab 500 €)</option>
-                      <option value="Business Website" className="bg-zinc-900">Business Website (ab 1.000 €)</option>
-                      <option value="Premium Website" className="bg-zinc-900">Premium Website (ab 2.000 €)</option>
-                      <option value="Context Engineering" className="bg-zinc-900">Context Engineering</option>
-                      <option value="AI-Integration" className="bg-zinc-900">AI-Integration</option>
-                      <option value="Beratung" className="bg-zinc-900">Erstberatung / Ich bin unsicher</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-zinc-400 text-xs font-medium mb-1.5 block">Budget-Vorstellung</label>
-                    <select
-                      name="budget"
-                      value={form.budget}
-                      onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none"
-                    >
-                      <option value="" className="bg-zinc-900">Bitte wählen...</option>
-                      <option value="bis 500€" className="bg-zinc-900">Bis 500 €</option>
-                      <option value="500–1.000€" className="bg-zinc-900">500 – 1.000 €</option>
-                      <option value="1.000–2.000€" className="bg-zinc-900">1.000 – 2.000 €</option>
-                      <option value="über-2000" className="bg-zinc-900">Über 2.000 €</option>
-                      <option value="unklar" className="bg-zinc-900">Noch unklar</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-zinc-400 text-xs font-medium mb-1.5 block">Deine Nachricht *</label>
-                  <textarea
-                    name="nachricht"
-                    required
-                    rows={5}
-                    placeholder="Erzähl mir von deinem Projekt, deiner Firma und was du dir vorstellst..."
-                    value={form.nachricht}
-                    onChange={handleChange}
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-400/5 transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={laden}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-60 disabled:cursor-not-allowed text-zinc-900 font-bold text-sm transition-all hover:scale-[1.02] shadow-lg shadow-cyan-500/20"
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
                 >
-                  {laden ? (
-                    <>
-                      <div className="w-4 h-4 rounded-full border-2 border-zinc-900/30 border-t-zinc-900 animate-spin" />
-                      Wird gesendet...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={16} />
-                      Nachricht senden
-                    </>
-                  )}
-                </button>
+                  <div>
+                    <label style={labelStyle}>Dein Name *</label>
+                    <input
+                      required
+                      className="contact-input"
+                      style={inputStyle}
+                      placeholder="Max Mustermann"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, name: e.target.value }))
+                      }
+                    />
+                  </div>
 
-                {fehler && (
-                  <p className="text-red-400 text-xs text-center">{fehler}</p>
-                )}
-                <p className="text-zinc-600 text-xs text-center">
-                  * Pflichtfelder. Deine Daten werden vertraulich behandelt.
+                  <div>
+                    <label style={labelStyle}>E-Mail *</label>
+                    <input
+                      required
+                      type="email"
+                      className="contact-input"
+                      style={inputStyle}
+                      placeholder="max@beispiel.de"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, email: e.target.value }))
+                      }
+                    />
+                  </div>
+
+                  <div className="two-col-fields">
+                    <div>
+                      <label style={labelStyle}>Firma (optional)</label>
+                      <input
+                        className="contact-input"
+                        style={inputStyle}
+                        placeholder="Musterfirma GmbH"
+                        value={formData.company}
+                        onChange={(e) =>
+                          setFormData((p) => ({ ...p, company: e.target.value }))
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label style={labelStyle}>Telefon (optional)</label>
+                      <input
+                        className="contact-input"
+                        style={inputStyle}
+                        placeholder="+49 ..."
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData((p) => ({ ...p, phone: e.target.value }))
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Gesuchte Leistung</label>
+                    <select
+                      className="contact-input"
+                      style={{ ...inputStyle, cursor: "pointer" }}
+                      value={formData.service}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, service: e.target.value }))
+                      }
+                    >
+                      <option value="">Bitte wählen...</option>
+                      <option value="website">Website / Web App</option>
+                      <option value="ai">KI-Integration / Chatbot</option>
+                      <option value="both">Beides</option>
+                      <option value="context">Context Engineering</option>
+                      <option value="other">Sonstiges / Erstberatung</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Budget-Vorstellung</label>
+                    <select
+                      className="contact-input"
+                      style={{ ...inputStyle, cursor: "pointer" }}
+                      value={formData.budget}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, budget: e.target.value }))
+                      }
+                    >
+                      <option value="">Bitte wählen...</option>
+                      <option value="under500">Unter 500€</option>
+                      <option value="500-1000">500 – 1.000€</option>
+                      <option value="1000-2000">1.000 – 2.000€</option>
+                      <option value="over2000">Über 2.000€</option>
+                      <option value="unknown">Weiß noch nicht</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Nachricht *</label>
+                    <textarea
+                      required
+                      className="contact-input"
+                      style={{
+                        ...inputStyle,
+                        resize: "vertical",
+                        minHeight: 120,
+                      }}
+                      placeholder="Beschreib kurz was du brauchst und wann du es brauchst..."
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, message: e.target.value }))
+                      }
+                    />
+                  </div>
+
+                  {error && (
+                    <p style={{ fontSize: 13, color: "#EF4444", textAlign: "center" }}>
+                      {error}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    style={{
+                      padding: "14px 20px",
+                      borderRadius: 10,
+                      background: "linear-gradient(135deg, #6366F1, #06B6D4)",
+                      color: "#fff",
+                      fontWeight: 700,
+                      fontSize: "0.95rem",
+                      border: "none",
+                      cursor: loading ? "not-allowed" : "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.5rem",
+                      transition: "opacity 0.2s",
+                      opacity: loading ? 0.6 : 1,
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!loading)
+                        (e.currentTarget as HTMLElement).style.opacity = "0.85";
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!loading)
+                        (e.currentTarget as HTMLElement).style.opacity = "1";
+                    }}
+                  >
+                    {loading ? "Wird gesendet..." : (
+                      <>Nachricht senden <ArrowRight size={16} /></>
+                    )}
+                  </button>
+
+                  <p
+                    style={{
+                      fontSize: 12,
+                      color: "var(--text-tertiary)",
+                      textAlign: "center",
+                    }}
+                  >
+                    * Pflichtfelder. Deine Daten werden vertraulich behandelt.
+                  </p>
+                </form>
+              )}
+            </div>
+
+            {/* RIGHT: Contact info */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+              {/* Direct contact */}
+              <div
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border-color)",
+                  borderRadius: 16,
+                  padding: "1.75rem",
+                  boxShadow: "var(--card-shadow)",
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: "1.1rem",
+                    fontWeight: 700,
+                    color: "var(--text-primary)",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  Direktkontakt
+                </h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                  {[
+                    {
+                      icon: Mail,
+                      label: "contexflow.ai@gmx.net",
+                      href: "mailto:contexflow.ai@gmx.net",
+                      color: "#6366F1",
+                    },
+                    {
+                      icon: MapPin,
+                      label: "Mosbach, Neckar-Odenwald-Kreis",
+                      href: null,
+                      color: "#06B6D4",
+                    },
+                    {
+                      icon: Clock,
+                      label: "Antwort innerhalb von 24 Stunden",
+                      href: null,
+                      color: "#22C55E",
+                    },
+                  ].map(({ icon: Icon, label, href, color }) => (
+                    <div
+                      key={label}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "0.875rem",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: 36,
+                          height: 36,
+                          borderRadius: 8,
+                          background: `${color}15`,
+                          border: `1px solid ${color}25`,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Icon size={16} style={{ color }} />
+                      </div>
+                      {href ? (
+                        <a
+                          href={href}
+                          style={{
+                            color: "var(--text-primary)",
+                            textDecoration: "none",
+                            fontSize: "0.9rem",
+                            lineHeight: 1.5,
+                            paddingTop: 4,
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = color;
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
+                          }}
+                        >
+                          {label}
+                        </a>
+                      ) : (
+                        <span
+                          style={{
+                            color: "var(--text-secondary)",
+                            fontSize: "0.9rem",
+                            lineHeight: 1.5,
+                            paddingTop: 4,
+                          }}
+                        >
+                          {label}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <div
+                  style={{
+                    height: 1,
+                    background: "var(--border-color)",
+                    margin: "1.5rem 0",
+                  }}
+                />
+
+                <a
+                  href="https://wa.me/4915900000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.5rem",
+                    padding: "12px 20px",
+                    borderRadius: 8,
+                    background: "#25D366",
+                    color: "#fff",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    transition: "opacity 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.opacity = "0.85";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.opacity = "1";
+                  }}
+                >
+                  <MessageSquare size={16} /> Per WhatsApp schreiben
+                </a>
+              </div>
+
+              {/* For whom */}
+              <div
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border-color)",
+                  borderRadius: 16,
+                  padding: "1.75rem",
+                  boxShadow: "var(--card-shadow)",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 11,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "var(--text-tertiary)",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  Für wen?
                 </p>
-              </form>
-            )}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                  {[
+                    "Restaurants",
+                    "Immobilien",
+                    "Ärzte",
+                    "Handwerker",
+                    "Fitness",
+                    "Coaching",
+                    "Einzelhandel",
+                    "Dienstleister",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        fontSize: 12,
+                        padding: "4px 12px",
+                        borderRadius: 100,
+                        background: "var(--bg-secondary)",
+                        border: "1px solid var(--border-color)",
+                        color: "var(--text-secondary)",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
