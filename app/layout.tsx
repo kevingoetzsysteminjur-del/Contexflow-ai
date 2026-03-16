@@ -10,6 +10,7 @@ import Preloader from "@/components/Preloader";
 import LiveVisitorBadge from "@/components/LiveVisitorBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import ClientProviders from "@/components/ClientProviders";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -28,25 +29,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`} style={{ background: "#030305" }}>
-        <Preloader />
-        <SmoothScroll />
-        <Navbar />
-        <style>{`
-          @media (max-width: 767px) {
-            .main-content { padding-bottom: 56px; }
-          }
-        `}</style>
-        <main className="pt-16 main-content" style={{ position: "relative", zIndex: 1 }}>
-          {children}
-        </main>
-        <Footer />
-        <CookieBanner />
-        <ChatBot />
-        <LiveVisitorBadge />
-        <ExitIntentPopup />
-        <MobileStickyBar />
+        <ClientProviders>
+          <Preloader />
+          <SmoothScroll />
+          <Navbar />
+          <style>{`
+            @media (max-width: 767px) {
+              .main-content { padding-bottom: 56px; }
+            }
+          `}</style>
+          <main className="pt-16 main-content" style={{ position: "relative", zIndex: 1 }}>
+            {children}
+          </main>
+          <Footer />
+          <CookieBanner />
+          <ChatBot />
+          <LiveVisitorBadge />
+          <ExitIntentPopup />
+          <MobileStickyBar />
+        </ClientProviders>
         <Analytics />
         <SpeedInsights />
       </body>

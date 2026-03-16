@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Your website is your best salesperson.",
+    "headline_accent": "Around the clock.",
+    "subline": "Web design, AI integration & automation from Mosbach.",
+    "cta_primary": "Start a project",
+    "cta_secondary": "View live demos"
+  },
+  "services": {
+    "label": "Services",
+    "headline": "What I build",
+    "website_title": "Website & Web App",
+    "website_desc": "Fast, modern, findable. Built with Next.js – not with website builders.",
+    "ai_title": "AI Integration",
+    "ai_desc": "Chatbots, automation, smart workflows. AI that works for your business.",
+    "context_title": "Context Engineering",
+    "context_desc": "The art of instructing AI correctly. Better prompts, better results."
+  },
+  "comparison": {
+    "label": "Comparison",
+    "headline": "Why Contexflow?",
+    "col_baukasten": "Website Builder",
+    "col_agentur": "Traditional Agency",
+    "col_contexflow": "Contexflow AI",
+    "recommended": "Recommended",
+    "cta": "The choice is clear. Start a project →",
+    "rows": {
+      "preis": "Price",
+      "lieferzeit": "Delivery time",
+      "design": "Design",
+      "performance": "Performance",
+      "seo": "SEO",
+      "ki": "AI Features",
+      "support": "Support",
+      "code": "You own the code"
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "headline": "Let's talk",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thanks! I'll get back to you within 24 hours."
+  },
+  "footer": {
+    "built": "Built with Next.js & Claude",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  }
+}

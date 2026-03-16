@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function Footer() {
   const [showWave, setShowWave] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => {
@@ -50,7 +52,7 @@ export default function Footer() {
             color: "#374151",
           }}
         >
-          BUILT WITH NEXT.JS &amp; CLAUDE
+          {t.footer.built.toUpperCase()}
         </span>
 
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
@@ -67,7 +69,7 @@ export default function Footer() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#374151"; }}
           >
-            IMPRESSUM
+            {t.footer.imprint.toUpperCase()}
           </Link>
           <span style={{ color: "#374151", fontSize: 10 }}>·</span>
           <Link
@@ -83,7 +85,7 @@ export default function Footer() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#374151"; }}
           >
-            DATENSCHUTZ
+            {t.footer.privacy.toUpperCase()}
           </Link>
         </div>
       </div>

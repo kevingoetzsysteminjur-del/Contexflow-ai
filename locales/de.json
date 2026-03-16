@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Start",
+    "services": "Leistungen",
+    "pricing": "Preise",
+    "about": "Über mich",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "headline": "Deine Website ist dein bester Verkäufer.",
+    "headline_accent": "Rund um die Uhr.",
+    "subline": "Webdesign, KI-Integration & Automatisierung aus Mosbach.",
+    "cta_primary": "Projekt anfragen",
+    "cta_secondary": "Live Demo ansehen"
+  },
+  "services": {
+    "label": "Leistungen",
+    "headline": "Was ich baue",
+    "website_title": "Website & Web App",
+    "website_desc": "Schnell, modern, gefunden. Mit Next.js gebaut – nicht mit Baukästen.",
+    "ai_title": "KI-Integration",
+    "ai_desc": "Chatbots, Automatisierung, smarte Workflows. KI die für dein Business arbeitet.",
+    "context_title": "Context Engineering",
+    "context_desc": "Die Kunst AI richtig zu instruieren. Bessere Prompts, bessere Ergebnisse."
+  },
+  "comparison": {
+    "label": "Vergleich",
+    "headline": "Warum Contexflow?",
+    "col_baukasten": "Baukasten",
+    "col_agentur": "Klassische Agentur",
+    "col_contexflow": "Contexflow AI",
+    "recommended": "Empfohlen",
+    "cta": "Die Wahl ist klar. Projekt anfragen →",
+    "rows": {
+      "preis": "Preis",
+      "lieferzeit": "Lieferzeit",
+      "design": "Design",
+      "performance": "Performance",
+      "seo": "SEO",
+      "ki": "KI-Features",
+      "support": "Support",
+      "code": "Code gehört dir"
+    }
+  },
+  "contact": {
+    "label": "Kontakt",
+    "headline": "Lass uns reden",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Senden",
+    "success": "Danke! Ich melde mich innerhalb von 24 Stunden."
+  },
+  "footer": {
+    "built": "Gebaut mit Next.js & Claude",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  }
+}

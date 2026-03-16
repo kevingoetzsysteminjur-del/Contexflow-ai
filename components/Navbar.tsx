@@ -3,18 +3,23 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-
-const NAV_LINKS = [
-  { href: "/", label: "START" },
-  { href: "/leistungen", label: "SERVICES" },
-  { href: "/ueber-uns", label: "ABOUT" },
-  { href: "/kontakt", label: "CONTACT" },
-];
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
+  const { lang, t, setLang } = useLang();
+
+  const NAV_LINKS = [
+    { href: "/", label: t.nav.home },
+    { href: "/leistungen", label: t.nav.services },
+    { href: "/ueber-uns", label: t.nav.about },
+    { href: "/kontakt", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -32,6 +37,8 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 639px) { .nav-desktop { display: none !important; } }
         @media (min-width: 640px) { .nav-mobile-btn { display: none !important; } }
+        .theme-toggle-btn:hover { background: rgba(255,255,255,0.08) !important; }
+        .lang-btn { background: none; border: none; cursor: pointer; padding: 2px 4px; font-size: 11px; letter-spacing: 0.1em; font-family: inherit; transition: color 0.2s ease; }
       `}</style>
 
       <nav
@@ -42,7 +49,7 @@ export default function Navbar() {
           right: 0,
           zIndex: 9999,
           height: 64,
-          background: scrolled ? "rgba(3,3,5,0.85)" : "transparent",
+          background: scrolled ? "var(--nav-bg)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
           transition: "background 0.4s ease",
@@ -97,6 +104,50 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Language switcher */}
+            <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+              <button
+                className="lang-btn"
+                onClick={() => setLang("de")}
+                style={{ color: lang === "de" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "de" ? 600 : 400 }}
+                title="Deutsch"
+              >
+                DE
+              </button>
+              <span style={{ color: "#374151", fontSize: 11 }}>|</span>
+              <button
+                className="lang-btn"
+                onClick={() => setLang("en")}
+                style={{ color: lang === "en" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "en" ? 600 : 400 }}
+                title="English"
+              >
+                EN
+              </button>
+            </div>
+
+            {/* Theme toggle */}
+            <button
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              title={theme === "dark" ? "Light Mode" : "Dark Mode"}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 6,
+                borderRadius: 6,
+                color: "#6B7280",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "color 0.2s ease, background 0.2s ease",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F5F7"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6B7280"; }}
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
 
             <Link
               href="/kontakt"
@@ -214,6 +265,46 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+
+            {/* Mobile: language + theme */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: NAV_LINKS.length * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+            >
+              <button
+                className="lang-btn"
+                onClick={() => setLang("de")}
+                style={{ color: lang === "de" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "de" ? 600 : 400, fontSize: 14 }}
+              >
+                DE
+              </button>
+              <span style={{ color: "#374151" }}>|</span>
+              <button
+                className="lang-btn"
+                onClick={() => setLang("en")}
+                style={{ color: lang === "en" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "en" ? 600 : 400, fontSize: 14 }}
+              >
+                EN
+              </button>
+              <button
+                onClick={toggleTheme}
+                style={{
+                  background: "none",
+                  border: "1px solid #374151",
+                  cursor: "pointer",
+                  padding: 8,
+                  borderRadius: 6,
+                  color: "#6B7280",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

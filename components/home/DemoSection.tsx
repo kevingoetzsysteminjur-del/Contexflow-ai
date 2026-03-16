@@ -201,7 +201,10 @@ export default function DemoSection() {
           </Link>
 
           {/* Restaurant card — wide top right */}
-          <div
+          <a
+            href="https://restaurant-cafe-beta.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bento-card bento-restaurant"
             style={{
               background:
@@ -209,6 +212,7 @@ export default function DemoSection() {
               display: "flex",
               flexDirection: "column",
               padding: "2rem",
+              textDecoration: "none",
               transform:
                 hoveredCard === "restaurant" ? "scale(1.02)" : "scale(1)",
               boxShadow:
@@ -278,18 +282,20 @@ export default function DemoSection() {
               <span
                 style={{
                   fontSize: 12,
-                  color: "rgba(255,255,255,0.45)",
+                  color: "#F97316",
                   letterSpacing: "0.04em",
-                  cursor: "default",
                 }}
               >
-                Demo in Kürze →
+                Demo ansehen →
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Fitness card */}
-          <div
+          <a
+            href="https://fitness-studio-mauve.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bento-card bento-fitness"
             style={{
               background:
@@ -297,6 +303,7 @@ export default function DemoSection() {
               display: "flex",
               flexDirection: "column",
               padding: "1.5rem",
+              textDecoration: "none",
               transform:
                 hoveredCard === "fitness" ? "scale(1.02)" : "scale(1)",
               boxShadow:
@@ -356,18 +363,20 @@ export default function DemoSection() {
               <span
                 style={{
                   fontSize: 12,
-                  color: "rgba(255,255,255,0.45)",
+                  color: "#22C55E",
                   letterSpacing: "0.04em",
-                  cursor: "default",
                 }}
               >
-                Demo in Kürze →
+                Demo ansehen →
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Portfolio card */}
-          <div
+          <a
+            href="https://portfolio-blue-pi-aoi2l1owx4.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bento-card bento-portfolio"
             style={{
               background:
@@ -375,6 +384,7 @@ export default function DemoSection() {
               display: "flex",
               flexDirection: "column",
               padding: "1.5rem",
+              textDecoration: "none",
               transform:
                 hoveredCard === "portfolio" ? "scale(1.02)" : "scale(1)",
               boxShadow:
@@ -434,15 +444,14 @@ export default function DemoSection() {
               <span
                 style={{
                   fontSize: 12,
-                  color: "rgba(255,255,255,0.45)",
+                  color: "#c084fc",
                   letterSpacing: "0.04em",
-                  cursor: "default",
                 }}
               >
-                Demo in Kürze →
+                Demo ansehen →
               </span>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Footnote */}
