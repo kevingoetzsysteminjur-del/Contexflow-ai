@@ -63,7 +63,8 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
       {/* Input */}
       <div className="flex gap-3">
         <input
-          className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/50 transition-colors"
+          className="flex-1 rounded-xl px-4 py-3 text-sm outline-none focus:border-indigo-500/50 transition-colors"
+          style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
           placeholder={tx.placeholder}
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
@@ -81,12 +82,13 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
 
       {/* Suggestions */}
       <div className="flex flex-wrap gap-2 items-center">
-        <span className="text-zinc-600 text-xs">{tx.tryOne}</span>
+        <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>{tx.tryOne}</span>
         {tx.suggestions.map((s) => (
           <button
             key={s}
             onClick={() => generate(s)}
-            className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-zinc-400 hover:text-white hover:border-indigo-500/40 transition-colors"
+            className="text-xs px-3 py-1.5 rounded-full hover:border-indigo-500/40 transition-colors"
+            style={{ border: "1px solid var(--border-color)", color: "var(--text-secondary)" }}
           >
             {s}
           </button>
@@ -94,18 +96,18 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
       </div>
 
       {/* Output */}
-      <div className="relative rounded-2xl border border-white/10 overflow-hidden bg-zinc-900" style={{ height: 300 }}>
+      <div className="relative rounded-2xl overflow-hidden" style={{ height: 300, border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         {/* Empty state */}
         {!loading && !imgUrl && !pendingUrl && (
           <div className="h-full flex flex-col items-center justify-center gap-3">
-            <ImageIcon size={36} className="text-zinc-700" />
-            <p className="text-zinc-600 text-sm">Dein KI-Bild erscheint hier</p>
+            <ImageIcon size={36} style={{ color: "var(--text-tertiary)" }} />
+            <p className="text-sm" style={{ color: "var(--text-tertiary)" }}>Dein KI-Bild erscheint hier</p>
           </div>
         )}
 
         {/* Loading spinner */}
         {loading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-zinc-900 z-10">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10" style={{ background: "var(--bg-secondary)" }}>
             <div className="relative">
               <div className="w-14 h-14 rounded-full border-2 border-indigo-500/30 border-t-indigo-500 animate-spin" />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -149,7 +151,7 @@ export default function ImageGenDemo({ lang }: { lang: Lang }) {
         )}
       </div>
 
-      <p className="text-zinc-700 text-xs text-center">{tx.disclaimer}</p>
+      <p className="text-xs text-center" style={{ color: "var(--text-tertiary)" }}>{tx.disclaimer}</p>
     </div>
   );
 }

@@ -65,7 +65,7 @@ export default function BeforeAfterSlider({ lang }: { lang: Lang }) {
 
   return (
     <div className="space-y-3">
-      <p className="text-zinc-500 text-sm text-center">{tx.drag}</p>
+      <p className="text-sm text-center" style={{ color: "var(--text-tertiary)" }}>{tx.drag}</p>
       <div
         ref={containerRef}
         className="relative h-[380px] rounded-2xl overflow-hidden border border-white/10 select-none cursor-col-resize"

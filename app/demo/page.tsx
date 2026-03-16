@@ -234,31 +234,31 @@ const TX = {
 
 const colorMap: Record<string, { pill: string; border: string; glow: string; icon: string; num: string }> = {
   indigo: {
-    pill: "bg-indigo-500/15 text-indigo-300 border-indigo-500/30",
+    pill: "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 border-indigo-500/30",
     border: "border-indigo-500/20 hover:border-indigo-500/40",
     glow: "bg-indigo-600",
-    icon: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
+    icon: "text-indigo-500 bg-indigo-500/10 border-indigo-500/20",
     num: "text-indigo-500",
   },
   violet: {
-    pill: "bg-violet-500/15 text-violet-300 border-violet-500/30",
+    pill: "bg-violet-500/15 text-violet-600 dark:text-violet-300 border-violet-500/30",
     border: "border-violet-500/20 hover:border-violet-500/40",
     glow: "bg-violet-600",
-    icon: "text-violet-400 bg-violet-500/10 border-violet-500/20",
+    icon: "text-violet-500 bg-violet-500/10 border-violet-500/20",
     num: "text-violet-500",
   },
   purple: {
-    pill: "bg-purple-500/15 text-purple-300 border-purple-500/30",
+    pill: "bg-purple-500/15 text-purple-600 dark:text-purple-300 border-purple-500/30",
     border: "border-purple-500/20 hover:border-purple-500/40",
     glow: "bg-purple-600",
-    icon: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+    icon: "text-purple-500 bg-purple-500/10 border-purple-500/20",
     num: "text-purple-500",
   },
   fuchsia: {
-    pill: "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/30",
+    pill: "bg-fuchsia-500/15 text-fuchsia-600 dark:text-fuchsia-300 border-fuchsia-500/30",
     border: "border-fuchsia-500/20 hover:border-fuchsia-500/40",
     glow: "bg-fuchsia-600",
-    icon: "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20",
+    icon: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
     num: "text-fuchsia-500",
   },
 };
@@ -273,13 +273,14 @@ export default function DemoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060610] text-white overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}>
 
       {/* Language Toggle */}
       <div className="fixed top-4 right-4 z-50">
         <button
           onClick={() => setLang(l => l === "de" ? "en" : "de")}
-          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur text-zinc-300 hover:text-white hover:border-white/20 text-sm font-medium transition-all"
+          className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur text-sm font-medium transition-all"
+          style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-secondary)" }}
         >
           <Globe size={14} />
           {tx.langBtn}
@@ -288,22 +289,22 @@ export default function DemoPage() {
 
       {/* Background Orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full bg-fuchsia-600/8 blur-[120px]" />
+        <div className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ background: "rgba(99,102,241,0.06)" }} />
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: "rgba(139,92,246,0.06)" }} />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full blur-[120px]" style={{ background: "rgba(217,70,239,0.04)" }} />
       </div>
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 pt-20">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-sm font-medium mb-8 animate-pulse">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium mb-8 animate-pulse">
           <Sparkles size={14} />
           {tx.badge} · Contexflow AI
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-6 tracking-tight">
-          <span className="text-white">{tx.hero.h1a}</span>
+          <span style={{ color: "var(--text-primary)" }}>{tx.hero.h1a}</span>
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400">
             {tx.hero.h1b}
@@ -311,7 +312,7 @@ export default function DemoPage() {
         </h1>
 
         {/* Sub */}
-        <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
+        <p className="text-lg md:text-xl max-w-2xl leading-relaxed mb-10" style={{ color: "var(--text-secondary)" }}>
           {tx.hero.sub}
         </p>
 
@@ -325,13 +326,13 @@ export default function DemoPage() {
         </button>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-          <div className="w-px h-12 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20">
+          <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, transparent, var(--text-primary))" }} />
         </div>
       </section>
 
       {/* SECTIONS */}
-      <div ref={featuresRef} className="relative max-w-5xl mx-auto px-6 py-16 space-y-32">
+      <div ref={featuresRef} className="relative max-w-5xl mx-auto px-6 py-16 space-y-20">
         {tx.sections.map((section, idx) => {
           const c = colorMap[section.color];
           const Icon = section.icon;
@@ -347,13 +348,13 @@ export default function DemoPage() {
                     <Icon size={11} />
                     {section.label}
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-black text-white mb-3">{section.title}</h2>
-                  <p className="text-zinc-400 text-base leading-relaxed max-w-xl">{section.sub}</p>
+                  <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: "var(--text-primary)" }}>{section.title}</h2>
+                  <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>{section.sub}</p>
                 </div>
               </div>
 
               {/* Demo Card */}
-              <div className={`rounded-3xl border bg-white/[0.02] backdrop-blur p-6 md:p-8 transition-colors ${c.border}`}>
+              <div className={`rounded-3xl border backdrop-blur p-6 md:p-8 transition-colors ${c.border}`} style={{ background: "var(--bg-card)" }}>
                 {section.id === "chatbot" && <ChatDemo lang={lang} />}
                 {section.id === "buchung" && <BookingDemo lang={lang} />}
                 {section.id === "faq" && <FaqDemo lang={lang} />}
@@ -371,11 +372,11 @@ export default function DemoPage() {
       </div>
 
       {/* FOOTER */}
-      <footer className="relative border-t border-white/5 mt-16">
+      <footer className="relative mt-16" style={{ borderTop: "1px solid var(--border-color)" }}>
         <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-zinc-500 text-sm">{tx.footer.by}</span>
+              <span className="text-sm" style={{ color: "var(--text-tertiary)" }}>{tx.footer.by}</span>
               <a
                 href="https://contexflow.com"
                 target="_blank"
@@ -385,7 +386,7 @@ export default function DemoPage() {
                 Contexflow AI <ExternalLink size={12} />
               </a>
             </div>
-            <p className="text-zinc-600 text-xs">{tx.footer.tag}</p>
+            <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>{tx.footer.tag}</p>
           </div>
           <a
             href="https://contexflow.com/kontakt"

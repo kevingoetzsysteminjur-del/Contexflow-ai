@@ -48,7 +48,7 @@ function StatCard({ stat, active }: { stat: typeof STATS.de[0]; active: boolean 
   const display = (stat as any).isText ? stat.value : val;
 
   return (
-    <div className={`rounded-2xl border ${stat.border} ${stat.bg} p-7 flex flex-col items-center text-center gap-3 hover:-translate-y-1 transition-transform duration-300`}>
+    <div className={`rounded-2xl p-7 flex flex-col items-center text-center gap-3 hover:-translate-y-1 transition-transform duration-300 ${stat.bg} ${stat.border}`} style={{ border: `1px solid var(--border-color)` }}>
       <div className={`w-12 h-12 rounded-2xl ${stat.bg} border ${stat.border} flex items-center justify-center ${stat.color}`}>
         <Icon size={22} />
       </div>
@@ -56,8 +56,8 @@ function StatCard({ stat, active }: { stat: typeof STATS.de[0]; active: boolean 
         {display}
       </div>
       <div>
-        <p className="text-white font-semibold text-sm">{stat.label}</p>
-        <p className="text-zinc-500 text-xs mt-1 leading-relaxed">{stat.sub}</p>
+        <p className="font-semibold text-sm" style={{ color: "var(--text-primary)" }}>{stat.label}</p>
+        <p className="text-xs mt-1 leading-relaxed" style={{ color: "var(--text-tertiary)" }}>{stat.sub}</p>
       </div>
     </div>
   );

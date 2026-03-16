@@ -194,10 +194,10 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
           <ResultIcon size={28} className={result.textColor} />
         </div>
         <div>
-          <p className="text-zinc-400 text-xs uppercase tracking-widest mb-1">Ihr Ergebnis</p>
+          <p className="text-xs uppercase tracking-widest mb-1" style={{ color: "var(--text-secondary)" }}>Ihr Ergebnis</p>
           <h3 className={`text-2xl font-black ${result.textColor}`}>{result.label}</h3>
         </div>
-        <p className="text-zinc-300 text-sm leading-relaxed max-w-md mx-auto">{result.text}</p>
+        <p className="text-sm leading-relaxed max-w-md mx-auto" style={{ color: "var(--text-secondary)" }}>{result.text}</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
           <a
             href="https://contexflow.com/kontakt"
@@ -209,7 +209,8 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
           </a>
           <button
             onClick={restart}
-            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl border border-white/10 text-zinc-400 hover:text-white text-sm transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm transition-colors"
+            style={{ border: "1px solid var(--border-color)", color: "var(--text-secondary)" }}
           >
             <RotateCcw size={14} /> {tx.restart}
           </button>
@@ -224,11 +225,11 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
     <div className="space-y-6">
       {/* Progress */}
       <div>
-        <div className="flex justify-between text-xs text-zinc-500 mb-2">
+        <div className="flex justify-between text-xs mb-2" style={{ color: "var(--text-tertiary)" }}>
           <span>{tx.step} {step + 1} {tx.of} {tx.steps.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+        <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--border-color)" }}>
           <div
             className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all duration-500"
             style={{ width: `${progress}%` }}
@@ -238,7 +239,7 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
 
       {/* Question */}
       <div>
-        <h3 className="text-white text-lg font-semibold mb-4">{current.q}</h3>
+        <h3 className="text-lg font-semibold mb-4" style={{ color: "var(--text-primary)" }}>{current.q}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {current.opts.map((opt, i) => (
             <button
@@ -246,9 +247,10 @@ export default function LeadDemo({ lang }: { lang: Lang }) {
               onClick={() => setSelected(i)}
               className={`text-left px-4 py-3.5 rounded-xl border text-sm font-medium transition-all ${
                 selected === i
-                  ? "bg-indigo-600/30 border-indigo-500/60 text-indigo-200 scale-[1.02]"
-                  : "bg-white/[0.03] border-white/10 text-zinc-300 hover:border-indigo-500/30 hover:text-white"
+                  ? "bg-indigo-600/30 border-indigo-500/60 text-indigo-300 scale-[1.02]"
+                  : "hover:border-indigo-500/30"
               }`}
+              style={selected !== i ? { background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-secondary)" } : undefined}
             >
               <span className={`inline-block w-5 h-5 rounded-full border mr-2.5 text-xs flex-shrink-0 items-center justify-center
                 ${selected === i ? "border-indigo-400 bg-indigo-500" : "border-zinc-600"}`}

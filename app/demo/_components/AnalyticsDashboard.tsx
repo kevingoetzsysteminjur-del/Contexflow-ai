@@ -78,10 +78,10 @@ function Metric({ metric, active, vsYesterday }: { metric: typeof TX.de.metrics[
   const val = useCountUp(metric.value, (metric as any).decimal, active);
   const pct = useRef((Math.random() * 15 + 3).toFixed(1));
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col gap-2">
+    <div className="rounded-2xl p-5 flex flex-col gap-2" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
       <div className="flex items-center justify-between">
-        <span className="text-zinc-500 text-xs">{metric.label}</span>
-        <div className={`w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center ${metric.color}`}>
+        <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>{metric.label}</span>
+        <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${metric.color}`} style={{ background: "var(--bg-tertiary)", border: "1px solid var(--border-color)" }}>
           <Icon size={13} />
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function AnalyticsDashboard({ lang }: { lang: Lang }) {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           {tx.live}
         </span>
-        <span className="text-zinc-600 text-xs">Simulierte Echtzeit-Daten</span>
+        <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>Simulierte Echtzeit-Daten</span>
       </div>
 
       {/* Metric Cards */}
@@ -138,8 +138,8 @@ export default function AnalyticsDashboard({ lang }: { lang: Lang }) {
       {/* Chart + Sources */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Line Chart */}
-        <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-          <p className="text-zinc-400 text-xs font-semibold mb-4">{tx.chart}</p>
+        <div className="md:col-span-2 rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+          <p className="text-xs font-semibold mb-4" style={{ color: "var(--text-secondary)" }}>{tx.chart}</p>
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ height: 80 }} preserveAspectRatio="none">
             <defs>
               <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
@@ -163,22 +163,22 @@ export default function AnalyticsDashboard({ lang }: { lang: Lang }) {
               } : {}}
             />
           </svg>
-          <div className="flex justify-between text-zinc-600 text-xs mt-2">
+          <div className="flex justify-between text-xs mt-2" style={{ color: "var(--text-tertiary)" }}>
             <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
           </div>
         </div>
 
         {/* Sources */}
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-          <p className="text-zinc-400 text-xs font-semibold mb-4">{tx.sources}</p>
+        <div className="rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+          <p className="text-xs font-semibold mb-4" style={{ color: "var(--text-secondary)" }}>{tx.sources}</p>
           <div className="space-y-3">
             {tx.sourceList.map((s) => (
               <div key={s.label}>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-zinc-400">{s.label}</span>
-                  <span className="text-zinc-300 font-semibold">{s.pct}%</span>
+                  <span style={{ color: "var(--text-secondary)" }}>{s.label}</span>
+                  <span className="font-semibold" style={{ color: "var(--text-primary)" }}>{s.pct}%</span>
                 </div>
-                <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--border-color)" }}>
                   <div
                     className={`h-full rounded-full ${s.color} transition-all duration-[1500ms] ease-out`}
                     style={{ width: active ? `${s.pct}%` : "0%" }}

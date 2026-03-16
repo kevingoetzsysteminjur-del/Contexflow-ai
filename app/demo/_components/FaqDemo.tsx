@@ -70,10 +70,11 @@ export default function FaqDemo({ lang }: { lang: Lang }) {
   return (
     <div className="space-y-4">
       {/* Search */}
-      <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus-within:border-indigo-500/50 transition-colors">
-        <Search size={16} className="text-zinc-500 flex-shrink-0" />
+      <div className="flex items-center gap-3 rounded-xl px-4 py-3 focus-within:border-indigo-500/50 transition-colors" style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)" }}>
+        <Search size={16} className="flex-shrink-0" style={{ color: "var(--text-tertiary)" }} />
         <input
-          className="flex-1 bg-transparent outline-none text-white text-sm placeholder:text-zinc-500"
+          className="flex-1 bg-transparent outline-none text-sm"
+          style={{ color: "var(--text-primary)" }}
           placeholder={placeholder}
           value={query}
           onChange={(e) => { setQuery(e.target.value); setOpen(null); }}
@@ -83,7 +84,7 @@ export default function FaqDemo({ lang }: { lang: Lang }) {
       {/* FAQ Items */}
       <div className="space-y-2">
         {filtered.length === 0 && (
-          <p className="text-zinc-500 text-sm text-center py-6">{noResult}</p>
+          <p className="text-sm text-center py-6" style={{ color: "var(--text-tertiary)" }}>{noResult}</p>
         )}
         {filtered.map((faq, i) => {
           const isOpen = open === i;
@@ -91,14 +92,15 @@ export default function FaqDemo({ lang }: { lang: Lang }) {
             <div
               key={i}
               className={`rounded-xl border transition-all duration-200 overflow-hidden ${
-                isOpen ? "border-indigo-500/40 bg-indigo-500/5" : "border-white/10 bg-white/[0.03] hover:border-white/20"
+                isOpen ? "border-indigo-500/40 bg-indigo-500/5" : ""
               }`}
+              style={!isOpen ? { border: "1px solid var(--border-color)", background: "var(--bg-secondary)" } : undefined}
             >
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
               >
-                <span className={`text-sm font-medium ${isOpen ? "text-indigo-300" : "text-zinc-200"}`}>
+                <span className={`text-sm font-medium ${isOpen ? "text-indigo-400" : ""}`} style={!isOpen ? { color: "var(--text-primary)" } : undefined}>
                   {faq.q}
                 </span>
                 <ChevronDown
@@ -111,7 +113,7 @@ export default function FaqDemo({ lang }: { lang: Lang }) {
                   isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
-                <p className="px-5 pb-4 text-zinc-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{faq.a}</p>
               </div>
             </div>
           );

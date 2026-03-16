@@ -97,23 +97,25 @@ export default function KontaktFormDemo({ lang }: { lang: Lang }) {
 
   if (phase === "chat") {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
-        <div className="flex items-center gap-3 px-5 py-4 bg-indigo-600/20 border-b border-white/10">
+      <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+        <div className="flex items-center gap-3 px-5 py-4 bg-indigo-600/20" style={{ borderBottom: "1px solid var(--border-color)" }}>
           <div className="w-9 h-9 rounded-full bg-indigo-500/30 border border-indigo-400/40 flex items-center justify-center">
             <Bot size={18} className="text-indigo-300" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold">{tx.aiLabel}</p>
+            <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{tx.aiLabel}</p>
             <p className="text-emerald-400 text-xs">{tx.aiOnline}</p>
           </div>
         </div>
         <div className="p-6 space-y-4">
-          <div className="bg-white/10 border border-white/10 rounded-2xl rounded-bl-sm px-5 py-4 text-sm text-zinc-200 leading-relaxed max-w-lg"
+          <div className="rounded-2xl rounded-bl-sm px-5 py-4 text-sm leading-relaxed max-w-lg"
+            style={{ background: "var(--bg-tertiary)", border: "1px solid var(--border-color)", color: "var(--text-primary)" }}
             dangerouslySetInnerHTML={{ __html: parseText(chatText) }}
           />
           <button
             onClick={() => { setPhase("form"); setForm({ name: "", email: "", branche: "", msg: "" }); }}
-            className="flex items-center gap-2 text-zinc-500 hover:text-white text-sm border border-white/10 px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg transition-colors"
+            style={{ color: "var(--text-tertiary)", border: "1px solid var(--border-color)" }}
           >
             <RotateCcw size={13} /> {tx.reset}
           </button>
@@ -123,7 +125,7 @@ export default function KontaktFormDemo({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 space-y-4 max-w-xl">
+    <div className="rounded-2xl p-6 space-y-4 max-w-xl" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
       {error && (
         <div className="text-rose-400 text-xs bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2">
           {tx.required}
@@ -131,33 +133,36 @@ export default function KontaktFormDemo({ lang }: { lang: Lang }) {
       )}
       <div className="grid grid-cols-2 gap-4">
         <input
-          className="bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/50 transition-colors"
+          className="rounded-xl px-3 py-2.5 text-sm outline-none focus:border-indigo-500/50 transition-colors"
+          style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
           placeholder={tx.name}
           value={form.name}
           onChange={e => setForm({ ...form, name: e.target.value })}
         />
         <input
           type="email"
-          className="bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/50 transition-colors"
+          className="rounded-xl px-3 py-2.5 text-sm outline-none focus:border-indigo-500/50 transition-colors"
+          style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
           placeholder={tx.email}
           value={form.email}
           onChange={e => setForm({ ...form, email: e.target.value })}
         />
       </div>
       <select
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-indigo-500/50 transition-colors"
-        style={{ color: form.branche ? "white" : "#52525b" }}
+        className="w-full rounded-xl px-3 py-2.5 text-sm outline-none focus:border-indigo-500/50 transition-colors"
+        style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: form.branche ? "var(--text-primary)" : "var(--text-tertiary)" }}
         value={form.branche}
         onChange={e => setForm({ ...form, branche: e.target.value })}
       >
-        <option value="" disabled style={{ color: "#52525b", background: "#0a0a1a" }}>{tx.branche}</option>
+        <option value="" disabled style={{ color: "var(--text-tertiary)", background: "var(--bg-card)" }}>{tx.branche}</option>
         {tx.branchen.map(b => (
-          <option key={b} value={b} style={{ background: "#0a0a1a", color: "white" }}>{b}</option>
+          <option key={b} value={b} style={{ background: "var(--bg-card)", color: "var(--text-primary)" }}>{b}</option>
         ))}
       </select>
       <textarea
         rows={4}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/50 transition-colors resize-none"
+        className="w-full rounded-xl px-3 py-2.5 text-sm outline-none focus:border-indigo-500/50 transition-colors resize-none"
+        style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
         placeholder={tx.msg}
         value={form.msg}
         onChange={e => setForm({ ...form, msg: e.target.value })}

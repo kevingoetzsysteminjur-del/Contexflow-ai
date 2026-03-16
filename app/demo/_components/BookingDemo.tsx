@@ -87,14 +87,15 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
         <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center animate-[scale-in_0.3s_ease]">
           <CheckCircle size={32} className="text-emerald-400" />
         </div>
-        <h3 className="text-white text-xl font-bold">{tx.success.title}</h3>
-        <p className="text-zinc-400 text-sm">{tx.success.sub}</p>
+        <h3 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>{tx.success.title}</h3>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>{tx.success.sub}</p>
         <p className="text-indigo-300 text-sm font-medium mt-1">
           {tx.months[viewMonth]} {selectedDay} · {selectedSlot} Uhr
         </p>
         <button
           onClick={() => { setConfirmed(false); setSelectedDay(null); setSelectedSlot(null); setName(""); setEmail(""); }}
-          className="mt-2 text-xs text-zinc-500 hover:text-white border border-white/10 px-4 py-2 rounded-lg transition-colors"
+          className="mt-2 text-xs px-4 py-2 rounded-lg transition-colors"
+          style={{ color: "var(--text-tertiary)", border: "1px solid var(--border-color)" }}
         >
           {tx.reset}
         </button>
@@ -105,19 +106,19 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Calendar */}
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+      <div className="rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <div className="flex items-center justify-between mb-4">
-          <button onClick={prevMonth} className="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors text-zinc-400 hover:text-white">
+          <button onClick={prevMonth} className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors" style={{ color: "var(--text-secondary)" }}>
             <ChevronLeft size={16} />
           </button>
-          <span className="text-white text-sm font-semibold">{tx.months[viewMonth]} {viewYear}</span>
-          <button onClick={nextMonth} className="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors text-zinc-400 hover:text-white">
+          <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{tx.months[viewMonth]} {viewYear}</span>
+          <button onClick={nextMonth} className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors" style={{ color: "var(--text-secondary)" }}>
             <ChevronRight size={16} />
           </button>
         </div>
         <div className="grid grid-cols-7 gap-1 mb-2">
           {tx.days.map((d) => (
-            <div key={d} className="text-center text-zinc-500 text-xs py-1 font-medium">{d}</div>
+            <div key={d} className="text-center text-xs py-1 font-medium" style={{ color: "var(--text-tertiary)" }}>{d}</div>
           ))}
         </div>
         <div className="grid grid-cols-7 gap-1">
@@ -134,10 +135,15 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
                 onClick={() => { setSelectedDay(d); setSelectedSlot(null); }}
                 className={`aspect-square rounded-lg text-sm flex items-center justify-center transition-all font-medium
                   ${sel ? "bg-indigo-600 text-white scale-105 shadow-lg shadow-indigo-500/30" : ""}
-                  ${!sel && isToday ? "border border-indigo-500/60 text-indigo-300" : ""}
-                  ${!sel && !isToday && !past && !isWeekend ? "text-zinc-300 hover:bg-white/10" : ""}
-                  ${(past || isWeekend) ? "text-zinc-700 cursor-not-allowed" : ""}
+                  ${!sel && isToday ? "border border-indigo-500/60 text-indigo-400" : ""}
+                  ${!sel && !isToday && !past && !isWeekend ? "hover:bg-indigo-500/10" : ""}
+                  ${(past || isWeekend) ? "cursor-not-allowed" : ""}
                 `}
+                style={
+                  sel ? undefined :
+                  (past || isWeekend) ? { color: "var(--text-tertiary)" } :
+                  (!isToday ? { color: "var(--text-secondary)" } : undefined)
+                }
               >
                 {d}
               </button>
@@ -149,10 +155,10 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
       {/* Right: slots + form */}
       <div className="flex flex-col gap-4">
         {/* Time Slots */}
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-          <p className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-3">{tx.slots}</p>
+        <div className="rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+          <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-secondary)" }}>{tx.slots}</p>
           {!selectedDay ? (
-            <p className="text-zinc-600 text-sm">{tx.selectDate}</p>
+            <p className="text-sm" style={{ color: "var(--text-tertiary)" }}>{tx.selectDate}</p>
           ) : (
             <div className="grid grid-cols-2 gap-2">
               {SLOTS.map((slot) => {
@@ -166,12 +172,16 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
                     onClick={() => setSelectedSlot(slot)}
                     className={`relative rounded-xl px-3 py-2.5 text-sm font-medium flex items-center justify-between transition-all
                       ${isSel ? "bg-indigo-600 text-white" : ""}
-                      ${!isSel && !isBooked ? "bg-white/5 border border-white/10 text-zinc-300 hover:border-indigo-500/50 hover:text-white" : ""}
-                      ${isBooked ? "bg-white/[0.02] border border-white/5 text-zinc-700 cursor-not-allowed" : ""}
+                      ${isBooked ? "cursor-not-allowed" : ""}
                     `}
+                    style={
+                      isSel ? undefined :
+                      isBooked ? { background: "var(--bg-tertiary)", border: "1px solid var(--border-light)", color: "var(--text-tertiary)" } :
+                      { background: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-secondary)" }
+                    }
                   >
                     <span>{slot}</span>
-                    {isBooked && <span className="text-xs text-zinc-600">{tx.booked}</span>}
+                    {isBooked && <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>{tx.booked}</span>}
                     {isAI && !isBooked && (
                       <span className={`flex items-center gap-1 text-xs px-1.5 py-0.5 rounded-full ${isSel ? "bg-white/20 text-white" : "bg-indigo-500/20 text-indigo-300"}`}>
                         <Sparkles size={10} />
@@ -186,16 +196,18 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
         </div>
 
         {/* Form */}
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 space-y-3">
+        <div className="rounded-2xl p-5 space-y-3" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
           <input
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/60 transition-colors"
+            className="w-full rounded-xl px-3 py-2.5 text-sm outline-none transition-colors focus:border-indigo-500/60"
+            style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
             placeholder={tx.form.name}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-zinc-600 outline-none focus:border-indigo-500/60 transition-colors"
+            className="w-full rounded-xl px-3 py-2.5 text-sm outline-none transition-colors focus:border-indigo-500/60"
+            style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)", color: "var(--text-primary)" }}
             placeholder={tx.form.email}
             value={email}
             onChange={(e) => setEmail(e.target.value)}

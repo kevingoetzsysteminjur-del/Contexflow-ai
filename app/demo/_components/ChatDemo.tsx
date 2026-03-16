@@ -82,18 +82,18 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="flex flex-col h-[480px] rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur">
+    <div className="flex flex-col rounded-2xl overflow-hidden backdrop-blur" style={{ maxHeight: 400, border: "1px solid var(--border-color)", background: "var(--bg-card)" }}>
       {/* Header */}
-      <div className="flex items-center gap-3 px-5 py-4 bg-indigo-600/20 border-b border-white/10">
+      <div className="flex items-center gap-3 px-5 py-4 bg-indigo-600/20" style={{ borderBottom: "1px solid var(--border-color)" }}>
         <div className="w-9 h-9 rounded-full bg-indigo-500/30 border border-indigo-400/40 flex items-center justify-center">
           <Bot size={18} className="text-indigo-300" />
         </div>
         <div>
-          <p className="text-white text-sm font-semibold">KI-Assistent</p>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>KI-Assistent</p>
           <p className="text-emerald-400 text-xs">● Online</p>
         </div>
         <div className="ml-auto flex gap-1">
-          {[..."···"].map((_, i) => <div key={i} className="w-2 h-2 rounded-full bg-white/20" />)}
+          {[..."···"].map((_, i) => <div key={i} className="w-2 h-2 rounded-full" style={{ background: "var(--border-color)" }} />)}
         </div>
       </div>
 
@@ -110,8 +110,9 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
               className={`max-w-[78%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                 m.role === "user"
                   ? "bg-indigo-600 text-white rounded-br-sm"
-                  : "bg-white/10 text-zinc-200 rounded-bl-sm border border-white/10"
+                  : "rounded-bl-sm"
               }`}
+              style={m.role === "bot" ? { background: "var(--bg-secondary)", color: "var(--text-primary)", border: "1px solid var(--border-color)" } : undefined}
               dangerouslySetInnerHTML={{ __html: parseText(m.text) }}
             />
             {m.role === "user" && (
@@ -126,7 +127,7 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
             <div className="w-7 h-7 rounded-full bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center">
               <Bot size={13} className="text-indigo-300" />
             </div>
-            <div className="bg-white/10 border border-white/10 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1.5 items-center">
+            <div className="rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1.5 items-center" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)" }}>
               <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
               <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
               <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
@@ -137,7 +138,7 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
       </div>
 
       {/* Quick Replies */}
-      <div className="px-4 py-2 flex gap-2 flex-wrap border-t border-white/5">
+      <div className="px-4 py-2 flex gap-2 flex-wrap" style={{ borderTop: "1px solid var(--border-light)" }}>
         {tx.quick.map((q) => (
           <button
             key={q}
@@ -150,10 +151,11 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-t border-white/10">
-        <div className="flex gap-2 items-center bg-white/5 rounded-xl px-3 py-2 border border-white/10 focus-within:border-indigo-500/50 transition-colors">
+      <div className="p-3" style={{ borderTop: "1px solid var(--border-color)" }}>
+        <div className="flex gap-2 items-center rounded-xl px-3 py-2 focus-within:border-indigo-500/50 transition-colors" style={{ background: "var(--input-bg)", border: "1px solid var(--input-border)" }}>
           <input
-            className="flex-1 bg-transparent outline-none text-white text-sm placeholder:text-zinc-500"
+            className="flex-1 bg-transparent outline-none text-sm"
+            style={{ color: "var(--text-primary)" }}
             placeholder={tx.placeholder}
             value={input}
             onChange={(e) => setInput(e.target.value)}

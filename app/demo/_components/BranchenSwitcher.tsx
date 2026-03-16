@@ -161,8 +161,9 @@ export default function BranchenSwitcher({ lang }: { lang: Lang }) {
               className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
                 active === i
                   ? `${b.color.pill} scale-105`
-                  : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"
+                  : ""
               }`}
+              style={active !== i ? { border: "1px solid var(--border-color)", color: "var(--text-secondary)" } : undefined}
             >
               <Icon size={14} />
               {b.label}
