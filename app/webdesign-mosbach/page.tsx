@@ -151,13 +151,7 @@ export default function WebdesignMosbachPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.opacity = "0.85";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.opacity = "1";
-            }}
+            }}
           >
             Kostenloses Erstgespräch vereinbaren →
           </Link>
