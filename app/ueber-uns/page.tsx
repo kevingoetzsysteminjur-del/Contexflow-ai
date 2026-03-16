@@ -40,8 +40,8 @@ const timeline = [
   { jahr: "2024", ereignis: "AI entdeckt", detail: "Erste Experimente mit Claude und GPT. Faszination für Context Engineering – wie man AI wirklich nützlich macht." },
   { jahr: "2025", ereignis: "Erste Websites gebaut", detail: "Selbst beigebracht: Next.js, Tailwind, moderne Webentwicklung. Mehrere eigene Projekte zum Üben." },
   { jahr: "Anfang 2026", ereignis: "Contexflow AI gegründet", detail: "Gewerbeanmeldung in Mosbach. Klare Ausrichtung: Websites + Context Engineering für lokale Unternehmen." },
-  { jahr: "März 2026", ereignis: "Erste echte Kunden", detail: "4 echte Projekte, 4 echte Unternehmen. Der Anfang von etwas Größerem." },
-  { jahr: "Heute", ereignis: "Offen für neue Kunden", detail: "Ich bin am Anfang – ehrlich gesagt. Aber ich bin hungrig, lernfähig und liefere echte Qualität. Das nächste Projekt wartet." },
+  { jahr: "März 2026", ereignis: "Erste Projekte live", detail: "Erste echte Websites für echte Unternehmen. Der Anfang von etwas Größerem." },
+  { jahr: "Heute", ereignis: "Bereit für das nächste Projekt", detail: "Ich bin am Anfang – ehrlich gesagt. Aber ich bin hungrig, lernfähig und liefere echte Qualität. Das nächste Projekt wartet." },
 ];
 
 export default function UeberUnsPage() {
@@ -82,7 +82,7 @@ export default function UeberUnsPage() {
                 Context Engineering bedeutet für mich: AI-Systemen den richtigen Rahmen geben, damit sie wirklich helfen. Nicht einfach Prompts schreiben – sondern verstehen wie Maschinen denken, und das gezielt nutzen.
               </p>
               <p>
-                Ich bin ehrlich: Ich stehe am Anfang. Aber ich habe bereits echte Projekte für echte Unternehmen geliefert – und bin hungrig auf das nächste.
+                Ich bin ehrlich: Ich stehe am Anfang. Aber ich baue echte, nutzbare Produkte – und bin hungrig auf das nächste.
               </p>
             </div>
           </div>

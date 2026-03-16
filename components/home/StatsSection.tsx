@@ -2,10 +2,10 @@
 import { useRef, useEffect, useState } from "react";
 
 const STATS = [
-  { value: 6, prefix: "", suffix: "+", label: "PROJEKTE" },
-  { value: 3, prefix: "", suffix: "+", label: "KUNDEN" },
-  { value: 2, prefix: "<", suffix: "W", label: "LIEFERZEIT" },
-  { value: 99, prefix: "", suffix: "%", label: "ZUFRIEDENHEIT" },
+  { value: 20, prefix: "", suffix: "+", label: "FEATURES" },
+  { value: 7, prefix: "<", suffix: "T", label: "LIEFERZEIT" },
+  { value: 100, prefix: "", suffix: "%", label: "FESTPREIS" },
+  { value: 100, prefix: "", suffix: "%", label: "ZUFRIEDENHEIT" },
 ];
 
 function easeOutCubic(t: number): number {

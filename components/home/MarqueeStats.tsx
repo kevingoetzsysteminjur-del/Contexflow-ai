@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const MARQUEE = "4 KUNDEN · 6 PROJEKTE · < 2 WOCHEN LIEFERZEIT · 300€ AB PREIS · MOSBACH · CONTEXT ENGINEERING · AI-POWERED · ";
+const MARQUEE = "20+ FEATURES · < 7 TAGE LIEFERZEIT · 100% FESTPREIS · 300€ AB PREIS · MOSBACH · CONTEXT ENGINEERING · AI-POWERED · ";
 
 const stats = [
-  { end: 6, suffix: "", label: "Projekte" },
-  { end: 4, suffix: "", label: "Kunden" },
-  { end: 2, suffix: "W", prefix: "<", label: "Lieferzeit" },
+  { end: 20, suffix: "+", label: "Features" },
+  { end: 7, suffix: "T", prefix: "<", label: "Lieferzeit" },
+  { end: 100, suffix: "%", label: "Festpreis" },
   { end: 300, suffix: "€", label: "Ab Preis" },
 ];
 

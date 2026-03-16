@@ -47,7 +47,7 @@ export default function SocialProof() {
             margin: "0 0 2rem 0",
           }}
         >
-          3 Kunden vertrauen mir. Werde der nächste.
+          8 Unternehmen vertrauen bereits auf Contexflow. Wann deins?
         </p>
 
         <Link

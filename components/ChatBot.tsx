@@ -39,7 +39,7 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["referenz", "projekt", "beispiel", "portfolio", "kunde", "arbeit", "zeig"],
-    answer: "Unser erster echter Kunde ist **Plan A Immobilien** aus Mosbach – die Website ist live! Außerdem gibt es Demo-Projekte für ein Restaurant und ein Fitness-Studio. Schau gerne auf der [Projekte-Seite](/projekte) vorbei. 🌐",
+    answer: "Contexflow AI baut moderne Websites für lokale Unternehmen – von Immobilien über Gastronomie bis Handwerk. Schau dir die [Leistungen](/leistungen) an oder [schreib uns direkt](/kontakt). 🌐",
   },
   {
     keywords: ["hallo", "hi", "hey", "guten", "morgen", "abend", "tag", "servus", "moin"],
