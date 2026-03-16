@@ -5,6 +5,11 @@ import { Building2, UtensilsCrossed, Stethoscope, Wrench, Scale } from "lucide-r
 
 type Lang = "de" | "en";
 
+const TX_FOOTER = {
+  de: "KI-gestützt ✦",
+  en: "AI-powered ✦",
+};
+
 const BRANCHEN = {
   de: [
     {
@@ -207,7 +212,7 @@ export default function BranchenSwitcher({ lang }: { lang: Lang }) {
         {/* Mock Footer */}
         <div className="px-6 py-3 border-t border-white/5 flex items-center justify-between">
           <span className="text-zinc-700 text-xs">Powered by Contexflow AI</span>
-          <span className={`text-xs ${c.accent}`}>KI-gestützt ✦</span>
+          <span className={`text-xs ${c.accent}`}>{TX_FOOTER[lang]}</span>
         </div>
       </div>
     </div>

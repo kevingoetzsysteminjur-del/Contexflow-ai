@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Bot, Calendar, HelpCircle, Target, Globe, ArrowDown, ExternalLink, Sparkles, SplitSquareHorizontal, BarChart2, ImageIcon, Layers, TrendingUp, Mail } from "lucide-react";
+import { useRef } from "react";
+import { Bot, Calendar, HelpCircle, Target, ArrowDown, ExternalLink, Sparkles, SplitSquareHorizontal, BarChart2, ImageIcon, Layers, TrendingUp, Mail } from "lucide-react";
 import ChatDemo from "./_components/ChatDemo";
 import BookingDemo from "./_components/BookingDemo";
 import FaqDemo from "./_components/FaqDemo";
@@ -12,10 +12,24 @@ import ImageGenDemo from "./_components/ImageGenDemo";
 import BranchenSwitcher from "./_components/BranchenSwitcher";
 import AnimatedStats from "./_components/AnimatedStats";
 import KontaktFormDemo from "./_components/KontaktFormDemo";
+import { useLang } from "@/contexts/LanguageContext";
 
 type Lang = "de" | "en";
 
-const TX = {
+const TX: Record<Lang, {
+  badge: string;
+  hero: { h1a: string; h1b: string; sub: string; cta: string };
+  sections: Array<{
+    id: string;
+    num: string;
+    icon: React.ElementType;
+    color: string;
+    label: string;
+    title: string;
+    sub: string;
+  }>;
+  footer: { by: string; tag: string; cta: string };
+}> = {
   de: {
     badge: "KI-Features Demo",
     hero: {
@@ -25,103 +39,18 @@ const TX = {
       cta: "Features entdecken",
     },
     sections: [
-      {
-        id: "chatbot",
-        num: "01",
-        icon: Bot,
-        color: "indigo",
-        label: "KI-Chatbot",
-        title: "Ihr Assistent. Rund um die Uhr.",
-        sub: "Beantworten Sie häufige Fragen automatisch – 24/7, ohne Wartezeit. Der Chatbot kennt Ihre Preise, Öffnungszeiten und Prozesse.",
-      },
-      {
-        id: "buchung",
-        num: "02",
-        icon: Calendar,
-        color: "violet",
-        label: "Terminbuchung",
-        title: "Smarte Terminverwaltung.",
-        sub: "Kunden buchen selbstständig ihren Wunschtermin. Die KI empfiehlt den optimalen Zeitslot basierend auf Verfügbarkeit und Auslastung.",
-      },
-      {
-        id: "faq",
-        num: "03",
-        icon: HelpCircle,
-        color: "purple",
-        label: "FAQ-Assistent",
-        title: "Wissen. Sofort abrufbar.",
-        sub: "Ein intelligenter FAQ-Assistent filtert die passenden Antworten in Echtzeit während der Nutzer tippt. Weniger Support-Aufwand für Sie.",
-      },
-      {
-        id: "leads",
-        num: "04",
-        icon: Target,
-        color: "fuchsia",
-        label: "Lead-Qualifizierung",
-        title: "Qualifizierte Leads. Automatisch.",
-        sub: "Ein smarter Fragebogen ermittelt in 4 Schritten, wie gut ein Besucher als Kunde passt. Sie sehen sofort: Hot Lead, Warm Lead oder Info-Lead.",
-      },
-      {
-        id: "slider",
-        num: "05",
-        icon: SplitSquareHorizontal,
-        color: "indigo",
-        label: "Vorher / Nachher",
-        title: "Der Unterschied. Sichtbar.",
-        sub: "Ziehen Sie den Slider und sehen Sie live, was eine moderne Website ausmacht. Von veraltet zu professionell – in einem Drag.",
-      },
-      {
-        id: "analytics",
-        num: "06",
-        icon: BarChart2,
-        color: "violet",
-        label: "Live Analytics",
-        title: "Daten. In Echtzeit.",
-        sub: "Ein vollständiges Analytics-Dashboard wie es auf Ihrer Website läuft. Besucher, Conversions, Traffic-Quellen – alles im Blick.",
-      },
-      {
-        id: "imagegen",
-        num: "07",
-        icon: ImageIcon,
-        color: "purple",
-        label: "KI-Bildgenerierung",
-        title: "Bilder auf Knopfdruck.",
-        sub: "Beschreiben Sie ein Bild in Worten – die KI generiert es. Ideal für Website-Content, Social Media und Marketing-Materialien.",
-      },
-      {
-        id: "branchen",
-        num: "08",
-        icon: Layers,
-        color: "indigo",
-        label: "Branchen-Preview",
-        title: "Ihre Branche. Ihr Design.",
-        sub: "Wählen Sie Ihre Branche und sehen Sie live wie eine maßgeschneiderte Website für Sie aussehen würde.",
-      },
-      {
-        id: "stats",
-        num: "09",
-        icon: TrendingUp,
-        color: "purple",
-        label: "Unsere Zahlen",
-        title: "Fakten. Die überzeugen.",
-        sub: "Zahlen sprechen für sich. Scrollen Sie herunter und sehen Sie unsere Ergebnisse in Aktion.",
-      },
-      {
-        id: "kontakt",
-        num: "10",
-        icon: Mail,
-        color: "fuchsia",
-        label: "KI-Kontaktformular",
-        title: "Schreiben Sie uns. Die KI antwortet.",
-        sub: "Senden Sie eine Anfrage und erleben Sie wie unsere KI sofort eine personalisierte Antwort mit Paket-Empfehlung generiert.",
-      },
+      { id: "chatbot", num: "01", icon: Bot, color: "indigo", label: "KI-Chatbot", title: "Ihr Assistent. Rund um die Uhr.", sub: "Beantworten Sie häufige Fragen automatisch – 24/7, ohne Wartezeit. Der Chatbot kennt Ihre Preise, Öffnungszeiten und Prozesse." },
+      { id: "buchung", num: "02", icon: Calendar, color: "violet", label: "Terminbuchung", title: "Smarte Terminverwaltung.", sub: "Kunden buchen selbstständig ihren Wunschtermin. Die KI empfiehlt den optimalen Zeitslot basierend auf Verfügbarkeit und Auslastung." },
+      { id: "faq", num: "03", icon: HelpCircle, color: "purple", label: "FAQ-Assistent", title: "Wissen. Sofort abrufbar.", sub: "Ein intelligenter FAQ-Assistent filtert die passenden Antworten in Echtzeit während der Nutzer tippt. Weniger Support-Aufwand für Sie." },
+      { id: "leads", num: "04", icon: Target, color: "fuchsia", label: "Lead-Qualifizierung", title: "Qualifizierte Leads. Automatisch.", sub: "Ein smarter Fragebogen ermittelt in 4 Schritten, wie gut ein Besucher als Kunde passt. Sie sehen sofort: Hot Lead, Warm Lead oder Info-Lead." },
+      { id: "slider", num: "05", icon: SplitSquareHorizontal, color: "indigo", label: "Vorher / Nachher", title: "Der Unterschied. Sichtbar.", sub: "Ziehen Sie den Slider und sehen Sie live, was eine moderne Website ausmacht. Von veraltet zu professionell – in einem Drag." },
+      { id: "analytics", num: "06", icon: BarChart2, color: "violet", label: "Live Analytics", title: "Daten. In Echtzeit.", sub: "Ein vollständiges Analytics-Dashboard wie es auf Ihrer Website läuft. Besucher, Conversions, Traffic-Quellen – alles im Blick." },
+      { id: "imagegen", num: "07", icon: ImageIcon, color: "purple", label: "KI-Bildgenerierung", title: "Bilder auf Knopfdruck.", sub: "Beschreiben Sie ein Bild in Worten – die KI generiert es. Ideal für Website-Content, Social Media und Marketing-Materialien." },
+      { id: "branchen", num: "08", icon: Layers, color: "indigo", label: "Branchen-Preview", title: "Ihre Branche. Ihr Design.", sub: "Wählen Sie Ihre Branche und sehen Sie live wie eine maßgeschneiderte Website für Sie aussehen würde." },
+      { id: "stats", num: "09", icon: TrendingUp, color: "purple", label: "Unsere Zahlen", title: "Fakten. Die überzeugen.", sub: "Zahlen sprechen für sich. Scrollen Sie herunter und sehen Sie unsere Ergebnisse in Aktion." },
+      { id: "kontakt", num: "10", icon: Mail, color: "fuchsia", label: "KI-Kontaktformular", title: "Schreiben Sie uns. Die KI antwortet.", sub: "Senden Sie eine Anfrage und erleben Sie wie unsere KI sofort eine personalisierte Antwort mit Paket-Empfehlung generiert." },
     ],
-    footer: {
-      by: "Entwickelt von",
-      tag: "KI-gestützte Web-Lösungen für Ihr Unternehmen",
-      cta: "Eigene KI-Features anfragen",
-    },
-    langBtn: "EN",
+    footer: { by: "Entwickelt von", tag: "KI-gestützte Web-Lösungen für Ihr Unternehmen", cta: "Eigene KI-Features anfragen" },
   },
   en: {
     badge: "AI Features Demo",
@@ -132,103 +61,18 @@ const TX = {
       cta: "Discover features",
     },
     sections: [
-      {
-        id: "chatbot",
-        num: "01",
-        icon: Bot,
-        color: "indigo",
-        label: "AI Chatbot",
-        title: "Your assistant. Around the clock.",
-        sub: "Answer common questions automatically – 24/7, without waiting time. The chatbot knows your prices, opening hours and processes.",
-      },
-      {
-        id: "buchung",
-        num: "02",
-        icon: Calendar,
-        color: "violet",
-        label: "Appointment Booking",
-        title: "Smart appointment management.",
-        sub: "Customers book their preferred appointment independently. AI recommends the optimal time slot based on availability and workload.",
-      },
-      {
-        id: "faq",
-        num: "03",
-        icon: HelpCircle,
-        color: "purple",
-        label: "FAQ Assistant",
-        title: "Knowledge. Instantly accessible.",
-        sub: "An intelligent FAQ assistant filters the right answers in real time as the user types. Less support effort for you.",
-      },
-      {
-        id: "leads",
-        num: "04",
-        icon: Target,
-        color: "fuchsia",
-        label: "Lead Qualification",
-        title: "Qualified leads. Automatically.",
-        sub: "A smart questionnaire determines in 4 steps how well a visitor fits as a customer. You immediately see: Hot Lead, Warm Lead or Info Lead.",
-      },
-      {
-        id: "slider",
-        num: "05",
-        icon: SplitSquareHorizontal,
-        color: "indigo",
-        label: "Before / After",
-        title: "The difference. Visible.",
-        sub: "Drag the slider and see live what a modern website looks like. From outdated to professional – in one drag.",
-      },
-      {
-        id: "analytics",
-        num: "06",
-        icon: BarChart2,
-        color: "violet",
-        label: "Live Analytics",
-        title: "Data. In real time.",
-        sub: "A complete analytics dashboard as it runs on your website. Visitors, conversions, traffic sources – all at a glance.",
-      },
-      {
-        id: "imagegen",
-        num: "07",
-        icon: ImageIcon,
-        color: "purple",
-        label: "AI Image Generation",
-        title: "Images at the push of a button.",
-        sub: "Describe an image in words – the AI generates it. Ideal for website content, social media and marketing materials.",
-      },
-      {
-        id: "branchen",
-        num: "08",
-        icon: Layers,
-        color: "indigo",
-        label: "Industry Preview",
-        title: "Your industry. Your design.",
-        sub: "Select your industry and see live what a tailored website would look like for you.",
-      },
-      {
-        id: "stats",
-        num: "09",
-        icon: TrendingUp,
-        color: "purple",
-        label: "Our Numbers",
-        title: "Facts. That convince.",
-        sub: "Numbers speak for themselves. Scroll down and see our results in action.",
-      },
-      {
-        id: "kontakt",
-        num: "10",
-        icon: Mail,
-        color: "fuchsia",
-        label: "AI Contact Form",
-        title: "Write to us. The AI responds.",
-        sub: "Send an inquiry and experience how our AI instantly generates a personalized response with package recommendation.",
-      },
+      { id: "chatbot", num: "01", icon: Bot, color: "indigo", label: "AI Chatbot", title: "Your assistant. Around the clock.", sub: "Answer common questions automatically – 24/7, without waiting time. The chatbot knows your prices, opening hours and processes." },
+      { id: "buchung", num: "02", icon: Calendar, color: "violet", label: "Appointment Booking", title: "Smart appointment management.", sub: "Customers book their preferred appointment independently. AI recommends the optimal time slot based on availability and workload." },
+      { id: "faq", num: "03", icon: HelpCircle, color: "purple", label: "FAQ Assistant", title: "Knowledge. Instantly accessible.", sub: "An intelligent FAQ assistant filters the right answers in real time as the user types. Less support effort for you." },
+      { id: "leads", num: "04", icon: Target, color: "fuchsia", label: "Lead Qualification", title: "Qualified leads. Automatically.", sub: "A smart questionnaire determines in 4 steps how well a visitor fits as a customer. You immediately see: Hot Lead, Warm Lead or Info Lead." },
+      { id: "slider", num: "05", icon: SplitSquareHorizontal, color: "indigo", label: "Before / After", title: "The difference. Visible.", sub: "Drag the slider and see live what a modern website looks like. From outdated to professional – in one drag." },
+      { id: "analytics", num: "06", icon: BarChart2, color: "violet", label: "Live Analytics", title: "Data. In real time.", sub: "A complete analytics dashboard as it runs on your website. Visitors, conversions, traffic sources – all at a glance." },
+      { id: "imagegen", num: "07", icon: ImageIcon, color: "purple", label: "AI Image Generation", title: "Images at the push of a button.", sub: "Describe an image in words – the AI generates it. Ideal for website content, social media and marketing materials." },
+      { id: "branchen", num: "08", icon: Layers, color: "indigo", label: "Industry Preview", title: "Your industry. Your design.", sub: "Select your industry and see live what a tailored website would look like for you." },
+      { id: "stats", num: "09", icon: TrendingUp, color: "purple", label: "Our Numbers", title: "Facts. That convince.", sub: "Numbers speak for themselves. Scroll down and see our results in action." },
+      { id: "kontakt", num: "10", icon: Mail, color: "fuchsia", label: "AI Contact Form", title: "Write to us. The AI responds.", sub: "Send an inquiry and experience how our AI instantly generates a personalized response with package recommendation." },
     ],
-    footer: {
-      by: "Developed by",
-      tag: "AI-powered web solutions for your business",
-      cta: "Request your own AI features",
-    },
-    langBtn: "DE",
+    footer: { by: "Developed by", tag: "AI-powered web solutions for your business", cta: "Request your own AI features" },
   },
 };
 
@@ -264,7 +108,7 @@ const colorMap: Record<string, { pill: string; border: string; glow: string; ico
 };
 
 export default function DemoPage() {
-  const [lang, setLang] = useState<Lang>("de");
+  const { lang } = useLang();
   const featuresRef = useRef<HTMLDivElement>(null);
   const tx = TX[lang];
 
@@ -274,18 +118,6 @@ export default function DemoPage() {
 
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}>
-
-      {/* Language Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <button
-          onClick={() => setLang(l => l === "de" ? "en" : "de")}
-          className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur text-sm font-medium transition-all"
-          style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-secondary)" }}
-        >
-          <Globe size={14} />
-          {tx.langBtn}
-        </button>
-      </div>
 
       {/* Background Orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">

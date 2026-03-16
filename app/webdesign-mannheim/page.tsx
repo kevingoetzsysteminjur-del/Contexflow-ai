@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Mannheim – Professionelle Websites & KI-Integration | Contexflow AI",
-  description:
-    "Webdesign in Mannheim. Kevin Götz (Contexflow AI) entwickelt moderne Next.js Websites & KI-Lösungen für Unternehmen in Mannheim und der Metropolregion Rhein-Neckar. Ab 500€ Festpreis.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignMannheimPage() {
+  const { t } = useLang();
+  const c = t.webdesign.mannheim;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Mannheim
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignMannheimPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Mannheim –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignMannheimPage() {
                 backgroundClip: "text",
               }}
             >
-              Performance-Websites
+              {c.h1_accent}
             </span>{" "}
-            für die Quadratestadt
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "2rem",
             }}
           >
-            Mannheim ist eine der wirtschaftlich stärksten Städte in Baden-Württemberg – und der
-            Wettbewerb online ist entsprechend hart. Ich bin Kevin Götz von Contexflow AI und baue
-            Websites die nicht nur gut aussehen, sondern auch performen. In Next.js. Mit SEO. Mit
-            echtem Fokus auf Conversion.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign in Mannheim – was den Unterschied macht
+            {c.h2_diff}
           </h2>
           <p
             style={{
@@ -81,11 +76,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "1.5rem",
             }}
           >
-            In Mannheim konkurrieren viele Unternehmen um dieselben Suchbegriffe. Wer eine
-            langsamere, schlechter optimierte Website hat, verliert. Ich baue mit Next.js –
-            serverseitiges Rendering, schnelle Ladezeiten, perfekte Core Web Vitals. Das
-            Google-Algorithmus belohnt das mit besseren Rankings. Deine Konkurrenz in Mannheim
-            wird das spüren.
+            {c.diff}
           </p>
 
           <h2
@@ -96,7 +87,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "1rem",
             }}
           >
-            Leistungen für Mannheimer Unternehmen
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -106,12 +97,12 @@ export default function WebdesignMannheimPage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Neue Website in unter 7 Tagen – fertig und live</li>
-            <li>Next.js Entwicklung – kein WordPress, kein Baukasten</li>
-            <li>Lokale SEO für Mannheim, Ludwigshafen, Rhein-Neckar</li>
-            <li>KI-Chatbot für automatisierten Kundensupport</li>
-            <li>Kontaktformular, Google Maps, Analytics inklusive</li>
-            <li>Festpreise ab 500€ – alles inkl., keine Nachkosten</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -122,7 +113,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "1rem",
             }}
           >
-            Branchen in Mannheim
+            {c.h2_branches}
           </h2>
           <p
             style={{
@@ -131,9 +122,7 @@ export default function WebdesignMannheimPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Ich unterstütze Unternehmen aus Gastronomie, Einzelhandel, Gesundheit, Immobilien,
-            Handwerk, Bildung und Beratung in Mannheim, Ludwigshafen, Schwetzingen, Viernheim und
-            der gesamten Metropolregion Rhein-Neckar.
+            {c.branches}
           </p>
 
           <Link
@@ -150,9 +139,9 @@ export default function WebdesignMannheimPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>

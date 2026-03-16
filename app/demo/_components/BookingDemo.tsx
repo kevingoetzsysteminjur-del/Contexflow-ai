@@ -104,7 +104,7 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 gap-6">
       {/* Calendar */}
       <div className="rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <div className="flex items-center justify-between mb-4">
@@ -152,8 +152,8 @@ export default function BookingDemo({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      {/* Right: slots + form */}
-      <div className="flex flex-col gap-4">
+      {/* Slots + form */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Time Slots */}
         <div className="rounded-2xl p-5" style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
           <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-secondary)" }}>{tx.slots}</p>

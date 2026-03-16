@@ -84,7 +84,7 @@ export default function ChatDemo({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="flex flex-col rounded-2xl overflow-hidden backdrop-blur" style={{ maxHeight: 400, border: "1px solid var(--border-color)", background: "var(--bg-card)" }}>
+    <div className="flex flex-col rounded-2xl overflow-hidden backdrop-blur" style={{ maxHeight: 350, border: "1px solid var(--border-color)", background: "var(--bg-card)" }}>
       {/* Header */}
       <div className="flex items-center gap-3 px-5 py-4 bg-indigo-600/20" style={{ borderBottom: "1px solid var(--border-color)" }}>
         <div className="w-9 h-9 rounded-full bg-indigo-500/30 border border-indigo-400/40 flex items-center justify-center">

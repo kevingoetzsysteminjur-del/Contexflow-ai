@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Stuttgart – Individuelle Next.js Websites für Baden-Württembergs Metropole | Contexflow AI",
-  description:
-    "Webdesign in Stuttgart. Kevin Götz (Contexflow AI) entwickelt moderne Next.js Websites & KI-Lösungen für Unternehmen in Stuttgart und der Region. Festpreis ab 500€, unter 7 Tage Lieferzeit.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignStuttgartPage() {
+  const { t } = useLang();
+  const c = t.webdesign.stuttgart;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Stuttgart
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignStuttgartPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Stuttgart –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignStuttgartPage() {
                 backgroundClip: "text",
               }}
             >
-              Premium Websites
+              {c.h1_accent}
             </span>{" "}
-            für die Schwabenmetropole
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "2rem",
             }}
           >
-            Stuttgart ist das wirtschaftliche Herz Baden-Württembergs – und hier zählt der erste
-            Eindruck. Ich bin Kevin Götz von Contexflow AI und baue Websites die Stuttgart-typisch
-            Qualität und Präzision ausstrahlen. Mit Next.js, KI-Integration und einem klaren Fokus
-            auf Ergebnisse.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign für Stuttgart – qualitätsbewusst wie die Region
+            {c.h2_quality}
           </h2>
           <p
             style={{
@@ -81,10 +76,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Stuttgarter Unternehmen stehen für Qualität – das sollte auch die Website widerspiegeln.
-            Ich baue keine Massenware. Jede Website ist individuell konzipiert, auf deine Zielgruppe
-            zugeschnitten und technisch auf dem höchsten Stand. Next.js statt WordPress bedeutet:
-            schneller, sicherer, besser bei Google.
+            {c.quality}
           </p>
 
           <h2
@@ -95,7 +87,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "1rem",
             }}
           >
-            Was du von Contexflow AI in Stuttgart bekommst
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -105,12 +97,12 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Individuelle Website in Next.js – kein Baukasten</li>
-            <li>Fertig in unter 7 Tagen – oder kostenlose Nacharbeit</li>
-            <li>SEO für Stuttgart, Ludwigsburg, Böblingen, Esslingen</li>
-            <li>KI-Chatbot und smarte Automatisierungen optional</li>
-            <li>Professionelles Design das Vertrauen und Autorität ausstrahlt</li>
-            <li>Festpreis ab 500€ – keine Überraschungen</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -121,7 +113,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "1rem",
             }}
           >
-            Branchen in Stuttgart
+            {c.h2_branches}
           </h2>
           <p
             style={{
@@ -130,10 +122,7 @@ export default function WebdesignStuttgartPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Ich unterstütze Unternehmen aus Automobil-Zulieferung, Maschinenbau, Medizin,
-            Gastronomie, Einzelhandel, Beratung und Dienstleistung in Stuttgart,
-            Stuttgart-Vaihingen, Ludwigsburg, Böblingen, Esslingen am Neckar und der Metropolregion
-            Stuttgart.
+            {c.branches}
           </p>
 
           <Link
@@ -150,9 +139,9 @@ export default function WebdesignStuttgartPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>

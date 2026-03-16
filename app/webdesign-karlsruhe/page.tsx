@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Karlsruhe – Next.js Websites & KI für die Fächerstadt | Contexflow AI",
-  description:
-    "Webdesign in Karlsruhe. Individuelle Next.js Websites & KI-Integration für Unternehmen in Karlsruhe und der TechnologieRegion. Kevin Götz (Contexflow AI). Festpreis ab 500€.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignKarlsruhePage() {
+  const { t } = useLang();
+  const c = t.webdesign.karlsruhe;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Karlsruhe
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignKarlsruhePage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Karlsruhe –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignKarlsruhePage() {
                 backgroundClip: "text",
               }}
             >
-              Tech-Websites
+              {c.h1_accent}
             </span>{" "}
-            für die Fächerstadt
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "2rem",
             }}
           >
-            Karlsruhe ist Deutschlands IT-Hauptstadt – hier erwarten Kunden und Partner digitale
-            Kompetenz auf höchstem Niveau. Ich bin Kevin Götz von Contexflow AI und entwickle
-            Websites mit Next.js und KI-Integration die diesen Ansprüchen gerecht werden. Schnell,
-            modern, technisch auf dem neuesten Stand.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign auf Tech-Niveau – für Karlsruhe
+            {c.h2_level}
           </h2>
           <p
             style={{
@@ -81,10 +76,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "1.5rem",
             }}
           >
-            In Karlsruhe sind Kunden technikaffin und haben hohe Erwartungen an Websites. Baukästen
-            und veraltetes WordPress reichen hier nicht mehr. Ich baue mit Next.js – dem Framework
-            das große Tech-Unternehmen weltweit einsetzen. Das Ergebnis: schnellste Ladezeiten,
-            perfekte SEO-Werte und ein Design das Vertrauen aufbaut.
+            {c.level}
           </p>
 
           <h2
@@ -95,7 +87,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "1rem",
             }}
           >
-            Was Karlsruher Unternehmen bekommen
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -105,12 +97,12 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Website-Entwicklung mit Next.js – kein Template</li>
-            <li>Lieferzeit unter 7 Tage – Festpreis garantiert</li>
-            <li>Lokale SEO für Karlsruhe, Ettlingen, Bretten, Bruchsal</li>
-            <li>KI-Chatbot und Automatisierung optional</li>
-            <li>API-Anbindungen und komplexe Webanwendungen möglich</li>
-            <li>Preise ab 500€ – transparent, ohne versteckte Kosten</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -121,7 +113,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "1rem",
             }}
           >
-            Für wen ich in Karlsruhe baue
+            {c.h2_who}
           </h2>
           <p
             style={{
@@ -130,9 +122,7 @@ export default function WebdesignKarlsruhePage() {
               marginBottom: "2.5rem",
             }}
           >
-            Startups, Tech-Unternehmen, Agenturen, Dienstleister, Handwerk, Gastronomie und alle
-            die in Karlsruhe, Ettlingen, Pforzheim, Bruchsal und der TechnologieRegion Karlsruhe
-            eine professionelle Website brauchen. Remote-Zusammenarbeit kein Problem.
+            {c.who}
           </p>
 
           <Link
@@ -149,9 +139,9 @@ export default function WebdesignKarlsruhePage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>

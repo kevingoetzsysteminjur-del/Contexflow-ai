@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Heidelberg – Schnelle Next.js Websites für die Rhein-Neckar-Region | Contexflow AI",
-  description:
-    "Webdesign in Heidelberg und der Rhein-Neckar-Region. Kevin Götz (Contexflow AI) baut individuelle Next.js Websites & KI-Lösungen. Festpreis ab 500€, Lieferzeit unter 7 Tage.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignHeidelbergPage() {
+  const { t } = useLang();
+  const c = t.webdesign.heidelberg;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Heidelberg
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignHeidelbergPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Heidelberg –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignHeidelbergPage() {
                 backgroundClip: "text",
               }}
             >
-              Individuelle Websites
+              {c.h1_accent}
             </span>{" "}
-            für die Rhein-Neckar-Region
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "2rem",
             }}
           >
-            Du suchst einen Webdesigner in Heidelberg oder der Rhein-Neckar-Region? Ich bin Kevin
-            Götz von Contexflow AI aus Mosbach – nur eine kurze Strecke entfernt. Ich baue
-            individuelle, blitzschnelle Websites mit Next.js für Unternehmen in Heidelberg,
-            Mannheim, Sinsheim und der gesamten Metropolregion Rhein-Neckar.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "1rem",
             }}
           >
-            Next.js statt WordPress – der Unterschied ist messbar
+            {c.h2_diff}
           </h2>
           <p
             style={{
@@ -81,10 +76,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Websites in Heidelberg gibt es viele – aber die meisten laufen auf veralteten
-            WordPress-Systemen die langsam, unsicher und schlecht bei Google ranken. Ich baue mit
-            Next.js: serverseitig gerendert, Core Web Vitals optimiert, Google-freundlich. Deine
-            Konkurrenz in Heidelberg hat noch nicht aufgeholt.
+            {c.diff}
           </p>
 
           <h2
@@ -95,7 +87,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "1rem",
             }}
           >
-            Was ich für Heidelberger Unternehmen biete
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -105,12 +97,12 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Website-Erstellung in unter 7 Tagen</li>
-            <li>Next.js – schnell, SEO-optimiert, skalierbar</li>
-            <li>Lokale SEO für Heidelberg, Rhein-Neckar, Kurpfalz</li>
-            <li>Responsive Design für Handy, Tablet und Desktop</li>
-            <li>KI-Chatbots und Automatisierungen optional buchbar</li>
-            <li>Festpreis ab 500€ – transparent, ohne Überraschungen</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -121,7 +113,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "1rem",
             }}
           >
-            Für wen ich in Heidelberg baue
+            {c.h2_who}
           </h2>
           <p
             style={{
@@ -130,9 +122,7 @@ export default function WebdesignHeidelbergPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Praxen, Kanzleien, Gastronomie, Tourismus, Einzelhandel, Coaches und Dienstleister in
-            Heidelberg, Wiesloch, Sinsheim, Leimen und der gesamten Metropolregion Rhein-Neckar.
-            Ich bin remote erreichbar und kann persönliche Termine in Heidelberg wahrnehmen.
+            {c.who}
           </p>
 
           <Link
@@ -149,9 +139,9 @@ export default function WebdesignHeidelbergPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>

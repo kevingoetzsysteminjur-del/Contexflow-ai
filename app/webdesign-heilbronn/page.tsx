@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Heilbronn – Moderne Next.js Websites für die Weinstadt | Contexflow AI",
-  description:
-    "Webdesign in Heilbronn. Kevin Götz (Contexflow AI) baut schnelle, individuelle Websites & KI-Lösungen für Unternehmen in Heilbronn und der Region. Festpreis ab 500€.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignHeilbronnPage() {
+  const { t } = useLang();
+  const c = t.webdesign.heilbronn;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Heilbronn
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignHeilbronnPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Heilbronn –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignHeilbronnPage() {
                 backgroundClip: "text",
               }}
             >
-              Websites die verkaufen
+              {c.h1_accent}
             </span>{" "}
-            für Heilbronner Unternehmen
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "2rem",
             }}
           >
-            Heilbronn ist ein starker Wirtschaftsstandort in Nordbaden-Württemberg – und Unternehmen
-            hier brauchen eine digitale Präsenz die mithalten kann. Ich bin Kevin Götz von Contexflow
-            AI, knapp eine Autostunde von Heilbronn entfernt in Mosbach. Ich baue individuelle
-            Websites mit Next.js – schnell, modern, gefunden.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "1rem",
             }}
           >
-            Was Heilbronner Unternehmen von mir bekommen
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -82,12 +77,12 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Website fertig in 7 Tagen – oder ich arbeite kostenlos nach</li>
-            <li>Next.js – schneller und sicherer als WordPress</li>
-            <li>Lokale SEO für Heilbronn, Neckarsulm, Bad Friedrichshall</li>
-            <li>Kontaktformular, Google Analytics, SEO-Grundoptimierung inklusive</li>
-            <li>Optional: KI-Chatbot für automatisierten Kundensupport</li>
-            <li>Festpreis ab 500€ – kein Stundensatz, kein Abo</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -98,7 +93,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "1rem",
             }}
           >
-            Warum nicht einfach Wix oder Jimdo?
+            {c.h2_why}
           </h2>
           <p
             style={{
@@ -107,10 +102,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Baukästen wie Wix oder Jimdo sind günstig – aber sie ranken schlecht bei Google, laden
-            langsam und sehen alle gleich aus. Wer in Heilbronn online gefunden werden will,
-            braucht eine Website die technisch sauber ist. Next.js ist der Standard für
-            professionelle Webentwicklung – und ich beherrsche ihn.
+            {c.why}
           </p>
 
           <h2
@@ -121,7 +113,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "1rem",
             }}
           >
-            Branchen in Heilbronn
+            {c.h2_branches}
           </h2>
           <p
             style={{
@@ -130,9 +122,7 @@ export default function WebdesignHeilbronnPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Ich baue Websites für Handwerker, Gastronomen, Praxen, Immobilienmakler, Coaches und
-            Dienstleister in Heilbronn, Neckarsulm, Bad Rappenau, Öhringen und der Region
-            Heilbronn-Franken.
+            {c.branches}
           </p>
 
           <Link
@@ -149,9 +139,9 @@ export default function WebdesignHeilbronnPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>

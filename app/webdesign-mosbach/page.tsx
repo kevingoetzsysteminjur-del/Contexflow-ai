@@ -1,13 +1,11 @@
+"use client";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Webdesign Mosbach – Moderne Websites für den Neckar-Odenwald-Kreis | Contexflow AI",
-  description:
-    "Professionelles Webdesign in Mosbach. Kevin Götz (Contexflow AI) baut schnelle Next.js Websites & KI-Lösungen für Unternehmen im Neckar-Odenwald-Kreis. Festpreis ab 500€.",
-};
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebdesignMosbachPage() {
+  const { t } = useLang();
+  const c = t.webdesign.mosbach;
+
   return (
     <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       <section
@@ -25,7 +23,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "1rem",
             }}
           >
-            Webdesign · Mosbach
+            {c.label}
           </p>
           <h1
             style={{
@@ -37,7 +35,7 @@ export default function WebdesignMosbachPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Webdesign Mosbach –{" "}
+            {c.h1}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #6366F1, #06B6D4)",
@@ -46,9 +44,9 @@ export default function WebdesignMosbachPage() {
                 backgroundClip: "text",
               }}
             >
-              Moderne Websites
+              {c.h1_accent}
             </span>{" "}
-            für Unternehmen im Neckar-Odenwald-Kreis
+            {c.h1_suffix}
           </h1>
           <p
             style={{
@@ -58,10 +56,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "2rem",
             }}
           >
-            Du suchst einen Webdesigner in Mosbach? Ich bin Kevin Götz von Contexflow AI – und ich
-            baue moderne, schnelle Websites für lokale Unternehmen im Neckar-Odenwald-Kreis. Kein
-            Template, kein Baukasten. Individuell entwickelt mit Next.js – der schnellsten
-            Website-Technologie am Markt.
+            {c.intro}
           </p>
 
           <h2
@@ -72,7 +67,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "1rem",
             }}
           >
-            Warum lokales Webdesign besser ist
+            {c.h2_why}
           </h2>
           <p
             style={{
@@ -81,11 +76,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Ein Webdesigner aus Mosbach kennt die Region, die Zielgruppe und die lokalen
-            Suchanfragen. Ich optimiere deine Website gezielt für Suchanfragen wie „Webdesign
-            Mosbach", „Website erstellen Neckar-Odenwald" oder „[Deine Branche] Mosbach" – damit
-            Kunden aus der Region dich finden. Keine Großagentur aus Frankfurt die dich nicht kennt.
-            Direkter Kontakt, kurze Wege, persönliche Betreuung.
+            {c.why}
           </p>
 
           <h2
@@ -96,7 +87,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "1rem",
             }}
           >
-            Was du bekommst
+            {c.h2_what}
           </h2>
           <ul
             style={{
@@ -106,12 +97,12 @@ export default function WebdesignMosbachPage() {
               marginBottom: "2rem",
             }}
           >
-            <li>Professionelle Website in unter 7 Tagen</li>
-            <li>Gebaut mit Next.js – blitzschnell und SEO-optimiert</li>
-            <li>Lokale SEO für Mosbach und Umgebung</li>
-            <li>Responsive Design – perfekt auf Handy und Desktop</li>
-            <li>Optional: KI-Chatbot und Automatisierung</li>
-            <li>Festpreis ab 500€ – kein Stundensatz, kein Abo</li>
+            <li>{c.li1}</li>
+            <li>{c.li2}</li>
+            <li>{c.li3}</li>
+            <li>{c.li4}</li>
+            <li>{c.li5}</li>
+            <li>{c.li6}</li>
           </ul>
 
           <h2
@@ -122,7 +113,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "1rem",
             }}
           >
-            Branchen in Mosbach & Umgebung
+            {c.h2_branches}
           </h2>
           <p
             style={{
@@ -131,10 +122,7 @@ export default function WebdesignMosbachPage() {
               marginBottom: "2.5rem",
             }}
           >
-            Ich arbeite mit Restaurants, Handwerkern, Ärzten, Immobilienmaklern, Fitnessstudios und
-            anderen lokalen Dienstleistern in Mosbach, Neckarbischofsheim, Buchen, Sinsheim und im
-            gesamten Neckar-Odenwald-Kreis. Egal ob du eine neue Website brauchst oder deine alte
-            WordPress-Seite endlich ersetzen willst – ich helfe dir weiter.
+            {c.branches}
           </p>
 
           <Link
@@ -151,9 +139,9 @@ export default function WebdesignMosbachPage() {
               textDecoration: "none",
               fontSize: "0.95rem",
               transition: "opacity 0.2s",
-            }}
+            }}
           >
-            Kostenloses Erstgespräch vereinbaren →
+            {t.webdesign.cta_btn}
           </Link>
         </div>
       </section>
