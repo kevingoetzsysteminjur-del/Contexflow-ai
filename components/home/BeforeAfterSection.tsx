@@ -322,7 +322,7 @@ export default function BeforeAfterSection() {
     <section
       style={{
         background: "var(--bg-primary)",
-        borderTop: "1px solid #111",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >

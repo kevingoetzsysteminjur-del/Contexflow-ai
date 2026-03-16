@@ -11,7 +11,7 @@ export default function DemoSection() {
     <section
       style={{
         background: "var(--bg-primary)",
-        borderTop: "1px solid #111",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(5rem,10vw,8rem) clamp(1.5rem,4vw,2.5rem)",
       }}
     >
@@ -70,7 +70,7 @@ export default function DemoSection() {
             style={{
               fontSize: "clamp(2rem,5vw,3.5rem)",
               fontWeight: 200,
-              color: "#F5F5F7",
+              color: "var(--text-primary)",
               letterSpacing: "-0.02em",
               marginBottom: "0.75rem",
               margin: "0 0 0.75rem 0",
@@ -92,7 +92,7 @@ export default function DemoSection() {
           </h2>
           <p
             style={{
-              color: "#6B7280",
+              color: "var(--text-secondary)",
               fontSize: "1.05rem",
               marginBottom: "3rem",
               margin: "0 0 3rem 0",
@@ -196,7 +196,7 @@ export default function DemoSection() {
                   fontWeight: 500,
                 }}
               >
-                Live Live Demo ansehen →
+                Live Demo ansehen →
               </span>
             </div>
           </a>
@@ -459,7 +459,7 @@ export default function DemoSection() {
         <ScrollReveal delay={300}>
           <p
             style={{
-              color: "#374151",
+              color: "var(--text-tertiary)",
               fontSize: 12,
               marginTop: "1.5rem",
               textAlign: "center",

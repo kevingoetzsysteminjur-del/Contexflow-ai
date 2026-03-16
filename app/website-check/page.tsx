@@ -59,8 +59,8 @@ export default function WebsiteCheckPage() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "#0a0a12",
-    border: "1px solid #1a1a2e",
+    background: "var(--input-bg)",
+    border: "1px solid var(--input-border)",
     borderRadius: 2,
     padding: "0.85rem 1rem",
     fontSize: 15,
@@ -88,7 +88,7 @@ export default function WebsiteCheckPage() {
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        padding: "clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2rem)",
+        padding: "clamp(7rem, 12vw, 9rem) clamp(1.5rem, 4vw, 2rem) clamp(4rem, 8vw, 6rem)",
       }}
     >
       <div style={{ width: "100%", maxWidth: 560 }}>
@@ -139,7 +139,7 @@ export default function WebsiteCheckPage() {
                     style={{
                       fontSize: 11,
                       letterSpacing: "0.15em",
-                      color: i + 1 <= step ? "#6366F1" : "#2a2a3a",
+                      color: i + 1 <= step ? "#6366F1" : "var(--text-tertiary)",
                       transition: "color 0.3s ease",
                     }}
                   >
@@ -203,7 +203,7 @@ export default function WebsiteCheckPage() {
                           (e.currentTarget as HTMLInputElement).style.borderColor = "#6366F1";
                         }}
                         onBlur={(e) => {
-                          (e.currentTarget as HTMLInputElement).style.borderColor = "#1a1a2e";
+                          (e.currentTarget as HTMLInputElement).style.borderColor = "var(--input-border)";
                         }}
                       />
                       <p style={{ fontSize: 12, color: "var(--text-tertiary)", marginTop: "0.5rem", margin: "0.5rem 0 0 0" }}>
@@ -242,8 +242,8 @@ export default function WebsiteCheckPage() {
                               alignItems: "center",
                               gap: "0.85rem",
                               padding: "0.9rem 1.1rem",
-                              background: selected ? "#6366F110" : "#0a0a12",
-                              border: `1px solid ${selected ? "#6366F160" : "#1a1a2e"}`,
+                              background: selected ? "#6366F110" : "var(--input-bg)",
+                              border: `1px solid ${selected ? "#6366F160" : "var(--input-border)"}`,
                               borderRadius: 2,
                               cursor: "pointer",
                               textAlign: "left",
@@ -254,7 +254,7 @@ export default function WebsiteCheckPage() {
                               style={{
                                 width: 18,
                                 height: 18,
-                                border: `1px solid ${selected ? "#6366F1" : "#2a2a3a"}`,
+                                border: `1px solid ${selected ? "#6366F1" : "var(--border-color)"}`,
                                 borderRadius: 2,
                                 background: selected ? "#6366F1" : "transparent",
                                 display: "flex",
@@ -271,7 +271,7 @@ export default function WebsiteCheckPage() {
                             <span
                               style={{
                                 fontSize: 14,
-                                color: selected ? "#F5F5F7" : "#9CA3AF",
+                                color: selected ? "var(--text-primary)" : "var(--text-secondary)",
                                 transition: "color 0.2s ease",
                               }}
                             >
@@ -313,7 +313,7 @@ export default function WebsiteCheckPage() {
                             (e.currentTarget as HTMLInputElement).style.borderColor = "#6366F1";
                           }}
                           onBlur={(e) => {
-                            (e.currentTarget as HTMLInputElement).style.borderColor = "#1a1a2e";
+                            (e.currentTarget as HTMLInputElement).style.borderColor = "var(--input-border)";
                           }}
                         />
                       </div>
@@ -331,7 +331,7 @@ export default function WebsiteCheckPage() {
                             (e.currentTarget as HTMLInputElement).style.borderColor = "#6366F1";
                           }}
                           onBlur={(e) => {
-                            (e.currentTarget as HTMLInputElement).style.borderColor = "#1a1a2e";
+                            (e.currentTarget as HTMLInputElement).style.borderColor = "var(--input-border)";
                           }}
                         />
                       </div>
@@ -347,7 +347,7 @@ export default function WebsiteCheckPage() {
                             (e.currentTarget as HTMLInputElement).style.borderColor = "#6366F1";
                           }}
                           onBlur={(e) => {
-                            (e.currentTarget as HTMLInputElement).style.borderColor = "#1a1a2e";
+                            (e.currentTarget as HTMLInputElement).style.borderColor = "var(--input-border)";
                           }}
                         />
                       </div>
@@ -371,7 +371,7 @@ export default function WebsiteCheckPage() {
                   onClick={() => setStep((s) => s - 1)}
                   style={{
                     background: "transparent",
-                    border: "1px solid #1a1a2e",
+                    border: "1px solid var(--border-color)",
                     color: "var(--text-tertiary)",
                     padding: "0.75rem 1.5rem",
                     fontSize: 13,
@@ -385,7 +385,7 @@ export default function WebsiteCheckPage() {
                     (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "#1a1a2e";
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--border-color)";
                     (e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)";
                   }}
                 >
@@ -400,9 +400,9 @@ export default function WebsiteCheckPage() {
                   onClick={() => canProceed() && setStep((s) => s + 1)}
                   disabled={!canProceed()}
                   style={{
-                    background: canProceed() ? "#6366F1" : "#1a1a2e",
+                    background: canProceed() ? "#6366F1" : "var(--border-color)",
                     border: "none",
-                    color: canProceed() ? "#fff" : "#374151",
+                    color: canProceed() ? "#fff" : "var(--text-tertiary)",
                     padding: "0.75rem 2rem",
                     fontSize: 13,
                     letterSpacing: "0.15em",
@@ -425,9 +425,9 @@ export default function WebsiteCheckPage() {
                   onClick={handleSubmit}
                   disabled={!canProceed() || loading}
                   style={{
-                    background: canProceed() ? "#6366F1" : "#1a1a2e",
+                    background: canProceed() ? "#6366F1" : "var(--border-color)",
                     border: "none",
-                    color: canProceed() ? "#fff" : "#374151",
+                    color: canProceed() ? "#fff" : "var(--text-tertiary)",
                     padding: "0.75rem 2rem",
                     fontSize: 13,
                     letterSpacing: "0.15em",

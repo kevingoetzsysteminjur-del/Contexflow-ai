@@ -125,8 +125,8 @@ export default function ProjectsSection() {
   return (
     <section
       style={{
-        background: "#050508",
-        borderTop: "1px solid #111",
+        background: "var(--bg-secondary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >

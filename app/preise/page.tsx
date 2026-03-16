@@ -190,7 +190,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
           transition: "background 0.3s ease, border-color 0.3s ease",
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#4F46E5" : "#111";
+          (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#4F46E5" : "var(--bg-card-hover)";
         }}
         onMouseLeave={e => {
           (e.currentTarget as HTMLElement).style.background = paket.recommended ? "#6366F1" : "transparent";
@@ -299,7 +299,7 @@ export default function PreisePage() {
           <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
             Häufige Fragen
           </h2>
-          <div style={{ height: 1, background: "#111" }} />
+          <div style={{ height: 1, background: "var(--border-light)" }} />
           {FAQ.map((item, i) => (
             <FaqItem key={item.f} item={item} index={i} />
           ))}

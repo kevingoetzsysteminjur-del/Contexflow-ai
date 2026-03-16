@@ -12,7 +12,7 @@ export default function SocialProof() {
       ref={ref}
       style={{
         background: "var(--bg-primary)",
-        borderTop: "1px solid #111",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(5rem, 10vw, 8rem) 1.5rem",
       }}
     >

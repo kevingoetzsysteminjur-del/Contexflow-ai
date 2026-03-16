@@ -28,7 +28,7 @@ export default function AddonsSection() {
   return (
     <section
       style={{
-        borderTop: "1px solid #111",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -47,13 +47,13 @@ export default function AddonsSection() {
           <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>
             Erweitere dein Paket.
           </h2>
-          <p style={{ fontSize: 13, color: "#4B5563", maxWidth: "55ch", lineHeight: 1.75 }}>
+          <p style={{ fontSize: 13, color: "var(--text-secondary)", maxWidth: "55ch", lineHeight: 1.75 }}>
             Kombiniere dein Website-Paket mit KI-Features. Wähle was du brauchst — der Preis aktualisiert sich live.
           </p>
         </motion.div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: "#111", marginBottom: 0 }} />
+        <div style={{ height: 1, background: "var(--border-light)", marginBottom: 0 }} />
 
         {/* Addon rows */}
         {ADDONS.map((addon, i) => {
@@ -72,13 +72,13 @@ export default function AddonsSection() {
                 alignItems: "center",
                 gap: "clamp(1rem, 3vw, 2rem)",
                 padding: "clamp(1.25rem, 2.5vw, 1.75rem) 0",
-                borderBottom: "1px solid #111",
+                borderBottom: "1px solid var(--border-light)",
                 background: "transparent",
                 cursor: "pointer",
                 textAlign: "left",
                 transition: "background 0.2s ease",
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#060608"; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--bg-card-hover)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
               {/* Name + desc */}
