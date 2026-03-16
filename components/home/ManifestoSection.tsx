@@ -38,7 +38,7 @@ export default function ManifestoSection() {
     <section
       ref={ref}
       style={{
-        background: "#030305",
+        background: "var(--bg-primary)",
         padding: "clamp(6rem, 12vw, 10rem) 1.5rem",
       }}
     >
@@ -54,7 +54,7 @@ export default function ManifestoSection() {
             fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)",
             fontWeight: 300,
             lineHeight: 1.65,
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             margin: 0,
           }}
         >

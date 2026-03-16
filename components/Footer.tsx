@@ -20,7 +20,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer style={{ borderTop: "1px solid #111", background: "#030305" }}>
+    <footer style={{ borderTop: "1px solid var(--border-light)", background: "var(--bg-footer)" }}>
       <div
         style={{
           maxWidth: 1200,
@@ -38,7 +38,7 @@ export default function Footer() {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#374151",
+            color: "rgba(255,255,255,0.25)",
           }}
         >
           CONTEXFLOW AI · 2026
@@ -49,7 +49,7 @@ export default function Footer() {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#374151",
+            color: "rgba(255,255,255,0.25)",
           }}
         >
           {t.footer.built.toUpperCase()}
@@ -62,28 +62,28 @@ export default function Footer() {
               fontSize: 10,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#374151",
+              color: "rgba(255,255,255,0.25)",
               textDecoration: "none",
               transition: "color 0.2s ease",
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#374151"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.25)"; }}
           >
             {t.footer.imprint.toUpperCase()}
           </Link>
-          <span style={{ color: "#374151", fontSize: 10 }}>·</span>
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 10 }}>·</span>
           <Link
             href="/datenschutz"
             style={{
               fontSize: 10,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#374151",
+              color: "rgba(255,255,255,0.25)",
               textDecoration: "none",
               transition: "color 0.2s ease",
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#374151"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.25)"; }}
           >
             {t.footer.privacy.toUpperCase()}
           </Link>

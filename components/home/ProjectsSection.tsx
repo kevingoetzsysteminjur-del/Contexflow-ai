@@ -38,7 +38,7 @@ function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: n
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
-          background: "#0d0d14",
+          background: "var(--bg-card)",
           border: `1px solid ${hovered ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.08)"}`,
           borderRadius: 16,
           padding: "2rem",

@@ -64,7 +64,7 @@ export default function WebsiteCheckPage() {
     borderRadius: 2,
     padding: "0.85rem 1rem",
     fontSize: 15,
-    color: "#F5F5F7",
+    color: "var(--text-primary)",
     outline: "none",
     letterSpacing: "0.02em",
     transition: "border-color 0.2s ease",
@@ -75,7 +75,7 @@ export default function WebsiteCheckPage() {
     fontSize: 12,
     letterSpacing: "0.15em",
     textTransform: "uppercase",
-    color: "#6B7280",
+    color: "var(--text-tertiary)",
     marginBottom: "0.5rem",
     display: "block",
   };
@@ -84,7 +84,7 @@ export default function WebsiteCheckPage() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#030305",
+        background: "var(--bg-primary)",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
@@ -111,7 +111,7 @@ export default function WebsiteCheckPage() {
                 style={{
                   fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
                   fontWeight: 200,
-                  color: "#F5F5F7",
+                  color: "var(--text-primary)",
                   letterSpacing: "0.03em",
                   lineHeight: 1.2,
                   margin: "0 0 0.75rem 0",
@@ -119,7 +119,7 @@ export default function WebsiteCheckPage() {
               >
                 Kostenloser Website-Check
               </h1>
-              <p style={{ fontSize: 14, color: "#6B7280", margin: 0, lineHeight: 1.6 }}>
+              <p style={{ fontSize: 14, color: "var(--text-tertiary)", margin: 0, lineHeight: 1.6 }}>
                 In 3 Schritten zu deinem persönlichen Feedback.
               </p>
             </div>
@@ -150,7 +150,7 @@ export default function WebsiteCheckPage() {
               <div
                 style={{
                   height: 2,
-                  background: "#111",
+                  background: "var(--bg-secondary)",
                   borderRadius: 2,
                   overflow: "hidden",
                 }}
@@ -184,7 +184,7 @@ export default function WebsiteCheckPage() {
                       style={{
                         fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
                         fontWeight: 300,
-                        color: "#F5F5F7",
+                        color: "var(--text-primary)",
                         margin: "0 0 1.5rem 0",
                         letterSpacing: "0.02em",
                       }}
@@ -206,7 +206,7 @@ export default function WebsiteCheckPage() {
                           (e.currentTarget as HTMLInputElement).style.borderColor = "#1a1a2e";
                         }}
                       />
-                      <p style={{ fontSize: 12, color: "#374151", marginTop: "0.5rem", margin: "0.5rem 0 0 0" }}>
+                      <p style={{ fontSize: 12, color: "var(--text-tertiary)", marginTop: "0.5rem", margin: "0.5rem 0 0 0" }}>
                         Falls du noch keine Website hast, trag einfach "keine Website" ein.
                       </p>
                     </div>
@@ -220,14 +220,14 @@ export default function WebsiteCheckPage() {
                       style={{
                         fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
                         fontWeight: 300,
-                        color: "#F5F5F7",
+                        color: "var(--text-primary)",
                         margin: "0 0 0.5rem 0",
                         letterSpacing: "0.02em",
                       }}
                     >
                       Was ist dein Ziel?
                     </h2>
-                    <p style={{ fontSize: 13, color: "#6B7280", margin: "0 0 1.5rem 0" }}>
+                    <p style={{ fontSize: 13, color: "var(--text-tertiary)", margin: "0 0 1.5rem 0" }}>
                       Mehrfachauswahl möglich.
                     </p>
                     <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
@@ -291,7 +291,7 @@ export default function WebsiteCheckPage() {
                       style={{
                         fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
                         fontWeight: 300,
-                        color: "#F5F5F7",
+                        color: "var(--text-primary)",
                         margin: "0 0 1.5rem 0",
                         letterSpacing: "0.02em",
                       }}
@@ -372,7 +372,7 @@ export default function WebsiteCheckPage() {
                   style={{
                     background: "transparent",
                     border: "1px solid #1a1a2e",
-                    color: "#6B7280",
+                    color: "var(--text-tertiary)",
                     padding: "0.75rem 1.5rem",
                     fontSize: 13,
                     letterSpacing: "0.1em",
@@ -382,11 +382,11 @@ export default function WebsiteCheckPage() {
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor = "#6366F1";
-                    (e.currentTarget as HTMLElement).style.color = "#F5F5F7";
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor = "#1a1a2e";
-                    (e.currentTarget as HTMLElement).style.color = "#6B7280";
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)";
                   }}
                 >
                   ← Zurück
@@ -480,7 +480,7 @@ export default function WebsiteCheckPage() {
               style={{
                 fontSize: "clamp(1.4rem, 3vw, 2rem)",
                 fontWeight: 200,
-                color: "#F5F5F7",
+                color: "var(--text-primary)",
                 letterSpacing: "0.03em",
                 margin: "0 0 1rem 0",
                 lineHeight: 1.3,
@@ -495,14 +495,14 @@ export default function WebsiteCheckPage() {
               transition={{ duration: 0.5, delay: 0.5 }}
               style={{
                 fontSize: 16,
-                color: "#9CA3AF",
+                color: "var(--text-secondary)",
                 lineHeight: 1.7,
                 margin: "0 auto 2.5rem",
                 maxWidth: 420,
               }}
             >
               Du bekommst deinen persönlichen Website-Check innerhalb von
-              <strong style={{ color: "#F5F5F7", fontWeight: 400 }}> 24 Stunden </strong>
+              <strong style={{ color: "var(--text-primary)", fontWeight: 400 }}> 24 Stunden </strong>
               per E-Mail.
             </motion.p>
 
@@ -515,7 +515,7 @@ export default function WebsiteCheckPage() {
                 fontSize: 12,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#374151",
+                color: "var(--text-tertiary)",
                 textDecoration: "none",
                 transition: "color 0.2s ease",
               }}
@@ -523,7 +523,7 @@ export default function WebsiteCheckPage() {
                 (e.currentTarget as HTMLElement).style.color = "#6366F1";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#374151";
+                (e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)";
               }}
             >
               ← Zurück zur Startseite

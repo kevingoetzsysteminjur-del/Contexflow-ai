@@ -9,7 +9,7 @@ export default function TechStack() {
   return (
     <section
       style={{
-        background: "#030305",
+        background: "var(--bg-primary)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -30,7 +30,7 @@ export default function TechStack() {
           style={{
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
             fontWeight: 200,
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             marginBottom: "3rem",
             margin: "0 0 3rem 0",
           }}
@@ -56,7 +56,7 @@ export default function TechStack() {
                 style={{
                   fontSize: 16,
                   fontWeight: 300,
-                  color: hovered === i ? "#F5F5F7" : "#374151",
+                  color: hovered === i ? "var(--text-primary)" : "var(--text-tertiary)",
                   transition: "color 0.3s ease",
                   cursor: "default",
                   display: "block",
@@ -84,7 +84,7 @@ export default function TechStack() {
         <p
           style={{
             fontSize: 14,
-            color: "#4B5563",
+            color: "var(--text-tertiary)",
             fontStyle: "italic",
             marginTop: "2.5rem",
             margin: "2.5rem 0 0 0",

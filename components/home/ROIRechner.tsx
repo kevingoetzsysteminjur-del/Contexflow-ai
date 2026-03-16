@@ -26,8 +26,8 @@ function SliderField({ label, value, min, max, step, suffix, onChange }: SliderF
   return (
     <div style={{ marginBottom: "1.75rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.6rem" }}>
-        <span style={{ fontSize: 13, color: "#9CA3AF", letterSpacing: "0.03em" }}>{label}</span>
-        <span style={{ fontSize: 14, fontWeight: 400, color: "#F5F5F7" }}>
+        <span style={{ fontSize: 13, color: "var(--text-secondary)", letterSpacing: "0.03em" }}>{label}</span>
+        <span style={{ fontSize: 14, fontWeight: 400, color: "var(--text-primary)" }}>
           {suffix === "€" ? `${formatNum(value)} ${suffix}` : `${value} ${suffix}`}
         </span>
       </div>
@@ -39,7 +39,7 @@ function SliderField({ label, value, min, max, step, suffix, onChange }: SliderF
             left: 0,
             right: 0,
             height: 2,
-            background: "#1a1a2e",
+            background: "var(--bg-tertiary)",
             borderRadius: 2,
           }}
         />
@@ -112,8 +112,8 @@ export default function ROIRechner() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -141,7 +141,7 @@ export default function ROIRechner() {
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
               fontWeight: 200,
-              color: "#F5F5F7",
+              color: "var(--text-primary)",
               letterSpacing: "0.04em",
               lineHeight: 1.2,
               margin: "0 0 0.75rem 0",
@@ -149,7 +149,7 @@ export default function ROIRechner() {
           >
             Was bringt dir eine professionelle Website?
           </h2>
-          <p style={{ fontSize: 14, color: "#6B7280", margin: 0 }}>
+          <p style={{ fontSize: 14, color: "var(--text-tertiary)", margin: 0 }}>
             Rechne selbst.
           </p>
         </motion.div>
@@ -173,10 +173,10 @@ export default function ROIRechner() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                border: "1px solid #111",
+                border: "1px solid var(--border-light)",
                 borderRadius: 4,
                 padding: "2rem",
-                background: "#050508",
+                background: "var(--bg-card)",
               }}
             >
               <p
@@ -184,7 +184,7 @@ export default function ROIRechner() {
                   fontSize: 11,
                   letterSpacing: "0.3em",
                   textTransform: "uppercase",
-                  color: "#374151",
+                  color: "var(--text-tertiary)",
                   margin: "0 0 1.75rem 0",
                 }}
               >
@@ -238,11 +238,11 @@ export default function ROIRechner() {
               {/* Current */}
               <div
                 style={{
-                  border: "1px solid #111",
+                  border: "1px solid var(--border-light)",
                   borderRadius: 4,
                   padding: "1.5rem",
                   marginBottom: "1rem",
-                  background: "#050508",
+                  background: "var(--bg-card)",
                 }}
               >
                 <p
@@ -250,20 +250,20 @@ export default function ROIRechner() {
                     fontSize: 11,
                     letterSpacing: "0.25em",
                     textTransform: "uppercase",
-                    color: "#374151",
+                    color: "var(--text-tertiary)",
                     margin: "0 0 0.75rem 0",
                   }}
                 >
                   Aktuell
                 </p>
-                <p style={{ fontSize: 13, color: "#6B7280", margin: "0 0 0.25rem 0" }}>
+                <p style={{ fontSize: 13, color: "var(--text-tertiary)", margin: "0 0 0.25rem 0" }}>
                   {currentCustomers} Kunde{currentCustomers !== 1 ? "n" : ""} / Monat
                 </p>
                 <div
                   style={{
                     fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
                     fontWeight: 200,
-                    color: "#9CA3AF",
+                    color: "var(--text-secondary)",
                     letterSpacing: "-0.01em",
                     transition: "all 0.3s ease",
                   }}
@@ -272,7 +272,7 @@ export default function ROIRechner() {
                   <span
                     style={{
                       fontSize: 12,
-                      color: "#374151",
+                      color: "var(--text-tertiary)",
                       marginLeft: "0.5rem",
                       letterSpacing: "0.05em",
                     }}
@@ -289,7 +289,7 @@ export default function ROIRechner() {
                   borderRadius: 4,
                   padding: "1.5rem",
                   marginBottom: "1rem",
-                  background: "#0a0a18",
+                  background: "var(--bg-card)",
                   position: "relative",
                   overflow: "hidden",
                 }}
@@ -318,14 +318,14 @@ export default function ROIRechner() {
                 >
                   Mit Contexflow
                 </p>
-                <p style={{ fontSize: 13, color: "#9CA3AF", margin: "0 0 0.25rem 0" }}>
+                <p style={{ fontSize: 13, color: "var(--text-secondary)", margin: "0 0 0.25rem 0" }}>
                   {newCustomers} Kunde{newCustomers !== 1 ? "n" : ""} / Monat
                 </p>
                 <div
                   style={{
                     fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
                     fontWeight: 200,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     letterSpacing: "-0.01em",
                     transition: "all 0.3s ease",
                   }}
@@ -334,7 +334,7 @@ export default function ROIRechner() {
                   <span
                     style={{
                       fontSize: 12,
-                      color: "#6B7280",
+                      color: "var(--text-tertiary)",
                       marginLeft: "0.5rem",
                       letterSpacing: "0.05em",
                     }}
@@ -347,25 +347,25 @@ export default function ROIRechner() {
               {/* Difference */}
               <div
                 style={{
-                  border: "1px solid #111",
+                  border: "1px solid var(--border-light)",
                   borderRadius: 4,
                   padding: "1.5rem",
                   marginBottom: "1.25rem",
-                  background: "#050508",
+                  background: "var(--bg-card)",
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
                   gap: "1rem",
                 }}
               >
                 <div>
-                  <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#374151", margin: "0 0 0.4rem 0" }}>
+                  <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 0.4rem 0" }}>
                     Mehr pro Monat
                   </p>
                   <p
                     style={{
                       fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
                       fontWeight: 300,
-                      color: diffMonthly > 0 ? "#6366F1" : "#4B5563",
+                      color: diffMonthly > 0 ? "#6366F1" : "var(--text-tertiary)",
                       margin: 0,
                       transition: "color 0.3s ease",
                     }}
@@ -374,14 +374,14 @@ export default function ROIRechner() {
                   </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#374151", margin: "0 0 0.4rem 0" }}>
+                  <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 0.4rem 0" }}>
                     Mehr pro Jahr
                   </p>
                   <p
                     style={{
                       fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
                       fontWeight: 300,
-                      color: diffYearly > 0 ? "#8B5CF6" : "#4B5563",
+                      color: diffYearly > 0 ? "#8B5CF6" : "var(--text-tertiary)",
                       margin: 0,
                       transition: "color 0.3s ease",
                     }}
@@ -395,11 +395,11 @@ export default function ROIRechner() {
               {paybackDays !== null && (
                 <div
                   style={{
-                    border: "1px solid #1a1a2e",
+                    border: "1px solid var(--border-color)",
                     borderRadius: 4,
                     padding: "1.25rem 1.5rem",
                     marginBottom: "1.5rem",
-                    background: "#080810",
+                    background: "var(--bg-card)",
                     display: "flex",
                     alignItems: "center",
                     gap: "1rem",
@@ -422,13 +422,13 @@ export default function ROIRechner() {
                   >
                     ↩
                   </div>
-                  <p style={{ fontSize: 13, color: "#9CA3AF", margin: 0, lineHeight: 1.5 }}>
+                  <p style={{ fontSize: 13, color: "var(--text-secondary)", margin: 0, lineHeight: 1.5 }}>
                     Deine Website zahlt sich nach{" "}
-                    <strong style={{ color: "#F5F5F7", fontWeight: 400 }}>
+                    <strong style={{ color: "var(--text-primary)", fontWeight: 400 }}>
                       {paybackDays} Tagen
                     </strong>{" "}
                     aus
-                    <span style={{ fontSize: 11, color: "#374151", display: "block" }}>
+                    <span style={{ fontSize: 11, color: "var(--text-tertiary)", display: "block" }}>
                       (bei {INVESTMENT.toLocaleString("de-DE")} € Investition)
                     </span>
                   </p>

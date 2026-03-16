@@ -52,7 +52,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        borderBottom: "1px solid #111",
+        borderBottom: "1px solid var(--border-light)",
         padding: "clamp(1.5rem, 3vw, 2rem) 0",
         display: "grid",
         gridTemplateColumns: "2rem 1fr auto",
@@ -64,7 +64,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
       className="pricing-row"
     >
       {/* Number */}
-      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#374151", fontVariantNumeric: "tabular-nums" }}>
+      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--text-tertiary)", fontVariantNumeric: "tabular-nums" }}>
         {tier.num}
       </span>
 
@@ -74,7 +74,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
           style={{
             fontSize: "clamp(1rem, 2vw, 1.25rem)",
             fontWeight: 300,
-            color: tier.recommended ? "#F5F5F7" : "#9CA3AF",
+            color: tier.recommended ? "var(--text-primary)" : "var(--text-secondary)",
             letterSpacing: "0.04em",
             transition: "color 0.3s",
           }}
@@ -88,7 +88,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
               style={{
                 fontSize: 11,
                 padding: "2px 8px",
-                border: "1px solid #1a1a1a",
+                border: "1px solid var(--border-color)",
                 color: "#4B5563",
                 letterSpacing: "0.05em",
                 borderRadius: 2,
@@ -121,14 +121,14 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
           style={{
             fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
             fontWeight: 200,
-            color: tier.recommended ? "#F5F5F7" : "#6B7280",
+            color: tier.recommended ? "var(--text-primary)" : "var(--text-tertiary)",
             letterSpacing: "0.02em",
           }}
         >
           {tier.price}
         </span>
         {tier.unit && (
-          <span style={{ fontSize: 11, color: "#374151", marginLeft: "0.4rem" }}>{tier.unit}</span>
+          <span style={{ fontSize: 11, color: "var(--text-tertiary)", marginLeft: "0.4rem" }}>{tier.unit}</span>
         )}
       </div>
 
@@ -146,8 +146,8 @@ export default function PricingSection() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -174,7 +174,7 @@ export default function PricingSection() {
             <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>
               PRICING
             </p>
-            <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", lineHeight: 1.2 }}>
+            <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", lineHeight: 1.2 }}>
               Klare Preise. Kein Kleingedrucktes.
             </h2>
           </div>
@@ -184,20 +184,20 @@ export default function PricingSection() {
               fontSize: 11,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#374151",
+              color: "var(--text-tertiary)",
               textDecoration: "none",
               transition: "color 0.3s",
               flexShrink: 0,
             }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#6366F1")}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#374151")}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)")}
           >
             Alle Details →
           </Link>
         </motion.div>
 
         {/* Divider top */}
-        <div style={{ height: 1, background: "#111", marginBottom: 0 }} />
+        <div style={{ height: 1, background: "var(--border-light)", marginBottom: 0 }} />
 
         {/* Rows */}
         {TIERS.map((tier, i) => (
@@ -205,7 +205,7 @@ export default function PricingSection() {
         ))}
 
         {/* Footer note */}
-        <p style={{ marginTop: "1.5rem", fontSize: 12, color: "#374151", letterSpacing: "0.05em" }}>
+        <p style={{ marginTop: "1.5rem", fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.05em" }}>
           Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.
         </p>
 

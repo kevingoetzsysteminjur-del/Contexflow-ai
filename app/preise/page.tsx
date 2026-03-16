@@ -97,8 +97,8 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        border: paket.recommended ? "1px solid #6366F130" : "1px solid #111",
-        background: paket.recommended ? "#0d0d14" : "transparent",
+        border: paket.recommended ? "1px solid #6366F130" : "1px solid var(--border-light)",
+        background: paket.recommended ? "var(--bg-card)" : "transparent",
         padding: "clamp(1.75rem, 3vw, 2.5rem)",
         display: "flex",
         flexDirection: "column",
@@ -126,39 +126,39 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
 
       {/* Header */}
       <div style={{ marginBottom: "clamp(1.5rem, 3vw, 2rem)" }}>
-        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#374151", display: "block", marginBottom: "0.75rem" }}>
+        <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--text-tertiary)", display: "block", marginBottom: "0.75rem" }}>
           {paket.num}
         </span>
         <h3
           style={{
             fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
             fontWeight: 300,
-            color: paket.recommended ? "#F5F5F7" : "#9CA3AF",
+            color: paket.recommended ? "var(--text-primary)" : "#9CA3AF",
             letterSpacing: "0.04em",
             marginBottom: "0.5rem",
           }}
         >
           {paket.name}
         </h3>
-        <p style={{ fontSize: 13, color: "#4B5563", lineHeight: 1.6, maxWidth: "28ch" }}>
+        <p style={{ fontSize: 13, color: "var(--text-tertiary)", lineHeight: 1.6, maxWidth: "28ch" }}>
           {paket.beschreibung}
         </p>
       </div>
 
       {/* Price */}
-      <div style={{ marginBottom: "clamp(1.5rem, 3vw, 2rem)", paddingBottom: "clamp(1.5rem, 3vw, 2rem)", borderBottom: "1px solid #111" }}>
+      <div style={{ marginBottom: "clamp(1.5rem, 3vw, 2rem)", paddingBottom: "clamp(1.5rem, 3vw, 2rem)", borderBottom: "1px solid var(--border-light)" }}>
         <span
           style={{
             fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
             fontWeight: 200,
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             letterSpacing: "0.02em",
           }}
         >
           {paket.preis}
         </span>
         {paket.einheit && (
-          <span style={{ fontSize: 12, color: "#374151", marginLeft: "0.5rem" }}>{paket.einheit}</span>
+          <span style={{ fontSize: 12, color: "var(--text-tertiary)", marginLeft: "0.5rem" }}>{paket.einheit}</span>
         )}
       </div>
 
@@ -167,7 +167,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
         {paket.features.map((f) => (
           <li key={f} style={{ display: "flex", alignItems: "baseline", gap: "0.6rem" }}>
             <span style={{ fontSize: 11, color: "#6366F1", flexShrink: 0 }}>—</span>
-            <span style={{ fontSize: 13, color: "#6B7280", letterSpacing: "0.02em" }}>{f}</span>
+            <span style={{ fontSize: 13, color: "var(--text-tertiary)", letterSpacing: "0.02em" }}>{f}</span>
           </li>
         ))}
       </ul>
@@ -181,7 +181,7 @@ function PaketCard({ paket, index }: { paket: typeof PAKETE[0]; index: number })
           padding: "0.75rem 1.25rem",
           border: paket.recommended ? "1px solid #6366F1" : "1px solid #1a1a1a",
           background: paket.recommended ? "#6366F1" : "transparent",
-          color: "#F5F5F7",
+          color: "var(--text-primary)",
           textDecoration: "none",
           fontSize: 11,
           letterSpacing: "0.2em",
@@ -212,12 +212,12 @@ function FaqItem({ item, index }: { item: typeof FAQ[0]; index: number }) {
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-      style={{ borderBottom: "1px solid #111", padding: "clamp(1.25rem, 2.5vw, 1.75rem) 0" }}
+      style={{ borderBottom: "1px solid var(--border-light)", padding: "clamp(1.25rem, 2.5vw, 1.75rem) 0" }}
     >
-      <p style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", fontWeight: 300, color: "#F5F5F7", letterSpacing: "0.03em", marginBottom: "0.6rem" }}>
+      <p style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", fontWeight: 300, color: "var(--text-primary)", letterSpacing: "0.03em", marginBottom: "0.6rem" }}>
         {item.f}
       </p>
-      <p style={{ fontSize: 13, color: "#4B5563", lineHeight: 1.75, maxWidth: "65ch" }}>
+      <p style={{ fontSize: 13, color: "var(--text-tertiary)", lineHeight: 1.75, maxWidth: "65ch" }}>
         {item.a}
       </p>
     </motion.div>
@@ -229,12 +229,12 @@ export default function PreisePage() {
   const heroInView = useInView(heroRef, { once: true });
 
   return (
-    <div style={{ background: "#030305", minHeight: "100vh" }}>
+    <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
 
       {/* Hero */}
       <section
         style={{
-          borderBottom: "1px solid #111",
+          borderBottom: "1px solid var(--border-light)",
           padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem)",
         }}
       >
@@ -248,10 +248,10 @@ export default function PreisePage() {
             <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "1rem" }}>
               PRICING
             </p>
-            <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", lineHeight: 1.15, marginBottom: "1.25rem" }}>
+            <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", lineHeight: 1.15, marginBottom: "1.25rem" }}>
               Klare Preise.<br />Kein Kleingedrucktes.
             </h1>
-            <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", color: "#4B5563", letterSpacing: "0.03em", maxWidth: "45ch", lineHeight: 1.75 }}>
+            <p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", color: "var(--text-tertiary)", letterSpacing: "0.03em", maxWidth: "45ch", lineHeight: 1.75 }}>
               Festpreise — kein Stundensatz. Kein Abo. Du weißt vorher genau, was du zahlst.
             </p>
           </motion.div>
@@ -262,7 +262,7 @@ export default function PreisePage() {
       <section
         style={{
           padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
-          borderBottom: "1px solid #111",
+          borderBottom: "1px solid var(--border-light)",
         }}
       >
         <div
@@ -272,14 +272,14 @@ export default function PreisePage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
             gap: 0,
-            border: "1px solid #111",
+            border: "1px solid var(--border-light)",
           }}
         >
           {PAKETE.map((p, i) => (
             <PaketCard key={p.num} paket={p} index={i} />
           ))}
         </div>
-        <p style={{ marginTop: "1.5rem", fontSize: 12, color: "#374151", letterSpacing: "0.05em", maxWidth: 1200, margin: "1.5rem auto 0" }}>
+        <p style={{ marginTop: "1.5rem", fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.05em", maxWidth: 1200, margin: "1.5rem auto 0" }}>
           Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.
         </p>
       </section>
@@ -290,13 +290,13 @@ export default function PreisePage() {
       {/* FAQ */}
       <section
         style={{
-          borderTop: "1px solid #111",
+          borderTop: "1px solid var(--border-light)",
           padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
         }}
       >
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>FAQ</p>
-          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
+          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
             Häufige Fragen
           </h2>
           <div style={{ height: 1, background: "#111" }} />
@@ -309,18 +309,18 @@ export default function PreisePage() {
       {/* Bottom CTA */}
       <section
         style={{
-          borderTop: "1px solid #111",
+          borderTop: "1px solid var(--border-light)",
           padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
           textAlign: "center",
         }}
       >
-        <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6B7280", marginBottom: "1rem" }}>
+        <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "1rem" }}>
           NICHT SICHER?
         </p>
-        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", marginBottom: "1rem" }}>
+        <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "1rem" }}>
           Ich helfe dir das richtige Paket zu finden.
         </h2>
-        <p style={{ fontSize: 13, color: "#4B5563", marginBottom: "clamp(2rem, 4vw, 3rem)", maxWidth: "45ch", margin: "0 auto clamp(2rem, 4vw, 3rem)" }}>
+        <p style={{ fontSize: 13, color: "var(--text-tertiary)", marginBottom: "clamp(2rem, 4vw, 3rem)", maxWidth: "45ch", margin: "0 auto clamp(2rem, 4vw, 3rem)" }}>
           Schreib mir einfach. Keine Verpflichtung.
         </p>
         <Link
@@ -330,7 +330,7 @@ export default function PreisePage() {
             padding: "0.875rem 2.5rem",
             border: "1px solid #6366F1",
             background: "transparent",
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             textDecoration: "none",
             fontSize: 11,
             letterSpacing: "0.25em",

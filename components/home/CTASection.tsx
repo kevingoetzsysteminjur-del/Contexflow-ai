@@ -9,8 +9,8 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(8rem, 15vw, 12rem) clamp(1.5rem, 4vw, 2.5rem)",
         textAlign: "center",
       }}
@@ -20,7 +20,7 @@ export default function CTASection() {
           fontSize: 11,
           letterSpacing: "0.5em",
           textTransform: "uppercase",
-          color: "#6B7280",
+          color: "var(--text-tertiary)",
           marginBottom: "1rem",
           margin: "0 0 1rem 0",
         }}
@@ -32,7 +32,7 @@ export default function CTASection() {
         style={{
           fontSize: "clamp(3rem, 8vw, 7rem)",
           fontWeight: 200,
-          color: "#F5F5F7",
+          color: "var(--text-primary)",
           letterSpacing: "0.05em",
           marginBottom: "clamp(3rem, 6vw, 5rem)",
           margin: "0 0 clamp(3rem, 6vw, 5rem) 0",
@@ -56,7 +56,7 @@ export default function CTASection() {
             borderRadius: 60,
             border: "1px solid #6366F1",
             background: hovered ? "linear-gradient(135deg, #6366F1, #06B6D4)" : "transparent",
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             textDecoration: "none",
             overflow: "hidden",
             whiteSpace: "nowrap",
@@ -94,10 +94,10 @@ export default function CTASection() {
 
       {/* Info below */}
       <div style={{ marginTop: "clamp(3rem, 6vw, 5rem)" }}>
-        <p style={{ fontSize: 12, color: "#374151", letterSpacing: "0.15em", margin: "0 0 0.5rem 0" }}>
+        <p style={{ fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.15em", margin: "0 0 0.5rem 0" }}>
           contexflow.ai@gmx.net
         </p>
-        <p style={{ fontSize: 12, color: "#374151", letterSpacing: "0.15em", margin: 0 }}>
+        <p style={{ fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.15em", margin: 0 }}>
           Mosbach, Deutschland
         </p>
       </div>

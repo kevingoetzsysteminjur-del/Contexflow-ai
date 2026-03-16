@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`} style={{ background: "#030305" }}>
+      <body className={`${inter.variable} antialiased`} style={{ background: "var(--bg-primary)" }}>
         <ClientProviders>
           <Preloader />
           <SmoothScroll />

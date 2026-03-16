@@ -10,7 +10,7 @@ export default function DemoSection() {
   return (
     <section
       style={{
-        background: "#030305",
+        background: "var(--bg-primary)",
         borderTop: "1px solid #111",
         padding: "clamp(5rem,10vw,8rem) clamp(1.5rem,4vw,2.5rem)",
       }}

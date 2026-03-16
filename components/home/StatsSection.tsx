@@ -48,7 +48,7 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
     <div
       ref={ref}
       style={{
-        borderRight: index < STATS.length - 1 ? "1px solid #111" : "none",
+        borderRight: index < STATS.length - 1 ? "1px solid var(--border-light)" : "none",
         padding: "2rem",
         textAlign: "center",
       }}
@@ -75,7 +75,7 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
           fontSize: 11,
           letterSpacing: "0.25em",
           textTransform: "uppercase",
-          color: "#374151",
+          color: "var(--text-tertiary)",
           marginTop: "0.75rem",
           margin: "0.75rem 0 0 0",
         }}
@@ -90,9 +90,9 @@ export default function StatsSection() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
-        borderBottom: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
+        borderBottom: "1px solid var(--border-light)",
       }}
     >
       <div

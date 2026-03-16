@@ -18,8 +18,8 @@ export default function WebsiteCheckSection() {
     <section
       ref={ref}
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -58,7 +58,7 @@ export default function WebsiteCheckSection() {
                 style={{
                   fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
                   fontWeight: 200,
-                  color: "#F5F5F7",
+                  color: "var(--text-primary)",
                   letterSpacing: "0.03em",
                   lineHeight: 1.2,
                   margin: "0 0 1.25rem 0",
@@ -71,7 +71,7 @@ export default function WebsiteCheckSection() {
               <p
                 style={{
                   fontSize: 15,
-                  color: "#6B7280",
+                  color: "var(--text-tertiary)",
                   lineHeight: 1.75,
                   margin: "0 0 2rem 0",
                   maxWidth: 460,
@@ -90,7 +90,7 @@ export default function WebsiteCheckSection() {
                       alignItems: "center",
                       gap: "0.75rem",
                       fontSize: 14,
-                      color: "#9CA3AF",
+                      color: "var(--text-secondary)",
                       marginBottom: "0.6rem",
                     }}
                   >
@@ -153,10 +153,10 @@ export default function WebsiteCheckSection() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                border: "1px solid #111",
+                border: "1px solid var(--border-light)",
                 borderRadius: 4,
                 padding: "2.5rem",
-                background: "#080810",
+                background: "var(--bg-card)",
                 position: "relative",
                 overflow: "hidden",
               }}
@@ -175,7 +175,7 @@ export default function WebsiteCheckSection() {
                 }}
               />
 
-              <p style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "#374151", margin: "0 0 1.5rem 0" }}>
+              <p style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 1.5rem 0" }}>
                 Was du bekommst
               </p>
 
@@ -201,13 +201,13 @@ export default function WebsiteCheckSection() {
                       marginBottom: "0.5rem",
                     }}
                   >
-                    <span style={{ fontSize: 13, color: "#9CA3AF" }}>{item.label}</span>
+                    <span style={{ fontSize: 13, color: "var(--text-secondary)" }}>{item.label}</span>
                     <span style={{ fontSize: 12, color: "#6366F1", letterSpacing: "0.05em" }}>{item.value}</span>
                   </div>
                   <div
                     style={{
                       height: 2,
-                      background: "#111",
+                      background: "var(--border-light)",
                       borderRadius: 2,
                     }}
                   >
@@ -226,7 +226,7 @@ export default function WebsiteCheckSection() {
               <p
                 style={{
                   fontSize: 12,
-                  color: "#374151",
+                  color: "var(--text-tertiary)",
                   marginTop: "1.5rem",
                   margin: "1.5rem 0 0 0",
                   letterSpacing: "0.05em",

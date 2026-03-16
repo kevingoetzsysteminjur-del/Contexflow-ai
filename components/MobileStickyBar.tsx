@@ -21,7 +21,7 @@ export default function MobileStickyBar() {
           zIndex: 60,
           display: "flex",
           height: "56px",
-          background: "rgba(3, 3, 5, 0.92)",
+          background: "var(--bg-navbar)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           borderTop: "1px solid rgba(255,255,255,0.07)",

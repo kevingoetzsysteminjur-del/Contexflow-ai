@@ -37,7 +37,7 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 639px) { .nav-desktop { display: none !important; } }
         @media (min-width: 640px) { .nav-mobile-btn { display: none !important; } }
-        .theme-toggle-btn:hover { background: rgba(255,255,255,0.08) !important; }
+        .theme-toggle-btn:hover { background: var(--border-color) !important; }
         .lang-btn { background: none; border: none; cursor: pointer; padding: 2px 4px; font-size: 11px; letter-spacing: 0.1em; font-family: inherit; transition: color 0.2s ease; }
       `}</style>
 
@@ -49,7 +49,7 @@ export default function Navbar() {
           right: 0,
           zIndex: 9999,
           height: 64,
-          background: scrolled ? "var(--nav-bg)" : "transparent",
+          background: scrolled ? "var(--bg-navbar)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
           transition: "background 0.4s ease",
@@ -72,7 +72,7 @@ export default function Navbar() {
               fontSize: 12,
               letterSpacing: "0.3em",
               fontWeight: 300,
-              color: "#F5F5F7",
+              color: "var(--text-primary)",
               textDecoration: "none",
               textTransform: "uppercase",
             }}
@@ -90,15 +90,15 @@ export default function Navbar() {
                   fontSize: 11,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: pathname === link.href ? "#6366F1" : "#6B7280",
+                  color: pathname === link.href ? "#6366F1" : "var(--text-tertiary)",
                   textDecoration: "none",
                   transition: "color 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "#F5F5F7";
+                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
                 }}
                 onMouseLeave={(e) => {
-                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "#6B7280";
+                  if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)";
                 }}
               >
                 {link.label}
@@ -110,16 +110,16 @@ export default function Navbar() {
               <button
                 className="lang-btn"
                 onClick={() => setLang("de")}
-                style={{ color: lang === "de" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "de" ? 600 : 400 }}
+                style={{ color: lang === "de" ? "var(--text-primary)" : "var(--text-tertiary)", fontWeight: lang === "de" ? 600 : 400 }}
                 title="Deutsch"
               >
                 DE
               </button>
-              <span style={{ color: "#374151", fontSize: 11 }}>|</span>
+              <span style={{ color: "var(--border-color)", fontSize: 11 }}>|</span>
               <button
                 className="lang-btn"
                 onClick={() => setLang("en")}
-                style={{ color: lang === "en" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "en" ? 600 : 400 }}
+                style={{ color: lang === "en" ? "var(--text-primary)" : "var(--text-tertiary)", fontWeight: lang === "en" ? 600 : 400 }}
                 title="English"
               >
                 EN
@@ -133,18 +133,18 @@ export default function Navbar() {
               title={theme === "dark" ? "Light Mode" : "Dark Mode"}
               style={{
                 background: "none",
-                border: "none",
+                border: "1px solid var(--border-color)",
                 cursor: "pointer",
-                padding: 6,
-                borderRadius: 6,
-                color: "#6B7280",
+                padding: "6px 8px",
+                borderRadius: 8,
+                color: "var(--text-secondary)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "color 0.2s ease, background 0.2s ease",
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F5F7"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#6B7280"; }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--text-primary)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)"; }}
             >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
@@ -157,7 +157,7 @@ export default function Navbar() {
                 borderRadius: "50%",
                 border: "1px solid #6366F1",
                 background: "transparent",
-                color: "#F5F5F7",
+                color: "var(--text-primary)",
                 fontSize: 11,
                 letterSpacing: "0.1em",
                 display: "flex",
@@ -195,7 +195,7 @@ export default function Navbar() {
                 display: "block",
                 width: 24,
                 height: 1,
-                background: "#F5F5F7",
+                background: "var(--text-primary)",
                 transformOrigin: "center",
                 transition: "transform 0.3s ease",
                 transform: open ? "rotate(45deg) translateY(4.5px)" : "none",
@@ -227,7 +227,7 @@ export default function Navbar() {
             style={{
               position: "fixed",
               inset: 0,
-              background: "#030305",
+              background: "var(--bg-primary)",
               zIndex: 9990,
               display: "flex",
               flexDirection: "column",
@@ -251,14 +251,14 @@ export default function Navbar() {
                     fontWeight: 200,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: pathname === link.href ? "#6366F1" : "#F5F5F7",
+                    color: pathname === link.href ? "#6366F1" : "var(--text-primary)",
                     textDecoration: "none",
                     display: "block",
                     transition: "color 0.2s ease",
                   }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#6366F1"; }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = pathname === link.href ? "#6366F1" : "#F5F5F7";
+                    (e.currentTarget as HTMLElement).style.color = pathname === link.href ? "#6366F1" : "var(--text-primary)";
                   }}
                 >
                   {link.label}
@@ -276,15 +276,15 @@ export default function Navbar() {
               <button
                 className="lang-btn"
                 onClick={() => setLang("de")}
-                style={{ color: lang === "de" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "de" ? 600 : 400, fontSize: 14 }}
+                style={{ color: lang === "de" ? "var(--text-primary)" : "var(--text-tertiary)", fontWeight: lang === "de" ? 600 : 400, fontSize: 14 }}
               >
                 DE
               </button>
-              <span style={{ color: "#374151" }}>|</span>
+              <span style={{ color: "var(--text-tertiary)" }}>|</span>
               <button
                 className="lang-btn"
                 onClick={() => setLang("en")}
-                style={{ color: lang === "en" ? "#F5F5F7" : "#6B7280", fontWeight: lang === "en" ? 600 : 400, fontSize: 14 }}
+                style={{ color: lang === "en" ? "var(--text-primary)" : "var(--text-tertiary)", fontWeight: lang === "en" ? 600 : 400, fontSize: 14 }}
               >
                 EN
               </button>
@@ -292,11 +292,11 @@ export default function Navbar() {
                 onClick={toggleTheme}
                 style={{
                   background: "none",
-                  border: "1px solid #374151",
+                  border: "1px solid var(--border-color)",
                   cursor: "pointer",
                   padding: 8,
                   borderRadius: 6,
-                  color: "#6B7280",
+                  color: "var(--text-secondary)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

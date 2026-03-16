@@ -34,8 +34,8 @@ export default function GarantieSection() {
     <section
       ref={ref}
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -143,7 +143,7 @@ export default function GarantieSection() {
               style={{
                 fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
                 fontWeight: 200,
-                color: "#F5F5F7",
+                color: "var(--text-primary)",
                 letterSpacing: "0.04em",
                 lineHeight: 1.2,
                 marginBottom: "1.25rem",
@@ -154,7 +154,7 @@ export default function GarantieSection() {
             <p
               style={{
                 fontSize: "clamp(0.95rem, 1.6vw, 1.1rem)",
-                color: "#6B7280",
+                color: "var(--text-tertiary)",
                 lineHeight: 1.8,
                 maxWidth: 560,
                 margin: "0 auto",
@@ -162,7 +162,7 @@ export default function GarantieSection() {
               }}
             >
               Wenn du nach dem Launch nicht zufrieden bist, bekommst du dein Geld zurück.{" "}
-              <span style={{ color: "#9CA3AF" }}>Ohne Wenn und Aber.</span>{" "}
+              <span style={{ color: "var(--text-secondary)" }}>Ohne Wenn und Aber.</span>{" "}
               So überzeugt bin ich von meiner Arbeit.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function GarantieSection() {
                   alignItems: "center",
                   gap: "0.5rem",
                   fontSize: 13,
-                  color: "#6B7280",
+                  color: "var(--text-tertiary)",
                   letterSpacing: "0.03em",
                 }}
               >

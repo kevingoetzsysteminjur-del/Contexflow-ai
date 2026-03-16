@@ -11,7 +11,7 @@ export default function SocialProof() {
     <section
       ref={ref}
       style={{
-        background: "#030305",
+        background: "var(--bg-primary)",
         borderTop: "1px solid #111",
         padding: "clamp(5rem, 10vw, 8rem) 1.5rem",
       }}

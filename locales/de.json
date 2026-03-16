@@ -4,7 +4,9 @@
     "services": "Leistungen",
     "pricing": "Preise",
     "about": "Über mich",
-    "contact": "Kontakt"
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "cta": "Projekt anfragen"
   },
   "hero": {
     "headline": "Deine Website ist dein bester Verkäufer.",
@@ -16,6 +18,7 @@
   "services": {
     "label": "Leistungen",
     "headline": "Was ich baue",
+    "title": "Was ich für dich baue",
     "website_title": "Website & Web App",
     "website_desc": "Schnell, modern, gefunden. Mit Next.js gebaut – nicht mit Baukästen.",
     "ai_title": "KI-Integration",
@@ -23,13 +26,53 @@
     "context_title": "Context Engineering",
     "context_desc": "Die Kunst AI richtig zu instruieren. Bessere Prompts, bessere Ergebnisse."
   },
+  "demos": {
+    "label": "Live Demos",
+    "title": "So könnte deine Website aussehen",
+    "subtitle": "Echte Demos. Klick rein und überzeug dich selbst.",
+    "view": "Live Demo ansehen →",
+    "restaurant_cat": "Gastronomie",
+    "restaurant_title": "Bella Vista – Restaurant & Café",
+    "restaurant_desc": "Elegante Gastronomie-Website mit Speisekarte und Reservierung.",
+    "fitness_cat": "Fitness",
+    "fitness_title": "IRONPEAK – Fitness Studio",
+    "fitness_desc": "Kraftvolle Fitness-Website mit Kursplan und Mitgliedschaft.",
+    "portfolio_cat": "Portfolio",
+    "portfolio_title": "Creative Portfolio",
+    "portfolio_desc": "Minimalistisches Portfolio für Kreative.",
+    "ai_cat": "KI & Automation",
+    "ai_title": "AI Features Demo",
+    "ai_desc": "KI-Chatbot, Terminbuchung, FAQ-Bot, Lead-Qualifizierung.",
+    "footnote": "* Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte."
+  },
+  "stats": {
+    "features": "Features",
+    "delivery": "Lieferzeit",
+    "fixed_price": "Festpreis",
+    "satisfaction": "Zufriedenheit"
+  },
   "comparison": {
     "label": "Vergleich",
     "headline": "Warum Contexflow?",
+    "title": "Warum Contexflow?",
     "col_baukasten": "Baukasten",
     "col_agentur": "Klassische Agentur",
     "col_contexflow": "Contexflow AI",
+    "baukasten": "Baukasten",
+    "baukasten_sub": "Wix, Jimdo",
+    "agentur": "Klassische Agentur",
+    "agentur_sub": "Teuer & langsam",
+    "contexflow": "Contexflow AI",
+    "contexflow_sub": "Kevin Götz, Mosbach",
     "recommended": "Empfohlen",
+    "price": "Preis",
+    "delivery": "Lieferzeit",
+    "design": "Design",
+    "performance": "Performance",
+    "seo": "SEO",
+    "ai_features": "KI-Features",
+    "support": "Support",
+    "code_ownership": "Code gehört dir",
     "cta": "Die Wahl ist klar. Projekt anfragen →",
     "rows": {
       "preis": "Preis",
@@ -42,18 +85,136 @@
       "code": "Code gehört dir"
     }
   },
+  "pricing": {
+    "label": "Preise",
+    "title": "Klare Preise. Kein Kleingedrucktes.",
+    "popular": "Am beliebtesten",
+    "onetime": "einmalig",
+    "on_request": "Auf Anfrage",
+    "select": "Auswählen",
+    "note": "Alle Preise sind Festpreise. Kein Stundensatz. Kein Abo. Keine versteckten Kosten."
+  },
+  "process": {
+    "label": "Ablauf",
+    "title": "Von der Idee zur Website in 7 Tagen",
+    "guarantee": "In unter 7 Tagen fertig – oder ich arbeite kostenlos nach.",
+    "day0_title": "Erstgespräch",
+    "day0_desc": "Wir reden 30 Minuten. Ich verstehe was du brauchst. Kostenlos.",
+    "day12_title": "Konzept & Design",
+    "day12_desc": "Du bekommst ein Mockup. Wir stimmen alles ab.",
+    "day35_title": "Entwicklung",
+    "day35_desc": "Ich baue. Du siehst den Fortschritt live über einen Preview-Link.",
+    "day57_title": "Launch",
+    "day57_desc": "Deine Website geht live. Ich zeige dir alles.",
+    "day7_title": "Support",
+    "day7_desc": "Bug? Frage? Ich bin da."
+  },
+  "urgency": {
+    "text": "Diesen Monat nur noch {slots} Platz frei",
+    "quality": "Ich arbeite bewusst nur mit 3 Kunden gleichzeitig – für maximale Qualität."
+  },
+  "guarantee": {
+    "title": "100% Zufriedenheitsgarantie",
+    "text": "Wenn du nach dem Launch nicht zufrieden bist, bekommst du dein Geld zurück. Ohne Wenn und Aber.",
+    "badge": "Geld-zurück-Garantie"
+  },
+  "roi": {
+    "label": "ROI-Rechner",
+    "title": "Was bringt dir eine professionelle Website?",
+    "subtitle": "Rechne selbst.",
+    "visitors": "Besucher pro Monat",
+    "revenue_per_client": "Umsatz pro Kunde (€)",
+    "current_rate": "Aktuelle Conversion-Rate (%)",
+    "new_rate": "Neue Conversion-Rate (%)",
+    "currently": "Aktuell",
+    "with_contexflow": "Mit Contexflow",
+    "clients": "Kunden/Monat",
+    "revenue": "€ Umsatz/Monat",
+    "difference": "Unterschied",
+    "per_month": "pro Monat",
+    "per_year": "pro Jahr",
+    "payback": "Website amortisiert sich nach",
+    "days": "Tagen",
+    "cta": "Klingt gut? Lass uns reden. →"
+  },
+  "website_check": {
+    "label": "Website-Check",
+    "title": "Kostenloser Website-Check",
+    "subtitle": "Finde heraus was deine Seite wirklich taugt. In 24 Stunden. Kostenlos.",
+    "cta": "Gratis Website-Check →",
+    "step1_title": "Deine Website",
+    "step1_desc": "Welche Website soll gecheckt werden?",
+    "url_placeholder": "www.deine-website.de",
+    "step2_title": "Dein Ziel",
+    "step2_desc": "Was möchtest du verbessern?",
+    "more_customers": "Mehr Kunden",
+    "better_design": "Besseres Design",
+    "faster": "Schnellere Ladezeit",
+    "better_seo": "Besseres Google-Ranking",
+    "ai_features": "KI-Features",
+    "step3_title": "Kontakt",
+    "name": "Dein Name",
+    "email": "Deine E-Mail",
+    "phone": "Telefon (optional)",
+    "submit": "Kostenlosen Check anfordern",
+    "success_title": "Danke!",
+    "success_text": "Du bekommst deinen persönlichen Website-Check innerhalb von 24 Stunden per E-Mail.",
+    "back": "Zurück",
+    "next": "Weiter"
+  },
   "contact": {
     "label": "Kontakt",
     "headline": "Lass uns reden",
+    "title": "Lass uns reden",
+    "subtitle": "Kostenlos & unverbindlich.",
     "name": "Name",
     "email": "E-Mail",
+    "phone": "Telefon (optional)",
+    "what": "Was brauchst du?",
+    "website": "Website",
+    "ai": "KI-Integration",
+    "both": "Beides",
+    "other": "Sonstiges",
+    "budget": "Budget",
     "message": "Nachricht",
     "send": "Senden",
-    "success": "Danke! Ich melde mich innerhalb von 24 Stunden."
+    "send_full": "Nachricht senden",
+    "response": "Antwort innerhalb von 24 Stunden. Versprochen.",
+    "success": "Danke! Ich melde mich innerhalb von 24 Stunden.",
+    "or": "Oder direkt:",
+    "whatsapp": "WhatsApp"
   },
   "footer": {
+    "tagline": "Webdesign & KI aus Mosbach.",
     "built": "Gebaut mit Next.js & Claude",
+    "rights": "Alle Rechte vorbehalten",
     "imprint": "Impressum",
     "privacy": "Datenschutz"
+  },
+  "chatbot": {
+    "greeting": "Hey! 👋 Ich bin CF Bot. Wie kann ich dir helfen?\n\n- 💰 Was kostet eine Website?\n- ⏱ Wie lange dauert es?\n- 📍 Wo seid ihr?\n- 🧠 Was ist Context Engineering?",
+    "a_price": "Eine Website bei Contexflow AI startet ab **500€** für eine Landingpage. Business-Website ab **1.000€**, Premium ab **2.000€**. Alles einmalig – keine monatlichen Gebühren. 💡",
+    "a_time": "Die meisten Projekte sind in **1–2 Wochen** fertig. Manchmal auch schneller. ⚡",
+    "a_location": "Wir sind in **Mosbach** im Neckar-Odenwald-Kreis – arbeiten aber remote für Kunden in ganz Deutschland. 📍",
+    "a_context": "**Context Engineering** bedeutet, AI-Systeme mit dem richtigen Kontext zu füttern für präzise, auf dein Business zugeschnittene Ergebnisse. 🧠",
+    "a_contact": "Am schnellsten per E-Mail: **contexflow.ai@gmx.net** – oder über das [Kontaktformular](/kontakt). 📬",
+    "a_ai": "Wir integrieren **Künstliche Intelligenz** direkt in dein Unternehmen – Chatbots, automatisierte Workflows, smarte Assistenten. 🤖",
+    "a_services": "Wir bauen moderne Websites für lokale Unternehmen. Schau dir die [Leistungen](/leistungen) an. 🌐",
+    "a_fallback": "Gute Frage! Schreib uns direkt an **contexflow.ai@gmx.net** und Kevin meldet sich persönlich. 😊",
+    "placeholder": "Frag mich etwas...",
+    "online": "Online"
+  },
+  "cookie": {
+    "text": "Diese Website verwendet ausschließlich technisch notwendige Cookies.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
+  },
+  "exit_popup": {
+    "title": "Warte kurz! 👋",
+    "text": "Hol dir einen kostenlosen Website-Check bevor du gehst.",
+    "url_placeholder": "www.deine-website.de",
+    "email_placeholder": "deine@email.de",
+    "cta": "Kostenlosen Check anfordern",
+    "thanks": "Super! Ich melde mich innerhalb von 24 Stunden."
   }
 }

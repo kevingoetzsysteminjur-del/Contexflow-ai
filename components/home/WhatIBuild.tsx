@@ -46,8 +46,8 @@ export default function WhatIBuild() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(5rem,10vw,8rem) clamp(1.5rem,4vw,2.5rem)",
       }}
     >
@@ -95,7 +95,7 @@ export default function WhatIBuild() {
             style={{
               fontSize: "clamp(2rem,5vw,3.5rem)",
               fontWeight: 200,
-              color: "#F5F5F7",
+              color: "var(--text-primary)",
               letterSpacing: "-0.02em",
               marginBottom: "0.75rem",
               margin: "0 0 0.75rem 0",
@@ -116,7 +116,7 @@ export default function WhatIBuild() {
           </h2>
           <p
             style={{
-              color: "#6B7280",
+              color: "var(--text-tertiary)",
               fontSize: "1.05rem",
               marginBottom: "3.5rem",
               margin: "0 0 3.5rem 0",
@@ -138,7 +138,7 @@ export default function WhatIBuild() {
                   onMouseEnter={() => setHovered(service.id)}
                   onMouseLeave={() => setHovered(null)}
                   style={{
-                    background: "#0d0d18",
+                    background: "var(--bg-card)",
                     border: `1px solid ${isHovered ? service.accentColor + "50" : "rgba(255,255,255,0.07)"}`,
                     borderRadius: 16,
                     padding: "2rem",
@@ -184,7 +184,7 @@ export default function WhatIBuild() {
                       style={{
                         fontSize: "1.15rem",
                         fontWeight: 600,
-                        color: "#F5F5F7",
+                        color: "var(--text-primary)",
                         margin: "0 0 0.6rem 0",
                         letterSpacing: "0.01em",
                       }}
@@ -194,7 +194,7 @@ export default function WhatIBuild() {
                     <p
                       style={{
                         fontSize: "0.9rem",
-                        color: "#71717A",
+                        color: "var(--text-secondary)",
                         lineHeight: 1.7,
                         margin: 0,
                       }}

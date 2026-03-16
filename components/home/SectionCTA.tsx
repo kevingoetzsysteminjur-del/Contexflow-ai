@@ -18,8 +18,8 @@ export default function SectionCTA({ text, href, variant = "primary", subtext }:
         alignItems: "center",
         gap: "0.75rem",
         padding: "clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem)",
-        borderTop: "1px solid #111",
-        background: "#030305",
+        borderTop: "1px solid var(--border-light)",
+        background: "var(--bg-primary)",
       }}
     >
       <Link
@@ -70,7 +70,7 @@ export default function SectionCTA({ text, href, variant = "primary", subtext }:
         <p
           style={{
             fontSize: 11,
-            color: "#374151",
+            color: "var(--text-tertiary)",
             letterSpacing: "0.08em",
             textAlign: "center",
           }}

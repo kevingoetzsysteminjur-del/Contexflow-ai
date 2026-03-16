@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import de from "@/locales/de.json";
 import en from "@/locales/en.json";
 
-type Lang = "de" | "en";
+export type Lang = "de" | "en";
 type Translations = typeof de;
 
 interface LangContextValue {
@@ -12,7 +12,7 @@ interface LangContextValue {
   setLang: (l: Lang) => void;
 }
 
-const translations = { de, en };
+const translations: Record<Lang, Translations> = { de, en };
 
 const LangContext = createContext<LangContextValue>({
   lang: "de",
@@ -24,13 +24,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("de");
 
   useEffect(() => {
-    const stored = localStorage.getItem("lang") as Lang | null;
+    const stored = localStorage.getItem("cf-lang") as Lang | null;
     if (stored === "de" || stored === "en") setLangState(stored);
   }, []);
 
   const setLang = (l: Lang) => {
     setLangState(l);
-    localStorage.setItem("lang", l);
+    localStorage.setItem("cf-lang", l);
   };
 
   return (

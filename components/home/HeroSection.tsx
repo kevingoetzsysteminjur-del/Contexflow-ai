@@ -77,7 +77,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section style={{ position: "relative", height: "100vh", marginTop: "-64px", background: "#030305", overflow: "hidden" }}>
+    <section style={{ position: "relative", height: "100vh", marginTop: "-64px", background: "var(--bg-primary)", overflow: "hidden" }}>
       <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
 
       <div
@@ -90,7 +90,7 @@ export default function HeroSection() {
           willChange: "transform",
         }}
       >
-        <p style={{ fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", color: "#6B7280", marginBottom: "1.5rem", animation: "hero-fade 0.8s ease 0.5s both" }}>
+        <p style={{ fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "1.5rem", animation: "hero-fade 0.8s ease 0.5s both" }}>
           WE BUILD
         </p>
 
@@ -99,7 +99,7 @@ export default function HeroSection() {
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "clamp(4rem, 10vw, 9rem)",
             fontWeight: 200,
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             letterSpacing: "0.12em",
             lineHeight: 1,
             margin: 0,
@@ -123,7 +123,7 @@ export default function HeroSection() {
         <p style={{
           marginTop: "2rem",
           fontSize: 14,
-          color: "#6B7280",
+          color: "var(--text-tertiary)",
           letterSpacing: "0.08em",
           animation: "hero-fade 0.8s ease 1.5s both",
         }}>
@@ -133,12 +133,12 @@ export default function HeroSection() {
 
       {/* SCROLL indicator bottom left */}
       <div style={{ position: "absolute", bottom: "2rem", left: "clamp(1.5rem, 3vw, 2.5rem)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-        <p style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "#374151" }}>SCROLL</p>
+        <p style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-tertiary)" }}>SCROLL</p>
         <div style={{ width: 1, height: 40, background: "linear-gradient(to bottom, #6366F1, transparent)", animation: "scroll-line 2.5s ease-in-out infinite" }} />
       </div>
 
       {/* Year bottom right */}
-      <p style={{ position: "absolute", bottom: "2rem", right: "clamp(1.5rem, 3vw, 2.5rem)", fontSize: 10, letterSpacing: "0.2em", color: "#374151" }}>© 2026</p>
+      <p style={{ position: "absolute", bottom: "2rem", right: "clamp(1.5rem, 3vw, 2.5rem)", fontSize: 10, letterSpacing: "0.2em", color: "var(--text-tertiary)" }}>© 2026</p>
 
       <style>{`
         @keyframes hero-fade {

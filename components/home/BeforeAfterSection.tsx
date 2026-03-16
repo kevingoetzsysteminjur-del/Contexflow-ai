@@ -245,7 +245,7 @@ function BeforeAfterSlider({ item, index }: { item: SliderItem; index: number })
             width: 36,
             height: 36,
             borderRadius: "50%",
-            background: "#030305",
+            background: "var(--bg-primary)",
             border: "1px solid #6366F180",
             display: "flex",
             alignItems: "center",
@@ -321,7 +321,7 @@ export default function BeforeAfterSection() {
   return (
     <section
       style={{
-        background: "#030305",
+        background: "var(--bg-primary)",
         borderTop: "1px solid #111",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}

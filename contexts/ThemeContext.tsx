@@ -12,26 +12,30 @@ const ThemeContext = createContext<ThemeContextValue>({ theme: "dark", toggleThe
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    if (stored) {
-      setTheme(stored);
-      document.documentElement.setAttribute("data-theme", stored);
+    setMounted(true);
+    const stored = localStorage.getItem("cf-theme") as Theme | null;
+    let initial: Theme;
+    if (stored === "dark" || stored === "light") {
+      initial = stored;
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initial: Theme = prefersDark ? "dark" : "light";
-      setTheme(initial);
-      document.documentElement.setAttribute("data-theme", initial);
+      initial = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
   }, []);
 
   const toggleTheme = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    localStorage.setItem("theme", next);
+    localStorage.setItem("cf-theme", next);
     document.documentElement.setAttribute("data-theme", next);
   };
+
+  // Prevent hydration mismatch - render with default until mounted
+  if (!mounted) return <>{children}</>;
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

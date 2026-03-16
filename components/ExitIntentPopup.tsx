@@ -78,8 +78,8 @@ export default function ExitIntentPopup() {
               transform: "translate(-50%, -50%)",
               zIndex: 9999,
               width: "min(480px, calc(100vw - 2rem))",
-              background: "#111118",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border-color)",
               borderRadius: "16px",
               padding: "clamp(1.75rem, 5vw, 2.5rem)",
             }}
@@ -114,7 +114,7 @@ export default function ExitIntentPopup() {
                   style={{
                     fontSize: "clamp(1.4rem, 4vw, 1.85rem)",
                     fontWeight: 300,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     marginBottom: "0.75rem",
                     letterSpacing: "0.02em",
                     lineHeight: 1.3,
@@ -128,14 +128,14 @@ export default function ExitIntentPopup() {
                 <p
                   style={{
                     fontSize: "clamp(0.875rem, 1.5vw, 0.975rem)",
-                    color: "#6B7280",
+                    color: "var(--text-tertiary)",
                     lineHeight: 1.75,
                     marginBottom: "1.75rem",
                     letterSpacing: "0.02em",
                   }}
                 >
                   Hol dir einen{" "}
-                  <span style={{ color: "#9CA3AF" }}>kostenlosen Website-Check</span>{" "}
+                  <span style={{ color: "var(--text-secondary)" }}>kostenlosen Website-Check</span>{" "}
                   bevor du gehst. Ich analysiere deine aktuelle Seite und zeige dir was besser geht.
                 </p>
 
@@ -146,12 +146,12 @@ export default function ExitIntentPopup() {
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="www.deine-website.de"
                     style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "var(--input-bg)",
+                      border: "1px solid var(--input-border)",
                       borderRadius: "8px",
                       padding: "0.75rem 1rem",
                       fontSize: 14,
-                      color: "#F5F5F7",
+                      color: "var(--text-primary)",
                       outline: "none",
                       letterSpacing: "0.02em",
                       width: "100%",
@@ -167,12 +167,12 @@ export default function ExitIntentPopup() {
                     placeholder="deine@email.de"
                     required
                     style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "var(--input-bg)",
+                      border: "1px solid var(--input-border)",
                       borderRadius: "8px",
                       padding: "0.75rem 1rem",
                       fontSize: 14,
-                      color: "#F5F5F7",
+                      color: "var(--text-primary)",
                       outline: "none",
                       letterSpacing: "0.02em",
                       width: "100%",
@@ -228,13 +228,13 @@ export default function ExitIntentPopup() {
                   style={{
                     fontSize: "1.25rem",
                     fontWeight: 300,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     letterSpacing: "0.04em",
                   }}
                 >
                   Danke! Ich melde mich bald.
                 </h3>
-                <p style={{ fontSize: 14, color: "#4B5563", letterSpacing: "0.02em" }}>
+                <p style={{ fontSize: 14, color: "var(--text-tertiary)", letterSpacing: "0.02em" }}>
                   Dein Website-Check ist reserviert.
                 </p>
               </div>

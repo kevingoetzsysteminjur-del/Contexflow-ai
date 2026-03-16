@@ -13,7 +13,7 @@ export default function WasIchBaue() {
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1px",
-            background: "#111120",
+            background: "var(--bg-tertiary)",
           }}
           className="mockup-grid"
         >
@@ -28,13 +28,13 @@ export default function WasIchBaue() {
                 <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1a1a2e", display: "block" }} />
                 <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1a1a2e", display: "block" }} />
                 <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#6366F1", opacity: 0.4, display: "block" }} />
-                <div style={{ flex: 1, height: 4, background: "#111120", borderRadius: 2, marginLeft: 4 }} />
+                <div style={{ flex: 1, height: 4, background: "var(--bg-tertiary)", borderRadius: 2, marginLeft: 4 }} />
               </div>
               {/* Website blocks */}
               <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <div style={{ height: 20, background: "linear-gradient(90deg, #6366F120, transparent)", borderRadius: 2, animation: "wb-1 4s ease-in-out infinite" }} />
-                <div style={{ height: 8, width: "70%", background: "#111120", borderRadius: 2, animation: "wb-2 4s ease-in-out infinite 0.3s" }} />
-                <div style={{ height: 8, width: "50%", background: "#111120", borderRadius: 2, animation: "wb-2 4s ease-in-out infinite 0.5s" }} />
+                <div style={{ height: 8, width: "70%", background: "var(--bg-tertiary)", borderRadius: 2, animation: "wb-2 4s ease-in-out infinite 0.3s" }} />
+                <div style={{ height: 8, width: "50%", background: "var(--bg-tertiary)", borderRadius: 2, animation: "wb-2 4s ease-in-out infinite 0.5s" }} />
                 <div style={{ height: 30, background: "#0d0d1a", borderRadius: 3, marginTop: 4, animation: "wb-3 4s ease-in-out infinite 0.7s", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ width: 40, height: 6, background: "#6366F1", borderRadius: 2, opacity: 0.6 }} />
                 </div>
@@ -64,17 +64,17 @@ export default function WasIchBaue() {
               </div>
               {/* Messages */}
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", minHeight: "90px" }}>
-                <div style={{ alignSelf: "flex-start", background: "#111120", borderRadius: "0 6px 6px 6px", padding: "5px 8px", fontSize: "10px", color: "#9CA3AF", animation: "msg-in 8s ease-in-out infinite", maxWidth: "80%" }}>
+                <div style={{ alignSelf: "flex-start", background: "var(--bg-tertiary)", borderRadius: "0 6px 6px 6px", padding: "5px 8px", fontSize: "10px", color: "#9CA3AF", animation: "msg-in 8s ease-in-out infinite", maxWidth: "80%" }}>
                   Hallo! Wie kann ich helfen?
                 </div>
                 <div style={{ alignSelf: "flex-end", background: "#6366F120", border: "1px solid #6366F130", borderRadius: "6px 0 6px 6px", padding: "5px 8px", fontSize: "10px", color: "#9CA3AF", animation: "msg-in 8s ease-in-out infinite 1.2s", maxWidth: "80%" }}>
                   Ich brauche eine Website.
                 </div>
-                <div style={{ alignSelf: "flex-start", background: "#111120", borderRadius: "0 6px 6px 6px", padding: "5px 8px", fontSize: "10px", color: "#9CA3AF", animation: "msg-in 8s ease-in-out infinite 2.4s", maxWidth: "80%" }}>
+                <div style={{ alignSelf: "flex-start", background: "var(--bg-tertiary)", borderRadius: "0 6px 6px 6px", padding: "5px 8px", fontSize: "10px", color: "#9CA3AF", animation: "msg-in 8s ease-in-out infinite 2.4s", maxWidth: "80%" }}>
                   Perfekt! Was ist dein Ziel?
                 </div>
                 {/* Typing indicator */}
-                <div style={{ alignSelf: "flex-start", background: "#111120", borderRadius: "0 6px 6px 6px", padding: "6px 10px", animation: "typing-pulse 8s ease-in-out infinite 3.6s", display: "flex", gap: "3px" }}>
+                <div style={{ alignSelf: "flex-start", background: "var(--bg-tertiary)", borderRadius: "0 6px 6px 6px", padding: "6px 10px", animation: "typing-pulse 8s ease-in-out infinite 3.6s", display: "flex", gap: "3px" }}>
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#6366F1", display: "block", animation: "dot-bounce 1.2s ease-in-out infinite" }} />
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#6366F1", display: "block", animation: "dot-bounce 1.2s ease-in-out infinite 0.2s" }} />
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#6366F1", display: "block", animation: "dot-bounce 1.2s ease-in-out infinite 0.4s" }} />
@@ -96,7 +96,7 @@ export default function WasIchBaue() {
               {/* Mini stats row */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, marginBottom: 10 }}>
                 {[["94%", "Genauigkeit"], ["3×", "Output"]].map(([val, lbl]) => (
-                  <div key={lbl} style={{ background: "#111120", borderRadius: 3, padding: "4px 6px" }}>
+                  <div key={lbl} style={{ background: "var(--bg-tertiary)", borderRadius: 3, padding: "4px 6px" }}>
                     <p style={{ fontSize: "11px", fontWeight: 600, color: "#6366F1" }}>{val}</p>
                     <p style={{ fontSize: "8px", color: "#374151", letterSpacing: "0.1em", textTransform: "uppercase" }}>{lbl}</p>
                   </div>
@@ -111,7 +111,7 @@ export default function WasIchBaue() {
                   { h: "90%", d: "0.6s" },
                   { h: "65%", d: "0.8s" },
                 ].map((bar, i) => (
-                  <div key={i} style={{ flex: 1, background: "#111120", borderRadius: "2px 2px 0 0", height: "100%", display: "flex", alignItems: "flex-end" }}>
+                  <div key={i} style={{ flex: 1, background: "var(--bg-tertiary)", borderRadius: "2px 2px 0 0", height: "100%", display: "flex", alignItems: "flex-end" }}>
                     <div
                       style={{
                         width: "100%",

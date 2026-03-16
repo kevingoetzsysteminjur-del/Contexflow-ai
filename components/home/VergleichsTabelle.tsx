@@ -163,7 +163,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
         opacity: 0,
         transform: "translateY(24px)",
         transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
-        background: "#0d0d14",
+        background: "var(--bg-card)",
         border: isHighlighted ? "2px solid #06B6D4" : "1px solid rgba(255,255,255,0.08)",
         boxShadow: isHighlighted ? "0 0 30px rgba(6,182,212,0.15)" : "none",
         borderRadius: 16,
@@ -177,7 +177,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
       <div
         style={{
           padding: "1.5rem 1.5rem 1.25rem",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border-light)",
           position: "relative",
         }}
       >
@@ -204,7 +204,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
           style={{
             fontSize: 13,
             fontWeight: isHighlighted ? 500 : 400,
-            color: isHighlighted ? "#06B6D4" : "#9CA3AF",
+            color: isHighlighted ? "#06B6D4" : "var(--text-secondary)",
             letterSpacing: "0.05em",
             margin: "0 0 0.2rem 0",
             textTransform: "uppercase",
@@ -216,7 +216,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
           <p
             style={{
               fontSize: 11,
-              color: "#4B5563",
+              color: "var(--text-tertiary)",
               margin: 0,
               letterSpacing: "0.03em",
             }}
@@ -249,7 +249,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
                   fontSize: 10,
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
-                  color: "#6B7280",
+                  color: "var(--text-tertiary)",
                 }}
               >
                 {row.label}
@@ -265,7 +265,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
                 <span
                   style={{
                     fontSize: 13,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     lineHeight: 1.4,
                   }}
                 >
@@ -305,8 +305,8 @@ export default function VergleichsTabelle() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -349,7 +349,7 @@ export default function VergleichsTabelle() {
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
               fontWeight: 200,
-              color: "#F5F5F7",
+              color: "var(--text-primary)",
               letterSpacing: "0.04em",
               lineHeight: 1.2,
               margin: 0,
@@ -388,7 +388,7 @@ export default function VergleichsTabelle() {
         >
           <p
             style={{
-              color: "#9CA3AF",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               marginBottom: "1rem",
             }}

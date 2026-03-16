@@ -55,8 +55,8 @@ function StepItem({ step, index }: { step: typeof STEPS[0]; index: number }) {
             width: 14,
             height: 14,
             borderRadius: "50%",
-            background: inView ? "#6366F1" : "#1a1a2e",
-            border: `2px solid ${inView ? "#6366F1" : "#1a1a2e"}`,
+            background: inView ? "#6366F1" : "var(--bg-tertiary)",
+            border: `2px solid ${inView ? "#6366F1" : "var(--bg-tertiary)"}`,
             boxShadow: inView ? "0 0 12px #6366F170" : "none",
             flexShrink: 0,
             marginTop: 4,
@@ -108,7 +108,7 @@ function StepItem({ step, index }: { step: typeof STEPS[0]; index: number }) {
           style={{
             fontSize: "clamp(1rem, 2vw, 1.2rem)",
             fontWeight: 300,
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             margin: "0 0 0.5rem 0",
             letterSpacing: "0.03em",
           }}
@@ -118,7 +118,7 @@ function StepItem({ step, index }: { step: typeof STEPS[0]; index: number }) {
         <p
           style={{
             fontSize: 14,
-            color: "#6B7280",
+            color: "var(--text-tertiary)",
             margin: 0,
             lineHeight: 1.7,
             maxWidth: 480,
@@ -140,8 +140,8 @@ export default function ProcessSection() {
   return (
     <section
       style={{
-        background: "#030305",
-        borderTop: "1px solid #111",
+        background: "var(--bg-primary)",
+        borderTop: "1px solid var(--border-light)",
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 2.5rem)",
       }}
     >
@@ -182,7 +182,7 @@ export default function ProcessSection() {
                   style={{
                     fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
                     fontWeight: 200,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     letterSpacing: "0.04em",
                     lineHeight: 1.2,
                     margin: "0 0 1rem 0",
@@ -193,7 +193,7 @@ export default function ProcessSection() {
                 <p
                   style={{
                     fontSize: 14,
-                    color: "#6B7280",
+                    color: "var(--text-tertiary)",
                     lineHeight: 1.75,
                     margin: 0,
                     maxWidth: 400,
@@ -213,7 +213,7 @@ export default function ProcessSection() {
                   border: "1px solid #6366F130",
                   borderRadius: 4,
                   padding: "1.5rem 1.75rem",
-                  background: "#0a0a18",
+                  background: "var(--bg-card)",
                   position: "relative",
                   overflow: "hidden",
                 }}
@@ -241,7 +241,7 @@ export default function ProcessSection() {
                   style={{
                     fontSize: "clamp(1rem, 2vw, 1.2rem)",
                     fontWeight: 300,
-                    color: "#F5F5F7",
+                    color: "var(--text-primary)",
                     margin: 0,
                     lineHeight: 1.4,
                     letterSpacing: "0.02em",

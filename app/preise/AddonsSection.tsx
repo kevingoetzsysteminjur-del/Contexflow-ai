@@ -44,7 +44,7 @@ export default function AddonsSection() {
           <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>
             ZUSATZOPTIONEN
           </p>
-          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>
+          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>
             Erweitere dein Paket.
           </h2>
           <p style={{ fontSize: 13, color: "#4B5563", maxWidth: "55ch", lineHeight: 1.75 }}>
@@ -86,7 +86,7 @@ export default function AddonsSection() {
                 <span style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", fontWeight: 300, color: on ? "#F5F5F7" : "#9CA3AF", letterSpacing: "0.03em", display: "block", marginBottom: "0.25rem", transition: "color 0.2s" }}>
                   {addon.name}
                 </span>
-                <span style={{ fontSize: 12, color: "#374151", letterSpacing: "0.02em" }}>
+                <span style={{ fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.02em" }}>
                   {addon.desc}
                 </span>
               </div>
@@ -113,7 +113,7 @@ export default function AddonsSection() {
               >
                 {on && (
                   <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M1 4L3.5 6.5L9 1" stroke="#F5F5F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M1 4L3.5 6.5L9 1" stroke="var(--text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
               </div>
@@ -131,7 +131,7 @@ export default function AddonsSection() {
               marginTop: "2rem",
               padding: "clamp(1.25rem, 2.5vw, 1.75rem)",
               border: "1px solid #6366F130",
-              background: "#0d0d14",
+              background: "var(--bg-card)",
               display: "flex",
               flexWrap: "wrap",
               alignItems: "center",
@@ -140,14 +140,14 @@ export default function AddonsSection() {
             }}
           >
             <div>
-              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: "#374151", marginBottom: "0.4rem", textTransform: "uppercase" }}>
+              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--text-tertiary)", marginBottom: "0.4rem", textTransform: "uppercase" }}>
                 Zusatzoptionen gesamt
               </p>
               <div style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: "0.75rem" }}>
                 {oneTime > 0 && (
-                  <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "#F5F5F7", letterSpacing: "0.02em" }}>
+                  <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.02em" }}>
                     +{oneTime.toLocaleString("de-DE")} €{" "}
-                    <span style={{ fontSize: 12, color: "#374151" }}>einmalig</span>
+                    <span style={{ fontSize: 12, color: "var(--text-tertiary)" }}>einmalig</span>
                   </span>
                 )}
                 {monthlyAddon && (
@@ -164,7 +164,7 @@ export default function AddonsSection() {
                 padding: "0.75rem 1.75rem",
                 border: "1px solid #6366F1",
                 background: "#6366F1",
-                color: "#F5F5F7",
+                color: "var(--text-primary)",
                 textDecoration: "none",
                 fontSize: 11,
                 letterSpacing: "0.2em",
