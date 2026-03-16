@@ -1,0 +1,242 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+
+export default function ExitIntentPopup() {
+  const [visible, setVisible] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [url, setUrl] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const already = sessionStorage.getItem("exitPopupShown");
+    if (already) return;
+
+    function handleMouseLeave(e: MouseEvent) {
+      if (e.clientY < 10) {
+        setVisible(true);
+        sessionStorage.setItem("exitPopupShown", "1");
+        document.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    }
+
+    // Small delay so it doesn't fire immediately on page load
+    const timer = setTimeout(() => {
+      document.addEventListener("mouseleave", handleMouseLeave);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setVisible(false), 2500);
+  }
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <>
+          {/* Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setVisible(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "rgba(0,0,0,0.8)",
+              backdropFilter: "blur(6px)",
+              WebkitBackdropFilter: "blur(6px)",
+              zIndex: 9998,
+            }}
+          />
+
+          {/* Popup box */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.92, y: 8 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 9999,
+              width: "min(480px, calc(100vw - 2rem))",
+              background: "#111118",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "16px",
+              padding: "clamp(1.75rem, 5vw, 2.5rem)",
+            }}
+          >
+            {/* X button */}
+            <button
+              onClick={() => setVisible(false)}
+              style={{
+                position: "absolute",
+                top: "1rem",
+                right: "1rem",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                color: "rgba(255,255,255,0.3)",
+                padding: "4px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.3)")}
+            >
+              <X size={18} />
+            </button>
+
+            {!submitted ? (
+              <>
+                {/* Headline */}
+                <h2
+                  style={{
+                    fontSize: "clamp(1.4rem, 4vw, 1.85rem)",
+                    fontWeight: 300,
+                    color: "#F5F5F7",
+                    marginBottom: "0.75rem",
+                    letterSpacing: "0.02em",
+                    lineHeight: 1.3,
+                    paddingRight: "1.5rem",
+                  }}
+                >
+                  Warte kurz! 👋
+                </h2>
+
+                {/* Body text */}
+                <p
+                  style={{
+                    fontSize: "clamp(0.875rem, 1.5vw, 0.975rem)",
+                    color: "#6B7280",
+                    lineHeight: 1.75,
+                    marginBottom: "1.75rem",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  Hol dir einen{" "}
+                  <span style={{ color: "#9CA3AF" }}>kostenlosen Website-Check</span>{" "}
+                  bevor du gehst. Ich analysiere deine aktuelle Seite und zeige dir was besser geht.
+                </p>
+
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                  <input
+                    type="text"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    placeholder="www.deine-website.de"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "8px",
+                      padding: "0.75rem 1rem",
+                      fontSize: 14,
+                      color: "#F5F5F7",
+                      outline: "none",
+                      letterSpacing: "0.02em",
+                      width: "100%",
+                      boxSizing: "border-box",
+                    }}
+                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)")}
+                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)")}
+                  />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="deine@email.de"
+                    required
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "8px",
+                      padding: "0.75rem 1rem",
+                      fontSize: 14,
+                      color: "#F5F5F7",
+                      outline: "none",
+                      letterSpacing: "0.02em",
+                      width: "100%",
+                      boxSizing: "border-box",
+                    }}
+                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)")}
+                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)")}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      marginTop: "0.25rem",
+                      background: "#C5A028",
+                      border: "none",
+                      borderRadius: "8px",
+                      padding: "0.85rem 1.5rem",
+                      fontSize: 13,
+                      fontWeight: 500,
+                      color: "#0a0805",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      cursor: "pointer",
+                      transition: "opacity 0.2s, transform 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.opacity = "0.85";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.opacity = "1";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                    }}
+                  >
+                    Kostenlosen Check anfordern
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "1rem",
+                  padding: "1rem 0",
+                  textAlign: "center",
+                  minHeight: 160,
+                }}
+              >
+                <span style={{ fontSize: 36 }}>✅</span>
+                <h3
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: 300,
+                    color: "#F5F5F7",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  Danke! Ich melde mich bald.
+                </h3>
+                <p style={{ fontSize: 14, color: "#4B5563", letterSpacing: "0.02em" }}>
+                  Dein Website-Check ist reserviert.
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
