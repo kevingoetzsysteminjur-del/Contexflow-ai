@@ -3,8 +3,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 export function GarantieBadge() {
+  const { t } = useLang();
   return (
     <div
       style={{
@@ -21,12 +23,13 @@ export function GarantieBadge() {
       }}
     >
       <ShieldCheck size={13} />
-      100% Zufriedenheitsgarantie
+      {t.guarantee.title}
     </div>
   );
 }
 
 export default function GarantieSection() {
+  const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-5% 0px" });
 
@@ -92,7 +95,7 @@ export default function GarantieSection() {
                     fontWeight: 500,
                   }}
                 >
-                  Garantie
+                  {t.guarantee.label}
                 </span>
               </div>
 
@@ -137,7 +140,7 @@ export default function GarantieSection() {
                 marginBottom: "0.75rem",
               }}
             >
-              GARANTIE
+              {t.guarantee.label}
             </p>
             <h2
               style={{
@@ -149,7 +152,7 @@ export default function GarantieSection() {
                 marginBottom: "1.25rem",
               }}
             >
-              100% Zufriedenheitsgarantie
+              {t.guarantee.title}
             </h2>
             <p
               style={{
@@ -161,9 +164,7 @@ export default function GarantieSection() {
                 letterSpacing: "0.02em",
               }}
             >
-              Wenn du nach dem Launch nicht zufrieden bist, bekommst du dein Geld zurück.{" "}
-              <span style={{ color: "var(--text-secondary)" }}>Ohne Wenn und Aber.</span>{" "}
-              So überzeugt bin ich von meiner Arbeit.
+              {t.guarantee.text}
             </p>
           </div>
 
@@ -178,9 +179,9 @@ export default function GarantieSection() {
             }}
           >
             {[
-              "Keine versteckten Kosten",
-              "Kein Abo, kein Risiko",
-              "Volle Transparenz ab Tag 1",
+              t.guarantee.no_hidden_costs,
+              t.guarantee.no_subscription,
+              t.guarantee.full_transparency,
             ].map((point) => (
               <div
                 key={point}

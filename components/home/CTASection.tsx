@@ -2,8 +2,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function CTASection() {
+  const { t } = useLang();
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -25,7 +27,7 @@ export default function CTASection() {
           margin: "0 0 1rem 0",
         }}
       >
-        BEREIT FÜR
+        {t.cta.ready_for}
       </p>
 
       <h2
@@ -38,7 +40,7 @@ export default function CTASection() {
           margin: "0 0 clamp(3rem, 6vw, 5rem) 0",
         }}
       >
-        DEIN PROJEKT?
+        {t.cta.your_project}
       </h2>
 
       {/* Morphing circle button */}
@@ -74,7 +76,7 @@ export default function CTASection() {
                 transition={{ duration: 0.2 }}
                 style={{ fontSize: 12, letterSpacing: "0.25em", textTransform: "uppercase" }}
               >
-                PROJEKT STARTEN →
+                {t.cta.start_project}
               </motion.span>
             ) : (
               <motion.span
@@ -85,7 +87,7 @@ export default function CTASection() {
                 transition={{ duration: 0.2 }}
                 style={{ fontSize: 18, letterSpacing: "0.1em" }}
               >
-                GO
+                {t.cta.go}
               </motion.span>
             )}
           </AnimatePresence>

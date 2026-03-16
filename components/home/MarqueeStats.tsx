@@ -50,14 +50,14 @@ function CountStat({ end, suffix, prefix, label }: { end: number; suffix: string
           fontFamily: "var(--font-heading), sans-serif",
           fontSize: "clamp(3rem, 7vw, 5.5rem)",
           fontWeight: 200,
-          color: "white",
+          color: "var(--text-primary)",
           letterSpacing: "0.02em",
           lineHeight: 1,
         }}
       >
         {prefix}{val}{suffix}
       </p>
-      <p style={{ fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#374151", marginTop: "0.75rem" }}>
+      <p style={{ fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--text-tertiary)", marginTop: "0.75rem" }}>
         {label}
       </p>
     </div>
@@ -68,8 +68,8 @@ export default function MarqueeStats() {
   const text = MARQUEE + MARQUEE + MARQUEE;
 
   return (
-    <section style={{ background: "#0A0A0F", borderTop: "1px solid #0d0d18", borderBottom: "1px solid #0d0d18" }}>
-      <div style={{ padding: "1.25rem 0", overflow: "hidden", borderBottom: "1px solid #0d0d18" }}>
+    <section style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-light)", borderBottom: "1px solid var(--border-light)" }}>
+      <div style={{ padding: "1.25rem 0", overflow: "hidden", borderBottom: "1px solid var(--border-light)" }}>
         <div
           style={{
             display: "flex",

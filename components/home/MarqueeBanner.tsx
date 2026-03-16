@@ -34,7 +34,7 @@ export default function MarqueeBanner() {
             fontSize: 11,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "#030305",
+            color: "#FFFFFF",
             fontWeight: 500,
             paddingRight: 0,
           }}
@@ -46,7 +46,7 @@ export default function MarqueeBanner() {
             fontSize: 11,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "#030305",
+            color: "#FFFFFF",
             fontWeight: 500,
           }}
         >

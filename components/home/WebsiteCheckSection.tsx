@@ -189,7 +189,7 @@ export default function WebsiteCheckSection() {
                   key={i}
                   style={{
                     marginBottom: i < 3 ? "1.25rem" : 0,
-                    borderBottom: i < 3 ? "1px solid #0d0d15" : "none",
+                    borderBottom: i < 3 ? "1px solid var(--border-light)" : "none",
                     paddingBottom: i < 3 ? "1.25rem" : 0,
                   }}
                 >

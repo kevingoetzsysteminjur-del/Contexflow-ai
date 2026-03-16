@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function ExitIntentPopup() {
+  const { t } = useLang();
   const [visible, setVisible] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [url, setUrl] = useState("");
@@ -94,15 +96,15 @@ export default function ExitIntentPopup() {
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                color: "rgba(255,255,255,0.3)",
+                color: "var(--text-tertiary)",
                 padding: "4px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.3)")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-primary)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)")}
             >
               <X size={18} />
             </button>
@@ -121,7 +123,7 @@ export default function ExitIntentPopup() {
                     paddingRight: "1.5rem",
                   }}
                 >
-                  Warte kurz! 👋
+                  {t.exit_popup.title}
                 </h2>
 
                 {/* Body text */}
@@ -134,9 +136,7 @@ export default function ExitIntentPopup() {
                     letterSpacing: "0.02em",
                   }}
                 >
-                  Hol dir einen{" "}
-                  <span style={{ color: "var(--text-secondary)" }}>kostenlosen Website-Check</span>{" "}
-                  bevor du gehst. Ich analysiere deine aktuelle Seite und zeige dir was besser geht.
+                  {t.exit_popup.text}
                 </p>
 
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -144,7 +144,7 @@ export default function ExitIntentPopup() {
                     type="text"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
-                    placeholder="www.deine-website.de"
+                    placeholder={t.exit_popup.url_placeholder}
                     style={{
                       background: "var(--input-bg)",
                       border: "1px solid var(--input-border)",
@@ -157,14 +157,14 @@ export default function ExitIntentPopup() {
                       width: "100%",
                       boxSizing: "border-box",
                     }}
-                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)")}
-                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)")}
+                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-hover)")}
+                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--input-border)")}
                   />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="deine@email.de"
+                    placeholder={t.exit_popup.email_placeholder}
                     required
                     style={{
                       background: "var(--input-bg)",
@@ -178,8 +178,8 @@ export default function ExitIntentPopup() {
                       width: "100%",
                       boxSizing: "border-box",
                     }}
-                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)")}
-                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)")}
+                    onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-hover)")}
+                    onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--input-border)")}
                   />
                   <button
                     type="submit"
@@ -206,7 +206,7 @@ export default function ExitIntentPopup() {
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
-                    Kostenlosen Check anfordern
+                    {t.exit_popup.cta}
                   </button>
                 </form>
               </>
@@ -232,7 +232,7 @@ export default function ExitIntentPopup() {
                     letterSpacing: "0.04em",
                   }}
                 >
-                  Danke! Ich melde mich bald.
+                  {t.exit_popup.thanks}
                 </h3>
                 <p style={{ fontSize: 14, color: "var(--text-tertiary)", letterSpacing: "0.02em" }}>
                   Dein Website-Check ist reserviert.

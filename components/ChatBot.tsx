@@ -103,18 +103,18 @@ export default function ChatBot() {
     <>
       {/* Chat Window */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-[350px] max-w-[calc(100vw-24px)] flex flex-col rounded-2xl border border-white/10 bg-[#0d0d14] shadow-2xl shadow-black/60 transition-all duration-300 origin-bottom-right ${
+        className={`fixed bottom-24 right-6 z-50 w-[350px] max-w-[calc(100vw-24px)] flex flex-col rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right ${
           open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
         }`}
-        style={{ maxHeight: "520px" }}
+        style={{ maxHeight: "520px", background: "var(--bg-card)", border: "1px solid var(--border-color)", boxShadow: "var(--card-shadow-hover)" }}
       >
         {/* Header */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 rounded-t-2xl bg-zinc-900/80">
+        <div className="flex items-center gap-3 px-4 py-3 rounded-t-2xl" style={{ background: "var(--bg-card-hover)", borderBottom: "1px solid var(--border-color)" }}>
           <div className="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center">
             <Bot size={16} className="text-cyan-400" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">CF Bot</p>
+            <p className="text-sm font-semibold leading-none" style={{ color: "var(--text-primary)" }}>CF Bot</p>
             <p className="text-emerald-400 text-xs mt-0.5">● Online</p>
           </div>
           <button
@@ -132,16 +132,17 @@ export default function ChatBot() {
               <div
                 className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                   msg.role === "user"
-                    ? "bg-cyan-500 text-zinc-900 font-medium rounded-br-sm"
-                    : "bg-zinc-800 text-zinc-200 rounded-bl-sm"
+                    ? "rounded-br-sm"
+                    : "rounded-bl-sm"
                 }`}
+            style={msg.role === "user" ? { background: "#6366F1", color: "#fff", fontWeight: 500 } : { background: "var(--bg-card-hover)", color: "var(--text-secondary)" }}
                 dangerouslySetInnerHTML={{ __html: parseMarkdown(msg.text) }}
               />
             </div>
           ))}
           {typing && (
             <div className="flex justify-start">
-              <div className="bg-zinc-800 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1 items-center">
+              <div className="rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1 items-center" style={{ background: "var(--bg-card-hover)" }}>
                 <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
                 <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
                 <span className="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
@@ -152,10 +153,11 @@ export default function ChatBot() {
         </div>
 
         {/* Input */}
-        <div className="p-3 border-t border-white/10">
-          <div className="flex gap-2 items-center bg-zinc-800 rounded-xl px-3 py-2 border border-white/5 focus-within:border-cyan-500/50 transition-colors">
+        <div className="p-3" style={{ borderTop: "1px solid var(--border-color)" }}>
+          <div className="flex gap-2 items-center rounded-xl px-3 py-2 transition-colors" style={{ background: "var(--bg-card-hover)", border: "1px solid var(--border-color)" }}>
             <input
-              className="flex-1 bg-transparent outline-none text-white text-sm placeholder:text-zinc-500"
+              className="flex-1 bg-transparent outline-none text-sm"
+              style={{ color: "var(--text-primary)" }}
               placeholder="Frag mich etwas..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -175,11 +177,11 @@ export default function ChatBot() {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg shadow-cyan-500/30 flex items-center justify-center transition-all duration-300 ${
-          open
-            ? "bg-zinc-800 border border-white/10 text-zinc-400 hover:text-white"
-            : "bg-cyan-500 hover:bg-cyan-400 text-zinc-900 hover:scale-110"
-        }`}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
+        style={open
+          ? { background: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-tertiary)" }
+          : { background: "#6366F1", color: "#fff", boxShadow: "0 4px 20px rgba(99,102,241,0.4)" }
+        }
         aria-label="Chat öffnen"
       >
         {open ? <X size={20} /> : <MessageCircle size={22} />}

@@ -1,59 +1,67 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-
-const rows = [
-  {
-    label: "Preis",
-    baukasten: { text: "Ab 10€/Monat", icon: "warn" },
-    agentur: { text: "5.000–20.000€", icon: "bad" },
-    contexflow: { text: "500–2.000€ Festpreis", icon: "good" },
-  },
-  {
-    label: "Lieferzeit",
-    baukasten: { text: "DIY", icon: "warn" },
-    agentur: { text: "6–12 Wochen", icon: "bad" },
-    contexflow: { text: "Unter 7 Tage", icon: "good" },
-  },
-  {
-    label: "Design",
-    baukasten: { text: "Template", icon: "bad" },
-    agentur: { text: "Individuell", icon: "good" },
-    contexflow: { text: "Individuell", icon: "good" },
-  },
-  {
-    label: "Performance",
-    baukasten: { text: "Langsam", icon: "bad" },
-    agentur: { text: "Mittel", icon: "warn" },
-    contexflow: { text: "Blitzschnell (Next.js)", icon: "good" },
-  },
-  {
-    label: "SEO",
-    baukasten: { text: "Basics", icon: "warn" },
-    agentur: { text: "Gut", icon: "good" },
-    contexflow: { text: "Inkl. lokales SEO", icon: "good" },
-  },
-  {
-    label: "KI-Features",
-    baukasten: { text: "Nein", icon: "bad" },
-    agentur: { text: "Aufpreis", icon: "warn" },
-    contexflow: { text: "Inklusive", icon: "good" },
-  },
-  {
-    label: "Support",
-    baukasten: { text: "Chatbot", icon: "bad" },
-    agentur: { text: "Teuer", icon: "warn" },
-    contexflow: { text: "Persönlich & direkt", icon: "good" },
-  },
-  {
-    label: "Code gehört dir",
-    baukasten: { text: "Nein", icon: "bad" },
-    agentur: { text: "Meistens", icon: "warn" },
-    contexflow: { text: "Ja, 100%", icon: "good" },
-  },
-] as const;
+import { useLang } from "@/contexts/LanguageContext";
 
 type IconType = "good" | "warn" | "bad";
+
+type RowData = {
+  labelKey: string;
+  baukasten: { textKey: string; icon: IconType };
+  agentur: { textKey: string; icon: IconType };
+  contexflow: { textKey: string; icon: IconType };
+};
+
+const ROW_DEFS: RowData[] = [
+  {
+    labelKey: "rows.preis",
+    baukasten: { textKey: "values.baukasten_price", icon: "warn" },
+    agentur: { textKey: "values.agentur_price", icon: "bad" },
+    contexflow: { textKey: "values.cf_price", icon: "good" },
+  },
+  {
+    labelKey: "rows.lieferzeit",
+    baukasten: { textKey: "values.baukasten_delivery", icon: "warn" },
+    agentur: { textKey: "values.agentur_delivery", icon: "bad" },
+    contexflow: { textKey: "values.cf_delivery", icon: "good" },
+  },
+  {
+    labelKey: "rows.design",
+    baukasten: { textKey: "values.template", icon: "bad" },
+    agentur: { textKey: "values.individual", icon: "good" },
+    contexflow: { textKey: "values.individual", icon: "good" },
+  },
+  {
+    labelKey: "rows.performance",
+    baukasten: { textKey: "values.slow", icon: "bad" },
+    agentur: { textKey: "values.medium", icon: "warn" },
+    contexflow: { textKey: "values.fast", icon: "good" },
+  },
+  {
+    labelKey: "rows.seo",
+    baukasten: { textKey: "values.basics", icon: "warn" },
+    agentur: { textKey: "values.good", icon: "good" },
+    contexflow: { textKey: "values.incl_seo", icon: "good" },
+  },
+  {
+    labelKey: "rows.ki",
+    baukasten: { textKey: "values.no", icon: "bad" },
+    agentur: { textKey: "values.surcharge", icon: "warn" },
+    contexflow: { textKey: "values.included", icon: "good" },
+  },
+  {
+    labelKey: "rows.support",
+    baukasten: { textKey: "values.chatbot", icon: "bad" },
+    agentur: { textKey: "values.expensive", icon: "warn" },
+    contexflow: { textKey: "values.personal", icon: "good" },
+  },
+  {
+    labelKey: "rows.code",
+    baukasten: { textKey: "values.code_no", icon: "bad" },
+    agentur: { textKey: "values.code_mostly", icon: "warn" },
+    contexflow: { textKey: "values.code_yes", icon: "good" },
+  },
+];
 
 function StatusIcon({ type }: { type: IconType }) {
   if (type === "good") {
@@ -66,7 +74,7 @@ function StatusIcon({ type }: { type: IconType }) {
           width: 20,
           height: 20,
           borderRadius: "50%",
-          background: "#052e16",
+          background: "rgba(34,197,94,0.08)",
           border: "1px solid rgba(34,197,94,0.25)",
           color: "#22c55e",
           fontSize: 11,
@@ -88,7 +96,7 @@ function StatusIcon({ type }: { type: IconType }) {
           width: 20,
           height: 20,
           borderRadius: "50%",
-          background: "#1c1200",
+          background: "rgba(245,158,11,0.08)",
           border: "1px solid rgba(245,158,11,0.25)",
           color: "#f59e0b",
           fontSize: 11,
@@ -109,7 +117,7 @@ function StatusIcon({ type }: { type: IconType }) {
         width: 20,
         height: 20,
         borderRadius: "50%",
-        background: "#1c0000",
+        background: "rgba(239,68,68,0.08)",
         border: "1px solid rgba(239,68,68,0.25)",
         color: "#ef4444",
         fontSize: 11,
@@ -127,12 +135,13 @@ type Column = "baukasten" | "agentur" | "contexflow";
 interface CardProps {
   column: Column;
   title: string;
-  subtitle?: string;
   isHighlighted?: boolean;
   animationDelay?: number;
+  recommendedLabel: string;
+  rows: { label: string; text: string; icon: IconType }[];
 }
 
-function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay = 0 }: CardProps) {
+function ComparisonCard({ column, title, isHighlighted, animationDelay = 0, recommendedLabel, rows }: CardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -164,8 +173,8 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
         transform: "translateY(24px)",
         transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
         background: "var(--bg-card)",
-        border: isHighlighted ? "2px solid #06B6D4" : "1px solid rgba(255,255,255,0.08)",
-        boxShadow: isHighlighted ? "0 0 30px rgba(6,182,212,0.15)" : "none",
+        border: isHighlighted ? "2px solid #06B6D4" : "1px solid var(--border-color)",
+        boxShadow: isHighlighted ? "0 0 30px rgba(6,182,212,0.15)" : "var(--card-shadow)",
         borderRadius: 16,
         overflow: "hidden",
         position: "relative",
@@ -196,7 +205,7 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
                 borderRadius: 100,
               }}
             >
-              Empfohlen
+              {recommendedLabel}
             </span>
           </div>
         )}
@@ -212,33 +221,19 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
         >
           {title}
         </p>
-        {subtitle && (
-          <p
-            style={{
-              fontSize: 11,
-              color: "var(--text-tertiary)",
-              margin: 0,
-              letterSpacing: "0.03em",
-            }}
-          >
-            {subtitle}
-          </p>
-        )}
       </div>
 
       {/* Rows */}
       <div style={{ flex: 1 }}>
         {rows.map((row, i) => {
-          const cell = row[column] as { text: string; icon: IconType };
           const isAlt = i % 2 === 1;
           return (
             <div
               key={row.label}
               style={{
                 padding: "0.85rem 1.5rem",
-                background: isAlt ? "rgba(255,255,255,0.02)" : "transparent",
-                borderBottom:
-                  i === rows.length - 1 ? "none" : "1px solid rgba(255,255,255,0.04)",
+                background: isAlt ? "var(--bg-card-hover)" : "transparent",
+                borderBottom: i === rows.length - 1 ? "none" : "1px solid var(--border-light)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.35rem",
@@ -254,22 +249,10 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
               >
                 {row.label}
               </span>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <StatusIcon type={cell.icon} />
-                <span
-                  style={{
-                    fontSize: 13,
-                    color: "var(--text-primary)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {cell.text}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <StatusIcon type={row.icon} />
+                <span style={{ fontSize: 13, color: "var(--text-primary)", lineHeight: 1.4 }}>
+                  {row.text}
                 </span>
               </div>
             </div>
@@ -280,7 +263,15 @@ function ComparisonCard({ column, title, subtitle, isHighlighted, animationDelay
   );
 }
 
+function getNestedKey(obj: Record<string, unknown>, path: string): string {
+  return path.split(".").reduce((acc: unknown, key: string) => {
+    if (acc && typeof acc === "object") return (acc as Record<string, unknown>)[key];
+    return "";
+  }, obj) as string;
+}
+
 export default function VergleichsTabelle() {
+  const { t } = useLang();
   const headRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -301,6 +292,16 @@ export default function VergleichsTabelle() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  const compT = t.comparison as unknown as Record<string, unknown>;
+
+  function buildRows(col: Column) {
+    return ROW_DEFS.map((row) => ({
+      label: getNestedKey(compT, row.labelKey),
+      text: getNestedKey(compT, row[col].textKey),
+      icon: row[col].icon,
+    }));
+  }
 
   return (
     <section
@@ -343,7 +344,7 @@ export default function VergleichsTabelle() {
               margin: "0 0 0.75rem 0",
             }}
           >
-            VERGLEICH
+            {t.comparison.label.toUpperCase()}
           </p>
           <h2
             style={{
@@ -355,7 +356,7 @@ export default function VergleichsTabelle() {
               margin: 0,
             }}
           >
-            Warum Contexflow?
+            {t.comparison.headline}
           </h2>
         </div>
 
@@ -363,37 +364,32 @@ export default function VergleichsTabelle() {
         <div className="vergleich-grid">
           <ComparisonCard
             column="baukasten"
-            title="Baukasten (Wix, Jimdo)"
+            title={t.comparison.baukasten}
             animationDelay={0}
+            recommendedLabel={t.comparison.recommended}
+            rows={buildRows("baukasten")}
           />
           <ComparisonCard
             column="agentur"
-            title="Klassische Agentur"
+            title={t.comparison.agentur}
             animationDelay={100}
+            recommendedLabel={t.comparison.recommended}
+            rows={buildRows("agentur")}
           />
           <ComparisonCard
             column="contexflow"
-            title="Contexflow AI"
+            title={t.comparison.contexflow}
             isHighlighted
             animationDelay={200}
+            recommendedLabel={t.comparison.recommended}
+            rows={buildRows("contexflow")}
           />
         </div>
 
         {/* CTA */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "clamp(2rem, 4vw, 3rem)",
-          }}
-        >
-          <p
-            style={{
-              color: "var(--text-secondary)",
-              fontSize: "1rem",
-              marginBottom: "1rem",
-            }}
-          >
-            Die Wahl ist klar.
+        <div style={{ textAlign: "center", marginTop: "clamp(2rem, 4vw, 3rem)" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "1rem", marginBottom: "1rem" }}>
+            {t.comparison.cta.split("→")[0].trim()}
           </p>
           <Link
             href="/kontakt"
@@ -406,14 +402,10 @@ export default function VergleichsTabelle() {
               fontWeight: 500,
               transition: "color 0.2s ease",
             }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.color = "#22d3ee";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.color = "#06B6D4";
-            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#22d3ee"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#06B6D4"; }}
           >
-            Projekt anfragen →
+            {t.comparison.cta}
           </Link>
         </div>
       </div>

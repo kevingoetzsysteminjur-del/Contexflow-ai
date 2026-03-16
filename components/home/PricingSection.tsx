@@ -5,43 +5,18 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { UrgencyBadge } from "@/components/home/UrgencyBanner";
 import { GarantieBadge } from "@/components/home/GarantieSection";
+import { useLang } from "@/contexts/LanguageContext";
 
-const TIERS = [
-  {
-    num: "01",
-    name: "Landingpage",
-    price: "500 €",
-    unit: "einmalig",
-    tags: ["1 Seite", "Kontaktformular", "SEO", "~1 Woche"],
-    recommended: false,
-  },
-  {
-    num: "02",
-    name: "Business Website",
-    price: "1.000 €",
-    unit: "einmalig",
-    tags: ["Bis 5 Seiten", "Professionelles Design", "Analytics", "2–3 Wochen"],
-    recommended: true,
-  },
-  {
-    num: "03",
-    name: "Premium Website",
-    price: "2.000 €",
-    unit: "einmalig",
-    tags: ["Unbegrenzte Seiten", "Animationen", "Blog", "1 Monat Support"],
-    recommended: false,
-  },
-  {
-    num: "04",
-    name: "AI & Enterprise",
-    price: "Auf Anfrage",
-    unit: "",
-    tags: ["Web-App", "Context Engineering", "AI-Integration", "Chatbots"],
-    recommended: false,
-  },
-];
+type Tier = {
+  num: string;
+  name: string;
+  price: string;
+  unit: string;
+  tags: string[];
+  recommended: boolean;
+};
 
-function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
+function Row({ tier, index, recommendedLabel }: { tier: Tier; index: number; recommendedLabel: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-8% 0px" });
 
@@ -89,7 +64,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
                 fontSize: 11,
                 padding: "2px 8px",
                 border: "1px solid var(--border-color)",
-                color: "#4B5563",
+                color: "var(--text-tertiary)",
                 letterSpacing: "0.05em",
                 borderRadius: 2,
               }}
@@ -110,7 +85,7 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
               borderRadius: 2,
             }}
           >
-            Empfohlen
+            {recommendedLabel}
           </span>
         )}
       </div>
@@ -131,17 +106,49 @@ function Row({ tier, index }: { tier: typeof TIERS[0]; index: number }) {
           <span style={{ fontSize: 11, color: "var(--text-tertiary)", marginLeft: "0.4rem" }}>{tier.unit}</span>
         )}
       </div>
-
-      <style>{`
-        .pricing-row:hover span[style*="color: #9CA3AF"] { color: #F5F5F7; }
-      `}</style>
     </motion.div>
   );
 }
 
 export default function PricingSection() {
+  const { t } = useLang();
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, margin: "-5% 0px" });
+
+  const TIERS: Tier[] = [
+    {
+      num: "01",
+      name: t.pricing.tier1_name,
+      price: t.pricing.tier1_price,
+      unit: t.pricing.onetime,
+      tags: [t.pricing.tier1_tag1, t.pricing.tier1_tag2, t.pricing.tier1_tag3, t.pricing.tier1_tag4],
+      recommended: false,
+    },
+    {
+      num: "02",
+      name: t.pricing.tier2_name,
+      price: t.pricing.tier2_price,
+      unit: t.pricing.onetime,
+      tags: [t.pricing.tier2_tag1, t.pricing.tier2_tag2, t.pricing.tier2_tag3, t.pricing.tier2_tag4],
+      recommended: true,
+    },
+    {
+      num: "03",
+      name: t.pricing.tier3_name,
+      price: t.pricing.tier3_price,
+      unit: t.pricing.onetime,
+      tags: [t.pricing.tier3_tag1, t.pricing.tier3_tag2, t.pricing.tier3_tag3, t.pricing.tier3_tag4],
+      recommended: false,
+    },
+    {
+      num: "04",
+      name: t.pricing.tier4_name,
+      price: t.pricing.on_request,
+      unit: "",
+      tags: [t.pricing.tier4_tag1, t.pricing.tier4_tag2, t.pricing.tier4_tag3, t.pricing.tier4_tag4],
+      recommended: false,
+    },
+  ];
 
   return (
     <section
@@ -172,10 +179,10 @@ export default function PricingSection() {
         >
           <div>
             <p style={{ fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "#6366F1", marginBottom: "0.75rem" }}>
-              PRICING
+              {t.pricing.label.toUpperCase()}
             </p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 200, color: "var(--text-primary)", letterSpacing: "0.04em", lineHeight: 1.2 }}>
-              Klare Preise. Kein Kleingedrucktes.
+              {t.pricing.title}
             </h2>
           </div>
           <Link
@@ -192,7 +199,7 @@ export default function PricingSection() {
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#6366F1")}
             onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)")}
           >
-            Alle Details →
+            {t.pricing.all_details}
           </Link>
         </motion.div>
 
@@ -201,12 +208,12 @@ export default function PricingSection() {
 
         {/* Rows */}
         {TIERS.map((tier, i) => (
-          <Row key={tier.num} tier={tier} index={i} />
+          <Row key={tier.num} tier={tier} index={i} recommendedLabel={t.pricing.recommended} />
         ))}
 
         {/* Footer note */}
         <p style={{ marginTop: "1.5rem", fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.05em" }}>
-          Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.
+          {t.pricing.note}
         </p>
 
         {/* Guarantee badge */}

@@ -31,7 +31,7 @@ export default function SocialProof() {
             fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
             fontWeight: 200,
             fontStyle: "italic",
-            color: "#F5F5F7",
+            color: "var(--text-primary)",
             lineHeight: 1.5,
             margin: "0 0 1.5rem 0",
           }}
@@ -42,7 +42,7 @@ export default function SocialProof() {
         <p
           style={{
             fontSize: 14,
-            color: "#6B7280",
+            color: "var(--text-tertiary)",
             marginBottom: "2rem",
             margin: "0 0 2rem 0",
           }}

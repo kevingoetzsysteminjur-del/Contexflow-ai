@@ -6,7 +6,6 @@ import WebsiteCheckSection from "@/components/home/WebsiteCheckSection";
 import StatsSection from "@/components/home/StatsSection";
 import ManifestoSection from "@/components/home/ManifestoSection";
 import WhatIBuild from "@/components/home/WhatIBuild";
-import ProjectsSection from "@/components/home/ProjectsSection";
 import DemoSection from "@/components/home/DemoSection";
 import TechStack from "@/components/home/TechStack";
 import SectionCTA from "@/components/home/SectionCTA";
@@ -27,7 +26,6 @@ export default function Home() {
       <StatsSection />
       <ManifestoSection />
       <WhatIBuild />
-      <ProjectsSection />
       <DemoSection />
       <TechStack />
       <ProcessSection />

@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { useLang } from "@/contexts/LanguageContext";
 
 const INVESTMENT = 1000;
 
@@ -93,6 +94,7 @@ function SliderField({ label, value, min, max, step, suffix, onChange }: SliderF
 }
 
 export default function ROIRechner() {
+  const { t } = useLang();
   const [visitors, setVisitors] = useState(500);
   const [revenue, setRevenue] = useState(500);
   const [currentCR, setCurrentCR] = useState(1);
@@ -135,7 +137,7 @@ export default function ROIRechner() {
               margin: "0 0 0.75rem 0",
             }}
           >
-            ROI-RECHNER
+            {t.roi.label.toUpperCase()}
           </p>
           <h2
             style={{
@@ -147,10 +149,10 @@ export default function ROIRechner() {
               margin: "0 0 0.75rem 0",
             }}
           >
-            Was bringt dir eine professionelle Website?
+            {t.roi.title}
           </h2>
           <p style={{ fontSize: 14, color: "var(--text-tertiary)", margin: 0 }}>
-            Rechne selbst.
+            {t.roi.subtitle}
           </p>
         </motion.div>
 
@@ -188,11 +190,11 @@ export default function ROIRechner() {
                   margin: "0 0 1.75rem 0",
                 }}
               >
-                Deine Zahlen
+                {t.roi.your_numbers}
               </p>
 
               <SliderField
-                label="Besucher / Monat"
+                label={t.roi.visitors}
                 value={visitors}
                 min={0}
                 max={10000}
@@ -201,7 +203,7 @@ export default function ROIRechner() {
                 onChange={setVisitors}
               />
               <SliderField
-                label="Umsatz pro Kunde"
+                label={t.roi.revenue_per_client}
                 value={revenue}
                 min={100}
                 max={10000}
@@ -210,7 +212,7 @@ export default function ROIRechner() {
                 onChange={setRevenue}
               />
               <SliderField
-                label="Aktuelle Conversion-Rate"
+                label={t.roi.current_rate}
                 value={currentCR}
                 min={0.1}
                 max={5}
@@ -219,7 +221,7 @@ export default function ROIRechner() {
                 onChange={setCurrentCR}
               />
               <SliderField
-                label="Neue Conversion-Rate (mit Contexflow)"
+                label={t.roi.new_rate}
                 value={newCR}
                 min={1}
                 max={10}
@@ -254,10 +256,10 @@ export default function ROIRechner() {
                     margin: "0 0 0.75rem 0",
                   }}
                 >
-                  Aktuell
+                  {t.roi.currently}
                 </p>
                 <p style={{ fontSize: 13, color: "var(--text-tertiary)", margin: "0 0 0.25rem 0" }}>
-                  {currentCustomers} Kunde{currentCustomers !== 1 ? "n" : ""} / Monat
+                  {currentCustomers} {currentCustomers !== 1 ? t.roi.clients_unit_plural : t.roi.clients_unit} {t.roi.per_month}
                 </p>
                 <div
                   style={{
@@ -277,7 +279,7 @@ export default function ROIRechner() {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    / Monat
+                    {t.roi.per_month}
                   </span>
                 </div>
               </div>
@@ -316,10 +318,10 @@ export default function ROIRechner() {
                     margin: "0 0 0.75rem 0",
                   }}
                 >
-                  Mit Contexflow
+                  {t.roi.with_contexflow}
                 </p>
                 <p style={{ fontSize: 13, color: "var(--text-secondary)", margin: "0 0 0.25rem 0" }}>
-                  {newCustomers} Kunde{newCustomers !== 1 ? "n" : ""} / Monat
+                  {newCustomers} {newCustomers !== 1 ? t.roi.clients_unit_plural : t.roi.clients_unit} {t.roi.per_month}
                 </p>
                 <div
                   style={{
@@ -339,7 +341,7 @@ export default function ROIRechner() {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    / Monat
+                    {t.roi.per_month}
                   </span>
                 </div>
               </div>
@@ -359,7 +361,7 @@ export default function ROIRechner() {
               >
                 <div>
                   <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 0.4rem 0" }}>
-                    Mehr pro Monat
+                    {t.roi.more_per_month}
                   </p>
                   <p
                     style={{
@@ -375,7 +377,7 @@ export default function ROIRechner() {
                 </div>
                 <div>
                   <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 0.4rem 0" }}>
-                    Mehr pro Jahr
+                    {t.roi.more_per_year}
                   </p>
                   <p
                     style={{
@@ -423,13 +425,13 @@ export default function ROIRechner() {
                     ↩
                   </div>
                   <p style={{ fontSize: 13, color: "var(--text-secondary)", margin: 0, lineHeight: 1.5 }}>
-                    Deine Website zahlt sich nach{" "}
+                    {t.roi.payback_prefix}{" "}
                     <strong style={{ color: "var(--text-primary)", fontWeight: 400 }}>
-                      {paybackDays} Tagen
+                      {paybackDays} {t.roi.days}
                     </strong>{" "}
-                    aus
+                    {t.roi.payback_suffix}
                     <span style={{ fontSize: 11, color: "var(--text-tertiary)", display: "block" }}>
-                      (bei {INVESTMENT.toLocaleString("de-DE")} € Investition)
+                      ({t.roi.payback_note_prefix} {INVESTMENT.toLocaleString("de-DE")} {t.roi.payback_note_suffix})
                     </span>
                   </p>
                 </div>
@@ -464,7 +466,7 @@ export default function ROIRechner() {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
-                Klingt gut? Lass uns reden. →
+                {t.roi.cta}
               </Link>
             </motion.div>
           </div>

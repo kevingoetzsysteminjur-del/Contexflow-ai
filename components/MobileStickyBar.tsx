@@ -24,7 +24,7 @@ export default function MobileStickyBar() {
           background: "var(--bg-navbar)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          borderTop: "1px solid rgba(255,255,255,0.07)",
+          borderTop: "1px solid var(--border-color)",
         }}
       >
         {/* WhatsApp */}

@@ -1,39 +1,14 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLang } from "@/contexts/LanguageContext";
 
-const STEPS = [
-  {
-    day: "Tag 0",
-    title: "Erstgespräch",
-    text: "Wir reden 30 Minuten. Ich verstehe was du brauchst. Kostenlos.",
-  },
-  {
-    day: "Tag 1–2",
-    title: "Konzept & Design",
-    text: "Du bekommst ein Mockup. Wir stimmen alles ab bis du sagst: Perfekt.",
-  },
-  {
-    day: "Tag 3–5",
-    title: "Entwicklung",
-    text: "Ich baue. Du siehst den Fortschritt live über einen Preview-Link.",
-  },
-  {
-    day: "Tag 5–7",
-    title: "Launch",
-    text: "Deine Website geht live. Ich zeige dir alles und bin für Fragen da.",
-  },
-  {
-    day: "Tag 7+",
-    title: "Support",
-    text: "Bug? Frage? Änderungswunsch? Ich bin da.",
-  },
-];
+type Step = { day: string; title: string; text: string };
 
-function StepItem({ step, index }: { step: typeof STEPS[0]; index: number }) {
+function StepItem({ step, index, total }: { step: Step; index: number; total: number }) {
+  const isLast = index === total - 1;
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const isLast = index === STEPS.length - 1;
 
   return (
     <div
@@ -132,10 +107,19 @@ function StepItem({ step, index }: { step: typeof STEPS[0]; index: number }) {
 }
 
 export default function ProcessSection() {
+  const { t } = useLang();
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, amount: 0.4 });
   const bannerRef = useRef(null);
   const bannerInView = useInView(bannerRef, { once: true, amount: 0.6 });
+
+  const STEPS: Step[] = [
+    { day: t.process.day0_label, title: t.process.day0_title, text: t.process.day0_desc },
+    { day: t.process.day12_label, title: t.process.day12_title, text: t.process.day12_desc },
+    { day: t.process.day35_label, title: t.process.day35_title, text: t.process.day35_desc },
+    { day: t.process.day57_label, title: t.process.day57_title, text: t.process.day57_desc },
+    { day: t.process.day7_label, title: t.process.day7_title, text: t.process.day7_desc },
+  ];
 
   return (
     <section
@@ -188,7 +172,7 @@ export default function ProcessSection() {
                     margin: "0 0 1rem 0",
                   }}
                 >
-                  Von der Idee zur Website.
+                  {t.process.section_title}
                 </h2>
                 <p
                   style={{
@@ -199,7 +183,7 @@ export default function ProcessSection() {
                     maxWidth: 400,
                   }}
                 >
-                  Kein langer Vorlauf. Kein Rätselraten. Ein klarer Ablauf — von Tag 0 bis zur fertigen Website.
+                  {t.process.subtitle}
                 </p>
               </motion.div>
 
@@ -235,7 +219,7 @@ export default function ProcessSection() {
                     margin: "0 0 0.6rem 0",
                   }}
                 >
-                  Garantie
+                  {t.process.guarantee_label}
                 </p>
                 <p
                   style={{
@@ -247,9 +231,7 @@ export default function ProcessSection() {
                     letterSpacing: "0.02em",
                   }}
                 >
-                  Von der Idee zur fertigen Website
-                  <br />
-                  in unter 7 Tagen.
+                  {t.process.guarantee_desc}
                 </p>
               </motion.div>
             </div>
@@ -257,7 +239,7 @@ export default function ProcessSection() {
             {/* Right: Timeline */}
             <div style={{ paddingTop: "0.25rem" }}>
               {STEPS.map((step, i) => (
-                <StepItem key={i} step={step} index={i} />
+                <StepItem key={i} step={step} index={i} total={STEPS.length} />
               ))}
             </div>
           </div>
