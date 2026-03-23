@@ -87,7 +87,7 @@ export default function StatsSection() {
   const { t } = useLang();
 
   const STATS = [
-    { value: 20, prefix: "", suffix: "+", label: t.stats.features_label },
+    { value: 50, prefix: "", suffix: "+", label: t.stats.features_label },
     { value: 7, prefix: "<", suffix: "T", label: t.stats.delivery_label },
     { value: 100, prefix: "", suffix: "%", label: t.stats.fixed_price_label },
     { value: 100, prefix: "", suffix: "%", label: t.stats.satisfaction_label },

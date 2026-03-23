@@ -11,7 +11,7 @@ interface Message {
 const FAQ: { keywords: string[]; answer: string }[] = [
   {
     keywords: ["preis", "kosten", "kostet", "budget", "euro", "€", "wie viel", "wieviel", "teuer"],
-    answer: "Eine Website bei Contexflow AI startet ab **500 €** für eine Landingpage. Eine Business-Website gibt es ab **1.000 €**, Premium ab **2.000 €**. Alles einmalig – keine monatlichen Agenturgebühren. 💡",
+    answer: "Eine Website bei Contexflow AI startet ab **1.000 €** für eine Landingpage. Eine Business-Website gibt es ab **2.000 €**, Premium ab **3.500 €**. Alles einmalig – keine monatlichen Agenturgebühren. 💡",
   },
   {
     keywords: ["lang", "lange", "dauer", "dauert", "zeit", "wochen", "tage", "fertig", "wann"],
@@ -23,7 +23,7 @@ const FAQ: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["wo", "standort", "ort", "stadt", "mosbach", "region", "adresse", "sitz", "ansässig", "lokal"],
-    answer: "Wir sind in **Mosbach** im Neckar-Odenwald-Kreis ansässig – aber wir arbeiten für Kunden in ganz Deutschland, komplett remote. 📍",
+    answer: "Wir arbeiten **remote aus Deutschland und Zypern** – für Kunden in ganz Deutschland und international. 📍",
   },
   {
     keywords: ["kontakt", "kontaktier", "schreib", "email", "mail", "erreichen", "melden", "anruf", "telefon"],

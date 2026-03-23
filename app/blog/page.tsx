@@ -7,19 +7,19 @@ export default function BlogPage() {
 
   const posts = [
     {
-      slug: "was-kostet-eine-website-2026",
+      slug: "eigener-server-website",
       title: t.blog.post1_title,
       desc: t.blog.post1_desc,
       date: t.blog.post1_date,
     },
     {
-      slug: "nextjs-vs-wordpress",
+      slug: "context-engineering",
       title: t.blog.post2_title,
       desc: t.blog.post2_desc,
       date: t.blog.post2_date,
     },
     {
-      slug: "ki-chatbot-fuer-website",
+      slug: "5-fehler-firmen-website",
       title: t.blog.post3_title,
       desc: t.blog.post3_desc,
       date: t.blog.post3_date,

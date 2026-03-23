@@ -9,7 +9,7 @@ const FAQS = {
   de: [
     {
       q: "Was kostet eine professionelle Website?",
-      a: "Die Kosten hängen vom Umfang ab. Eine Landingpage startet ab 500 €, eine Business-Website mit mehreren Unterseiten ab 1.000 € und Premium-Projekte mit individuellen Funktionen ab 2.000 €. Alle Preise sind einmalig – keine monatlichen Agenturgebühren.",
+      a: "Die Kosten hängen vom Umfang ab. Eine Landingpage startet ab 1.000 €, eine Business-Website mit mehreren Unterseiten ab 2.000 € und Premium-Projekte mit individuellen Funktionen ab 3.500 €. Alle Preise sind einmalig – keine monatlichen Agenturgebühren.",
     },
     {
       q: "Wie lange dauert die Erstellung einer Website?",
@@ -31,7 +31,7 @@ const FAQS = {
   en: [
     {
       q: "How much does a professional website cost?",
-      a: "Costs depend on scope. A landing page starts at €500, a multi-page business website from €1,000 and premium projects with custom features from €2,000. All prices are one-time – no monthly agency fees.",
+      a: "Costs depend on scope. A landing page starts at €1,000, a multi-page business website from €2,000 and premium projects with custom features from €3,500. All prices are one-time – no monthly agency fees.",
     },
     {
       q: "How long does it take to build a website?",

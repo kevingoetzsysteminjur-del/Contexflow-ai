@@ -62,10 +62,10 @@ export default function MarqueeStats() {
   const MARQUEE = t.marquee.text;
 
   const stats = [
-    { end: 20, suffix: "+", label: t.marquee.features_label },
+    { end: 50, suffix: "+", label: t.marquee.features_label },
     { end: 7, suffix: "T", prefix: "<", label: t.marquee.delivery_label },
     { end: 100, suffix: "%", label: t.marquee.fixed_price_label },
-    { end: 300, suffix: "€", label: t.marquee.start_price_label },
+    { end: 1000, suffix: "€", label: t.marquee.start_price_label },
   ];
 
   const text = MARQUEE + MARQUEE + MARQUEE;

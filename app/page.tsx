@@ -6,6 +6,8 @@ import WebsiteCheckSection from "@/components/home/WebsiteCheckSection";
 import StatsSection from "@/components/home/StatsSection";
 import ManifestoSection from "@/components/home/ManifestoSection";
 import WhatIBuild from "@/components/home/WhatIBuild";
+import RealProjectsSection from "@/components/home/RealProjectsSection";
+import CaseStudySection from "@/components/home/CaseStudySection";
 import DemoSection from "@/components/home/DemoSection";
 import TechStack from "@/components/home/TechStack";
 import SectionCTA from "@/components/home/SectionCTA";
@@ -14,6 +16,7 @@ import ROIRechner from "@/components/home/ROIRechner";
 import PricingSection from "@/components/home/PricingSection";
 import VergleichsTabelle from "@/components/home/VergleichsTabelle";
 import GarantieSection from "@/components/home/GarantieSection";
+import BlogPreviewSection from "@/components/home/BlogPreviewSection";
 import CTASection from "@/components/home/CTASection";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -28,6 +31,8 @@ export default function Home() {
       <StatsSection />
       <ManifestoSection />
       <WhatIBuild />
+      <RealProjectsSection />
+      <CaseStudySection />
       <DemoSection />
       <TechStack />
       <ProcessSection />
@@ -50,6 +55,7 @@ export default function Home() {
         variant="primary"
       />
       <GarantieSection />
+      <BlogPreviewSection />
       <CTASection />
     </>
   );

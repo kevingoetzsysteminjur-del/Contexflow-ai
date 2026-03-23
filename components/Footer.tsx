@@ -45,7 +45,7 @@ export default function Footer() {
             color: "rgba(255,255,255,0.25)",
           }}
         >
-          CONTEXFLOW AI · 2026
+          CONTEXFLOW AI · 2026 · DEUTSCHLAND & ZYPERN
         </span>
 
         <span
