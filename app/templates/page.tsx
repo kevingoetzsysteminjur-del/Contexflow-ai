@@ -10,13 +10,14 @@ const TEMPLATES = [
   {
     slug: "realestate-pro",
     gradient: "linear-gradient(135deg, #0c2d48 0%, #2389da 40%, #c2b280 100%)",
-    badge: "BESTSELLER",
+    badge: "LAUNCH ANGEBOT 🔥",
     badgeColor: "#D4A853",
     title: "RealEstate Pro",
-    price: "149",
-    oldPrice: "299",
+    price: "49",
+    oldPrice: "149",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Supabase", "3 Sprachen", "Admin-Panel", "SEO"],
     preview: "https://paphos-immobilien.vercel.app",
+    stripeLink: "https://buy.stripe.com/fZu6oA2iZe5Hbrg0449EI01",
   },
   {
     slug: "wellness-healing",
@@ -24,10 +25,11 @@ const TEMPLATES = [
     badge: null,
     badgeColor: null,
     title: "Wellness & Healing",
-    price: "99",
-    oldPrice: "199",
+    price: "39",
+    oldPrice: "99",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Supabase", "Shop", "Admin", "Chatbot"],
     preview: "https://braditsch-website.vercel.app",
+    stripeLink: "https://buy.stripe.com/8x214g1eVbXzcvk3gg9EI00",
   },
   {
     slug: "gastro",
@@ -35,10 +37,11 @@ const TEMPLATES = [
     badge: null,
     badgeColor: null,
     title: "Gastro",
-    price: "79",
-    oldPrice: "149",
+    price: "29",
+    oldPrice: "79",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Responsive", "SEO"],
     preview: "https://restaurant-bella-vista-sable.vercel.app",
+    stripeLink: "https://buy.stripe.com/6oU8wIbTze5HgLA5oo9EI02",
   },
   {
     slug: "fitstudio",
@@ -46,10 +49,11 @@ const TEMPLATES = [
     badge: null,
     badgeColor: null,
     title: "FitStudio",
-    price: "79",
-    oldPrice: "149",
+    price: "29",
+    oldPrice: "79",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Responsive", "Animationen"],
     preview: "https://fitness-studio-mauve.vercel.app",
+    stripeLink: "https://buy.stripe.com/14A9AM8Hn6DfbrgdUU9EI03",
   },
   {
     slug: "devportfolio",
@@ -57,10 +61,11 @@ const TEMPLATES = [
     badge: null,
     badgeColor: null,
     title: "DevPortfolio",
-    price: "49",
-    oldPrice: "99",
+    price: "19",
+    oldPrice: "49",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Animationen", "Dark Mode"],
-    preview: null,
+    preview: "https://kevin-goetz-portfolio.vercel.app",
+    stripeLink: "https://buy.stripe.com/8x23co1eVf9Ldzo9EE9EI04",
   },
   {
     slug: "coursehub",
@@ -72,6 +77,7 @@ const TEMPLATES = [
     oldPrice: "399",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Supabase", "Auth", "Shop", "Zertifikate", "Forum"],
     preview: null,
+    stripeLink: null,
   },
 ];
 
@@ -201,8 +207,10 @@ function TemplateCard({ template, index }: { template: typeof TEMPLATES[0]; inde
               {t.templates.preview_btn} →
             </a>
           )}
-          <Link
-            href={template.slug === "coursehub" ? "/kontakt" : `/templates/${template.slug}`}
+          <a
+            href={template.stripeLink || "/kontakt"}
+            target={template.stripeLink ? "_blank" : undefined}
+            rel={template.stripeLink ? "noopener noreferrer" : undefined}
             style={{
               flex: 1,
               padding: "0.7rem",
@@ -220,7 +228,7 @@ function TemplateCard({ template, index }: { template: typeof TEMPLATES[0]; inde
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#6366F1"; }}
           >
             {template.slug === "coursehub" ? t.templates.waitlist_btn + " →" : t.templates.buy_btn + " →"}
-          </Link>
+          </a>
         </div>
       </div>
     </motion.div>

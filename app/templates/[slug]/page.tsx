@@ -14,51 +14,57 @@ const TEMPLATE_DATA: Record<string, {
   tags: string[];
   features: string[];
   preview: string | null;
+  stripeLink: string | null;
 }> = {
   "realestate-pro": {
     gradient: "linear-gradient(135deg, #0c2d48 0%, #2389da 40%, #c2b280 100%)",
     title: "RealEstate Pro",
-    price: "149",
-    oldPrice: "299",
+    price: "49",
+    oldPrice: "149",
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui", "Supabase", "i18n", "Admin-Panel"],
     features: ["Property-Listings mit Filter & Suche", "Finanzierungsrechner", "Stadtteil-Map mit Infos", "Blog / News System", "Admin Panel", "Dreisprachig (DE/EN/GR)", "SEO-optimiert", "Kontaktformular"],
     preview: "https://paphos-immobilien.vercel.app",
+    stripeLink: "https://buy.stripe.com/fZu6oA2iZe5Hbrg0449EI01",
   },
   "wellness-healing": {
     gradient: "linear-gradient(135deg, #2d4a3e 0%, #6b8f71 40%, #c9a96e 100%)",
     title: "Wellness & Healing",
-    price: "99",
-    oldPrice: "199",
+    price: "39",
+    oldPrice: "99",
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui", "Supabase", "E-Commerce"],
     features: ["Audio-Shop mit Player", "Veranstaltungskalender", "Galerie / Portfolio", "KI-Chatbot", "CMS / Admin", "Dreisprachig", "SEO-optimiert", "Kontaktformular"],
     preview: "https://braditsch-website.vercel.app",
+    stripeLink: "https://buy.stripe.com/8x214g1eVbXzcvk3gg9EI00",
   },
   "gastro": {
     gradient: "linear-gradient(135deg, #7c1d00 0%, #ea580c 50%, #ff8c42 100%)",
     title: "Gastro",
-    price: "79",
-    oldPrice: "149",
+    price: "29",
+    oldPrice: "79",
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui"],
     features: ["Digitale Speisekarte", "Online-Reservierung", "Galerie", "Responsive Design", "SEO-optimiert", "Kontaktformular"],
     preview: "https://restaurant-bella-vista-sable.vercel.app",
+    stripeLink: "https://buy.stripe.com/6oU8wIbTze5HgLA5oo9EI02",
   },
   "fitstudio": {
     gradient: "linear-gradient(135deg, #052e16 0%, #16a34a 50%, #0a0a0a 100%)",
     title: "FitStudio",
-    price: "79",
-    oldPrice: "149",
+    price: "29",
+    oldPrice: "79",
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui"],
     features: ["Kursplan", "Trainer-Profile", "Mitgliedschaften", "Preistabelle", "Responsive Design", "Animationen", "Kontaktformular"],
     preview: "https://fitness-studio-mauve.vercel.app",
+    stripeLink: "https://buy.stripe.com/14A9AM8Hn6DfbrgdUU9EI03",
   },
   "devportfolio": {
     gradient: "linear-gradient(135deg, #0a0a1a 0%, #1e1b4b 50%, #312e81 100%)",
     title: "DevPortfolio",
-    price: "49",
-    oldPrice: "99",
+    price: "19",
+    oldPrice: "49",
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui"],
     features: ["Projekt-Showcase", "Skills Section", "Blog", "Dark Mode", "Animationen", "Kontaktformular"],
-    preview: null,
+    preview: "https://kevin-goetz-portfolio.vercel.app",
+    stripeLink: "https://buy.stripe.com/8x23co1eVf9Ldzo9EE9EI04",
   },
   "coursehub": {
     gradient: "linear-gradient(135deg, #4a1a0a 0%, #c2410c 40%, #d97706 100%)",
@@ -68,6 +74,7 @@ const TEMPLATE_DATA: Record<string, {
     tags: ["Next.js", "Tailwind CSS", "shadcn/ui", "Supabase", "Auth"],
     features: ["Mitgliederbereich", "Video-Player", "Zertifikat-System", "Shop", "Community-Forum", "Anatomie-Lexikon", "Admin Panel", "Auth System"],
     preview: null,
+    stripeLink: null,
   },
 };
 
@@ -144,12 +151,17 @@ export default function TemplateDetailPage() {
                   {t.templates.detail_demo} →
                 </a>
               )}
-              <button style={{
+              <a
+                href={template.stripeLink || "/kontakt"}
+                target={template.stripeLink ? "_blank" : undefined}
+                rel={template.stripeLink ? "noopener noreferrer" : undefined}
+                style={{
                 padding: "0.75rem 2rem", background: "#6366F1", color: "#fff", border: "none",
                 fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: 4, cursor: "pointer",
+                textDecoration: "none", display: "inline-block",
               }}>
                 {t.templates.detail_buy} →
-              </button>
+              </a>
             </div>
           </motion.div>
 
