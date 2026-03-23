@@ -17,7 +17,7 @@ const TEMPLATES = [
     oldPrice: "149",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Supabase", "3 Sprachen", "Admin-Panel", "SEO"],
     preview: "https://paphos-immobilien.vercel.app",
-    stripeLink: "https://buy.stripe.com/fZu6oA2iZe5Hbrg0449EI01",
+    stripeLink: "https://buy.stripe.com/8x214g1eVbXzcvk3gg9EI00",
   },
   {
     slug: "wellness-healing",
@@ -29,7 +29,7 @@ const TEMPLATES = [
     oldPrice: "99",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Supabase", "Shop", "Admin", "Chatbot"],
     preview: "https://braditsch-website.vercel.app",
-    stripeLink: "https://buy.stripe.com/8x214g1eVbXzcvk3gg9EI00",
+    stripeLink: "https://buy.stripe.com/8x23co1eVf9Ldzo9EE9EI04",
   },
   {
     slug: "gastro",
@@ -41,7 +41,7 @@ const TEMPLATES = [
     oldPrice: "79",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Responsive", "SEO"],
     preview: "https://restaurant-bella-vista-sable.vercel.app",
-    stripeLink: "https://buy.stripe.com/6oU8wIbTze5HgLA5oo9EI02",
+    stripeLink: "https://buy.stripe.com/14A9AM8Hn6DfbrgdUU9EI03",
   },
   {
     slug: "fitstudio",
@@ -53,7 +53,7 @@ const TEMPLATES = [
     oldPrice: "79",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Responsive", "Animationen"],
     preview: "https://fitness-studio-mauve.vercel.app",
-    stripeLink: "https://buy.stripe.com/14A9AM8Hn6DfbrgdUU9EI03",
+    stripeLink: "https://buy.stripe.com/6oU8wIbTze5HgLA5oo9EI02",
   },
   {
     slug: "devportfolio",
@@ -65,7 +65,7 @@ const TEMPLATES = [
     oldPrice: "49",
     tags: ["Next.js", "Tailwind", "shadcn/ui", "Animationen", "Dark Mode"],
     preview: "https://kevin-goetz-portfolio.vercel.app",
-    stripeLink: "https://buy.stripe.com/8x23co1eVf9Ldzo9EE9EI04",
+    stripeLink: "https://buy.stripe.com/fZu6oA2iZe5Hbrg0449EI01",
   },
   {
     slug: "coursehub",
