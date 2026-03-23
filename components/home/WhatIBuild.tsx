@@ -3,44 +3,46 @@
 import { useState } from "react";
 import { Monitor, MessageSquare, Cpu } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const SERVICES = [
-  {
-    id: "websites",
-    icon: Monitor,
-    iconColor: "#6366F1",
-    accentColor: "#6366F1",
-    title: "Website & Web App",
-    desc: "Schnell, modern, gefunden. Mit Next.js gebaut – nicht mit Baukästen.",
-    tags: ["Next.js", "SEO", "Responsive", "< 1 Woche"],
-    animation: "icon-pulse",
-    glowColor: "rgba(99,102,241,0.25)",
-  },
-  {
-    id: "ki",
-    icon: MessageSquare,
-    iconColor: "#06B6D4",
-    accentColor: "#06B6D4",
-    title: "KI-Integration",
-    desc: "Chatbots, Automatisierung, smarte Workflows. KI die für dein Business arbeitet.",
-    tags: ["Chatbot", "Automation", "Claude AI", "24/7"],
-    animation: "icon-bounce",
-    glowColor: "rgba(6,182,212,0.25)",
-  },
-  {
-    id: "context",
-    icon: Cpu,
-    iconColor: "#8B5CF6",
-    accentColor: "#8B5CF6",
-    title: "Context Engineering",
-    desc: "Die Kunst AI richtig zu instruieren. Bessere Prompts, bessere Ergebnisse.",
-    tags: ["Prompt Design", "RAG", "AI Agents", "Effizienz"],
-    animation: "cursor-blink-icon",
-    glowColor: "rgba(139,92,246,0.25)",
-  },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WhatIBuild() {
+  const { t } = useLang();
+
+  const SERVICES = [
+    {
+      id: "websites",
+      icon: Monitor,
+      iconColor: "#6366F1",
+      accentColor: "#6366F1",
+      title: t.what_i_build.svc1_title,
+      desc: t.what_i_build.svc1_desc,
+      tags: ["Next.js", "SEO", "Responsive", "< 1 Woche"],
+      animation: "icon-pulse",
+      glowColor: "rgba(99,102,241,0.25)",
+    },
+    {
+      id: "ki",
+      icon: MessageSquare,
+      iconColor: "#06B6D4",
+      accentColor: "#06B6D4",
+      title: t.what_i_build.svc2_title,
+      desc: t.what_i_build.svc2_desc,
+      tags: ["Chatbot", "Automation", "Claude AI", "24/7"],
+      animation: "icon-bounce",
+      glowColor: "rgba(6,182,212,0.25)",
+    },
+    {
+      id: "context",
+      icon: Cpu,
+      iconColor: "#8B5CF6",
+      accentColor: "#8B5CF6",
+      title: t.what_i_build.svc3_title,
+      desc: t.what_i_build.svc3_desc,
+      tags: ["Prompt Design", "RAG", "AI Agents", "Effizienz"],
+      animation: "cursor-blink-icon",
+      glowColor: "rgba(139,92,246,0.25)",
+    },
+  ];
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
@@ -89,7 +91,7 @@ export default function WhatIBuild() {
               margin: "0 0 1rem 0",
             }}
           >
-            Leistungen
+            {t.what_i_build.label}
           </p>
           <h2
             style={{
@@ -102,7 +104,7 @@ export default function WhatIBuild() {
               lineHeight: 1.15,
             }}
           >
-            Was ich{" "}
+            {t.what_i_build.headline_prefix}{" "}
             <span
               style={{
                 background: "linear-gradient(90deg, #6366F1, #06B6D4)",
@@ -111,7 +113,7 @@ export default function WhatIBuild() {
                 backgroundClip: "text",
               }}
             >
-              baue
+              {t.what_i_build.headline_accent}
             </span>
           </h2>
           <p
@@ -122,7 +124,7 @@ export default function WhatIBuild() {
               margin: "0 0 3.5rem 0",
             }}
           >
-            Drei Kernleistungen. Kein Schnickschnack.
+            {t.what_i_build.subline}
           </p>
         </ScrollReveal>
 

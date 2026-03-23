@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const TECHS = ["Next.js", "Tailwind CSS", "shadcn/ui", "Claude AI", "Hetzner Server", "Docker", "Nginx", "Supabase"];
 
 export default function TechStack() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const { t } = useLang();
 
   return (
     <section
@@ -24,7 +26,7 @@ export default function TechStack() {
             margin: "0 0 1rem 0",
           }}
         >
-          TOOLS
+          {t.techstack.label}
         </p>
         <h2
           style={{
@@ -35,7 +37,7 @@ export default function TechStack() {
             margin: "0 0 3rem 0",
           }}
         >
-          Mein Stack
+          {t.techstack.headline}
         </h2>
 
         <div
@@ -90,7 +92,7 @@ export default function TechStack() {
             margin: "2.5rem 0 0 0",
           }}
         >
-          Ich nutze nicht was trendy ist. Ich nutze was funktioniert.
+          {t.techstack.quote}
         </p>
       </div>
     </section>

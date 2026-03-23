@@ -1,15 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const MARQUEE = "20+ FEATURES · < 7 TAGE LIEFERZEIT · 100% FESTPREIS · 300€ AB PREIS · MOSBACH · CONTEXT ENGINEERING · AI-POWERED · ";
-
-const stats = [
-  { end: 20, suffix: "+", label: "Features" },
-  { end: 7, suffix: "T", prefix: "<", label: "Lieferzeit" },
-  { end: 100, suffix: "%", label: "Festpreis" },
-  { end: 300, suffix: "€", label: "Ab Preis" },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
@@ -65,6 +57,17 @@ function CountStat({ end, suffix, prefix, label }: { end: number; suffix: string
 }
 
 export default function MarqueeStats() {
+  const { t } = useLang();
+
+  const MARQUEE = t.marquee.text;
+
+  const stats = [
+    { end: 20, suffix: "+", label: t.marquee.features_label },
+    { end: 7, suffix: "T", prefix: "<", label: t.marquee.delivery_label },
+    { end: 100, suffix: "%", label: t.marquee.fixed_price_label },
+    { end: 300, suffix: "€", label: t.marquee.start_price_label },
+  ];
+
   const text = MARQUEE + MARQUEE + MARQUEE;
 
   return (

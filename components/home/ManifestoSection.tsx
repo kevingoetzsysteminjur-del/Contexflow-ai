@@ -2,11 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
-
-const TEXT =
-  "Ich baue keine Websites. Ich baue digitale Maschinen die verkaufen. Jede Zeile Code hat einen Zweck. Jedes Pixel eine Funktion. Kein Agentur-Bullshit. Keine Templates. Nur Ergebnisse.";
-
-const words = TEXT.split(" ");
+import { useLang } from "@/contexts/LanguageContext";
 
 interface WordProps {
   word: string;
@@ -28,6 +24,8 @@ function Word({ word, index, total, progress }: WordProps) {
 }
 
 export default function ManifestoSection() {
+  const { t } = useLang();
+  const words = t.manifesto.text.split(" ");
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -82,7 +80,7 @@ export default function ManifestoSection() {
             fontStyle: "italic",
           }}
         >
-          — Kevin Götz
+          {t.manifesto.author}
         </motion.span>
       </div>
     </section>

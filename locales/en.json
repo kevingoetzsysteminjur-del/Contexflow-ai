@@ -13,7 +13,12 @@
     "headline_accent": "Around the clock.",
     "subline": "Web design, AI integration & automation from Mosbach, Germany.",
     "cta_primary": "Start a project",
-    "cta_secondary": "View live demos"
+    "cta_secondary": "View live demos",
+    "we_build": "WE BUILD",
+    "digital": "DIGITAL",
+    "experiences": "EXPERIENCES",
+    "hero_subtext": "Context Engineering & AI Solutions from Mosbach",
+    "scroll": "SCROLL"
   },
   "services": {
     "label": "Services",
@@ -43,13 +48,19 @@
     "ai_cat": "AI & Automation",
     "ai_title": "AI Features Demo",
     "ai_desc": "AI chatbot, booking system, FAQ bot, lead qualification.",
-    "footnote": "* Bella Vista, IRONPEAK and Creative Portfolio are demo projects."
+    "footnote": "* Bella Vista, IRONPEAK and Creative Portfolio are demo projects.",
+    "ai_detail_desc": "AI chatbot, FAQ bot, lead qualification – live & interactive.",
+    "restaurant_detail_desc": "Elegant restaurant website with menu & reservation."
   },
   "stats": {
     "features": "Features",
     "delivery": "Delivery",
     "fixed_price": "Fixed price",
-    "satisfaction": "Satisfaction"
+    "satisfaction": "Satisfaction",
+    "features_label": "FEATURES",
+    "delivery_label": "DELIVERY",
+    "fixed_price_label": "FIXED PRICE",
+    "satisfaction_label": "SATISFACTION"
   },
   "comparison": {
     "label": "Comparison",
@@ -174,7 +185,10 @@
   },
   "urgency": {
     "text": "Only {slots} spot left this month",
-    "quality": "I deliberately only work with 3 clients at a time – for maximum quality."
+    "quality": "I deliberately only work with 3 clients at a time – for maximum quality.",
+    "slot_free": "Only {remaining} slot left",
+    "month_free": "Only {remaining} slot left this month 🔥",
+    "quality_note": "I deliberately work with only {total} clients at a time – for maximum quality."
   },
   "guarantee": {
     "title": "100% Satisfaction Guarantee",
@@ -236,7 +250,23 @@
     "success_title": "Thank you!",
     "success_text": "You will receive your personal website check within 24 hours by email.",
     "back": "Back",
-    "next": "Next"
+    "next": "Next",
+    "headline": "Free\nWebsite Check",
+    "subline": "Find out what your site is really worth. In 24 hours. Free.",
+    "benefit1": "Loading time analysis (Core Web Vitals)",
+    "benefit2": "SEO check & Google ranking potential",
+    "benefit3": "Design & conversion assessment",
+    "benefit4": "Personal feedback within 24h",
+    "card_title": "What you get",
+    "load_label": "Loading time",
+    "load_value": "< 2s target",
+    "seo_label": "SEO Score",
+    "seo_value": "87 / 100",
+    "design_label": "Design",
+    "design_value": "Conversion-optimized",
+    "mobile_label": "Mobile",
+    "mobile_value": "Responsive",
+    "disclaimer": "Example analysis — your values may differ."
   },
   "contact": {
     "label": "Contact",
@@ -731,5 +761,38 @@
     "footerBy": "Developed by",
     "footerTag": "AI-powered web solutions for your business",
     "footerCta": "Request your own AI features"
+  },
+  "manifesto": {
+    "text": "I don't build websites. I build digital machines that sell. Every line of code has a purpose. Every pixel a function. No agency BS. No templates. Just results.",
+    "author": "— Kevin Götz"
+  },
+  "techstack": {
+    "label": "TOOLS",
+    "headline": "My Stack",
+    "quote": "I don't use what's trendy. I use what works."
+  },
+  "social_proof": {
+    "quote": "The best projects happen when someone just starts.",
+    "trust": "8 businesses already trust Contexflow. When will yours?",
+    "cta": "Request a project"
+  },
+  "what_i_build": {
+    "label": "Services",
+    "headline_prefix": "What I",
+    "headline_accent": "build",
+    "subline": "Three core services. No frills.",
+    "svc1_title": "Website & Web App",
+    "svc1_desc": "Fast, modern, findable. Built with Next.js – not with website builders.",
+    "svc2_title": "AI Integration",
+    "svc2_desc": "Chatbots, automation, smart workflows. AI that works for your business.",
+    "svc3_title": "Context Engineering",
+    "svc3_desc": "The art of instructing AI correctly. Better prompts, better results."
+  },
+  "marquee": {
+    "text": "20+ FEATURES · < 7 DAYS DELIVERY · 100% FIXED PRICE · FROM €300 · MOSBACH · CONTEXT ENGINEERING · AI-POWERED · ",
+    "features_label": "Features",
+    "delivery_label": "Delivery",
+    "fixed_price_label": "Fixed Price",
+    "start_price_label": "From Price"
   }
 }

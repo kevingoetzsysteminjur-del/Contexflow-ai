@@ -2,10 +2,12 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function SocialProof() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useLang();
 
   return (
     <section
@@ -36,7 +38,7 @@ export default function SocialProof() {
             margin: "0 0 1.5rem 0",
           }}
         >
-          &ldquo;Die besten Projekte entstehen wenn jemand einfach anfängt.&rdquo;
+          &ldquo;{t.social_proof.quote}&rdquo;
         </p>
 
         <p
@@ -47,7 +49,7 @@ export default function SocialProof() {
             margin: "0 0 2rem 0",
           }}
         >
-          8 Unternehmen vertrauen bereits auf Contexflow. Wann deins?
+          {t.social_proof.trust}
         </p>
 
         <Link
@@ -70,7 +72,7 @@ export default function SocialProof() {
             if (arrow) arrow.style.transform = "translateX(0)";
           }}
         >
-          Projekt anfragen{" "}
+          {t.social_proof.cta}{" "}
           <span
             className="arrow"
             style={{

@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { UtensilsCrossed, Dumbbell, Palette, Bot } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function DemoSection() {
+  const { t } = useLang();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
@@ -64,7 +66,7 @@ export default function DemoSection() {
               margin: "0 0 1rem 0",
             }}
           >
-            Live Demos
+            {t.demos.label}
           </p>
           <h2
             style={{
@@ -77,18 +79,7 @@ export default function DemoSection() {
               lineHeight: 1.15,
             }}
           >
-            So könnte{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg, #06B6D4, #8B5CF6)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              deine Website
-            </span>{" "}
-            aussehen
+            {t.demos.title}
           </h2>
           <p
             style={{
@@ -98,7 +89,7 @@ export default function DemoSection() {
               margin: "0 0 3rem 0",
             }}
           >
-            Echte Demos. Klick rein und überzeug dich selbst.
+            {t.demos.subtitle}
           </p>
         </ScrollReveal>
 
@@ -165,7 +156,7 @@ export default function DemoSection() {
                   marginBottom: "0.6rem",
                 }}
               >
-                KI & Automation
+                {t.demos.ai_cat}
               </span>
               <h3
                 style={{
@@ -176,7 +167,7 @@ export default function DemoSection() {
                   letterSpacing: "0.01em",
                 }}
               >
-                AI Features Demo
+                {t.demos.ai_title}
               </h3>
               <p
                 style={{
@@ -186,7 +177,7 @@ export default function DemoSection() {
                   margin: "0 0 0.75rem 0",
                 }}
               >
-                KI-Chatbot, FAQ-Bot, Lead-Qualifizierung – live & interaktiv.
+                {t.demos.ai_detail_desc}
               </p>
               <span
                 style={{
@@ -196,7 +187,7 @@ export default function DemoSection() {
                   fontWeight: 500,
                 }}
               >
-                Live Demo ansehen →
+                {t.demos.view}
               </span>
             </div>
           </a>
@@ -258,7 +249,7 @@ export default function DemoSection() {
                   marginBottom: "0.5rem",
                 }}
               >
-                Gastronomie
+                {t.demos.restaurant_cat}
               </span>
               <h3
                 style={{
@@ -268,7 +259,7 @@ export default function DemoSection() {
                   margin: "0 0 0.25rem 0",
                 }}
               >
-                Bella Vista – Restaurant & Café
+                {t.demos.restaurant_title}
               </h3>
               <p
                 style={{
@@ -278,7 +269,7 @@ export default function DemoSection() {
                   margin: "0 0 0.5rem 0",
                 }}
               >
-                Elegante Gastronomie-Website mit Speisekarte & Reservierung.
+                {t.demos.restaurant_detail_desc}
               </p>
               <span
                 style={{
@@ -287,7 +278,7 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Live Demo ansehen →
+                {t.demos.view}
               </span>
             </div>
           </a>
@@ -349,7 +340,7 @@ export default function DemoSection() {
                   marginBottom: "0.5rem",
                 }}
               >
-                Fitness
+                {t.demos.fitness_cat}
               </span>
               <h3
                 style={{
@@ -359,7 +350,7 @@ export default function DemoSection() {
                   margin: "0 0 0.2rem 0",
                 }}
               >
-                IRONPEAK – Fitness Studio
+                {t.demos.fitness_title}
               </h3>
               <span
                 style={{
@@ -368,7 +359,7 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Live Demo ansehen →
+                {t.demos.view}
               </span>
             </div>
           </a>
@@ -430,7 +421,7 @@ export default function DemoSection() {
                   marginBottom: "0.5rem",
                 }}
               >
-                Portfolio
+                {t.demos.portfolio_cat}
               </span>
               <h3
                 style={{
@@ -440,7 +431,7 @@ export default function DemoSection() {
                   margin: "0 0 0.2rem 0",
                 }}
               >
-                Creative Portfolio
+                {t.demos.portfolio_title}
               </h3>
               <span
                 style={{
@@ -449,7 +440,7 @@ export default function DemoSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Live Demo ansehen →
+                {t.demos.view}
               </span>
             </div>
           </a>
@@ -467,7 +458,7 @@ export default function DemoSection() {
               lineHeight: 1.6,
             }}
           >
-            * Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte ohne echten Kunden-Bezug.
+            {t.demos.footnote}
           </p>
         </ScrollReveal>
       </div>
