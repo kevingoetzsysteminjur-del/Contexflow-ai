@@ -9,6 +9,7 @@ import WhatIBuild from "@/components/home/WhatIBuild";
 import RealProjectsSection from "@/components/home/RealProjectsSection";
 import CaseStudySection from "@/components/home/CaseStudySection";
 import DemoSection from "@/components/home/DemoSection";
+import TemplatePreviewSection from "@/components/home/TemplatePreviewSection";
 import TechStack from "@/components/home/TechStack";
 import SectionCTA from "@/components/home/SectionCTA";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -34,6 +35,7 @@ export default function Home() {
       <RealProjectsSection />
       <CaseStudySection />
       <DemoSection />
+      <TemplatePreviewSection />
       <TechStack />
       <ProcessSection />
       <ROIRechner />

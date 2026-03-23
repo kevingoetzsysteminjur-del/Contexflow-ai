@@ -17,6 +17,7 @@ export default function Navbar() {
   const NAV_LINKS = [
     { href: "/", label: t.nav.home },
     { href: "/leistungen", label: t.nav.services },
+    { href: "/templates", label: t.nav.templates },
     { href: "/ueber-uns", label: t.nav.about },
     { href: "/kontakt", label: t.nav.contact },
   ];
