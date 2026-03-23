@@ -56,6 +56,12 @@ const ROW_DEFS: RowData[] = [
     contexflow: { textKey: "values.personal", icon: "good" },
   },
   {
+    labelKey: "rows.hosting",
+    baukasten: { textKey: "values.shared_hosting", icon: "bad" },
+    agentur: { textKey: "values.third_party", icon: "warn" },
+    contexflow: { textKey: "values.dedicated_server", icon: "good" },
+  },
+  {
     labelKey: "rows.code",
     baukasten: { textKey: "values.code_no", icon: "bad" },
     agentur: { textKey: "values.code_mostly", icon: "warn" },

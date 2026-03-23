@@ -82,6 +82,7 @@
       "seo": "SEO",
       "ki": "KI-Features",
       "support": "Support",
+      "hosting": "Hosting",
       "code": "Code gehört dir"
     },
     "values": {
@@ -105,6 +106,9 @@
       "chatbot": "Chatbot",
       "expensive": "Teuer",
       "personal": "Persönlich & direkt",
+      "shared_hosting": "Shared Hosting",
+      "third_party": "Drittanbieter",
+      "dedicated_server": "Eigener Hetzner Server",
       "code_no": "Nein",
       "code_mostly": "Meistens",
       "code_yes": "Ja, 100%"
@@ -264,7 +268,7 @@
   },
   "footer": {
     "tagline": "Webdesign & KI aus Mosbach.",
-    "built": "Gebaut mit Next.js & Claude",
+    "built": "Gehostet auf Hetzner · Standort Deutschland",
     "rights": "Alle Rechte vorbehalten",
     "imprint": "Impressum",
     "privacy": "Datenschutz"
@@ -317,7 +321,7 @@
     "svc1_f2": "Blitzschnelle Ladezeiten (<2s)",
     "svc1_f3": "On-Page SEO inklusive",
     "svc1_f4": "Kontaktformular & Analytics",
-    "svc1_f5": "Deployment & Hosting Setup",
+    "svc1_f5": "Hosting auf eigenem Hetzner Server",
     "svc1_f6": "1 Monat Support bei Premium",
     "svc2_title": "KI-Integration & Chatbots",
     "svc2_desc": "Intelligente Assistenten die wirklich helfen. Trainiert auf deinen Content, angepasst an dein Business.",
@@ -463,7 +467,7 @@
     "p2_f4": "SEO-Optimierung",
     "p2_f5": "Google Analytics",
     "p2_f6": "2 Runden Korrekturen",
-    "p2_f7": "Hosting-Einrichtung",
+    "p2_f7": "Hosting auf Dedicated Server inklusive",
     "p2_cta": "Business Website anfragen",
     "p3_name": "Premium Website",
     "p3_price": "2.000 €",
@@ -475,7 +479,7 @@
     "p3_f4": "Blog / News-System",
     "p3_f5": "Erweiterte SEO",
     "p3_f6": "3 Runden Korrekturen",
-    "p3_f7": "Hosting & Domain",
+    "p3_f7": "Hosting auf eigenem Dedicated Server inklusive",
     "p3_f8": "1 Monat Support",
     "p3_cta": "Premium Website anfragen",
     "p4_name": "AI & Enterprise",
@@ -490,13 +494,13 @@
     "p4_f6": "Individuelles Angebot",
     "p4_cta": "Angebot anfragen",
     "faq_q1": "Gibt es monatliche Kosten?",
-    "faq_a1": "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10–15 €/Monat) kommen dazu, die du selbst abschließt.",
+    "faq_a1": "Nein. Du zahlst einmalig – fertig. Das Hosting auf unserem eigenen Hetzner Dedicated Server ist bei Premium-Paketen inklusive. Lediglich die Domain (ca. 1–2 €/Monat) kommt dazu.",
     "faq_q2": "Wie lange dauert ein Projekt?",
     "faq_a2": "Eine Landingpage ist in 1–2 Wochen fertig. Business Websites dauern 2–4 Wochen, je nach Komplexität.",
     "faq_q3": "Was wenn ich nicht zufrieden bin?",
     "faq_a3": "Wir besprechen alles vorab genau. Du hast immer Feedback-Runden inklusive. Am Ende stehst du zu 100% dahinter.",
     "faq_q4": "Kümmert ihr euch auch um Hosting?",
-    "faq_a4": "Auf Wunsch ja. Ich empfehle Vercel (für Next.js) oder Strato – und richte alles ein wenn gewünscht."
+    "faq_a4": "Ja! Alle Websites laufen auf unserem eigenen Hetzner Dedicated Server in Deutschland – mit Docker, Nginx und SSL. Maximale Performance, volle Kontrolle, keine Abhängigkeit von Drittanbietern."
   },
   "addons": {
     "label": "ZUSATZOPTIONEN",

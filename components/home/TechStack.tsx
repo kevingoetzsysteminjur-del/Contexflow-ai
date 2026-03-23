@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const TECHS = ["Next.js", "Tailwind CSS", "shadcn/ui", "Claude AI", "Vercel", "Supabase"];
+const TECHS = ["Next.js", "Tailwind CSS", "shadcn/ui", "Claude AI", "Hetzner Server", "Docker", "Nginx", "Supabase"];
 
 export default function TechStack() {
   const [hovered, setHovered] = useState<number | null>(null);

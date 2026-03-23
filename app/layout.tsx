@@ -11,8 +11,6 @@ import LiveVisitorBadge from "@/components/LiveVisitorBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import MobileStickyBar from "@/components/MobileStickyBar";
 import ClientProviders from "@/components/ClientProviders";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,8 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ExitIntentPopup />
           <MobileStickyBar />
         </ClientProviders>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
