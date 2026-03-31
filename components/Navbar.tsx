@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Sun, Moon, LayoutDashboard, User, LogOut } from "lucide-react";
+import { Sun, Moon, LayoutDashboard, User, LogOut, Shield } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLang } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -18,7 +18,7 @@ export default function Navbar() {
   const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const { lang, t, setLang } = useLang();
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, role } = useAuth();
 
   const userInitials = user?.name
     ? user.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()
@@ -215,8 +215,9 @@ export default function Navbar() {
                       }}
                     >
                       {[
-                        { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-                        { href: "/dashboard/profil", label: "Profil", icon: User },
+                        { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard, color: undefined as string | undefined },
+                        { href: "/dashboard/profil", label: "Profil", icon: User, color: undefined as string | undefined },
+                        ...(role === "admin" ? [{ href: "/admin", label: "Admin Panel", icon: Shield, color: "#F59E0B" as string | undefined }] : []),
                       ].map((item) => {
                         const Icon = item.icon;
                         return (
@@ -244,8 +245,8 @@ export default function Navbar() {
                               (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
                             }}
                           >
-                            <Icon size={14} />
-                            {item.label}
+                            <Icon size={14} color={item.color} />
+                            <span style={{ color: item.color }}>{item.label}</span>
                           </Link>
                         );
                       })}

@@ -12,5 +12,6 @@ export function useAuth() {
     user: session?.user ?? null,
     isAuthenticated: status === "authenticated",
     isLoading: status === "loading",
+    role: (session?.user as { role?: string })?.role ?? null,
   };
 }
