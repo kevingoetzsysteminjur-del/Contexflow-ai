@@ -11,6 +11,7 @@ export async function GET() {
   const projects = await prisma.project.findMany({
     where: { userId: session.user.id },
     orderBy: { createdAt: "desc" },
+    include: { milestones: { select: { status: true }, orderBy: { order: "asc" } } },
   });
 
   return NextResponse.json({ projects });

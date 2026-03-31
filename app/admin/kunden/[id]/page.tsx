@@ -28,7 +28,7 @@ export default function KundeDetailPage({ params }: { params: Promise<{ id: stri
   const [projLoading, setProjLoading] = useState(false);
 
   const [showInvForm, setShowInvForm] = useState(false);
-  const [invForm, setInvForm] = useState({ number: "", amount: "", status: "pending", dueDate: "" });
+  const [invForm, setInvForm] = useState({ number: "", amount: "", status: "pending", dueDate: "", lexofficeId: "" });
   const [invLoading, setInvLoading] = useState(false);
 
   const [editingProj, setEditingProj] = useState<string | null>(null);
@@ -51,8 +51,8 @@ export default function KundeDetailPage({ params }: { params: Promise<{ id: stri
 
   async function createInvoice() {
     setInvLoading(true);
-    await fetch("/api/admin/rechnungen", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...invForm, userId: id, amount: parseFloat(invForm.amount) }) });
-    setInvLoading(false); setShowInvForm(false); setInvForm({ number: "", amount: "", status: "pending", dueDate: "" }); load();
+    await fetch("/api/admin/rechnungen", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...invForm, userId: id, amount: parseFloat(invForm.amount), lexofficeId: invForm.lexofficeId || undefined }) });
+    setInvLoading(false); setShowInvForm(false); setInvForm({ number: "", amount: "", status: "pending", dueDate: "", lexofficeId: "" }); load();
   }
 
   async function updateProject(projId: string) {
@@ -168,6 +168,9 @@ export default function KundeDetailPage({ params }: { params: Promise<{ id: stri
                 <option value="overdue">Überfällig</option>
               </select>
               <input type="date" value={invForm.dueDate} onChange={(e) => setInvForm({ ...invForm, dueDate: e.target.value })} style={{ ...inputStyle(), flex: 1 }} />
+            </div>
+            <input placeholder="Lexoffice ID (optional)" value={invForm.lexofficeId} onChange={(e) => setInvForm({ ...invForm, lexofficeId: e.target.value })} style={inputStyle()} />
+            <div style={{ display: "flex", gap: "0.75rem" }}>
             </div>
             <button onClick={createInvoice} disabled={invLoading || !invForm.number || !invForm.amount || !invForm.dueDate} style={{ ...btnStyle, background: "#F59E0B", color: "#000", display: "flex", alignItems: "center", gap: "0.5rem" }}>
               {invLoading && <Loader2 size={14} style={{ animation: "spin 1s linear infinite" }} />} Erstellen

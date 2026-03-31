@@ -22,13 +22,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Nicht autorisiert." }, { status: 403 });
   }
 
-  const { userId, number, amount, status, dueDate } = await req.json();
+  const { userId, number, amount, status, dueDate, lexofficeId } = await req.json();
   if (!userId || !number || !amount || !dueDate) {
     return NextResponse.json({ error: "Alle Felder sind erforderlich." }, { status: 400 });
   }
 
   const invoice = await prisma.invoice.create({
-    data: { userId, number, amount, status: status ?? "pending", dueDate: new Date(dueDate) },
+    data: { userId, number, amount, status: status ?? "pending", dueDate: new Date(dueDate), lexofficeId: lexofficeId ?? null },
   });
 
   return NextResponse.json({ invoice }, { status: 201 });

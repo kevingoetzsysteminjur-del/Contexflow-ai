@@ -23,27 +23,42 @@ model User {
 }
 
 model Project {
-  id          String   @id @default(cuid())
+  id          String             @id @default(cuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   title       String
   description String?
-  status      String   @default("in_progress")
-  progress    Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  status      String             @default("in_progress")
+  progress    Int                @default(0)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  milestones  ProjectMilestone[]
+}
+
+model ProjectMilestone {
+  id          String    @id @default(cuid())
+  projectId   String
+  project     Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  status      String    @default("planned")
+  completedAt DateTime?
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
 }
 
 model Invoice {
-  id        String   @id @default(cuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  number    String
-  amount    Decimal  @db.Decimal(10, 2)
-  status    String   @default("pending")
-  dueDate   DateTime
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  number      String
+  amount      Decimal  @db.Decimal(10, 2)
+  status      String   @default("pending")
+  dueDate     DateTime
+  lexofficeId String?
+  pdfUrl      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Conversation {

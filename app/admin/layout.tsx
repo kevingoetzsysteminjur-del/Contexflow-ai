@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutDashboard, Users, FolderKanban, Receipt, MessageSquare, LogOut, Menu, Shield } from "lucide-react";
+import { LayoutDashboard, Users, FolderKanban, Receipt, MessageSquare, LogOut, Menu, Shield, FileSpreadsheet } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { ReactNode } from "react";
 
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: "/admin/projekte", label: "Projekte", icon: FolderKanban },
   { href: "/admin/rechnungen", label: "Rechnungen", icon: Receipt },
   { href: "/admin/chat", label: "Chats", icon: MessageSquare },
+  { href: "/admin/lexoffice", label: "Lexoffice", icon: FileSpreadsheet },
 ];
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
