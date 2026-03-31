@@ -2,6 +2,7 @@
   "nav": {
     "home": "Start",
     "services": "Leistungen",
+    "templates": "Templates",
     "pricing": "Preise",
     "about": "Über mich",
     "blog": "Blog",
@@ -13,7 +14,12 @@
     "headline_accent": "Rund um die Uhr.",
     "subline": "Webdesign, KI-Integration & Automatisierung aus Mosbach.",
     "cta_primary": "Projekt anfragen",
-    "cta_secondary": "Live Demo ansehen"
+    "cta_secondary": "Live Demo ansehen",
+    "we_build": "WE BUILD",
+    "digital": "DIGITAL",
+    "experiences": "EXPERIENCES",
+    "hero_subtext": "Context Engineering & AI Solutions aus Mosbach",
+    "scroll": "SCROLL"
   },
   "services": {
     "label": "Leistungen",
@@ -43,13 +49,19 @@
     "ai_cat": "KI & Automation",
     "ai_title": "AI Features Demo",
     "ai_desc": "KI-Chatbot, Terminbuchung, FAQ-Bot, Lead-Qualifizierung.",
-    "footnote": "* Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte."
+    "footnote": "* Bella Vista, IRONPEAK und Creative Portfolio sind Demo-Projekte.",
+    "ai_detail_desc": "KI-Chatbot, FAQ-Bot, Lead-Qualifizierung – live & interaktiv.",
+    "restaurant_detail_desc": "Elegante Gastronomie-Website mit Speisekarte & Reservierung."
   },
   "stats": {
     "features": "Features",
     "delivery": "Lieferzeit",
     "fixed_price": "Festpreis",
-    "satisfaction": "Zufriedenheit"
+    "satisfaction": "Zufriedenheit",
+    "features_label": "FEATURES",
+    "delivery_label": "LIEFERZEIT",
+    "fixed_price_label": "FESTPREIS",
+    "satisfaction_label": "ZUFRIEDENHEIT"
   },
   "comparison": {
     "label": "Vergleich",
@@ -82,12 +94,13 @@
       "seo": "SEO",
       "ki": "KI-Features",
       "support": "Support",
+      "hosting": "Hosting",
       "code": "Code gehört dir"
     },
     "values": {
       "baukasten_price": "Ab 10€/Monat",
       "agentur_price": "5.000–20.000€",
-      "cf_price": "500–2.000€ Festpreis",
+      "cf_price": "1.000–3.500€ Festpreis",
       "baukasten_delivery": "DIY",
       "agentur_delivery": "6–12 Wochen",
       "cf_delivery": "Unter 7 Tage",
@@ -105,6 +118,9 @@
       "chatbot": "Chatbot",
       "expensive": "Teuer",
       "personal": "Persönlich & direkt",
+      "shared_hosting": "Shared Hosting",
+      "third_party": "Drittanbieter",
+      "dedicated_server": "Eigener Hetzner Server",
       "code_no": "Nein",
       "code_mostly": "Meistens",
       "code_yes": "Ja, 100%"
@@ -121,19 +137,19 @@
     "recommended": "Empfohlen",
     "all_details": "Alle Details →",
     "tier1_name": "Landingpage",
-    "tier1_price": "500 €",
+    "tier1_price": "1.000 €",
     "tier1_tag1": "1 Seite",
     "tier1_tag2": "Kontaktformular",
     "tier1_tag3": "SEO",
     "tier1_tag4": "~1 Woche",
     "tier2_name": "Business Website",
-    "tier2_price": "1.000 €",
+    "tier2_price": "2.000 €",
     "tier2_tag1": "Bis 5 Seiten",
     "tier2_tag2": "Professionelles Design",
     "tier2_tag3": "Analytics",
     "tier2_tag4": "2–3 Wochen",
     "tier3_name": "Premium Website",
-    "tier3_price": "2.000 €",
+    "tier3_price": "3.500 €",
     "tier3_tag1": "Unbegrenzte Seiten",
     "tier3_tag2": "Animationen",
     "tier3_tag3": "Blog",
@@ -170,7 +186,10 @@
   },
   "urgency": {
     "text": "Diesen Monat nur noch {slots} Platz frei",
-    "quality": "Ich arbeite bewusst nur mit 3 Kunden gleichzeitig – für maximale Qualität."
+    "quality": "Ich arbeite bewusst nur mit 3 Kunden gleichzeitig – für maximale Qualität.",
+    "slot_free": "Noch {remaining} Platz frei",
+    "month_free": "Diesen Monat nur noch {remaining} Platz frei 🔥",
+    "quality_note": "Ich arbeite bewusst nur mit {total} Kunden gleichzeitig – für maximale Qualität."
   },
   "guarantee": {
     "title": "100% Zufriedenheitsgarantie",
@@ -232,7 +251,23 @@
     "success_title": "Danke!",
     "success_text": "Du bekommst deinen persönlichen Website-Check innerhalb von 24 Stunden per E-Mail.",
     "back": "Zurück",
-    "next": "Weiter"
+    "next": "Weiter",
+    "headline": "Kostenloser\nWebsite-Check",
+    "subline": "Finde heraus was deine Seite wirklich taugt. In 24 Stunden. Kostenlos.",
+    "benefit1": "Ladezeit-Analyse (Core Web Vitals)",
+    "benefit2": "SEO-Check & Google-Ranking-Potenzial",
+    "benefit3": "Design & Conversion-Bewertung",
+    "benefit4": "Persönliches Feedback innerhalb von 24h",
+    "card_title": "Was du bekommst",
+    "load_label": "Ladezeit",
+    "load_value": "< 2s Ziel",
+    "seo_label": "SEO Score",
+    "seo_value": "87 / 100",
+    "design_label": "Design",
+    "design_value": "Conversion-optimiert",
+    "mobile_label": "Mobile",
+    "mobile_value": "Responsive",
+    "disclaimer": "Beispiel-Analyse — deine Werte können abweichen."
   },
   "contact": {
     "label": "Kontakt",
@@ -263,17 +298,17 @@
     "go": "GO"
   },
   "footer": {
-    "tagline": "Webdesign & KI aus Mosbach.",
-    "built": "Gebaut mit Next.js & Claude",
+    "tagline": "Webdesign & KI aus Deutschland & Zypern.",
+    "built": "Gehostet auf Hetzner · Standort Deutschland",
     "rights": "Alle Rechte vorbehalten",
     "imprint": "Impressum",
     "privacy": "Datenschutz"
   },
   "chatbot": {
     "greeting": "Hey! 👋 Ich bin CF Bot. Wie kann ich dir helfen?\n\n- 💰 Was kostet eine Website?\n- ⏱ Wie lange dauert es?\n- 📍 Wo seid ihr?\n- 🧠 Was ist Context Engineering?",
-    "a_price": "Eine Website bei Contexflow AI startet ab **500€** für eine Landingpage. Business-Website ab **1.000€**, Premium ab **2.000€**. Alles einmalig – keine monatlichen Gebühren. 💡",
+    "a_price": "Eine Website bei Contexflow AI startet ab **1.000€** für eine Landingpage. Business-Website ab **2.000€**, Premium ab **3.500€**. Alles einmalig – keine monatlichen Gebühren. 💡",
     "a_time": "Die meisten Projekte sind in **1–2 Wochen** fertig. Manchmal auch schneller. ⚡",
-    "a_location": "Wir sind in **Mosbach** im Neckar-Odenwald-Kreis – arbeiten aber remote für Kunden in ganz Deutschland. 📍",
+    "a_location": "Wir arbeiten **remote aus Deutschland und Zypern** – für Kunden in ganz Deutschland und international. 📍",
     "a_context": "**Context Engineering** bedeutet, AI-Systeme mit dem richtigen Kontext zu füttern für präzise, auf dein Business zugeschnittene Ergebnisse. 🧠",
     "a_contact": "Am schnellsten per E-Mail: **contexflow.ai@gmx.net** – oder über das [Kontaktformular](/kontakt). 📬",
     "a_ai": "Wir integrieren **Künstliche Intelligenz** direkt in dein Unternehmen – Chatbots, automatisierte Workflows, smarte Assistenten. 🤖",
@@ -312,12 +347,12 @@
     "cta_btn": "Kostenloses Erstgespräch",
     "svc1_title": "Website & Web App",
     "svc1_desc": "Schnell, modern, konversionsorientiert. Mit Next.js gebaut – nicht mit Baukästen oder WordPress.",
-    "svc1_price": "Ab 500€",
+    "svc1_price": "Ab 1.000€",
     "svc1_f1": "Responsive Design (Mobile-first)",
     "svc1_f2": "Blitzschnelle Ladezeiten (<2s)",
     "svc1_f3": "On-Page SEO inklusive",
     "svc1_f4": "Kontaktformular & Analytics",
-    "svc1_f5": "Deployment & Hosting Setup",
+    "svc1_f5": "Hosting auf eigenem Hetzner Server",
     "svc1_f6": "1 Monat Support bei Premium",
     "svc2_title": "KI-Integration & Chatbots",
     "svc2_desc": "Intelligente Assistenten die wirklich helfen. Trainiert auf deinen Content, angepasst an dein Business.",
@@ -424,7 +459,7 @@
     "error_msg": "Etwas ist schiefgelaufen. Bitte schreib direkt an contexflow.ai@gmx.net.",
     "direct_title": "Direktkontakt",
     "response_label": "Antwort innerhalb von 24 Stunden",
-    "location_label": "Mosbach, Neckar-Odenwald-Kreis",
+    "location_label": "Deutschland & Zypern",
     "whatsapp_btn": "Per WhatsApp schreiben",
     "for_whom_label": "Für wen?",
     "tags": ["Restaurants", "Immobilien", "Ärzte", "Handwerker", "Fitness", "Coaching", "Einzelhandel", "Dienstleister"]
@@ -443,7 +478,7 @@
     "cta_btn": "JETZT BERATEN LASSEN →",
     "all_fixed": "Alle Preise sind Festpreise — kein Stundensatz. Kein Abo. Kein Kleingedrucktes.",
     "p1_name": "Landingpage",
-    "p1_price": "500 €",
+    "p1_price": "1.000 €",
     "p1_unit": "einmalig",
     "p1_desc": "Perfekt für Einzelunternehmer, die schnell online sein wollen.",
     "p1_f1": "1 Seite (Landingpage)",
@@ -454,7 +489,7 @@
     "p1_f6": "1 Runde Korrekturen",
     "p1_cta": "Landingpage anfragen",
     "p2_name": "Business Website",
-    "p2_price": "1.000 €",
+    "p2_price": "2.000 €",
     "p2_unit": "einmalig",
     "p2_desc": "Die meistgebuchte Lösung für lokale Unternehmen.",
     "p2_f1": "Bis zu 5 Seiten",
@@ -463,10 +498,10 @@
     "p2_f4": "SEO-Optimierung",
     "p2_f5": "Google Analytics",
     "p2_f6": "2 Runden Korrekturen",
-    "p2_f7": "Hosting-Einrichtung",
+    "p2_f7": "Hosting auf Dedicated Server inklusive",
     "p2_cta": "Business Website anfragen",
     "p3_name": "Premium Website",
-    "p3_price": "2.000 €",
+    "p3_price": "3.500 €",
     "p3_unit": "einmalig",
     "p3_desc": "Für Unternehmen, die einen starken digitalen Auftritt brauchen.",
     "p3_f1": "Unbegrenzte Seiten",
@@ -475,7 +510,7 @@
     "p3_f4": "Blog / News-System",
     "p3_f5": "Erweiterte SEO",
     "p3_f6": "3 Runden Korrekturen",
-    "p3_f7": "Hosting & Domain",
+    "p3_f7": "Hosting auf eigenem Dedicated Server inklusive",
     "p3_f8": "1 Monat Support",
     "p3_cta": "Premium Website anfragen",
     "p4_name": "AI & Enterprise",
@@ -490,13 +525,13 @@
     "p4_f6": "Individuelles Angebot",
     "p4_cta": "Angebot anfragen",
     "faq_q1": "Gibt es monatliche Kosten?",
-    "faq_a1": "Nein. Du zahlst einmalig – fertig. Lediglich Hosting & Domain (ca. 10–15 €/Monat) kommen dazu, die du selbst abschließt.",
+    "faq_a1": "Nein. Du zahlst einmalig – fertig. Das Hosting auf unserem eigenen Hetzner Dedicated Server ist bei Premium-Paketen inklusive. Lediglich die Domain (ca. 1–2 €/Monat) kommt dazu.",
     "faq_q2": "Wie lange dauert ein Projekt?",
     "faq_a2": "Eine Landingpage ist in 1–2 Wochen fertig. Business Websites dauern 2–4 Wochen, je nach Komplexität.",
     "faq_q3": "Was wenn ich nicht zufrieden bin?",
     "faq_a3": "Wir besprechen alles vorab genau. Du hast immer Feedback-Runden inklusive. Am Ende stehst du zu 100% dahinter.",
     "faq_q4": "Kümmert ihr euch auch um Hosting?",
-    "faq_a4": "Auf Wunsch ja. Ich empfehle Vercel (für Next.js) oder Strato – und richte alles ein wenn gewünscht."
+    "faq_a4": "Ja! Alle Websites laufen auf unserem eigenen Hetzner Dedicated Server in Deutschland – mit Docker, Nginx und SSL. Maximale Performance, volle Kontrolle, keine Abhängigkeit von Drittanbietern."
   },
   "addons": {
     "label": "ZUSATZOPTIONEN",
@@ -523,18 +558,69 @@
     "label": "Blog",
     "headline": "Artikel & Guides",
     "subline": "Ehrliche Einblicke zu Webdesign, KI und was lokale Unternehmen wirklich brauchen.",
-    "post1_title": "Was kostet eine Website 2026?",
-    "post1_desc": "Ehrliche Preise statt Agentur-Blabla. Was wirklich hinter den Zahlen steckt.",
+    "post1_title": "Warum deine Website auf einem eigenen Server laufen sollte",
+    "post1_desc": "Shared Hosting vs. Dedicated Server – warum eigene Infrastruktur den Unterschied macht.",
     "post1_date": "März 2026",
-    "post2_title": "Warum Next.js besser ist als WordPress",
-    "post2_desc": "Warum ich kein einziges WordPress-Projekt mehr annehme – und was ich stattdessen baue.",
+    "post2_title": "Was ist Context Engineering?",
+    "post2_desc": "Die Kunst, KI-Systemen den richtigen Kontext zu geben. Und warum das für dein Business entscheidend ist.",
     "post2_date": "März 2026",
-    "post3_title": "KI-Chatbot für deine Website",
-    "post3_desc": "Brauchst du wirklich einen KI-Chatbot? Eine ehrliche Einschätzung.",
+    "post3_title": "5 Fehler die jede Firmen-Website macht",
+    "post3_desc": "Von langsamen Ladezeiten bis fehlender SEO – und wie du es besser machst.",
     "post3_date": "März 2026",
     "post4_title": "Webdesign Mosbach – Warum lokal besser ist",
     "post4_desc": "Warum lokale Unternehmen einen lokalen Entwickler brauchen.",
     "post4_date": "März 2026"
+  },
+  "blog_preview": {
+    "headline": "Aus dem Blog",
+    "all": "Alle Artikel"
+  },
+  "templates": {
+    "label": "PREMIUM TEMPLATES",
+    "headline": "Next.js Templates. Production-Ready.",
+    "subline": "Professionelle Website-Templates gebaut mit Next.js, Tailwind CSS und shadcn/ui. Sofort einsatzbereit. Code gehört dir.",
+    "preview_btn": "Vorschau",
+    "buy_btn": "Kaufen",
+    "waitlist_btn": "Warteliste",
+    "launch_offer": "Launch-Angebot",
+    "trust_label": "WARUM UNSERE TEMPLATES",
+    "trust_headline": "Warum unsere Templates?",
+    "trust1_title": "Production-Ready",
+    "trust1_desc": "Kein Prototyp. Jedes Template läuft bereits live bei echten Kunden.",
+    "trust2_title": "Keine Abhängigkeit",
+    "trust2_desc": "Kein Abo, kein Vendor Lock-in. Der Code gehört dir.",
+    "trust3_title": "Moderner Stack",
+    "trust3_desc": "Next.js, Tailwind, shadcn/ui – der Stack den Top-Startups nutzen.",
+    "trust4_title": "Eigener Server",
+    "trust4_desc": "Deploy auf Vercel, Hetzner oder wo du willst.",
+    "cta_headline": "Du brauchst was Individuelles?",
+    "cta_text": "Unsere Templates sind dir nicht genug? Wir bauen dir eine maßgeschneiderte Lösung.",
+    "cta_btn": "Projekt anfragen",
+    "detail_features": "Features",
+    "detail_stack": "Tech Stack",
+    "detail_demo": "Live Demo ansehen",
+    "detail_buy": "Jetzt kaufen",
+    "detail_faq_label": "FAQ",
+    "detail_faq_headline": "Häufige Fragen",
+    "faq_q1": "Was bekomme ich?",
+    "faq_a1": "Du bekommst den kompletten Source Code als GitHub Repository. Alles gehört dir.",
+    "faq_q2": "Kann ich den Code ändern?",
+    "faq_a2": "Ja, der Code ist 100% anpassbar. Du kannst alles ändern.",
+    "faq_q3": "Ist Support dabei?",
+    "faq_a3": "Du bekommst eine Installationsanleitung. Bei Fragen: Support per Email.",
+    "faq_q4": "Brauche ich Programmierkenntnisse?",
+    "faq_a4": "Grundlegende Terminal-Kenntnisse helfen. Die Anleitung führt dich aber Schritt für Schritt.",
+    "realestate_pro_desc": "Luxury Immobilien-Website mit Property-Listings, Filter & Suche, Finanzierungsrechner, Stadtteil-Map, Blog, Admin-Panel. Dreisprachig.",
+    "wellness_healing_desc": "Premium Wellness-Website mit Audio-Shop, Veranstaltungen, Galerie, KI-Chatbot und CMS. Dreisprachig DE/EN.",
+    "gastro_desc": "Elegante Restaurant-Website mit digitaler Speisekarte, Reservierung, Galerie und Kontakt.",
+    "fitstudio_desc": "Kraftvolle Fitness-Studio Website mit Kursplan, Trainer-Profile, Mitgliedschaften und Preistabelle.",
+    "devportfolio_desc": "Minimalistisches Developer-Portfolio mit Projekt-Showcase, Skills, Blog und Kontakt.",
+    "coursehub_desc": "Komplette Kursplattform mit Mitgliederbereich, Video-Player, Zertifikat-System, Shop, Community-Forum und Anatomie-Lexikon."
+  },
+  "templates_preview": {
+    "label": "TEMPLATES",
+    "headline": "Premium Next.js Templates",
+    "all": "Alle Templates ansehen"
   },
   "webdesign": {
     "cta_btn": "Kostenloses Erstgespräch vereinbaren →",
@@ -552,7 +638,7 @@
       "li3": "Lokale SEO für Mosbach und Umgebung",
       "li4": "Responsive Design – perfekt auf Handy und Desktop",
       "li5": "Optional: KI-Chatbot und Automatisierung",
-      "li6": "Festpreis ab 500€ – kein Stundensatz, kein Abo",
+      "li6": "Festpreis ab 1.000€ – kein Stundensatz, kein Abo",
       "h2_branches": "Branchen in Mosbach & Umgebung",
       "branches": "Ich arbeite mit Restaurants, Handwerkern, Ärzten, Immobilienmaklern, Fitnessstudios und anderen lokalen Dienstleistern in Mosbach, Neckarbischofsheim, Buchen, Sinsheim und im gesamten Neckar-Odenwald-Kreis. Egal ob du eine neue Website brauchst oder deine alte WordPress-Seite endlich ersetzen willst – ich helfe dir weiter."
     },
@@ -570,7 +656,7 @@
       "li3": "Lokale SEO für Heidelberg, Rhein-Neckar, Kurpfalz",
       "li4": "Responsive Design für Handy, Tablet und Desktop",
       "li5": "KI-Chatbots und Automatisierungen optional buchbar",
-      "li6": "Festpreis ab 500€ – transparent, ohne Überraschungen",
+      "li6": "Festpreis ab 1.000€ – transparent, ohne Überraschungen",
       "h2_who": "Für wen ich in Heidelberg baue",
       "who": "Praxen, Kanzleien, Gastronomie, Tourismus, Einzelhandel, Coaches und Dienstleister in Heidelberg, Wiesloch, Sinsheim, Leimen und der gesamten Metropolregion Rhein-Neckar. Ich bin remote erreichbar und kann persönliche Termine in Heidelberg wahrnehmen."
     },
@@ -586,7 +672,7 @@
       "li3": "Lokale SEO für Heilbronn, Neckarsulm, Bad Friedrichshall",
       "li4": "Kontaktformular, Google Analytics, SEO-Grundoptimierung inklusive",
       "li5": "Optional: KI-Chatbot für automatisierten Kundensupport",
-      "li6": "Festpreis ab 500€ – kein Stundensatz, kein Abo",
+      "li6": "Festpreis ab 1.000€ – kein Stundensatz, kein Abo",
       "h2_why": "Warum nicht einfach Wix oder Jimdo?",
       "why": "Baukästen wie Wix oder Jimdo sind günstig – aber sie ranken schlecht bei Google, laden langsam und sehen alle gleich aus. Wer in Heilbronn online gefunden werden will, braucht eine Website die technisch sauber ist. Next.js ist der Standard für professionelle Webentwicklung – und ich beherrsche ihn.",
       "h2_branches": "Branchen in Heilbronn",
@@ -606,7 +692,7 @@
       "li3": "Lokale SEO für Karlsruhe, Ettlingen, Bretten, Bruchsal",
       "li4": "KI-Chatbot und Automatisierung optional",
       "li5": "API-Anbindungen und komplexe Webanwendungen möglich",
-      "li6": "Preise ab 500€ – transparent, ohne versteckte Kosten",
+      "li6": "Preise ab 1.000€ – transparent, ohne versteckte Kosten",
       "h2_who": "Für wen ich in Karlsruhe baue",
       "who": "Startups, Tech-Unternehmen, Agenturen, Dienstleister, Handwerk, Gastronomie und alle die in Karlsruhe, Ettlingen, Pforzheim, Bruchsal und der TechnologieRegion Karlsruhe eine professionelle Website brauchen. Remote-Zusammenarbeit kein Problem."
     },
@@ -624,7 +710,7 @@
       "li3": "Lokale SEO für Mannheim, Ludwigshafen, Rhein-Neckar",
       "li4": "KI-Chatbot für automatisierten Kundensupport",
       "li5": "Kontaktformular, Google Maps, Analytics inklusive",
-      "li6": "Festpreise ab 500€ – alles inkl., keine Nachkosten",
+      "li6": "Festpreise ab 1.000€ – alles inkl., keine Nachkosten",
       "h2_branches": "Branchen in Mannheim",
       "branches": "Ich unterstütze Unternehmen aus Gastronomie, Einzelhandel, Gesundheit, Immobilien, Handwerk, Bildung und Beratung in Mannheim, Ludwigshafen, Schwetzingen, Viernheim und der gesamten Metropolregion Rhein-Neckar."
     },
@@ -642,7 +728,7 @@
       "li3": "SEO für Stuttgart, Ludwigsburg, Böblingen, Esslingen",
       "li4": "KI-Chatbot und smarte Automatisierungen optional",
       "li5": "Professionelles Design das Vertrauen und Autorität ausstrahlt",
-      "li6": "Festpreis ab 500€ – keine Überraschungen",
+      "li6": "Festpreis ab 1.000€ – keine Überraschungen",
       "h2_branches": "Branchen in Stuttgart",
       "branches": "Ich unterstütze Unternehmen aus Automobil-Zulieferung, Maschinenbau, Medizin, Gastronomie, Einzelhandel, Beratung und Dienstleistung in Stuttgart, Stuttgart-Vaihingen, Ludwigsburg, Böblingen, Esslingen am Neckar und der Metropolregion Stuttgart."
     }
@@ -715,7 +801,7 @@
     "selectIndustry": "Branche auswählen",
     "sendMessage": "Nachricht senden",
     "faq_q1": "Was kostet eine professionelle Website?",
-    "faq_a1": "Die Kosten hängen vom Umfang ab. Eine Landingpage startet ab 500 €, eine Business-Website mit mehreren Unterseiten ab 1.000 € und Premium-Projekte mit individuellen Funktionen ab 2.000 €. Alle Preise sind einmalig – keine monatlichen Agenturgebühren.",
+    "faq_a1": "Die Kosten hängen vom Umfang ab. Eine Landingpage startet ab 1.000 €, eine Business-Website mit mehreren Unterseiten ab 2.000 € und Premium-Projekte mit individuellen Funktionen ab 3.500 €. Alle Preise sind einmalig – keine monatlichen Agenturgebühren.",
     "faq_q2": "Wie lange dauert die Erstellung einer Website?",
     "faq_a2": "Eine Landingpage ist oft in 5–7 Werktagen fertig. Eine komplette Business-Website dauert typischerweise 1–3 Wochen. Der genaue Zeitrahmen hängt von der Komplexität und wie schnell Inhalte und Feedback von Ihrer Seite kommen.",
     "faq_q3": "Was ist Context Engineering und warum brauche ich das?",
@@ -727,5 +813,71 @@
     "footerBy": "Entwickelt von",
     "footerTag": "KI-gestützte Web-Lösungen für Ihr Unternehmen",
     "footerCta": "Eigene KI-Features anfragen"
+  },
+  "manifesto": {
+    "text": "Ich baue keine Websites. Ich baue digitale Maschinen die verkaufen. Jede Zeile Code hat einen Zweck. Jedes Pixel eine Funktion. Kein Agentur-Bullshit. Keine Templates. Nur Ergebnisse.",
+    "author": "— Kevin Götz"
+  },
+  "techstack": {
+    "label": "TOOLS",
+    "headline": "Mein Stack",
+    "quote": "Ich nutze nicht was trendy ist. Ich nutze was funktioniert."
+  },
+  "social_proof": {
+    "quote": "Die besten Projekte entstehen wenn jemand einfach anfängt.",
+    "trust": "8 Unternehmen vertrauen bereits auf Contexflow. Wann deins?",
+    "cta": "Projekt anfragen"
+  },
+  "real_projects": {
+    "label": "REFERENZEN",
+    "headline": "Echte Projekte. Echte Kunden.",
+    "subline": "Keine Templates. Keine Demos. Echte Websites für echte Unternehmen.",
+    "view": "Website ansehen",
+    "badge_live": "LIVE",
+    "badge_dev": "IN ENTWICKLUNG",
+    "braditsch": {
+      "cat": "Wellness & Heilpraxis",
+      "name": "Braditsch – Klang & Heilung",
+      "desc": "Premium Wellness-Website mit Audio-Shop, Veranstaltungen, Galerie und CMS. Dreisprachig."
+    },
+    "paphos": {
+      "cat": "Immobilien · Zypern",
+      "name": "Paphos Properties – Luxury Real Estate",
+      "desc": "Luxury Immobilien-Plattform mit Property-Listings, Finanzierungsrechner, Stadtteil-Map und Blog. Dreisprachig DE/EN/GR."
+    },
+    "massage": {
+      "cat": "E-Learning & Shop",
+      "name": "Massage Kompass – Ausbildungsplattform",
+      "desc": "Online-Kursplattform mit Mitgliederbereich, Zertifikat-System, Community-Forum und interaktiver Körper-Map."
+    }
+  },
+  "case_study": {
+    "label": "ERGEBNISSE",
+    "headline": "Was meine Kunden bekommen haben:",
+    "r1_title": "7 Tage",
+    "r1_desc": "Von der Idee zur fertigen Website in unter einer Woche.",
+    "r2_title": "100% Festpreis",
+    "r2_desc": "Kein Nachverhandeln. Was vereinbart ist, gilt.",
+    "r3_title": "Eigene Infrastruktur",
+    "r3_desc": "Gehostet auf dedizierten Hetzner Servern. Kein Shared Hosting."
+  },
+  "what_i_build": {
+    "label": "Leistungen",
+    "headline_prefix": "Was ich",
+    "headline_accent": "baue",
+    "subline": "Drei Kernleistungen. Kein Schnickschnack.",
+    "svc1_title": "Website & Web App",
+    "svc1_desc": "Schnell, modern, gefunden. Mit Next.js gebaut – nicht mit Baukästen.",
+    "svc2_title": "KI-Integration",
+    "svc2_desc": "Chatbots, Automatisierung, smarte Workflows. KI die für dein Business arbeitet.",
+    "svc3_title": "Context Engineering",
+    "svc3_desc": "Die Kunst AI richtig zu instruieren. Bessere Prompts, bessere Ergebnisse."
+  },
+  "marquee": {
+    "text": "50+ FEATURES · < 7 TAGE LIEFERZEIT · 100% FESTPREIS · 1.000€ AB PREIS · DEUTSCHLAND & ZYPERN · CONTEXT ENGINEERING · AI-POWERED · ",
+    "features_label": "Features",
+    "delivery_label": "Lieferzeit",
+    "fixed_price_label": "Festpreis",
+    "start_price_label": "Ab Preis"
   }
 }

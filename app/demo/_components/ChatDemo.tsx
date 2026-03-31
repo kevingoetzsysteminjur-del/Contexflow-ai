@@ -15,7 +15,7 @@ const TX = {
     typing: "KI tippt",
     answers: [
       { keys: ["öffnung","uhr","wann","zeit","offen"], text: "Wir sind **Mo–Fr von 9–18 Uhr** erreichbar. Samstags von 10–14 Uhr. Per E-Mail sind wir jederzeit für Sie da! 🕘" },
-      { keys: ["preis","kostet","kosten","budget","euro","€","teuer","günstig"], text: "Unsere Leistungen starten ab **500 € für eine Landingpage**, ab 1.000 € für eine Business-Website und ab 2.000 € für Premium-Projekte. Gerne erstellen wir ein individuelles Angebot! 💶" },
+      { keys: ["preis","kostet","kosten","budget","euro","€","teuer","günstig"], text: "Unsere Leistungen starten ab **1.000 € für eine Landingpage**, ab 2.000 € für eine Business-Website und ab 3.500 € für Premium-Projekte. Gerne erstellen wir ein individuelles Angebot! 💶" },
       { keys: ["termin","buchen","buchung","vereinbaren","meeting","gespräch"], text: "Sehr gerne! Nutzen Sie einfach unsere **smarte Terminbuchung** weiter unten auf dieser Seite. In wenigen Klicks haben Sie Ihren Wunschtermin gesichert. 📅" },
       { keys: ["kontakt","erreichen","anrufen","email","mail","telefon"], text: "Sie erreichen uns unter **info@beispiel.de** oder telefonisch unter **+49 7261 123456**. Wir melden uns innerhalb von 24 Stunden! 📬" },
       { keys: ["ki","ai","künstlich","chatbot","assistent","automatisier"], text: "KI-Lösungen sind der Schlüssel zur digitalen Zukunft Ihres Unternehmens. Wir integrieren **Chatbots, automatische FAQ und Lead-Qualifizierung** nahtlos in Ihre Website. 🤖" },
@@ -32,7 +32,7 @@ const TX = {
     typing: "AI is typing",
     answers: [
       { keys: ["opening","hours","when","open","time"], text: "We are available **Mon–Fri 9am–6pm**. On Saturdays from 10am–2pm. Via email, we're always here for you! 🕘" },
-      { keys: ["price","cost","budget","expensive","cheap","how much"], text: "Our services start at **€500 for a landing page**, €1,000 for a business website and €2,000+ for premium projects. We're happy to create a custom quote! 💶" },
+      { keys: ["price","cost","budget","expensive","cheap","how much"], text: "Our services start at **€1,000 for a landing page**, €2,000 for a business website and €3,500+ for premium projects. We're happy to create a custom quote! 💶" },
       { keys: ["appoint","book","schedule","meeting","call"], text: "Absolutely! Simply use our **smart booking tool** further down on this page. Secure your preferred slot in just a few clicks. 📅" },
       { keys: ["contact","reach","call","email","phone"], text: "Reach us at **info@example.com** or by phone at **+49 7261 123456**. We respond within 24 hours! 📬" },
       { keys: ["ai","chatbot","assistant","automat","artificial"], text: "AI solutions are the key to your business's digital future. We integrate **chatbots, automatic FAQ and lead qualification** seamlessly into your website. 🤖" },

@@ -100,7 +100,7 @@ export default function CTASection() {
           contexflow.ai@gmx.net
         </p>
         <p style={{ fontSize: 12, color: "var(--text-tertiary)", letterSpacing: "0.15em", margin: 0 }}>
-          Mosbach, Deutschland
+          Deutschland & Zypern
         </p>
       </div>
     </section>

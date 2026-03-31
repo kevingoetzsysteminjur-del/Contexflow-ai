@@ -1,8 +1,10 @@
 "use client";
 
 import { SLOTS_CONFIG } from "@/lib/config";
+import { useLang } from "@/contexts/LanguageContext";
 
 export function UrgencyBadge() {
+  const { t } = useLang();
   return (
     <span
       style={{
@@ -20,12 +22,13 @@ export function UrgencyBadge() {
       }}
     >
       <span style={{ fontSize: 9 }}>🔥</span>
-      Noch {SLOTS_CONFIG.remaining} Platz frei
+      {t.urgency.slot_free.replace("{remaining}", String(SLOTS_CONFIG.remaining))}
     </span>
   );
 }
 
 export default function UrgencyBanner() {
+  const { t } = useLang();
   const taken = SLOTS_CONFIG.total - SLOTS_CONFIG.remaining;
 
   return (
@@ -114,7 +117,7 @@ export default function UrgencyBanner() {
               letterSpacing: "0.02em",
             }}
           >
-            Diesen Monat nur noch {SLOTS_CONFIG.remaining} Platz frei 🔥
+            {t.urgency.month_free.replace("{remaining}", String(SLOTS_CONFIG.remaining))}
           </span>
           <span
             style={{
@@ -131,7 +134,7 @@ export default function UrgencyBanner() {
               letterSpacing: "0.02em",
             }}
           >
-            Ich arbeite bewusst nur mit {SLOTS_CONFIG.total} Kunden gleichzeitig – für maximale Qualität.
+            {t.urgency.quality_note.replace("{total}", String(SLOTS_CONFIG.total))}
           </span>
         </div>
       </div>

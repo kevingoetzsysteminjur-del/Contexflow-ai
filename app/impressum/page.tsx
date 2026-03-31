@@ -185,6 +185,31 @@ export default function ImpressumPage() {
           </p>
         </section>
 
+        <section style={{ marginBottom: "2.5rem" }}>
+          <h2
+            style={{
+              fontSize: 11,
+              textTransform: "uppercase",
+              letterSpacing: "0.3em",
+              color: "#06B6D4",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Hosting
+          </h2>
+          <p
+            style={{
+              color: "var(--text-secondary)",
+              lineHeight: 1.8,
+              fontSize: "0.95rem",
+            }}
+          >
+            Gehostet auf Hetzner Dedicated Server · Standort Deutschland 🇩🇪
+            <br />
+            Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen
+          </p>
+        </section>
+
         <section>
           <h2
             style={{

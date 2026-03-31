@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "templates": "Templates",
     "pricing": "Pricing",
     "about": "About",
     "blog": "Blog",
@@ -13,7 +14,12 @@
     "headline_accent": "Around the clock.",
     "subline": "Web design, AI integration & automation from Mosbach, Germany.",
     "cta_primary": "Start a project",
-    "cta_secondary": "View live demos"
+    "cta_secondary": "View live demos",
+    "we_build": "WE BUILD",
+    "digital": "DIGITAL",
+    "experiences": "EXPERIENCES",
+    "hero_subtext": "Context Engineering & AI Solutions from Mosbach",
+    "scroll": "SCROLL"
   },
   "services": {
     "label": "Services",
@@ -43,13 +49,19 @@
     "ai_cat": "AI & Automation",
     "ai_title": "AI Features Demo",
     "ai_desc": "AI chatbot, booking system, FAQ bot, lead qualification.",
-    "footnote": "* Bella Vista, IRONPEAK and Creative Portfolio are demo projects."
+    "footnote": "* Bella Vista, IRONPEAK and Creative Portfolio are demo projects.",
+    "ai_detail_desc": "AI chatbot, FAQ bot, lead qualification – live & interactive.",
+    "restaurant_detail_desc": "Elegant restaurant website with menu & reservation."
   },
   "stats": {
     "features": "Features",
     "delivery": "Delivery",
     "fixed_price": "Fixed price",
-    "satisfaction": "Satisfaction"
+    "satisfaction": "Satisfaction",
+    "features_label": "FEATURES",
+    "delivery_label": "DELIVERY",
+    "fixed_price_label": "FIXED PRICE",
+    "satisfaction_label": "SATISFACTION"
   },
   "comparison": {
     "label": "Comparison",
@@ -82,12 +94,13 @@
       "seo": "SEO",
       "ki": "AI Features",
       "support": "Support",
+      "hosting": "Hosting",
       "code": "You own the code"
     },
     "values": {
       "baukasten_price": "From €10/month",
       "agentur_price": "€5,000–20,000",
-      "cf_price": "€500–2,000 fixed",
+      "cf_price": "€1,000–3,500 fixed",
       "baukasten_delivery": "DIY",
       "agentur_delivery": "6–12 weeks",
       "cf_delivery": "Under 7 days",
@@ -105,6 +118,9 @@
       "chatbot": "Chatbot",
       "expensive": "Expensive",
       "personal": "Personal & direct",
+      "shared_hosting": "Shared hosting",
+      "third_party": "Third-party",
+      "dedicated_server": "Own Hetzner server",
       "code_no": "No",
       "code_mostly": "Usually",
       "code_yes": "Yes, 100%"
@@ -121,19 +137,19 @@
     "recommended": "Recommended",
     "all_details": "All details →",
     "tier1_name": "Landing page",
-    "tier1_price": "€500",
+    "tier1_price": "€1,000",
     "tier1_tag1": "1 page",
     "tier1_tag2": "Contact form",
     "tier1_tag3": "SEO",
     "tier1_tag4": "~1 week",
     "tier2_name": "Business Website",
-    "tier2_price": "€1,000",
+    "tier2_price": "€2,000",
     "tier2_tag1": "Up to 5 pages",
     "tier2_tag2": "Professional design",
     "tier2_tag3": "Analytics",
     "tier2_tag4": "2–3 weeks",
     "tier3_name": "Premium Website",
-    "tier3_price": "€2,000",
+    "tier3_price": "€3,500",
     "tier3_tag1": "Unlimited pages",
     "tier3_tag2": "Animations",
     "tier3_tag3": "Blog",
@@ -170,7 +186,10 @@
   },
   "urgency": {
     "text": "Only {slots} spot left this month",
-    "quality": "I deliberately only work with 3 clients at a time – for maximum quality."
+    "quality": "I deliberately only work with 3 clients at a time – for maximum quality.",
+    "slot_free": "Only {remaining} slot left",
+    "month_free": "Only {remaining} slot left this month 🔥",
+    "quality_note": "I deliberately work with only {total} clients at a time – for maximum quality."
   },
   "guarantee": {
     "title": "100% Satisfaction Guarantee",
@@ -232,7 +251,23 @@
     "success_title": "Thank you!",
     "success_text": "You will receive your personal website check within 24 hours by email.",
     "back": "Back",
-    "next": "Next"
+    "next": "Next",
+    "headline": "Free\nWebsite Check",
+    "subline": "Find out what your site is really worth. In 24 hours. Free.",
+    "benefit1": "Loading time analysis (Core Web Vitals)",
+    "benefit2": "SEO check & Google ranking potential",
+    "benefit3": "Design & conversion assessment",
+    "benefit4": "Personal feedback within 24h",
+    "card_title": "What you get",
+    "load_label": "Loading time",
+    "load_value": "< 2s target",
+    "seo_label": "SEO Score",
+    "seo_value": "87 / 100",
+    "design_label": "Design",
+    "design_value": "Conversion-optimized",
+    "mobile_label": "Mobile",
+    "mobile_value": "Responsive",
+    "disclaimer": "Example analysis — your values may differ."
   },
   "contact": {
     "label": "Contact",
@@ -263,17 +298,17 @@
     "go": "GO"
   },
   "footer": {
-    "tagline": "Web design & AI from Mosbach, Germany.",
-    "built": "Built with Next.js & Claude",
+    "tagline": "Web design & AI from Germany & Cyprus.",
+    "built": "Hosted on Hetzner · Location Germany",
     "rights": "All rights reserved",
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy"
   },
   "chatbot": {
     "greeting": "Hey! 👋 I'm CF Bot. How can I help you?\n\n- 💰 What does a website cost?\n- ⏱ How long does it take?\n- 📍 Where are you based?\n- 🧠 What is Context Engineering?",
-    "a_price": "A website at Contexflow AI starts at **€500** for a landing page. Business website from **€1,000**, Premium from **€2,000**. One-time payment – no monthly fees. 💡",
+    "a_price": "A website at Contexflow AI starts at **€1,000** for a landing page. Business website from **€2,000**, Premium from **€3,500**. One-time payment – no monthly fees. 💡",
     "a_time": "Most projects are done in **1–2 weeks**. Sometimes faster. ⚡",
-    "a_location": "We are based in **Mosbach**, Germany – but work remotely for clients across Germany. 📍",
+    "a_location": "We work **remotely from Germany and Cyprus** – for clients across Germany and internationally. 📍",
     "a_context": "**Context Engineering** means feeding AI systems the right context for precise, business-tailored results. 🧠",
     "a_contact": "Fastest via email: **contexflow.ai@gmx.net** – or via the [contact form](/kontakt). 📬",
     "a_ai": "We integrate **Artificial Intelligence** directly into your business – chatbots, automated workflows, smart assistants. 🤖",
@@ -312,12 +347,12 @@
     "cta_btn": "Free initial consultation",
     "svc1_title": "Website & Web App",
     "svc1_desc": "Fast, modern, conversion-oriented. Built with Next.js – not with website builders or WordPress.",
-    "svc1_price": "From €500",
+    "svc1_price": "From €1,000",
     "svc1_f1": "Responsive Design (Mobile-first)",
     "svc1_f2": "Lightning-fast loading (<2s)",
     "svc1_f3": "On-page SEO included",
     "svc1_f4": "Contact form & analytics",
-    "svc1_f5": "Deployment & hosting setup",
+    "svc1_f5": "Hosting on own Hetzner server",
     "svc1_f6": "1 month support with Premium",
     "svc2_title": "AI Integration & Chatbots",
     "svc2_desc": "Intelligent assistants that really help. Trained on your content, adapted to your business.",
@@ -424,7 +459,7 @@
     "error_msg": "Something went wrong. Please write directly to contexflow.ai@gmx.net.",
     "direct_title": "Direct contact",
     "response_label": "Response within 24 hours",
-    "location_label": "Mosbach, Neckar-Odenwald district",
+    "location_label": "Germany & Cyprus",
     "whatsapp_btn": "Write via WhatsApp",
     "for_whom_label": "For whom?",
     "tags": ["Restaurants", "Real estate", "Doctors", "Tradespeople", "Fitness", "Coaching", "Retail", "Service providers"]
@@ -443,7 +478,7 @@
     "cta_btn": "GET ADVICE NOW →",
     "all_fixed": "All prices are fixed — no hourly rate. No subscription. No fine print.",
     "p1_name": "Landing page",
-    "p1_price": "€500",
+    "p1_price": "€1,000",
     "p1_unit": "one-time",
     "p1_desc": "Perfect for sole traders who want to get online quickly.",
     "p1_f1": "1 page (landing page)",
@@ -454,7 +489,7 @@
     "p1_f6": "1 round of revisions",
     "p1_cta": "Request landing page",
     "p2_name": "Business Website",
-    "p2_price": "€1,000",
+    "p2_price": "€2,000",
     "p2_unit": "one-time",
     "p2_desc": "The most booked solution for local businesses.",
     "p2_f1": "Up to 5 pages",
@@ -463,10 +498,10 @@
     "p2_f4": "SEO optimization",
     "p2_f5": "Google Analytics",
     "p2_f6": "2 rounds of revisions",
-    "p2_f7": "Hosting setup",
+    "p2_f7": "Dedicated server hosting included",
     "p2_cta": "Request business website",
     "p3_name": "Premium Website",
-    "p3_price": "€2,000",
+    "p3_price": "€3,500",
     "p3_unit": "one-time",
     "p3_desc": "For businesses that need a strong digital presence.",
     "p3_f1": "Unlimited pages",
@@ -475,7 +510,7 @@
     "p3_f4": "Blog / news system",
     "p3_f5": "Advanced SEO",
     "p3_f6": "3 rounds of revisions",
-    "p3_f7": "Hosting & domain",
+    "p3_f7": "Dedicated server hosting included",
     "p3_f8": "1 month support",
     "p3_cta": "Request premium website",
     "p4_name": "AI & Enterprise",
@@ -490,13 +525,13 @@
     "p4_f6": "Custom quote",
     "p4_cta": "Request quote",
     "faq_q1": "Are there monthly costs?",
-    "faq_a1": "No. You pay once – done. Only hosting & domain (approx. €10–15/month) are extra, which you set up yourself.",
+    "faq_a1": "No. You pay once – done. Hosting on our own Hetzner Dedicated Server is included with premium packages. Only the domain (approx. €1–2/month) is extra.",
     "faq_q2": "How long does a project take?",
     "faq_a2": "A landing page is ready in 1–2 weeks. Business websites take 2–4 weeks, depending on complexity.",
     "faq_q3": "What if I'm not satisfied?",
     "faq_a3": "We discuss everything in detail beforehand. You always have revision rounds included. In the end you stand 100% behind it.",
     "faq_q4": "Do you handle hosting too?",
-    "faq_a4": "On request, yes. I recommend Vercel (for Next.js) or Strato – and set everything up if desired."
+    "faq_a4": "Yes! All websites run on our own Hetzner Dedicated Server in Germany – with Docker, Nginx and SSL. Maximum performance, full control, no dependency on third-party providers."
   },
   "addons": {
     "label": "ADD-ONS",
@@ -523,18 +558,69 @@
     "label": "Blog",
     "headline": "Articles & Guides",
     "subline": "Honest insights on web design, AI and what local businesses really need.",
-    "post1_title": "What does a website cost in 2026?",
-    "post1_desc": "Honest prices instead of agency blabla. What really lies behind the numbers.",
+    "post1_title": "Why your website should run on its own server",
+    "post1_desc": "Shared hosting vs. dedicated server – why own infrastructure makes the difference.",
     "post1_date": "March 2026",
-    "post2_title": "Why Next.js is better than WordPress",
-    "post2_desc": "Why I no longer take on a single WordPress project – and what I build instead.",
+    "post2_title": "What is Context Engineering?",
+    "post2_desc": "The art of giving AI systems the right context. And why it matters for your business.",
     "post2_date": "March 2026",
-    "post3_title": "AI chatbot for your website",
-    "post3_desc": "Do you really need an AI chatbot? An honest assessment.",
+    "post3_title": "5 mistakes every business website makes",
+    "post3_desc": "From slow loading times to missing SEO – and how to do better.",
     "post3_date": "March 2026",
     "post4_title": "Web design Mosbach – Why local is better",
     "post4_desc": "Why local businesses need a local developer.",
     "post4_date": "March 2026"
+  },
+  "blog_preview": {
+    "headline": "From the Blog",
+    "all": "All articles"
+  },
+  "templates": {
+    "label": "PREMIUM TEMPLATES",
+    "headline": "Next.js Templates. Production-Ready.",
+    "subline": "Professional website templates built with Next.js, Tailwind CSS and shadcn/ui. Ready to deploy. Code is yours.",
+    "preview_btn": "Preview",
+    "buy_btn": "Buy",
+    "waitlist_btn": "Waitlist",
+    "launch_offer": "Launch offer",
+    "trust_label": "WHY OUR TEMPLATES",
+    "trust_headline": "Why our templates?",
+    "trust1_title": "Production-Ready",
+    "trust1_desc": "No prototype. Every template already runs live with real clients.",
+    "trust2_title": "No Dependency",
+    "trust2_desc": "No subscription, no vendor lock-in. The code is yours.",
+    "trust3_title": "Modern Stack",
+    "trust3_desc": "Next.js, Tailwind, shadcn/ui – the stack top startups use.",
+    "trust4_title": "Your Server",
+    "trust4_desc": "Deploy on Vercel, Hetzner or wherever you want.",
+    "cta_headline": "Need something custom?",
+    "cta_text": "Our templates aren't enough? We'll build you a tailor-made solution.",
+    "cta_btn": "Request a project",
+    "detail_features": "Features",
+    "detail_stack": "Tech Stack",
+    "detail_demo": "View live demo",
+    "detail_buy": "Buy now",
+    "detail_faq_label": "FAQ",
+    "detail_faq_headline": "Frequently Asked Questions",
+    "faq_q1": "What do I get?",
+    "faq_a1": "You get the complete source code as a GitHub repository. Everything belongs to you.",
+    "faq_q2": "Can I modify the code?",
+    "faq_a2": "Yes, the code is 100% customizable. You can change everything.",
+    "faq_q3": "Is support included?",
+    "faq_a3": "You get an installation guide. For questions: support via email.",
+    "faq_q4": "Do I need programming skills?",
+    "faq_a4": "Basic terminal skills help. But the guide walks you through step by step.",
+    "realestate_pro_desc": "Luxury real estate website with property listings, filter & search, mortgage calculator, district map, blog, admin panel. Trilingual.",
+    "wellness_healing_desc": "Premium wellness website with audio shop, events, gallery, AI chatbot and CMS. Bilingual DE/EN.",
+    "gastro_desc": "Elegant restaurant website with digital menu, reservations, gallery and contact.",
+    "fitstudio_desc": "Powerful fitness studio website with class schedule, trainer profiles, memberships and pricing table.",
+    "devportfolio_desc": "Minimalist developer portfolio with project showcase, skills, blog and contact.",
+    "coursehub_desc": "Complete course platform with member area, video player, certificate system, shop, community forum and anatomy lexicon."
+  },
+  "templates_preview": {
+    "label": "TEMPLATES",
+    "headline": "Premium Next.js Templates",
+    "all": "View all templates"
   },
   "webdesign": {
     "cta_btn": "Book a free initial consultation →",
@@ -552,7 +638,7 @@
       "li3": "Local SEO for Mosbach and the surrounding area",
       "li4": "Responsive design – perfect on mobile and desktop",
       "li5": "Optional: AI chatbot and automation",
-      "li6": "Fixed price from €500 – no hourly rate, no subscription",
+      "li6": "Fixed price from €1,000 – no hourly rate, no subscription",
       "h2_branches": "Industries in Mosbach & the surrounding area",
       "branches": "I work with restaurants, tradespeople, doctors, real estate agents, fitness studios and other local service providers in Mosbach, Neckarbischofsheim, Buchen, Sinsheim and the entire Neckar-Odenwald district. Whether you need a new website or want to finally replace your old WordPress site – I'll help you."
     },
@@ -570,7 +656,7 @@
       "li3": "Local SEO for Heidelberg, Rhine-Neckar, Kurpfalz",
       "li4": "Responsive design for mobile, tablet and desktop",
       "li5": "AI chatbots and automations optionally bookable",
-      "li6": "Fixed price from €500 – transparent, no surprises",
+      "li6": "Fixed price from €1,000 – transparent, no surprises",
       "h2_who": "Who I build for in Heidelberg",
       "who": "Practices, law firms, restaurants, tourism, retail, coaches and service providers in Heidelberg, Wiesloch, Sinsheim, Leimen and the entire Rhine-Neckar metropolitan region. I'm reachable remotely and can take personal appointments in Heidelberg."
     },
@@ -586,7 +672,7 @@
       "li3": "Local SEO for Heilbronn, Neckarsulm, Bad Friedrichshall",
       "li4": "Contact form, Google Analytics, basic SEO optimization included",
       "li5": "Optional: AI chatbot for automated customer support",
-      "li6": "Fixed price from €500 – no hourly rate, no subscription",
+      "li6": "Fixed price from €1,000 – no hourly rate, no subscription",
       "h2_why": "Why not just use Wix or Jimdo?",
       "why": "Website builders like Wix or Jimdo are cheap – but they rank poorly on Google, load slowly and all look the same. If you want to be found online in Heilbronn, you need a website that's technically sound. Next.js is the standard for professional web development – and I master it.",
       "h2_branches": "Industries in Heilbronn",
@@ -606,7 +692,7 @@
       "li3": "Local SEO for Karlsruhe, Ettlingen, Bretten, Bruchsal",
       "li4": "AI chatbot and automation optional",
       "li5": "API integrations and complex web applications possible",
-      "li6": "Prices from €500 – transparent, no hidden costs",
+      "li6": "Prices from €1,000 – transparent, no hidden costs",
       "h2_who": "Who I build for in Karlsruhe",
       "who": "Startups, tech companies, agencies, service providers, tradespeople, restaurants and anyone in Karlsruhe, Ettlingen, Pforzheim, Bruchsal and the TechnologyRegion Karlsruhe who needs a professional website. Remote collaboration no problem."
     },
@@ -624,7 +710,7 @@
       "li3": "Local SEO for Mannheim, Ludwigshafen, Rhine-Neckar",
       "li4": "AI chatbot for automated customer support",
       "li5": "Contact form, Google Maps, Analytics included",
-      "li6": "Fixed prices from €500 – all included, no extra costs",
+      "li6": "Fixed prices from €1,000 – all included, no extra costs",
       "h2_branches": "Industries in Mannheim",
       "branches": "I support businesses from hospitality, retail, healthcare, real estate, trades, education and consulting in Mannheim, Ludwigshafen, Schwetzingen, Viernheim and the entire Rhine-Neckar metropolitan region."
     },
@@ -642,7 +728,7 @@
       "li3": "SEO for Stuttgart, Ludwigsburg, Böblingen, Esslingen",
       "li4": "AI chatbot and smart automations optional",
       "li5": "Professional design that radiates trust and authority",
-      "li6": "Fixed price from €500 – no surprises",
+      "li6": "Fixed price from €1,000 – no surprises",
       "h2_branches": "Industries in Stuttgart",
       "branches": "I support businesses from automotive supply, mechanical engineering, medicine, restaurants, retail, consulting and services in Stuttgart, Stuttgart-Vaihingen, Ludwigsburg, Böblingen, Esslingen am Neckar and the Stuttgart metropolitan region."
     }
@@ -715,7 +801,7 @@
     "selectIndustry": "Select industry",
     "sendMessage": "Send message",
     "faq_q1": "How much does a professional website cost?",
-    "faq_a1": "Costs depend on scope. A landing page starts at €500, a multi-page business website from €1,000 and premium projects with custom features from €2,000. All prices are one-time – no monthly agency fees.",
+    "faq_a1": "Costs depend on scope. A landing page starts at €1,000, a multi-page business website from €2,000 and premium projects with custom features from €3,500. All prices are one-time – no monthly agency fees.",
     "faq_q2": "How long does it take to build a website?",
     "faq_a2": "A landing page can often be ready in 5–7 business days. A complete business website typically takes 1–3 weeks. The exact timeline depends on complexity and how quickly you provide content and feedback.",
     "faq_q3": "What is Context Engineering and why do I need it?",
@@ -727,5 +813,71 @@
     "footerBy": "Developed by",
     "footerTag": "AI-powered web solutions for your business",
     "footerCta": "Request your own AI features"
+  },
+  "manifesto": {
+    "text": "I don't build websites. I build digital machines that sell. Every line of code has a purpose. Every pixel a function. No agency BS. No templates. Just results.",
+    "author": "— Kevin Götz"
+  },
+  "techstack": {
+    "label": "TOOLS",
+    "headline": "My Stack",
+    "quote": "I don't use what's trendy. I use what works."
+  },
+  "social_proof": {
+    "quote": "The best projects happen when someone just starts.",
+    "trust": "8 businesses already trust Contexflow. When will yours?",
+    "cta": "Request a project"
+  },
+  "real_projects": {
+    "label": "REFERENCES",
+    "headline": "Real projects. Real clients.",
+    "subline": "No templates. No demos. Real websites for real businesses.",
+    "view": "View website",
+    "badge_live": "LIVE",
+    "badge_dev": "IN DEVELOPMENT",
+    "braditsch": {
+      "cat": "Wellness & Healing",
+      "name": "Braditsch – Sound & Healing",
+      "desc": "Premium wellness website with audio shop, events, gallery and CMS. Trilingual."
+    },
+    "paphos": {
+      "cat": "Real Estate · Cyprus",
+      "name": "Paphos Properties – Luxury Real Estate",
+      "desc": "Luxury real estate platform with property listings, mortgage calculator, district map and blog. Trilingual DE/EN/GR."
+    },
+    "massage": {
+      "cat": "E-Learning & Shop",
+      "name": "Massage Kompass – Training Platform",
+      "desc": "Online course platform with member area, certificate system, community forum and interactive body map."
+    }
+  },
+  "case_study": {
+    "label": "RESULTS",
+    "headline": "What my clients received:",
+    "r1_title": "7 Days",
+    "r1_desc": "From idea to finished website in under a week.",
+    "r2_title": "100% Fixed Price",
+    "r2_desc": "No renegotiating. What's agreed upon, stands.",
+    "r3_title": "Own Infrastructure",
+    "r3_desc": "Hosted on dedicated Hetzner servers. No shared hosting."
+  },
+  "what_i_build": {
+    "label": "Services",
+    "headline_prefix": "What I",
+    "headline_accent": "build",
+    "subline": "Three core services. No frills.",
+    "svc1_title": "Website & Web App",
+    "svc1_desc": "Fast, modern, findable. Built with Next.js – not with website builders.",
+    "svc2_title": "AI Integration",
+    "svc2_desc": "Chatbots, automation, smart workflows. AI that works for your business.",
+    "svc3_title": "Context Engineering",
+    "svc3_desc": "The art of instructing AI correctly. Better prompts, better results."
+  },
+  "marquee": {
+    "text": "50+ FEATURES · < 7 DAYS DELIVERY · 100% FIXED PRICE · FROM €1,000 · GERMANY & CYPRUS · CONTEXT ENGINEERING · AI-POWERED · ",
+    "features_label": "Features",
+    "delivery_label": "Delivery",
+    "fixed_price_label": "Fixed Price",
+    "start_price_label": "From Price"
   }
 }

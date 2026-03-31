@@ -2,15 +2,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-
-const BENEFITS = [
-  "Ladezeit-Analyse (Core Web Vitals)",
-  "SEO-Check & Google-Ranking-Potenzial",
-  "Design & Conversion-Bewertung",
-  "Persönliches Feedback innerhalb von 24h",
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function WebsiteCheckSection() {
+  const { t } = useLang();
+
+  const BENEFITS = [t.website_check.benefit1, t.website_check.benefit2, t.website_check.benefit3, t.website_check.benefit4];
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.25 });
 
@@ -50,7 +47,7 @@ export default function WebsiteCheckSection() {
                   margin: "0 0 1rem 0",
                 }}
               >
-                KOSTENLOS
+                {t.website_check.label}
               </p>
               <h2
                 style={{
@@ -62,9 +59,9 @@ export default function WebsiteCheckSection() {
                   margin: "0 0 1.25rem 0",
                 }}
               >
-                Kostenloser
-                <br />
-                Website-Check
+                {t.website_check.headline.split("\n").map((line: string, i: number) => (
+                  <span key={i}>{line}{i === 0 && <br />}</span>
+                ))}
               </h2>
               <p
                 style={{
@@ -75,8 +72,7 @@ export default function WebsiteCheckSection() {
                   maxWidth: 460,
                 }}
               >
-                Finde heraus was deine Seite wirklich taugt.
-                In 24 Stunden. Kostenlos.
+                {t.website_check.subline}
               </p>
 
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2.5rem 0" }}>
@@ -140,7 +136,7 @@ export default function WebsiteCheckSection() {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
-                Gratis Website-Check
+                {t.website_check.cta}
                 <span style={{ fontSize: 16 }}>→</span>
               </Link>
             </motion.div>
@@ -174,14 +170,14 @@ export default function WebsiteCheckSection() {
               />
 
               <p style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 1.5rem 0" }}>
-                Was du bekommst
+                {t.website_check.card_title}
               </p>
 
               {[
-                { label: "Ladezeit", value: "< 2s Ziel", score: 85 },
-                { label: "SEO Score", value: "87 / 100", score: 87 },
-                { label: "Design", value: "Conversion-optimiert", score: 70 },
-                { label: "Mobile", value: "Responsive", score: 92 },
+                { label: t.website_check.load_label, value: t.website_check.load_value, score: 85 },
+                { label: t.website_check.seo_label, value: t.website_check.seo_value, score: 87 },
+                { label: t.website_check.design_label, value: t.website_check.design_value, score: 70 },
+                { label: t.website_check.mobile_label, value: t.website_check.mobile_value, score: 92 },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -230,7 +226,7 @@ export default function WebsiteCheckSection() {
                   letterSpacing: "0.05em",
                 }}
               >
-                Beispiel-Analyse — deine Werte können abweichen.
+                {t.website_check.disclaimer}
               </p>
             </motion.div>
         </div>

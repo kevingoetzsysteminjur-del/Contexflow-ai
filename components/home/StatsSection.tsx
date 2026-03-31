@@ -1,18 +1,14 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-
-const STATS = [
-  { value: 20, prefix: "", suffix: "+", label: "FEATURES" },
-  { value: 7, prefix: "<", suffix: "T", label: "LIEFERZEIT" },
-  { value: 100, prefix: "", suffix: "%", label: "FESTPREIS" },
-  { value: 100, prefix: "", suffix: "%", label: "ZUFRIEDENHEIT" },
-];
+import { useLang } from "@/contexts/LanguageContext";
 
 function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
 }
 
-function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
+type StatData = { value: number; prefix: string; suffix: string; label: string };
+
+function StatItem({ stat, index, total }: { stat: StatData; index: number; total: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
@@ -49,7 +45,7 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
       ref={ref}
       className={`stat-item stat-item-${index}`}
       style={{
-        borderRight: index < STATS.length - 1 ? "1px solid var(--border-light)" : "none",
+        borderRight: index < total - 1 ? "1px solid var(--border-light)" : "none",
         padding: "clamp(1.25rem, 3vw, 2rem)",
         textAlign: "center",
       }}
@@ -88,6 +84,15 @@ function StatItem({ stat, index }: { stat: typeof STATS[0]; index: number }) {
 }
 
 export default function StatsSection() {
+  const { t } = useLang();
+
+  const STATS = [
+    { value: 50, prefix: "", suffix: "+", label: t.stats.features_label },
+    { value: 7, prefix: "<", suffix: "T", label: t.stats.delivery_label },
+    { value: 100, prefix: "", suffix: "%", label: t.stats.fixed_price_label },
+    { value: 100, prefix: "", suffix: "%", label: t.stats.satisfaction_label },
+  ];
+
   return (
     <section
       style={{
@@ -112,7 +117,7 @@ export default function StatsSection() {
       `}</style>
       <div className="stats-grid">
         {STATS.map((stat, i) => (
-          <StatItem key={i} stat={stat} index={i} />
+          <StatItem key={i} stat={stat} index={i} total={STATS.length} />
         ))}
       </div>
     </section>

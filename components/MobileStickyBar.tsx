@@ -29,7 +29,7 @@ export default function MobileStickyBar() {
       >
         {/* WhatsApp */}
         <a
-          href="https://wa.me/4917612345678"
+          href="https://wa.me/4917676663468"
           target="_blank"
           rel="noopener noreferrer"
           style={{

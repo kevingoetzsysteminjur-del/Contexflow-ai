@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const BLOBS = [
   { x: 0.25, y: 0.4, sx: 0.4, sy: 0.3, ox: 0, oy: 1, r: 0.55, c: "rgba(99,102,241," },
@@ -10,6 +11,7 @@ const BLOBS = [
 ];
 
 export default function HeroSection() {
+  const { t } = useLang();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const [contentOffset, setContentOffset] = useState({ x: 0, y: 0 });
@@ -91,7 +93,7 @@ export default function HeroSection() {
         }}
       >
         <p style={{ fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "1.5rem", animation: "hero-fade 0.8s ease 0.5s both" }}>
-          WE BUILD
+          {t.hero.we_build}
         </p>
 
         <div>
@@ -104,7 +106,7 @@ export default function HeroSection() {
             lineHeight: 1,
             margin: 0,
             animation: "hero-fade 0.9s ease 0.8s both",
-          }}>DIGITAL</p>
+          }}>{t.hero.digital}</p>
           <p style={{
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "clamp(4rem, 10vw, 9rem)",
@@ -117,7 +119,7 @@ export default function HeroSection() {
             lineHeight: 1,
             margin: 0,
             animation: "hero-fade 0.9s ease 1.1s both",
-          }}>EXPERIENCES</p>
+          }}>{t.hero.experiences}</p>
         </div>
 
         <p style={{
@@ -127,13 +129,13 @@ export default function HeroSection() {
           letterSpacing: "0.08em",
           animation: "hero-fade 0.8s ease 1.5s both",
         }}>
-          Context Engineering &amp; AI Solutions aus Mosbach
+          {t.hero.hero_subtext}
         </p>
       </div>
 
       {/* SCROLL indicator bottom left */}
       <div style={{ position: "absolute", bottom: "2rem", left: "clamp(1.5rem, 3vw, 2.5rem)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-        <p style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-tertiary)" }}>SCROLL</p>
+        <p style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-tertiary)" }}>{t.hero.scroll}</p>
         <div style={{ width: 1, height: 40, background: "linear-gradient(to bottom, #6366F1, transparent)", animation: "scroll-line 2.5s ease-in-out infinite" }} />
       </div>
 

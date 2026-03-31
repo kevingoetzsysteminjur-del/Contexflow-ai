@@ -468,7 +468,7 @@ export default function KontaktPage() {
                 />
 
                 <a
-                  href="https://wa.me/4915900000000"
+                  href="https://wa.me/4917676663468"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
