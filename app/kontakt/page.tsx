@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { Mail, MapPin, Clock, ArrowRight, MessageSquare } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function KontaktPage() {
   const { t } = useLang();
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -110,12 +112,12 @@ export default function KontaktPage() {
           <source src="/kontakt-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark Overlay */}
+        {/* Dark/Light Overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.5)",
+            background: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.2)",
             zIndex: 1,
           }}
         />

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const BLOBS = [
   { x: 0.25, y: 0.4, sx: 0.4, sy: 0.3, ox: 0, oy: 1, r: 0.55, c: "rgba(99,102,241," },
@@ -12,6 +13,7 @@ const BLOBS = [
 
 export default function HeroSection() {
   const { t } = useLang();
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const [contentOffset, setContentOffset] = useState({ x: 0, y: 0 });
@@ -100,12 +102,12 @@ export default function HeroSection() {
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark Overlay */}
+      {/* Dark/Light Overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(0,0,0,0.5)",
+          background: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.2)",
           zIndex: 1,
         }}
       />
