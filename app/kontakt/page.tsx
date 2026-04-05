@@ -87,11 +87,31 @@ export default function KontaktPage() {
       {/* Hero */}
       <section
         style={{
+          position: "relative",
           padding: "clamp(7rem,12vw,9rem) clamp(1.5rem,5vw,2.5rem) clamp(2rem,4vw,3rem)",
           textAlign: "center",
+          overflow: "hidden",
         }}
       >
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.3,
+            zIndex: 0,
+          }}
+        >
+          <source src="/kontakt-bg.mp4" type="video/mp4" />
+        </video>
+
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
           <p
             style={{
               color: "#6366F1",

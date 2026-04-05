@@ -82,6 +82,25 @@ export default function HeroSection() {
     <section style={{ position: "relative", height: "100vh", marginTop: "-64px", background: "var(--bg-primary)", overflow: "hidden" }}>
       <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
 
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.35,
+          zIndex: 0,
+        }}
+      >
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+
       <div
         style={{
           position: "relative", zIndex: 1, height: "100%",
