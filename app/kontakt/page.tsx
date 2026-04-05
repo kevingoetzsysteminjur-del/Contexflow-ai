@@ -104,14 +104,23 @@ export default function KontaktPage() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.3,
             zIndex: 0,
           }}
         >
-          <source src="/kontakt-bg.mp4" type="video/mp4" />
+          <source src="/kontakt-video.mp4" type="video/mp4" />
         </video>
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
+        {/* Dark Overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.5)",
+            zIndex: 1,
+          }}
+        />
+
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 700, margin: "0 auto" }}>
           <p
             style={{
               color: "#6366F1",

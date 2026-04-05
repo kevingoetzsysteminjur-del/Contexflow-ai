@@ -94,16 +94,25 @@ export default function HeroSection() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.35,
           zIndex: 0,
         }}
       >
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        <source src="/hero-video.mp4" type="video/mp4" />
       </video>
+
+      {/* Dark Overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,0,0,0.5)",
+          zIndex: 1,
+        }}
+      />
 
       <div
         style={{
-          position: "relative", zIndex: 1, height: "100%",
+          position: "relative", zIndex: 2, height: "100%",
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
           textAlign: "center", padding: "64px 1.5rem 0",
           transform: `translate(${contentOffset.x}px, ${contentOffset.y}px)`,
